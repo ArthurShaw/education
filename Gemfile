@@ -45,3 +45,19 @@ group :development do
   gem 'spring'
 end
 
+# PostgreSQL
+gem 'pg'
+# slim templates
+gem 'slim-rails'
+# registration, authentication
+gem 'devise'
+# pictures
+gem 'paperclip'
+# bootstrap
+gem 'bootstrap-sass'
+# passenger server
+gem 'passenger'
+# markdown
+gem 'redcarpet', '~> 3.0.0'
+# helpers in js
+gem 'js-routes'

@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  news: 'News'
+  registration: 'Registration'
+  contact_us: 'Contact us'
