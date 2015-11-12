@@ -1,0 +1,4 @@
+- if user_signed_in? and current_user.has_role? :admin
+  br
+  = link_to 'Изменить содержимое', edit_page_content_path(@content.id)
+= raw(@content.content)

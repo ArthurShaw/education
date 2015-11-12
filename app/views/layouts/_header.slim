@@ -15,7 +15,7 @@ header
           li
             a = t('registration')
           li
-            a = t('contact_us')
+            = link_to t('contact_us'), contacts_path
         ul.nav.navbar-nav.navbar-right
           - if user_signed_in?
             li

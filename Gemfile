@@ -63,3 +63,5 @@ gem 'passenger'
 gem 'redcarpet', '~> 3.0.0'
 # helpers in js
 gem 'js-routes'
+
+gem 'ckeditor'
