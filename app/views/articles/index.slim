@@ -1,0 +1,4 @@
+h1 Новости
+
+-if user_signed_in? and current_user.has_role? :publisher
+   =link_to t('add'), new_article_path

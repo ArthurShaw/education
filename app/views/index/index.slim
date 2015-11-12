@@ -1,1 +1,9 @@
 h1 hello!
+
+-if user_signed_in?
+   -if current_user.has_role? :publisher
+      h3 Вы публикатор!
+   - if current_user.has_role? :admin
+      h3 Вы Админ!
+   - if current_user.has_role? :speaker
+      h3 Вы спикер!

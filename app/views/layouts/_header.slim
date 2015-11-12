@@ -11,20 +11,20 @@ header
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav
           li
-            a = t('news')
+            = link_to t('news'), articles_path
           li
             a = t('registration')
           li
             a = t('contact_us')
         ul.nav.navbar-nav.navbar-right
-          /- if user_signed_in?
-          /  li
-          /    == link_to current_user.login, user_path(current_user)
-          /  li
-          /    == link_to 'Выйти', destroy_user_session_path, method: :delete
-          /- else
-          /  li
-          /    == link_to 'Зарегистрироваться', new_user_registration_path
-          /  li
-          /    == link_to 'Войти', new_user_session_path
-          /  li.menu-centered-item /
+          - if user_signed_in?
+            li
+              a = current_user.email
+            li
+              == link_to 'Выйти', destroy_user_session_path, method: :delete
+          - else
+            li
+              == link_to 'Зарегистрироваться', new_user_registration_path
+            li
+              == link_to 'Войти', new_user_session_path
+            li.menu-centered-item /
