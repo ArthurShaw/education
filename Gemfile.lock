@@ -49,6 +49,9 @@ GEM
     builder (3.2.2)
     byebug (8.1.0)
     cancancan (1.13.1)
+    ckeditor (4.1.4)
+      cocaine
+      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -192,6 +195,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   cancancan
+  ckeditor
   coffee-rails (~> 4.1.0)
   devise
   jbuilder (~> 2.0)
