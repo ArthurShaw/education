@@ -51,6 +51,8 @@ gem 'pg'
 gem 'slim-rails'
 # registration, authentication
 gem 'devise'
+gem 'cancancan'
+gem 'rolify'
 # pictures
 gem 'paperclip'
 # bootstrap
