@@ -1,1 +1,13 @@
 h1 Добавление новости
+
+= form_for Article.new do |f|
+  = f.label 'Заголовок'
+  br
+  = f.text_field :title
+  br
+  = f.label 'Текст'
+  br
+  .col-lg-8
+    = f.cktext_area :text
+  br
+    = f.submit
