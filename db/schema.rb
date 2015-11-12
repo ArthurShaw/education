@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112092635) do
+ActiveRecord::Schema.define(version: 20151112112938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.text     "text"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +43,19 @@ ActiveRecord::Schema.define(version: 20151112092635) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "middle_name"
+    t.string   "country"
+    t.string   "city"
+    t.string   "degree"
+    t.string   "phone"
+    t.text     "biography"
+    t.text     "speech_experience"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -55,5 +76,6 @@ ActiveRecord::Schema.define(version: 20151112092635) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "articles", "users"
   add_foreign_key "workshops", "users"
 end

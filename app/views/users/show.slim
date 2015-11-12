@@ -1,0 +1,8 @@
+br
+div.text-center.col-lg-12.well.well-lg
+  .avatar
+    p #{image_tag @user.avatar.url(:medium)}
+  h3 #{@user.first_name} #{@user.last_name}
+  p #{@user.email}
+  - if @user == current_user
+    = link_to 'Редактировать профиль', edit_user_registration_path
