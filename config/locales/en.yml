@@ -24,3 +24,11 @@ en:
   registration: 'Registration'
   contact_us: 'Contact us'
   add: 'Add new'
+  workshops:
+    title: 'Title'
+    description: 'Description'
+  speaker_request: 'Send request'
+  request_statuses:
+      waiting: 'Waiting for confirmation'
+      success: 'Confirmed'
+      canceled: 'Canceled'

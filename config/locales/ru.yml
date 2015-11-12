@@ -3,3 +3,11 @@ ru:
   registration: 'Регистрация'
   contact_us: 'Контакты'
   add: 'Добавить'
+  workshops:
+    title: 'Название доклада'
+    description: 'Описание'
+  speaker_request: 'Отправить заявку'
+  request_statuses:
+    waiting: 'Ожидание подтверждения'
+    success: 'Успешно добавлена'
+    canceled: 'Отменена'
