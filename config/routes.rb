@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   get '/contacts' => 'index#contacts'
 
+  resources :listener_requests do
+    get 'success' => 'listener_requests#success'
+  end
+
   resources :articles do
 
   end

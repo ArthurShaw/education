@@ -1,0 +1,40 @@
+h2 Регистрация слушателя
+= link_to 'Регистрация докладчика', new_user_registration_path
+= form_for @listener_request do |f|
+  .field
+    = f.label t('user_params.first_name')
+    br
+    = f.text_field :first_name, autofocus: true
+
+  .field
+    = f.label t('user_params.last_name')
+    br
+    = f.text_field :last_name
+
+  .field
+    = f.label t('user_params.middle_name')
+    br
+    = f.text_field :middle_name
+
+  .field
+    = f.label :email
+    br
+    = f.email_field :email
+
+  .field
+    = f.label t('user_params.country')
+    br
+    = f.text_field :country
+
+  .field
+    = f.label t('user_params.city')
+    br
+    = f.text_field :city
+
+  .field
+    = f.label t('user_params.phone')
+    br
+    = f.text_field :phone
+
+  .actions
+    = f.submit t('confirm')
