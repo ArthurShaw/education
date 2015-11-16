@@ -1,4 +1,6 @@
 class ListenerRequestsController < ApplicationController
+
+
   def show
 
   end

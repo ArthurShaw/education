@@ -22,13 +22,17 @@
 en:
   news: 'News'
   registration: 'Registration'
+  to_register: 'Registration'
+  login: 'Login'
+  logout: 'Logout'
   contact_us: 'Contact us'
   add: 'Add new'
   registration: 'Registration'
   edit_profile: 'Edit profile'
   update: 'Update'
   confirm: 'Confirm'
-
+  remember: 'Remember me'
+  forgot_password: 'Forgot password?'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'
@@ -51,3 +55,25 @@ en:
       waiting: 'Waiting for confirmation'
       success: 'Confirmed'
       canceled: 'Canceled'
+  activerecord:
+    attributes:
+      user:
+        email: 'E-mail address'
+        password: 'Password'
+        password_confirmation: 'Password Confirmation'
+        first_name: 'First name'
+        last_name: 'Last name'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 'is empty'
+            password:
+              blank: 'is empty'
+            password_confirmation:
+              confirmation: 'is empty'
+            first_name:
+              blank: 'is empty'
+            last_name:
+              blank: 'is empty'
