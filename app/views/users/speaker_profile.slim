@@ -6,4 +6,3 @@ div.text-center.col-lg-12.well.well-lg
   p #{@user.email}
   - if @user == current_user
     = link_to 'Редактировать профиль', edit_user_registration_path
-  = render 'workshops/workshops'
