@@ -70,4 +70,7 @@ ru:
 
   roles:
     admin: 'Администратор'
-    speakers_rewiewer: ''
+    speakers_reviewer: 'Может просматривать доклады'
+    publisher: 'Может публиковать в новости'
+    listeners_reviewer: 'Может просматривать заявки слушателей'
+    listeners_reviewer: 'Может просматривать заявки слушателей'
