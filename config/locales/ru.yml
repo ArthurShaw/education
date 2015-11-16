@@ -53,7 +53,7 @@ ru:
            attributes:
              email:
                taken: 'занят'
-               blank: "пустой"
+               blank: 'пустой'
              password:
                blank: 'неверный'
              password_confirmation:
@@ -66,4 +66,8 @@ ru:
 
   devise:
     failure:
-      invalid: "Неверный адрес email или пароль."
+      invalid: 'Неверный адрес email или пароль.'
+
+  roles:
+    admin: 'Администратор'
+    speakers_rewiewer: ''

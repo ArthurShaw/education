@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-u = User.create(email: 'admin@admin.ru', password: 'password')
+u = User.create(email: 'admin@admin.ru', password: 'password', first_name: 'Admin', last_name: 'Admin')
 u.add_role("admin")
 u.add_role("publisher")
 

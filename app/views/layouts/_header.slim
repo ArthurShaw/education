@@ -12,10 +12,18 @@ header
         ul.nav.navbar-nav
           li
             = link_to t('news'), articles_path
-          li
-            a = t('registration')
+          /li
+          /  a = t('registration')
           li
             = link_to t('contact_us'), contacts_path
+          - if user_signed_in?
+            - if current_user.has_role? :admin
+              li
+                = link_to 'Управление аккаунтами', admin_users_path
+            /- if current_user.has_role? :admin
+            /  = link_to 'Управление пользователями', admin_users_path, class: 'btn btn-default'
+            /- if current_user.has_role? :admin
+            /  = link_to 'Управление пользователями', admin_users_path, class: 'btn btn-default'
         ul.nav.navbar-nav.navbar-right
           - if user_signed_in?
             li
