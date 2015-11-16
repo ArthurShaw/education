@@ -1,3 +1,7 @@
 class ListenerRequest < ActiveRecord::Base
-  validates :first_name, :last_name, :email, :phone, presence: true
+  validates :first_name, presence: {message: 'Введите имя'}
+  validates :last_name, presence: {message: 'Введите фамилию'}
+  validates_uniqueness_of :email
+  validates :email, presence: {message: 'Введите email'}
+  validates :phone, presence: {message: 'Введите телефон'}
 end

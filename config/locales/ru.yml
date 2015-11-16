@@ -1,19 +1,24 @@
 ru:
   news: 'Новости'
   registration: 'Регистрация'
+  to_register: 'Зарегистрироваться'
+  login: 'Вход'
+  logout: 'Выйти'
   contact_us: 'Контакты'
   add: 'Добавить'
   registration: 'Регистрация'
   edit_profile: 'Редактирование профиля'
   update: 'Обновить'
   confirm: 'Подтвердить'
+  remember: 'Запомнить меня'
+  forgot_password: 'Забыли пароль'
   user_params:
-      first_name: 'Имя'
-      last_name: 'Фамилия'
+      first_name: 'Имя*'
+      last_name: 'Фамилия*'
       middle_name: 'Отчество'
       country: 'Страна'
       city: 'Город'
-      phone: 'Телефон'
+      phone: 'Телефон*'
       degree: 'Ученая степень'
       biography: 'Ваша биография'
       speech_experience: 'Опыт выступлений'
@@ -29,3 +34,36 @@ ru:
     waiting: 'Ожидание подтверждения'
     success: 'Успешно добавлена'
     canceled: 'Отменена'
+  activerecord:
+     attributes:
+       user:
+         email: 'E-mail'
+         password: 'Пароль'
+         password_confirmation: 'Подтверждение пароля'
+         first_name: 'Имя'
+         last_name: 'Фамилия'
+       listener_request:
+         first_name: ""
+         last_name: ""
+         email: ""
+         phone: ""
+     errors:
+       models:
+         user:
+           attributes:
+             email:
+               taken: 'занят'
+               blank: "пустой"
+             password:
+               blank: 'неверный'
+             password_confirmation:
+               confirmation: 'неверно'
+             first_name:
+               blank: 'не введено'
+             last_name:
+               blank: 'не введена'
+
+
+  devise:
+    failure:
+      invalid: "Неверный адрес email или пароль."

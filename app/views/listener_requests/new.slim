@@ -1,40 +1,68 @@
-h2 Регистрация слушателя
-= link_to 'Регистрация докладчика', new_user_registration_path
-= form_for @listener_request do |f|
-  .field
-    = f.label t('user_params.first_name')
-    br
-    = f.text_field :first_name, autofocus: true
+br
+.col-lg-2.col-lg-offset-4
+  = link_to 'Регистрация докладчика', new_user_registration_path, class: 'btn btn-default'
 
-  .field
-    = f.label t('user_params.last_name')
-    br
-    = f.text_field :last_name
+.col-lg-3
+  = link_to 'Регистрация слушателя', new_listener_request_path, class: 'btn btn-default'
 
-  .field
-    = f.label t('user_params.middle_name')
-    br
-    = f.text_field :middle_name
+.col-lg-6.col-lg-offset-3
+  = form_for @listener_request, :html => {:class => "form-horizontal center"} do |f|
+    hr
+    fieldset
+      legend Регистрация слушателя
+      i
+        '* - обязательные поля для заполнения
+      hr
+      - if @listener_request.errors.any?
+        .alert.alert-alert
+          ul
+            - @listener_request.errors.full_messages.each do |message|
+              li
+                =message
+      .form-group
+        = f.label t('user_params.first_name'), class: 'col-lg-3 control-label'
 
-  .field
-    = f.label :email
-    br
-    = f.email_field :email
+        .col-lg-9
+          = f.text_field :first_name, class: 'form-control'
 
-  .field
-    = f.label t('user_params.country')
-    br
-    = f.text_field :country
+      .form-group
+        = f.label t('user_params.last_name'), class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :last_name, class: 'form-control'
 
-  .field
-    = f.label t('user_params.city')
-    br
-    = f.text_field :city
 
-  .field
-    = f.label t('user_params.phone')
-    br
-    = f.text_field :phone
+      .form-group
+        = f.label t('user_params.middle_name'), class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :middle_name, class: 'form-control'
 
-  .actions
-    = f.submit t('confirm')
+
+      .form-group
+        = f.label :'Email*', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.email_field :email, class: 'form-control'
+
+
+      .form-group
+        = f.label t('user_params.phone'), class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :phone, class: 'form-control'
+
+
+      .form-group
+        = f.label t('user_params.country'), class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :country, class: 'form-control'
+
+
+      .form-group
+        = f.label t('user_params.city'), class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :city, class: 'form-control'
+
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = f.submit t('confirm'), class: 'btn btn-primary'
+
+
+
