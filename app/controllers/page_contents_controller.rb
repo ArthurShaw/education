@@ -12,7 +12,7 @@ class PageContentsController < ApplicationController
 
   private
   def page_contents_params
-    params.require(:page_content).permit(:content)
+    params.require(:page_content).permit(:content, :content_en)
   end
 
 end
