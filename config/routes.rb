@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   scope "(:locale)", :locale => /en|ru/ do
 
     devise_for :users, :controllers => {:registrations => 'registrations'}
-
+    resources :sections
+    resources :workshops
     resources :users, :only => [:show]
 
     root 'index#index'
-
+    get 'profile' => 'users#profile', as: 'profile'
     get '/contacts' => 'index#contacts'
 
     resources :listener_requests do
