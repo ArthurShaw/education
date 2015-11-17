@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :middle_name, :email, :country, :city, :phone, :degree, :biography, :speech_experience, :password, :password_confirmation, :current_password, :avatar) }
   end
+
+  def default_url_options(options={})
+    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+    {:locale => I18n.locale}
+  end
 end

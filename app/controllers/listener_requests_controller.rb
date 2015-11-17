@@ -1,5 +1,8 @@
 class ListenerRequestsController < ApplicationController
 
+  def index
+    @requests = ListenerRequest.all
+  end
 
   def show
 

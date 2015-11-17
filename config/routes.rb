@@ -1,27 +1,30 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users, :controllers => {:registrations => 'registrations'}
 
-  resources :users, :only => [:show]
-  get 'profile' => 'users#profile', as: 'profile'
-  resources :sections
-  resources :workshops
-  root 'index#index'
+  scope "(:locale)", :locale => /en|ru/ do
 
-  get '/contacts' => 'index#contacts'
-  resources :listener_requests do
-    get 'success' => 'listener_requests#success'
-  end
+    devise_for :users, :controllers => {:registrations => 'registrations'}
 
-  resources :articles do
-  end
+    resources :users, :only => [:show]
 
-  resources :page_contents do
-  end
+    root 'index#index'
 
-  namespace :admin do
-    resources :users do
+    get '/contacts' => 'index#contacts'
 
+    resources :listener_requests do
+      get 'success' => 'listener_requests#success'
+    end
+
+    resources :articles do
+    end
+
+    resources :page_contents do
+    end
+
+    namespace :admin do
+      resources :users do
+
+      end
     end
   end
 
