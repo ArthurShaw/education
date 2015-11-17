@@ -1,3 +1,22 @@
 h1 Заявки
-- for request in @requests
-  p = "#{request.first_name} #{request.last_name} #{request.phone}"
+= link_to 'Скачать Excel', excel_listener_requests_path
+table.table.table-striped.table-hover
+  thead
+    tr
+      th Имя
+      th Фамилия
+      th Отчество
+      th Email
+      th Страна
+      th Город
+      th Телефон
+  tbody
+    - for request in @requests
+      tr
+        td = request.first_name
+        td = request.last_name
+        td = request.middle_name
+        td = request.email
+        td = request.country
+        td = request.city
+        td = request.phone

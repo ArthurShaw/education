@@ -25,6 +25,22 @@ class ListenerRequestsController < ApplicationController
     end
   end
 
+  def excel
+    spreadsheet_name = 'Заявки слушателей'
+
+    book = Spreadsheet::Workbook.new
+    sheet1 = book.create_worksheet :name => spreadsheet_name
+
+    @requests = ListenerRequest.all
+    @requests.each_with_index  { |req, i|
+      sheet1.row(i).replace [req.first_name, req.last_name, req.middle_name, req.email, req.country, req.city, req.phone]
+    }
+
+    export_file_path = [Rails.root, "public", "uploads", "exports", "#{ spreadsheet_name }_#{ DateTime.now.to_s }.xls"].join("/")
+    book.write export_file_path
+    send_file export_file_path, :content_type => "application/vnd.ms-excel", :disposition => 'inline'
+  end
+
   private
 
   def listener_params

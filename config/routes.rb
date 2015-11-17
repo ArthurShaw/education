@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
     resources :listener_requests do
       get 'success' => 'listener_requests#success'
+      collection do
+        get 'excel' => 'listener_requests#excel'
+      end
     end
 
     resources :articles do
