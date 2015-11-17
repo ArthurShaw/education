@@ -13,3 +13,9 @@ u.add_role("publisher")
 
 PageContent.create(name: 'Main page', content: '<h1>Main page</h1>', id: 1)
 PageContent.create(name: 'Contacts', content: '<h1>Contacts page</h1>', id: 2)
+
+Section.create(title: '')
+Section.create(title: '')
+Section.create(title: '')
+Section.create(title: '')
+Section.create(title: '')

@@ -5,7 +5,6 @@ class UsersController < ApplicationController
       redirect_to new_user_session_path
     end
     if @user.has_role? :admin
-
       render 'admin_profile'
     else
       render 'speaker_profile'

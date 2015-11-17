@@ -12,6 +12,7 @@ ru:
   confirm: 'Подтвердить'
   remember: 'Запомнить меня'
   forgot_password: 'Забыли пароль'
+  delete: 'Удалить'
   user_params:
       first_name: 'Имя*'
       last_name: 'Фамилия*'
@@ -27,8 +28,13 @@ ru:
       current_password: 'Текущий пароль'
       avatar: 'Ваша фотография'
   workshops:
+    workshops: 'Доклады'
+    create: 'Добавить доклад'
     title: 'Название доклада'
     description: 'Описание'
+    section: 'Секция'
+    add: 'Новый доклад'
+    edit: 'Редактировать доклад'
   speaker_request: 'Отправить заявку'
   request_statuses:
     waiting: 'Ожидание подтверждения'

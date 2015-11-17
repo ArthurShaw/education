@@ -1,0 +1,19 @@
+h2
+  = t('workshops.workshops')
+
+- if user_signed_in? and current_user.has_role? :speaker
+  = link_to t('add'), new_workshop_path
+  br
+
+
+- for workshop in @current_user.workshops
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title = workshop.title
+    .panel-body
+      = raw(workshop.description)
+      p = workshop.created_at
+      - if current_user.has_role? :speaker
+        = link_to t('workshops.edit'), edit_workshop_path(workshop)
+        | /
+        = link_to t('delete'), workshop_path(workshop), method: :delete

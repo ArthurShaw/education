@@ -33,6 +33,7 @@ en:
   confirm: 'Confirm'
   remember: 'Remember me'
   forgot_password: 'Forgot password?'
+  delete: 'Delete'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'
@@ -48,8 +49,13 @@ en:
     current_password: 'Current password'
     avatar: 'Your photo'
   workshops:
+    workshops: 'Workshops'
+    create: 'Add new workshop'
     title: 'Title'
     description: 'Description'
+    section: 'Section'
+    add: 'New workshop'
+    edit: 'Edit workshop'
   speaker_request: 'Send request'
   request_statuses:
       waiting: 'Waiting for confirmation'

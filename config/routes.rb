@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => 'registrations'}
 
   resources :users, :only => [:show]
-
+  get 'profile' => 'users#profile', as: 'profile'
+  resources :sections
+  resources :workshops
   root 'index#index'
 
   get '/contacts' => 'index#contacts'
-
   resources :listener_requests do
     get 'success' => 'listener_requests#success'
   end
