@@ -1,0 +1,7 @@
+h1 Добавить категорию спонсоров
+= form_for @sponsor_category, url: admin_sponsor_categories_path, method: :create do |f|
+  = f.label 'Название категории'
+  br
+  = f.text_field :name
+  br
+  = f.submit

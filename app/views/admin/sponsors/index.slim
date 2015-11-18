@@ -1,0 +1,6 @@
+=> link_to 'Добавить новую категорию спонсоров', new_admin_sponsor_category_path, class: 'btn btn-default'
+=> link_to 'Добавить cпонсора', new_admin_sponsor_path, class: 'btn btn-default'
+- for category in @sponsor_categories
+  h1 = category.name
+  - for sponsor in category.sponsors
+    p = sponsor.name

@@ -27,6 +27,11 @@ Rails.application.routes.draw do
 
     namespace :admin do
       resources :users do
+      end
+      resources :sponsor_categories do
+
+      end
+      resources :sponsors do
 
       end
     end
