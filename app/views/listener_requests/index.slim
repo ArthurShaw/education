@@ -1,15 +1,15 @@
 h1 Заявки
-= link_to 'Скачать Excel', excel_listener_requests_path
+= link_to t('listener_requests.excel_download'), excel_listener_requests_path
 table.table.table-striped.table-hover
   thead
     tr
-      th Имя
-      th Фамилия
-      th Отчество
-      th Email
-      th Страна
-      th Город
-      th Телефон
+      th = t('listener_requests.first_name')
+      th = t('listener_requests.last_name')
+      th = t('listener_requests.middle_name')
+      th = t('listener_requests.email')
+      th = t('listener_requests.country')
+      th = t('listener_requests.city')
+      th = t('listener_requests.phone')
   tbody
     - for request in @requests
       tr

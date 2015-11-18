@@ -83,3 +83,24 @@ en:
               blank: 'is empty'
             last_name:
               blank: 'is empty'
+
+
+  devise:
+    failure:
+      invalid: 'Wrong email or password.'
+
+  roles:
+    admin: 'Administrator'
+    speakers_reviewer: 'speakers_reviewer'
+    publisher: 'publisher'
+    listeners_reviewer: 'listeners_reviewer'
+
+  listener_requests:
+    first_name: 'First Name'
+    last_name: 'Last Name'
+    middle_name: 'Middle Name'
+    email: 'Email'
+    country: 'Country'
+    city: 'City'
+    phone: 'Phone Number'
+    excel_download: 'Download Excel'

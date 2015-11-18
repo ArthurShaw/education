@@ -80,3 +80,13 @@ ru:
     publisher: 'Может публиковать в новости'
     listeners_reviewer: 'Может просматривать заявки слушателей'
     listeners_reviewer: 'Может просматривать заявки слушателей'
+
+  listener_requests:
+    first_name: 'Имя'
+    last_name: 'Фамилия'
+    middle_name: 'Отчество'
+    email: 'Email'
+    country: 'Страна'
+    city: 'Город'
+    phone: 'Номер телефона'
+    excel_download: 'Скачать Excel'
