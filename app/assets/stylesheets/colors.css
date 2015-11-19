@@ -10,7 +10,7 @@ Primary use:    Eventime HTML Template
 
 
 
-/*!------------------------------ Main color of template #fff200 ------------------------------*/
+/*!------------------------------ Main color of template #1ffcff ------------------------------*/
 
 .navbar-nav>.active>a,
 
@@ -51,7 +51,7 @@ a.navbar-brand:hover,
 
 .copyright span{
 
-    color: #fff200;
+    color: #1ffcff;
 
 }
 
@@ -62,7 +62,7 @@ a.navbar-brand:hover,
 
 .contact_icon:hover  {
    
-    background: #fff200;
+    background: #1ffcff;
 
 }
 
@@ -96,7 +96,7 @@ figure.eventime_img figcaption::before,
 
 .center_line {
 
-    border-color: #fff200;
+    border-color: #1ffcff;
 
 }
 
@@ -108,21 +108,22 @@ footer,
 
 .navbar-toggle{
 
-    background: #fff200; /* Old browsers */
-    
-    background: -moz-linear-gradient(-45deg,  #fff200 0%, #efa52d 100%); /* FF3.6+ */
-    
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#fff200), color-stop(100%,#efa52d)); /* Chrome,Safari4+ */
-    
-    background: -webkit-linear-gradient(-45deg,  #fff200 0%,#efa52d 100%); /* Chrome10+,Safari5.1+ */
-    
-    background: -o-linear-gradient(-45deg,  #fff200 0%,#efa52d 100%); /* Opera 11.10+ */
-    
-    background: -ms-linear-gradient(-45deg,  #fff200 0%,#efa52d 100%); /* IE10+ */
+    background: #1ffcff;
+  
+    background: -moz-linear-gradient(-45deg,  #1ffcff 0%, #55f0b7 100%);
    
-    background: linear-gradient(135deg,  #fff200 0%,#efa52d 100%); /* W3C */
-    
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff200', endColorstr='#efa52d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#1ffcff), color-stop(100%,#55f0b7));
+  
+    background: -webkit-linear-gradient(-45deg,  #1ffcff 0%,#55f0b7 100%);
+   
+    background: -o-linear-gradient(-45deg,  #1ffcff 0%,#55f0b7 100%);
+  
+    background: -ms-linear-gradient(-45deg,  #1ffcff 0%,#55f0b7 100%);
+  
+    background: linear-gradient(135deg,  #1ffcff 0%,#55f0b7 100%);
+  
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1ffcff', endColorstr='#55f0b7',GradientType=1 );
+
 
 }
 
@@ -145,7 +146,7 @@ footer,
 
 #home_slider .right_arrow {
 
-    fill: #fff200;
+    fill: #1ffcff;
 
 }
 
@@ -284,7 +285,7 @@ footer,
 
 .navbar-toggle .icon-bar {
 
-    background-color: #000;
+    background-color: #91c1c4;
 
 }
 
@@ -356,7 +357,7 @@ footer .first_line,
 
 .footer {
 
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(145, 193, 196, 0.8);
 
 }
 
@@ -413,3 +414,18 @@ footer .first_line,
     background-image: url('../images/bg_contact.jpg');
 
 }
+
+/*---------------------- Additional Styles ---------------------*/
+
+
+.sponsor_featured, 
+
+.sponsor_basic {
+
+    outline: none !important;
+
+    border: 3px solid #000 !important;
+
+    background: transparent !important;
+
+} 
