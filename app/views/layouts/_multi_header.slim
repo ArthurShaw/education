@@ -11,7 +11,7 @@ nav.navbar.navbar-fixed-top.nav_mask
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href="#home_slider"
+      a.navbar-brand href="/"
         | CONFERENCE
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
@@ -25,13 +25,17 @@ nav.navbar.navbar-fixed-top.nav_mask
           a href="#speakers_menu"
             | Speakers
         li
-          a href="#reservation_menu"
-            | Reservation
-        li
-          a href="#past_menu"
-            | Past
-        li
           a href="#contact_menu"
             | Contact
-  /! /.nav-collapse
-  /! /.nav-collapse
+        - if user_signed_in?
+          li
+            == link_to current_user.email, profile_path
+          li
+            == link_to 'Выйти', destroy_user_session_path, method: :delete
+        - else
+          li
+            == link_to 'Зарегистрироваться', new_user_registration_path
+          li
+            == link_to 'Войти', new_user_session_path
+/! /.nav-collapse
+/! /.nav-collapse

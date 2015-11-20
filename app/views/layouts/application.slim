@@ -8,10 +8,18 @@ html
     == stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track' => true
     == stylesheet_link_tag 'colors', media: 'all', 'data-turbolinks-track' => true
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
+    == javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true
+    == javascript_include_tag 'jquery-2.1.3', 'data-turbolinks-track' => true
+    == javascript_include_tag 'minify', 'data-turbolinks-track' => true
     == csrf_meta_tags
 
   body
-    == render :partial => 'layouts/header'
+    -if user_signed_in? and current_user.has_role? :admin
+      == render 'layouts/admin_header'
+    -elsif current_page?(root_path) or current_page?('/')
+      == render 'layouts/index_header'
+    -else
+      == render 'layouts/multi_header'
     == yield
     == render :partial => 'layouts/footer'
 

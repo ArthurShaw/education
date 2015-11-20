@@ -19,8 +19,8 @@ header#home_slider.carousel.slide
           .buttons
             a.wow.fadeInLeft.btn.eventime_button href="#about_menu" role="button"
               | Know more
-            a.wow.fadeInRight.btn.eventime_button href="#reservation_menu" role="button"
-              | REGISTRATION
+            a.wow.fadeInRight.btn.eventime_button href= new_user_registration_path role="button"
+              = t('registration')
     .item
       /! Set the first background image using inline CSS below.
       .fill style="background-image:url('images/slider_2.jpg');"

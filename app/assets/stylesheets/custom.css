@@ -2209,7 +2209,7 @@ figure.eventime_img:hover img {
 
 .reservation form {
 
-    margin-left: 9%;
+    margin-left: 35%;
 
     padding-bottom: 50px;
 
@@ -2270,7 +2270,123 @@ figure.eventime_img:hover img {
     transition: all .5s ease-in-out;
 
 }
+.reservation input[type=email] {
 
+    width: 43%;
+
+    padding-left: 2%;
+
+    margin-right: 4%;
+
+    display: inline-block;
+
+    border-style: solid;
+
+    border-width: 3px;
+
+    background: none;
+
+    margin-top: 30px;
+
+    height: 55px;
+
+    border-radius: 0;
+
+    font-size: 24px;
+
+    font-weight: 100;
+
+    text-transform: uppercase;
+
+    -webkit-appearance: none;
+
+    -webkit-transition: all .5s ease-in-out;
+
+    -moz-transition: all .5s ease-in-out;
+
+    -o-transition: all .5s ease-in-out;
+
+    transition: all .5s ease-in-out;
+
+}
+.reservation input[type=password] {
+
+    width: 43%;
+
+    padding-left: 2%;
+
+    margin-right: 4%;
+
+    display: inline-block;
+
+    border-style: solid;
+
+    border-width: 3px;
+
+    background: none;
+
+    margin-top: 30px;
+
+    height: 55px;
+
+    border-radius: 0;
+
+    font-size: 24px;
+
+    font-weight: 100;
+
+    text-transform: uppercase;
+
+    -webkit-appearance: none;
+
+    -webkit-transition: all .5s ease-in-out;
+
+    -moz-transition: all .5s ease-in-out;
+
+    -o-transition: all .5s ease-in-out;
+
+    transition: all .5s ease-in-out;
+
+}
+.reservation input[type=file] {
+
+    width: 43%;
+
+    padding-left: 2%;
+
+    margin-right: 4%;
+
+    display: inline-block;
+
+    border-style: solid;
+
+    border-width: 3px;
+
+    background: none;
+
+    margin-top: 30px;
+
+    height: 55px;
+
+    border-radius: 0;
+
+    font-size: 20px;
+
+    font-weight: 100;
+
+    text-transform: uppercase;
+
+    -webkit-appearance: none;
+
+    -webkit-transition: all .5s ease-in-out;
+
+    -moz-transition: all .5s ease-in-out;
+
+    -o-transition: all .5s ease-in-out;
+
+    transition: all .5s ease-in-out;
+
+}
 .reservation input[type=text]:focus {
 
     box-shadow: none;
@@ -2278,14 +2394,27 @@ figure.eventime_img:hover img {
     outline: none;
 
 }
+.reservation input[type=email]:focus {
 
+    box-shadow: none;
+
+    outline: none;
+
+}
+.reservation input[type=password]:focus {
+
+    box-shadow: none;
+
+    outline: none;
+
+}
 input.reservation_button {
 
-    width: 30%;
+    width: 38%;
 
     margin-top: 30px;
 
-    margin-left: 31.4%;
+    margin-left: 2.5%;
 
     background: transparent;
 

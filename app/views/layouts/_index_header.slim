@@ -1,0 +1,48 @@
+/#preloader
+/  .pre_container
+/    .loader
+/! Fixed navbar
+nav.navbar.navbar-fixed-top.nav_mask
+  .navi_container
+    .navbar-header
+      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
+        span.sr-only
+          | Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href=root_path
+        | CONFERENCE
+    #navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li
+          a href="#about_menu"
+            | About
+        li
+          a href="#schedule_menu"
+            | Schedule
+        li
+          a href="#speakers_menu"
+            | Speakers
+        /li
+        /  a href="#reservation_menu"
+        /    | Reservation
+        li
+          a href="#past_menu"
+            | Past
+        li
+          a href="#contact_menu"
+            | Contact
+        - if user_signed_in?
+          li
+            == link_to current_user.email, profile_path
+          li
+            == link_to 'Выйти', destroy_user_session_path, method: :delete
+        - else
+          li
+            == link_to 'Зарегистрироваться', new_user_registration_path
+          li
+            == link_to 'Войти', new_user_session_path
+
+    /! /.nav-collapse
+  /! /.nav-collapse
