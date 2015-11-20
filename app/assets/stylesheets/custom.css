@@ -243,7 +243,7 @@ header {
 
     z-index: 999;
 
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 
     -webkit-transition: all .2s ease-in-out;
 
@@ -254,7 +254,45 @@ header {
     transition: all .2s ease-in-out;
 
 }
+.registration_button {
 
+    border-width: 3px;
+
+    border-style: solid;
+
+    border-radius: 0;
+
+    font-weight: 700;
+
+    font-size: 18px;
+
+    padding: 10px 25px;
+
+    letter-spacing: 3px;
+
+    margin: auto 20px;
+
+    overflow: hidden;
+
+    -webkit-backface-visibility: hidden;
+
+    -moz-osx-font-smoothing: grayscale;
+
+    position: relative;
+
+    z-index: 999;
+
+    /*text-transform: uppercase;*/
+
+    -webkit-transition: all .2s ease-in-out;
+
+    -moz-transition: all .2s ease-in-out;
+
+    -o-transition: all .2s ease-in-out;
+
+    transition: all .2s ease-in-out;
+
+}
 .eventime_button,
 
 .reservation_button {
@@ -262,6 +300,23 @@ header {
     overflow: hidden;
 
     width: 245px;
+
+    -webkit-transition: border-color 0.3s, color 0.3s;
+
+    transition: border-color 0.3s, color 0.3s;
+
+    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+
+    z-index: 999;
+
+}
+.registration_button {
+
+    overflow: hidden;
+
+    width: 600px;
 
     -webkit-transition: border-color 0.3s, color 0.3s;
 
@@ -1478,7 +1533,7 @@ nav {
 .blog_header p{
     font-size: 40px;
     padding-top: 100px;
-    font-weight: lighter; 
+    font-weight: lighter;
 }
 
 .blog_description{
@@ -1515,7 +1570,7 @@ nav {
 .blog_content_left{
 
     display: inline-block;
-    
+
     width: 70%;
 
     float: left;
@@ -1537,7 +1592,7 @@ nav {
 .blog_content_right{
 
     display: inline-block;
-    
+
     width: 70%;
 
     padding-right: 3%;
@@ -1638,7 +1693,7 @@ margin-right: 4%;
 
 .entry-meta span a{
     text-decoration: none;
-    
+
     -webkit-transition: all .5s ease-in-out;
 
     -moz-transition: all .5s ease-in-out;
@@ -2202,15 +2257,14 @@ figure.eventime_img:hover img {
 }
 
 .reservation {
-
+    min-height: 100%;
     display: block;
 
 }
 
 .reservation form {
 
-    margin-left: 35%;
-
+    margin-left: 15%;
     padding-bottom: 50px;
 
 }
@@ -2233,7 +2287,7 @@ figure.eventime_img:hover img {
 
 .reservation input[type=text] {
 
-    width: 43%;
+    width: 35%;
 
     padding-left: 2%;
 
@@ -2257,7 +2311,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 
     -webkit-appearance: none;
 
@@ -2272,7 +2326,7 @@ figure.eventime_img:hover img {
 }
 .reservation input[type=email] {
 
-    width: 43%;
+    width: 35%;
 
     padding-left: 2%;
 
@@ -2296,7 +2350,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 
     -webkit-appearance: none;
 
@@ -2311,7 +2365,7 @@ figure.eventime_img:hover img {
 }
 .reservation input[type=password] {
 
-    width: 43%;
+    width: 35%;
 
     padding-left: 2%;
 
@@ -2335,7 +2389,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 
     -webkit-appearance: none;
 
@@ -2350,7 +2404,7 @@ figure.eventime_img:hover img {
 }
 .reservation input[type=file] {
 
-    width: 43%;
+    width: 35%;
 
     padding-left: 2%;
 
@@ -2374,7 +2428,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 
     -webkit-appearance: none;
 
@@ -2418,6 +2472,9 @@ input.reservation_button {
 
     background: transparent;
 
+}
+input.registration_button {
+    background: transparent;
 }
 
 ::-webkit-input-placeholder {
@@ -2637,7 +2694,7 @@ input[type="radio"]:checked + label {
     border-width: 1px;
 
     outline-style: solid;
-    
+
     outline-width: 3px;
 
     vertical-align: top;
@@ -2760,15 +2817,15 @@ a.contact_icon {
 .footer .link {
 
     text-transform: uppercase;
-    
+
     font-size: 18px;
-    
+
     display: inline-block;
-    
+
     font-weight: 100;
-    
+
     text-decoration: none;
-    
+
     -webkit-transition: all .5s ease-in-out;
 
     -moz-transition: all .5s ease-in-out;
@@ -3133,7 +3190,7 @@ a.contact_icon {
 .blog_content_left{
 
     display: block;
-    
+
     width: 90%;
 
     float: none;
@@ -3155,7 +3212,7 @@ a.contact_icon {
 .blog_content_right{
 
     display: block;
-    
+
     width: 90%;
 
     float: none;

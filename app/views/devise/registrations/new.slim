@@ -2,9 +2,10 @@
   .gap
   .first_line.wow.fadeInDown
   .first_title.wow.fadeInDown
-    p = t('registration')
+    p Регистрация докладчика
+  = link_to 'Зарегистрироваться как слушатель', new_listener_request_path, class: 'btn'
   .first_description.wow.fadeInDown
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), hmtl: {class: "form-horizontal center"}) do |f|
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     .col-lg-8.col-lg-offset-0
       = devise_error_messages!
     .wow.fadeInLeft
@@ -29,7 +30,7 @@
     .wow.fadeInLeft
       = f.password_field :password_confirmation, placeholder: t('user_params.password_confirmation'), autocomplete: 'off'
     .wow.fadeInRight
-      = f.file_field :avatar, placeholder: t('user_params.avatar'), class: 'btn'
+      = f.file_field :avatar, placeholder: t('user_params.avatar'), class: 'btn brn-default btn-file'
     .wow.fadeInUp
       = f.submit t('to_register'), class: 'button reservation_button'
 

@@ -184,7 +184,12 @@ footer,
 
 .reservation_button:hover,
 
+
 .reservation input[type=text]:focus,
+
+.reservation input[type=email]:focus,
+
+.reservation input[type=password]:focus,
 
 .navbar_bg_dark a, .blog_header p,
 
@@ -279,6 +284,10 @@ footer,
 
 .reservation input[type=text]:focus,
 
+.reservation input[type=email]:focus,
+
+.reservation input[type=password]:focus,
+
 .reservation input[type=submit]:hover,
 
 .navbar_bg_dark,
@@ -299,6 +308,9 @@ footer .first_line,
 
     border-color: #000;
 
+}
+.registration_button {
+    border-color: #000
 }
 
 
