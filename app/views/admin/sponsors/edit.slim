@@ -1,8 +1,8 @@
 = render :partial => 'users/admin_menu'
 
 .col-lg-9
-  h2 Добавить спонсора
-  = form_for @sponsor, url: admin_sponsors_path, method: :post do |f|
+  h2 Редактировать спонсора
+  = form_for @sponsor, url: admin_sponsor_path, method: :put do |f|
     = f.label 'Название'
     br
     = f.text_field :name

@@ -88,8 +88,16 @@ footer
   .first_line
   .first_title
     p Спонсоры
-  .first_description
-    p Тут будут спонсоры
+  - for sponsor_category in @sponsor_categories
+    .first_description
+      p = sponsor_category.name
+    .sponsor_box
+      - for sponsor in sponsor_category.sponsors
+        .sponsor_basic.wow.fadeIn
+          .image_featured
+            a> href="#{sponsor.url}"
+              img alt="#{sponsor.name}" src="#{sponsor.image.url}"
+
   .gap
   .sponsor_box
 

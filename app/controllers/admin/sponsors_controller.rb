@@ -1,5 +1,8 @@
 class Admin::SponsorsController < ApplicationController
 
+  before_action :find_sponsor, only: [:update, :destroy, :edit]
+  before_action :check_permission
+
   def index
     @sponsor_categories = SponsorCategory.all
   end
@@ -18,17 +21,35 @@ class Admin::SponsorsController < ApplicationController
   end
 
   def destroy
-    @sponsor = Sponsor.find(params[:id])
     @sponsor.destroy
     redirect_to admin_sponsors_path
+  end
+
+  def edit
+  end
+
+  def update
+    if @sponsor.update(sponsor_params)
+      redirect_to admin_sponsors_path
+    else
+      render 'edit'
+    end
   end
 
   private
 
   def sponsor_params
-    params.require(:sponsor_category).permit(:name)
+    params.require(:sponsor).permit(:name, :url, :image, :sponsor_category_id)
   end
 
+  def find_sponsor
+    @sponsor = Sponsor.find(params[:id])
+    render_404 unless @sponsor
+  end
+
+  def check_permission
+    render_403 unless current_user.has_role? :admin
+  end
 
 
 end

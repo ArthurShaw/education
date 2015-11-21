@@ -1,8 +1,8 @@
 = render :partial => 'users/admin_menu'
 
 .col-lg-9
-  h2 Добавить категорию спонсоров
-  = form_for @sponsor_category, url: admin_sponsor_categories_path, method: :create do |f|
+  h2 Редактировать категорию спонсоров
+  = form_for @sponsor_category, url: admin_sponsor_category_path, method: :put do |f|
     = f.label 'Название категории (рус)'
     br
     = f.text_field :name
