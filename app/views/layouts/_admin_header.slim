@@ -24,8 +24,6 @@ nav.navbar.navbar-fixed-top.nav_mask
           =link_to 'Users', admin_users_path
         li
           =link_to 'Listeners', listener_requests_path
-        li
-          =link_to 'Page contents', page_contents_path
         - if user_signed_in?
           li
             == link_to 'admin', profile_path

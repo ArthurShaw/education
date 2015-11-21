@@ -383,7 +383,7 @@ footer .first_line,
 
     background-color: rgba(0, 0, 0, 0.55);
 
-    background-image: url('../images/mask.svg');
+    background-image:  asset-data-url('mask.svg');
 
 }
 
@@ -397,7 +397,7 @@ footer .first_line,
 
 .speakers_image {
 
-    background-image: url('../images/featured_speaker.jpg');
+    background-image:  asset-data-url('featured_speaker.jpg');
 
 }
 
@@ -405,25 +405,25 @@ footer .first_line,
 
 .first_image {
 
-    background-image: url('../images/first.jpg');
+    background-image: asset-data-url('first.jpg');
 
 }
 
 .tabs_about {
 
-    background-image: url('../images/bg_about.jpg');
+    background-image:  asset-data-url('bg_about.jpg');
 
 }
 
 .speakers {
 
-    background-image: url('../images/bg_speakers.jpg');
+    background-image:  asset-data-url('bg_speakers.jpg');
 
 }
 
 .contact {
 
-    background-image: url('../images/bg_contact.jpg');
+    background-image:  asset-data-url('bg_contact.jpg');
 
 }
 

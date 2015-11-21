@@ -1,11 +1,13 @@
-h1 Администраторы сайта
-= link_to 'Добавить нового администратора', new_admin_user_path, class: 'btn btn-default'
-hr
-- for admin in @admins
-
-  h4 = "#{admin.first_name} #{admin.last_name}"
-  p = admin.email
-  - for role in admin.roles
-    p = t("roles.#{role.name}")
-  = link_to 'Удалить', admin_user_path(admin), method: :delete
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Администраторы сайта
+  = link_to 'Добавить нового администратора', new_admin_user_path, class: 'btn btn-default'
   hr
+  - for admin in @admins
+
+    h4 = "#{admin.first_name} #{admin.last_name}"
+    p = admin.email
+    - for role in admin.roles
+      p = t("roles.#{role.name}")
+    = link_to 'Удалить', admin_user_path(admin), method: :delete, class: 'btn btn-default'
+    hr

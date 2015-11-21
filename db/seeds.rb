@@ -11,6 +11,7 @@ u = User.create(email: 'admin@admin.ru', password: 'password', first_name: 'Admi
 u.add_role("admin")
 u.add_role("publisher")
 
+PageContent.create(name: 'Орг. коммитет', content: '<h1>Contacts page</h1>', id: 3)
 PageContent.create(name: 'Main page', content: '<h1>Main page</h1>', id: 1)
 PageContent.create(name: 'Contacts', content: '<h1>Contacts page</h1>', id: 2)
 

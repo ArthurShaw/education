@@ -1,7 +1,4 @@
-h1 Профиль админа
+= render :partial => 'users/admin_menu'
 
-=>link_to 'Управление аккаунтами', admin_users_path, class: 'btn btn-default'
-=>link_to 'Спонсоры', admin_sponsors_path, class: 'btn btn-default'
-
-=render 'admin/sections/index'
-=link_to 'Создать секцию', new_section_path, class: 'btn btn-default'
+.col-lg-9
+  p Для управления сайтом выберите пункт в меню слева
