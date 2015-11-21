@@ -1,5 +1,5 @@
 class WorkshopsController < ApplicationController
-  before_action :check_permission, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_permission
 
   def index
     @workshops = Workshop.all
@@ -20,13 +20,16 @@ class WorkshopsController < ApplicationController
   def create
     @workshop = Workshop.new(workshop_params)
     @workshop.user_id = current_user.id
-    @workshop.save
-    redirect_to profile_path
+    if @workshop.save
+      redirect_to profile_path
+    else
+      render 'new', :status => :bad_request
+    end
   end
 
   def update
     @workshop = Workshop.find(params[:id])
-    @workshop = Workshop.update(workshop_params)
+    @workshop.update(workshop_params)
     redirect_to profile_path
   end
 

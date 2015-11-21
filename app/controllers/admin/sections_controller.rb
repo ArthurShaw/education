@@ -1,5 +1,5 @@
-class SectionsController < ApplicationController
-  before_action :check_permission, only: [:new, :create, :edit, :update, :destroy]
+class Admin::SectionsController < ApplicationController
+  before_action :check_permission
 
   def index
     @sections = Section.all
@@ -9,26 +9,20 @@ class SectionsController < ApplicationController
     @section = Section.new
   end
 
-  def edit
-    @section = Section.find(params[:id])
-  end
-
   def create
     @section = Section.new(sections_params)
-    @section.save
-    redirect_to profile_path
-  end
+    if @section.save
+      redirect_to admin_sections_path
+    else
+      render 'new', :status => :bad_request
+    end
 
-  def update
-    @section = Section.find(params[:id])
-    @section = Section.update(workshop_params)
-    redirect_to profile_path
   end
 
   def destroy
     @section = Section.find(params[:id])
     @section.destroy
-    redirect_to profile_path
+    redirect_to admin_sections_path
   end
 
   private

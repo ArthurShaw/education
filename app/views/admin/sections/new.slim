@@ -1,14 +1,12 @@
-.col-lg-6.col-lg-offset-3
-  br
-  = form_for @section, :html => {:class => "form-horizontal center"} do |f|
-    legend Создать секцию
-    hr
-    fieldset
-      .form-group
-        = f.label :'Название', class: 'col-lg-3 control-label'
-        .col-lg-9
-          = f.text_field :title, class: 'form-control'
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Добавить новую секцию
+  = form_for @section, url: admin_sections_path, method: :create do |f|
 
-      .form-group
-        .col-lg-9.col-lg-offset-3
-          = f.submit t('confirm'), class: 'btn btn-primary'
+    = f.label :'Название'
+    br
+    = f.text_field :title, autofocus: true
+
+    br
+    br
+    = f.submit t('confirm')

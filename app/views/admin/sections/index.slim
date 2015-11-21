@@ -1,0 +1,10 @@
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Секции
+  = link_to 'Добавить новую секцию', new_admin_section_path, class: 'btn btn-default'
+  hr
+  - for section in @sections
+
+    h4 = "#{section.title}"
+    =< link_to 'Удалить', admin_section_path(section), method: :delete, class: 'btn btn-default'
+    hr

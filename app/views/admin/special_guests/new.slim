@@ -1,0 +1,26 @@
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Добавить нового почетного гостя
+  = form_for @special_guest, url: admin_special_guests_path, method: :create do |f|
+    = f.label t('user_params.first_name')
+    br
+    = f.text_field :first_name, autofocus: true
+    br
+    = f.label t('user_params.last_name')
+    br
+    = f.text_field :last_name
+    br
+    = f.label t('user_params.middle_name')
+    br
+    = f.text_field :middle_name
+    br
+    =f.label :'Информация о госте'
+    br
+    =f.text_area :about
+    br
+    =f.label :'Фотография'
+    br
+    =f.file_field :avatar
+
+    br
+    = f.submit

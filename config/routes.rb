@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+
   mount Ckeditor::Engine => '/ckeditor'
 
   scope "(:locale)", :locale => /en|ru/ do
 
     devise_for :users, :controllers => {:registrations => 'registrations'}
-    resources :sections
     resources :workshops
     resources :users, :only => [:show]
 
@@ -30,6 +30,10 @@ Rails.application.routes.draw do
       resources :sponsors do
       end
       resources :page_contents do
+      end
+      resources :special_guests do
+      end
+      resources :sections do
       end
     end
   end

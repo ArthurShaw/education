@@ -1,0 +1,13 @@
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Почетные гости
+  = link_to 'Добавить нового почетного гостя', new_admin_special_guest_path, class: 'btn btn-default'
+  hr
+  - for special_guest in @special_guests
+
+    h4 = "#{special_guest.first_name} #{special_guest.last_name} #{special_guest.middle_name}"
+    p #{image_tag special_guest.avatar.url(:medium)}
+    p = special_guest.about
+    = link_to 'Изменить', edit_admin_special_guest_path(special_guest), class: 'btn btn-default'
+    =< link_to 'Удалить', admin_special_guest_path(special_guest), method: :delete, class: 'btn btn-default'
+    hr
