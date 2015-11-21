@@ -243,7 +243,7 @@ header {
 
     z-index: 999;
 
-    text-transform: uppercase;
+    //text-transform: uppercase;
 
     -webkit-transition: all .2s ease-in-out;
 
@@ -2202,7 +2202,7 @@ figure.eventime_img:hover img {
 }
 
 .reservation {
-
+    min-height: 100%;
     display: block;
 
 }
@@ -2257,7 +2257,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-    text-transform: uppercase;
+    //text-transform: uppercase;
 
     -webkit-appearance: none;
 
@@ -2296,7 +2296,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-    text-transform: uppercase;
+    //text-transform: uppercase;
 
     -webkit-appearance: none;
 
@@ -2335,7 +2335,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-    text-transform: uppercase;
+    //text-transform: uppercase;
 
     -webkit-appearance: none;
 
@@ -2374,7 +2374,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-    text-transform: uppercase;
+    //text-transform: uppercase;
 
     -webkit-appearance: none;
 
