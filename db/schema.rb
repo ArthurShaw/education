@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121114905) do
+ActiveRecord::Schema.define(version: 20151121144548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,7 +83,8 @@ ActiveRecord::Schema.define(version: 20151121114905) do
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "sections", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title",    null: false
+    t.string "title_en"
   end
 
   create_table "special_guests", force: :cascade do |t|
@@ -97,6 +98,10 @@ ActiveRecord::Schema.define(version: 20151121114905) do
     t.datetime "avatar_updated_at"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "first_name_en"
+    t.string   "last_name_en"
+    t.string   "middle_name_en"
+    t.text     "about_en"
   end
 
   create_table "sponsor_categories", force: :cascade do |t|

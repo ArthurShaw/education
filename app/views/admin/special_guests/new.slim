@@ -14,13 +14,29 @@
     br
     = f.text_field :middle_name
     br
-    =f.label :'Информация о госте'
+    = f.label :'Информация о госте'
     br
-    =f.text_area :about
+    = f.text_area :about
     br
-    =f.label :'Фотография'
+    = f.label :'Имя(eng)'
     br
-    =f.file_field :avatar
+    = f.text_field :first_name_en
+    br
+    = f.label :'Фамилия(eng)'
+    br
+    = f.text_field :last_name_en
+    br
+    = f.label :'Отчество(eng)'
+    br
+    = f.text_field :middle_name_en
+    br
+    = f.label :'Информация о госте(eng)'
+    br
+    = f.text_area :about_en
+    br
+    = f.label :'Фотография'
+    br
+    = f.file_field :avatar
 
     br
     = f.submit
