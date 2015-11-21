@@ -1,7 +1,9 @@
 class IndexController < ApplicationController
 
   def index
-    @content = PageContent.find(1)
+    @about_conference_content = PageContent.find(1)
+    @why_kfu_content = PageContent.find(2)
+    @org_comitee_content = PageContent.find(3)
   end
 
   def contacts

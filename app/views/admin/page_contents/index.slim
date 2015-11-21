@@ -1,0 +1,11 @@
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Наполнение сайта
+  hr
+  - for content in @contents
+      h2 = "#{content.name} / #{content.name_en}"
+      .page-content
+        p = raw(content.content)
+        p = raw(content.content_en)
+      = link_to 'Редактировать', edit_admin_page_content_path(content)
+      hr

@@ -1,0 +1,24 @@
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Редактировать содержимое
+  = form_for @content, url: admin_page_content_path, method: :put do |f|
+    = f.label 'Заголовок(рус)'
+    br
+    = f.text_field :name
+    br
+    = f.label 'Заголовок(eng)'
+    br
+    = f.text_field :name_en
+    br
+    => f.check_box :hidden
+    = f.label 'Скрытый'
+    br
+    = f.label 'Содержимое(рус)'
+    br
+    = f.cktext_area :content
+    br
+    = f.label 'Содержимое(eng)'
+    br
+    = f.cktext_area :content_en
+    br
+    = f.submit

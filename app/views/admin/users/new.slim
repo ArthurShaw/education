@@ -1,36 +1,37 @@
-h1 Добавить нового администратора
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Добавить нового администратора
+  = form_for @admin, url: admin_users_path, method: :create do |f|
+    = f.label t('user_params.first_name')
+    br
+    = f.text_field :first_name, autofocus: true
+    br
+    = f.label t('user_params.last_name')
+    br
+    = f.text_field :last_name, autofocus: true
+    br
+    = f.label :email
+    br
+    = f.email_field :email
+    br
+    = f.label :password
+    - if @minimum_password_length
+      em = @minimum_password_length + 'characters minimum'
+    br
+    = f.password_field :password, autocomplete: 'off'
+    br
+    = f.label :password_confirmation
+    br
+    = f.password_field :password_confirmation, autocomplete: 'off'
+    p Разрешения
+    = check_box_tag 'roles[publisher]', true, false
+    | Возможность публиковать новости
+    br
+    = check_box_tag 'roles[speakers_reviewer]', true, false
+    | Возможность просматривать доклады
+    br
+    = check_box_tag 'roles[listeners_reviewer]', true, false
+    | Возможность просматривать заявки слушателей
 
-= form_for @admin, url: admin_users_path, method: :create do |f|
-  = f.label t('user_params.first_name')
-  br
-  = f.text_field :first_name, autofocus: true
-  br
-  = f.label t('user_params.last_name')
-  br
-  = f.text_field :last_name, autofocus: true
-  br
-  = f.label :email
-  br
-  = f.email_field :email
-  br
-  = f.label :password
-  - if @minimum_password_length
-    em = @minimum_password_length + 'characters minimum'
-  br
-  = f.password_field :password, autocomplete: 'off'
-  br
-  = f.label :password_confirmation
-  br
-  = f.password_field :password_confirmation, autocomplete: 'off'
-  p Разрешения
-  = check_box_tag 'roles[publisher]', true, false
-  | Возможность публиковать новости
-  br
-  = check_box_tag 'roles[speakers_reviewer]', true, false
-  | Возможность просматривать доклады
-  br
-  = check_box_tag 'roles[listeners_reviewer]', true, false
-  | Возможность просматривать заявки слушателей
-
-  br
-  = f.submit
+    br
+    = f.submit

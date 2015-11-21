@@ -22,17 +22,14 @@ Rails.application.routes.draw do
     resources :articles do
     end
 
-    resources :page_contents do
-    end
-
     namespace :admin do
       resources :users do
       end
       resources :sponsor_categories do
-
       end
       resources :sponsors do
-
+      end
+      resources :page_contents do
       end
     end
   end
