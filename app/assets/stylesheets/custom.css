@@ -792,7 +792,10 @@ nav {
 
     display: table;
 
+    width: 100%;
+
 }
+
 
 .first_line {
 
@@ -3061,11 +3064,12 @@ a.contact_icon {
 
     .firstrow {
 
-        display: block;
+        display: table;
 
         height: auto;
 
     }
+
 
     .centred > .first_line {
 

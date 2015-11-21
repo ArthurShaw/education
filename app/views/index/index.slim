@@ -61,17 +61,16 @@ header#home_slider.carousel.slide
           p = raw(@about_conference_content.name)
         .first_description.wow.fadeInDown
           p = raw(@about_conference_content.content)
-      .wow.fadeIn.first_image
+      .first_image
     .clear
 - unless @why_kfu_content.hidden
   #why_kfu
-    .speakers
-      .mask
-        .first_line
-        .first_title
-          p = raw(@why_kfu_content.name)
-        .first_description
-          p = raw(@why_kfu_content.content)
+    .firstrow.black
+      .first_line.wow.fadeInDown
+      .first_title.wow.fadeInDown
+        p = raw(@why_kfu_content.name)
+      .first_description.wow.fadeInDown
+        p = raw(@why_kfu_content.content)
     .clear
 - unless @org_comitee_content.hidden
   #org
@@ -82,7 +81,7 @@ header#home_slider.carousel.slide
           p = raw(@org_comitee_content.name)
         .first_description.wow.fadeInDown
           p = raw(@org_comitee_content.content)
-      .wow.fadeIn.speakers_image
+      .speakers_image
       .clear
 footer
   .mini_gap

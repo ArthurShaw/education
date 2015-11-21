@@ -440,4 +440,21 @@ footer .first_line,
 
     background: transparent !important;
 
-} 
+}
+
+@media all {
+
+    .firstrow.black {
+        display: table;
+    }
+
+    .black {
+        background-color: #353739 !important;
+        color: white !important;
+    }
+
+    .black .first_title {
+        color: white;
+        padding-top: 20px;
+    }
+}
