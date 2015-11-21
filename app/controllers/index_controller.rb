@@ -5,6 +5,7 @@ class IndexController < ApplicationController
     @why_kfu_content = PageContent.find(2)
     @org_comitee_content = PageContent.find(3)
     @sponsor_categories = SponsorCategory.all
+    @special_quests = SpecialGuest.all
   end
 
   def contacts
