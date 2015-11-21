@@ -1,5 +1,6 @@
 class Admin::SectionsController < ApplicationController
   before_action :check_permission
+  before_action :find_section, only: :destroy
 
   def index
     @sections = Section.all
@@ -20,7 +21,6 @@ class Admin::SectionsController < ApplicationController
   end
 
   def destroy
-    @section = Section.find(params[:id])
     @section.destroy
     redirect_to admin_sections_path
   end
@@ -31,10 +31,13 @@ class Admin::SectionsController < ApplicationController
     params.require(:section).permit(:title)
   end
 
+  def find_section
+    @section = Section.find(params[:id])
+    render_404 unless @section
+  end
+
   def check_permission
-    unless current_user.has_role? :admin
-      render 'errors/403', :status => 403
-    end
+    render_403 unless current_user.has_role? :admin
   end
 
 end

@@ -86,6 +86,19 @@ ActiveRecord::Schema.define(version: 20151121114905) do
     t.string "title", null: false
   end
 
+  create_table "special_guests", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "middle_name"
+    t.text     "about"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
   create_table "sponsor_categories", force: :cascade do |t|
     t.string "name",                 null: false
     t.string "name_en", default: "", null: false

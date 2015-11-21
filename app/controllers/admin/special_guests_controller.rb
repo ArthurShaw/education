@@ -1,5 +1,7 @@
 class Admin::SpecialGuestsController < ApplicationController
+
   before_action :check_permission
+  before_action :find_special_guest, only: [:update, :destroy, :edit]
 
   def new
     @special_guest = SpecialGuest.new
@@ -10,7 +12,6 @@ class Admin::SpecialGuestsController < ApplicationController
   end
 
   def edit
-    @special_guest = SpecialGuest.find(params[:id])
   end
 
   def create
@@ -23,23 +24,24 @@ class Admin::SpecialGuestsController < ApplicationController
   end
 
   def update
-    @special_guest = SpecialGuest.find(params[:id])
     @special_guest.update(special_guests_params)
     redirect_to admin_special_guests_path
   end
 
   def destroy
-    @special_guest = SpecialGuest.find(params[:id])
     @special_guest.destroy
     redirect_to admin_special_guests_path
   end
 
   private
 
+  def find_special_guest
+    @special_guest = SpecialGuest.find(params[:id])
+    render_404 unless @special_guest
+  end
+
   def check_permission
-    unless user_signed_in? and current_user.has_role? :admin
-      render 'errors/403', :status => 403
-    end
+    render_403 unless current_user.has_role? :admin
   end
 
   def special_guests_params

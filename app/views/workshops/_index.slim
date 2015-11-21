@@ -13,7 +13,8 @@ h2
     .panel-body
       = raw(workshop.description)
       br
-      p = "Секция: #{workshop.section.title}"
+      - unless workshop.section.nil?
+        p = "Секция: #{workshop.section.title}"
       p = workshop.created_at
       - if current_user.has_role? :speaker
         = link_to t('workshops.edit'), edit_workshop_path(workshop)
