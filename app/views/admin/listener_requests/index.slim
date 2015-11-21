@@ -1,0 +1,25 @@
+= render :partial => 'users/admin_menu'
+
+.col-lg-9
+  h2 Заявки
+  = link_to t('listener_requests.excel_download'), excel_admin_listener_requests_path, class: 'btn btn-default'
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th = t('listener_requests.first_name')
+        th = t('listener_requests.last_name')
+        th = t('listener_requests.middle_name')
+        th = t('listener_requests.email')
+        th = t('listener_requests.country')
+        th = t('listener_requests.city')
+        th = t('listener_requests.phone')
+    tbody
+      - for request in @requests
+        tr
+          td = request.first_name
+          td = request.last_name
+          td = request.middle_name
+          td = request.email
+          td = request.country
+          td = request.city
+          td = request.phone
