@@ -1,6 +1,8 @@
 h1 Панель администратора
 hr
 .col-lg-3.admin-menu
+  =>link_to 'Заявки слушателей', admin_listener_requests_path, class: 'btn btn-default'
+  br
   =>link_to 'Управление аккаунтами', admin_users_path, class: 'btn btn-default'
   br
   =>link_to 'Наполнение сайта', admin_page_contents_path, class: 'btn btn-default'
