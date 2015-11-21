@@ -29,7 +29,7 @@ header#home_slider.carousel.slide
           h2.wow.fadeInUp
             | The world's most successful designers
           .buttons
-            a.wow.fadeInUp.btn.eventime_button href="#speakers_menu" role="button"
+            a.wow.fadeInUp.btn.eventime_button href="#special_guests_menu" role="button"
               | Speakers
     .item
       /! Set the first background image using inline CSS below.
@@ -63,15 +63,75 @@ header#home_slider.carousel.slide
           p = raw(@about_conference_content.content)
       .first_image
     .clear
-- unless @why_kfu_content.hidden
-  #why_kfu
-    .firstrow.black
-      .first_line.wow.fadeInDown
-      .first_title.wow.fadeInDown
-        p = raw(@why_kfu_content.name)
-      .first_description.wow.fadeInDown
-        p = raw(@why_kfu_content.content)
-    .clear
+
+
+/- unless @why_kfu_content.hidden
+/  #why_kfu
+/    .firstrow.black
+/      .first_line.wow.fadeInDown
+/      .first_title.wow.fadeInDown
+/        p = raw(@why_kfu_content.name)
+/      .first_description.wow.fadeInDown
+/        p = raw(@why_kfu_content.content)
+/    .clear
+
+
+#special_guests_menu
+  .speakers.wow.fadeIn
+    .mask
+      .first_line
+      .first_title Почетные гости
+      .first_description
+        p Описание почетных гостей. Они крутые и всё такое
+      .gap
+      #special_guests.photo_carousel.carousel.slide.wow.fadeInUp
+        /! Indicators
+        .carousel-indicators
+          .photo_carousel_ind.active data-slide-to="1" data-target="#special_guests"
+          - for i in (2..(@special_quests.size / 2 + @special_quests.size % 2))
+            .photo_carousel_ind data-slide-to="#{i+1}" data-target="#special_guests"
+        /! Wrapper for Slides
+        .carousel-inner
+          .item.active
+            - for guest in @special_quests[0,2]
+              .photo_carousel_container
+                figure.eventime_img
+                  img alt="img09" src="#{guest.avatar.url}"
+                  figcaption
+                    h2
+                      | #{guest.first_name}
+                      span<
+                        | #{guest.last_name}
+                    p
+                      | #{guest.about}
+                    a data-toggle="modal" href="#myModal"
+                      | View more
+          - @special_quests.last(@special_quests.size - 2).each_slice(2) do |slice|
+            .item
+              - for guest in slice
+                .photo_carousel_container
+                  figure.eventime_img
+                    img alt="img09" src="#{guest.avatar.url}"
+                    figcaption
+                      h2
+                        | #{guest.first_name}
+                        span<
+                          | #{guest.last_name}
+                      p
+                        | #{guest.about}
+                      a data-toggle="modal" href="#myModal"
+                        | View more
+
+
+        a.left_arrow data-slide="prev" href="#special_guests"
+          svg height="48" width="26px"
+            polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7"
+        a.right_arrow data-slide="next" href="#special_guests"
+          svg height="48" width="26px"
+            polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
+      .gap
+
+
 - unless @org_comitee_content.hidden
   #org
     .firstrow
@@ -83,6 +143,8 @@ header#home_slider.carousel.slide
           p = raw(@org_comitee_content.content)
       .speakers_image
       .clear
+
+
 footer
   .mini_gap
   .first_line
