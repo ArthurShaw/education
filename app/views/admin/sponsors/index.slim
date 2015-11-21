@@ -6,7 +6,16 @@
   - if @sponsor_categories.size > 0
     => link_to 'Добавить cпонсора', new_admin_sponsor_path, class: 'btn btn-default'
   - for category in @sponsor_categories
-    h3 = category.name
-    small = link_to 'Удалить категорию', new_admin_sponsor_path, class: 'btn btn-default'
+    h3 = "#{category.name} / #{category.name_en}"
+    => link_to 'Редактировать категорию', edit_admin_sponsor_category_path(category), class: 'btn btn-default'
+    => link_to 'Удалить категорию', admin_sponsor_category_path(category), method: :delete, class: 'btn btn-default'
+    br
+    br
     - for sponsor in category.sponsors
+      a> href="#{sponsor.url}"
+        img alt="#{sponsor.name}" src="#{sponsor.image.url}"
       p = sponsor.name
+      => link_to 'Редактировать', edit_admin_sponsor_path(sponsor), class: 'btn btn-default'
+      = link_to 'Удалить', admin_sponsor_path(sponsor), method: :delete, class: 'btn btn-default'
+      hr
+
