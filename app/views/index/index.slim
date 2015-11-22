@@ -58,9 +58,9 @@ header#home_slider.carousel.slide
       .centred
         .first_line.wow.fadeInDown
         .first_title.wow.fadeInDown
-          p = raw(@about_conference_content.name)
+          p = raw(translate_field(@about_conference_content, :name))
         .first_description.wow.fadeInDown
-          p = raw(@about_conference_content.content)
+          p = raw(translate_field(@about_conference_content, :content))
       .first_image
     .clear
 
@@ -93,17 +93,17 @@ header#home_slider.carousel.slide
         /! Wrapper for Slides
         .carousel-inner
           .item.active
-            - for guest in @special_quests[0,2]
+            - for guest in @special_quests[0, 2]
               .photo_carousel_container
                 figure.eventime_img
                   img alt="img09" src="#{guest.avatar.url}"
                   figcaption
                     h2
-                      | #{guest.first_name}
+                      | #{translate_field(guest, :first_name)}
                       span<
-                        | #{guest.last_name}
+                        | #{translate_field(guest, :last_name)}
                     p
-                      | #{guest.about}
+                      | #{translate_field(guest, :about)}
                     a data-toggle="modal" href="#myModal"
                       | View more
           - @special_quests.last(@special_quests.size - 2).each_slice(2) do |slice|
@@ -114,11 +114,11 @@ header#home_slider.carousel.slide
                     img alt="img09" src="#{guest.avatar.url}"
                     figcaption
                       h2
-                        | #{guest.first_name}
+                        | #{translate_field(guest, :first_name)}
                         span<
-                          | #{guest.last_name}
+                          | #{translate_field(guest, :last_name)}
                       p
-                        | #{guest.about}
+                        | #{translate_field(guest, :about)}
                       a data-toggle="modal" href="#myModal"
                         | View more
 
@@ -138,9 +138,9 @@ header#home_slider.carousel.slide
       .centred
         .first_line.wow.fadeInDown
         .first_title.wow.fadeInDown
-          p = raw(@org_comitee_content.name)
+          p = raw(translate_field(@org_comitee_content, :name))
         .first_description.wow.fadeInDown
-          p = raw(@org_comitee_content.content)
+          p = raw(translate_field(@org_comitee_content, :content))
       .speakers_image
       .clear
 
