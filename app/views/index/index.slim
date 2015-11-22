@@ -89,7 +89,7 @@ header#home_slider.carousel.slide
         .carousel-indicators
           .photo_carousel_ind.active data-slide-to="1" data-target="#special_guests"
           - for i in (2..(@special_quests.size / 2 + @special_quests.size % 2))
-            .photo_carousel_ind data-slide-to="#{i+1}" data-target="#special_guests"
+            .photo_carousel_ind data-slide-to="#{i}" data-target="#special_guests"
         /! Wrapper for Slides
         .carousel-inner
           .item.active

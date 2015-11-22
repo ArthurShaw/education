@@ -22,5 +22,15 @@ module FossConf
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance|
+      if html_tag =~ /<(input|label|textarea|select)/
+        html_field = Nokogiri::HTML::DocumentFragment.parse(html_tag)
+        html_field.children.add_class 'error'
+        html_field.to_s.html_safe
+      else
+        html_tag
+      end
+    }
   end
 end

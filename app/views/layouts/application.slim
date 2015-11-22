@@ -14,11 +14,11 @@ html
     == csrf_meta_tags
 
   body
-    -if user_signed_in? and current_user.has_role? :admin
+    - if admin_controller?
       == render 'layouts/admin_header'
-    -elsif current_page?(root_path) or current_page?('/')
+    - elsif current_page?(root_path) or current_page?('/')
       == render 'layouts/index_header'
-    -else
+    - else
       == render 'layouts/multi_header'
     == yield
     == render :partial => 'layouts/footer'
