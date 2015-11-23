@@ -173,7 +173,11 @@ $(window).load(function () {
         $(this).remove()
     })
 });
-wow = new WOW({boxClass: "wow", animateClass: "animated", offset: 0, mobile: !1, live: !0}), wow.init();
+
+$(document).on("page:change", function() {
+    wow = new WOW({boxClass: "wow", animateClass: "animated", offset: 0, mobile: !1, live: !0}), wow.init();
+});
+
 $("#home_slider").carousel({interval: 7e3}), $("#testimonials").carousel({interval: 5e4}), $(".photo_carousel").carousel({interval: 9e3}), $("#sh_carousel").carousel({
     pause: !0,
     interval: !1

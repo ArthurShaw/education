@@ -8,92 +8,54 @@ Assigned to:    http://themeforest.net/user/chaykovskiy
 Primary use:    Eventime HTML Template 
 -------------------------------------------------------------------*/
 
-
-
 /*!------------------------------ Main color of template #1ffcff ------------------------------*/
 
-.navbar-nav>.active>a,
-
+.navbar-nav > .active > a,
 .navbar ul li a.active,
-
-.navbar-nav>li>a:hover,
-
+.navbar-nav > li > a:hover,
 .description #clock,
-
 .arrow_right:hover,
-
 .arrow_left:hover,
-
 .photo_carousel figure figcaption,
-
 .photo_carousel figure h2 span,
-
 .contact_icon,
-
 .footer .link:hover,
-
 a.navbar-brand:hover,
-
 .navbar_bg_dark .active a,
-
-
-.texticon, .nav .open>a,
-
+.texticon, .nav .open > a,
 .count,
-
 .count_plus,
-
 .about_columns .fa,
-
 .about_columns h4,
-
 .contact a, .entry-meta span a:hover,
-
-.copyright span{
+.copyright span {
 
     color: #1ffcff;
 
 }
 
-
 .eventime_button::before, .dropdown-menu li a:hover,
-
 .eventime_button:hover::before,
+.contact_icon:hover {
 
-.contact_icon:hover  {
-   
     background: #1ffcff;
 
 }
 
 .eventime_button,
-
 .eventime_button:hover,
-
 .first_line,
-
 #sh_carousel .carousel-indicators .active,
-
 .tabs_about .active a,
-
 .tabs_about .graybtn:hover,
-
 .schedule_date,
-
 .photo_carousel_ind.active,
-
 .testimonials_carousel,
-
 .contact_icon,
-
 .sponsor_basic,
-
 .sponsor_featured,
-
 figure.eventime_img figcaption::before,
-
 .eventime_modal .contact_icon:hover,
-
 .center_line {
 
     border-color: #1ffcff;
@@ -103,100 +65,63 @@ figure.eventime_img figcaption::before,
 /* Gradients */
 
 .reservation,
-
 footer,
-
-.navbar-toggle{
+.navbar-toggle {
 
     background: #1ffcff;
-  
-    background: -moz-linear-gradient(-45deg,  #1ffcff 0%, #55f0b7 100%);
-   
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#1ffcff), color-stop(100%,#55f0b7));
-  
-    background: -webkit-linear-gradient(-45deg,  #1ffcff 0%,#55f0b7 100%);
-   
-    background: -o-linear-gradient(-45deg,  #1ffcff 0%,#55f0b7 100%);
-  
-    background: -ms-linear-gradient(-45deg,  #1ffcff 0%,#55f0b7 100%);
-  
-    background: linear-gradient(135deg,  #1ffcff 0%,#55f0b7 100%);
-  
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1ffcff', endColorstr='#55f0b7',GradientType=1 );
 
+    background: -moz-linear-gradient(-45deg, #1ffcff 0%, #55f0b7 100%);
+
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #1ffcff), color-stop(100%, #55f0b7));
+
+    background: -webkit-linear-gradient(-45deg, #1ffcff 0%, #55f0b7 100%);
+
+    background: -o-linear-gradient(-45deg, #1ffcff 0%, #55f0b7 100%);
+
+    background: -ms-linear-gradient(-45deg, #1ffcff 0%, #55f0b7 100%);
+
+    background: linear-gradient(135deg, #1ffcff 0%, #55f0b7 100%);
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1ffcff', endColorstr='#55f0b7', GradientType=1);
 
 }
-
 
 /*!------ SVG ------ */
 
 .photo_carousel .right_arrow svg:hover,
-
 .photo_carousel .left_arrow svg:hover,
-
 #sh_carousel .right_arrow svg:hover,
-
 #sh_carousel .left_arrow svg:hover,
-
 .light .right_arrow svg:hover,
-
 .light .left_arrow svg:hover,
-
 #home_slider .left_arrow,
-
 #home_slider .right_arrow {
 
     fill: #1ffcff;
 
 }
 
-
-
-
 /*!------------------------------ All light part color #fff ------------------------------*/
 
-
-
-
 .navbar,
-
 .navbar a,
-
 .description h2,
-
 .description h3,
-
 .details,
-
 .footer .link,
-
 .tab-content,
-
 .eventime_button,
-
 .tabs_about .active a,
-
 .mask .first_title,
-
 .mask .first_description,
-
 .photo_carousel figure h2,
-
 .reservation_button:hover,
-
-
 .reservation input[type=text]:focus,
-
 .reservation input[type=email]:focus,
-
 .reservation input[type=password]:focus,
-
 .navbar_bg_dark a, .blog_header p,
-
 .buttons a.active,
-
 .contact_information,
-
 .copyright {
 
     color: #fff;
@@ -204,7 +129,6 @@ footer,
 }
 
 .sponsor_basic,
-
 .sponsor_featured {
 
     outline-color: #fff;
@@ -217,7 +141,6 @@ footer,
 
 }
 
-
 .tabs_about .graybtn {
 
     border-color: #fff;
@@ -227,45 +150,26 @@ footer,
 /*!------ SVG ------ */
 
 .photo_carousel .right_arrow svg,
-
 .photo_carousel .left_arrow svg,
-
 #home_slider .left_arrow:hover,
-
 #home_slider .right_arrow:hover {
 
     fill: #fff;
 
 }
 
-
-
-
 /*!------------------------------ Black color #000 ------------------------------*/
 
-
-
-
 a,
-
 a:hover,
-
 .first_title,
-
 .panel a,
-
 .reservation,
-
 .reservation_button,
-
 .contact_icon:hover,
-
 footer,
-
-.navbar_bg .active a, .blog_button, 
-
+.navbar_bg .active a, .blog_button,
 .schedule_reservation,
-
 .panel-collapse p b {
 
     color: #000;
@@ -279,19 +183,12 @@ footer,
 }
 
 #preloader,
-
 .reservation_button:hover,
-
 .reservation input[type=text]:focus,
-
 .reservation input[type=email]:focus,
-
 .reservation input[type=password]:focus,
-
 .reservation input[type=submit]:hover,
-
 .navbar_bg_dark,
-
 .navbar-toggle .icon-bar {
 
     background-color: #000000;
@@ -299,31 +196,22 @@ footer,
 }
 
 .reservation .first_line,
-
 footer .first_line,
-
 .reservation input,
-
-.reservation_button  {
+.reservation_button {
 
     border-color: #000;
 
 }
+
 .registration_button {
     border-color: #000
 }
 
-
-
-
 /*!------------------------------ Gray color #838383 ------------------------------*/
 
-
-
 .graybtn,
-
 .accordion_right,
-
 .photo_carousel_ind {
 
     border-color: #838383;
@@ -332,11 +220,8 @@ footer .first_line,
 
 /*!------ SVG ------ */
 #sh_carousel .right_arrow svg,
-
 #sh_carousel .left_arrow svg,
-
 .light .right_arrow svg,
-
 .light .left_arrow svg {
 
     fill: #838383;
@@ -344,29 +229,18 @@ footer .first_line,
 }
 
 .graytxt,
-
 .panel-collapse p,
-
 .arrow_right,
-
 .arrow_left,
-
 .navbar_bg a {
 
     color: #838383;
 
 }
 
-
-
-
 /*!------------------------------ Background settings | Transparents in RGBA and Background images ------------------------------*/
 
-
-
-
 .nav_mask,
-
 .footer {
 
     background: rgba(0, 0, 0, 0.98);
@@ -383,7 +257,7 @@ footer .first_line,
 
     background-color: rgba(0, 0, 0, 0.55);
 
-    background-image:  asset-data-url('mask.svg');
+    background-image: url('mask.svg');
 
 }
 
@@ -395,43 +269,41 @@ footer .first_line,
 
 /*Images*/
 
-.speakers_image {
+.second_image:empty,
+.second_image {
 
-    background-image:  asset-data-url('featured_speaker.jpg');
+    background-image: url('featured_speaker.jpg');
 
 }
 
 .first_image:empty,
-
 .first_image {
 
-    background-image: asset-data-url('first.jpg');
+    background-image: url('first.jpg');
 
 }
 
 .tabs_about {
 
-    background-image:  asset-data-url('bg_about.jpg');
+    background-image: url('bg_about.jpg');
 
 }
 
 .speakers {
 
-    background-image:  asset-data-url('bg_speakers.jpg');
+    background-image: url('bg_speakers.jpg');
 
 }
 
 .contact {
 
-    background-image:  asset-data-url('bg_contact.jpg');
+    background-image: url('bg_contact.jpg');
 
 }
 
 /*---------------------- Additional Styles ---------------------*/
 
-
-.sponsor_featured, 
-
+.sponsor_featured,
 .sponsor_basic {
 
     outline: none !important;
@@ -476,4 +348,16 @@ input.error {
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
     overflow-y: auto;
+}
+
+.first_slide {
+    background-image: url('slider_1.jpg')
+}
+
+.second_slide {
+    background-image: url('slider_2.jpg')
+}
+
+.third_slide {
+    background-image: url('slider_3.jpg')
 }

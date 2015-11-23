@@ -3,7 +3,7 @@ header#home_slider.carousel.slide
   .carousel-inner
     .item.active
       /! Set the first background image using inline CSS below.
-      .fill style="background-image:url('images/slider_1.jpg');"
+      .fill.first_slide
       .fill_mask
         .description
           h2.details.wow.fadeInDown
@@ -23,7 +23,7 @@ header#home_slider.carousel.slide
               = t('registration')
     .item
       /! Set the first background image using inline CSS below.
-      .fill style="background-image:url('images/slider_2.jpg');"
+      .fill.second_slide
       .fill_mask
         .description
           h2.wow.fadeInUp
@@ -33,7 +33,7 @@ header#home_slider.carousel.slide
               | Speakers
     .item
       /! Set the first background image using inline CSS below.
-      .fill style="background-image:url('images/slider_3.jpg');"
+      .fill.third_slide
       .fill_mask
         .description
           h2.wow.fadeInUp
@@ -140,7 +140,7 @@ header#home_slider.carousel.slide
           p = raw(translate_field(@org_comitee_content, :name))
         .first_description.wow.fadeInDown
           p = raw(translate_field(@org_comitee_content, :content))
-      .speakers_image
+      .second_image
       .clear
 
 - if @special_quests.size > 0
