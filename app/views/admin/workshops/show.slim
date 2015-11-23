@@ -1,0 +1,11 @@
+h3 = "#{t('workshops.title')}: "
+= @workshop.title
+h3 = "#{t('workshops.section')}: "
+=@workshop.section.title
+h3 = "#{t('roles.speaker')}: "
+= "#{@workshop.user.first_name} #{@workshop.user.last_name}"
+h3 = "#{t('workshops.description')}: "
+= @workshop.title
+h3 = "#{t('workshops.status')}: "
+= @workshop.status
+= link_to 'Редактировать статус', edit_admin_workshop_path, class: 'btn btn-default'

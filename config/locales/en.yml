@@ -56,6 +56,7 @@ en:
     section: 'Section'
     add: 'New workshop'
     edit: 'Edit workshop'
+    status: 'Status'
   speaker_request: 'Send request'
   request_statuses:
       waiting: 'Waiting for confirmation'
@@ -91,6 +92,7 @@ en:
 
   roles:
     admin: 'Administrator'
+    speaker: 'Speaker'
     speakers_reviewer: 'speakers_reviewer'
     publisher: 'publisher'
     listeners_reviewer: 'listeners_reviewer'

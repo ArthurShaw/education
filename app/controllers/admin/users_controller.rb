@@ -11,7 +11,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def create
-    @admin = User.new(article_params)
+    @admin = User.new(user_params)
 
     roles = params[:roles]
     Role::ADMIN_ROLES.each do |role|
@@ -41,7 +41,7 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def article_params
+  def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
