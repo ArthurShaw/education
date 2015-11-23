@@ -1,0 +1,13 @@
+#modal_quest.modal.fade.eventime_modal.in
+  /.modal-backdrop.fade.in
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button#js-close-modal.close aria-hidden="true" data-dismiss="modal" type="button"
+          | x
+        h4.modal-title = "#{@person.first_name} #{@person.last_name}"
+        small = @person.about
+      .modal-body
+        img src="#{@person.avatar.url}" /
+        p описание
+      .modal-footer
