@@ -10,10 +10,15 @@ Rails.application.routes.draw do
 
     root 'index#index'
     get 'profile' => 'users#profile', as: 'profile'
-    get '/contacts' => 'index#contacts'
+    get 'contacts' => 'index#contacts'
 
     resources :listener_requests, only: [:new, :create] do
       get 'success' => 'listener_requests#success'
+    end
+
+    resources :special_guests, only: [:show] do
+      get 'speakers' => 'special_guests#speakers', :on => :collection
+      get 'guests' => 'special_guests#guests', :on => :collection
     end
 
     resources :articles
@@ -26,7 +31,7 @@ Rails.application.routes.draw do
       resources :special_guests
       resources :sections
       resources :listener_requests, only: [:index] do
-        get 'excel' => 'listener_requests#excel', on: :collection
+        get 'excel' => 'listener_requests#excel', :on => :collection
       end
     end
   end

@@ -1,0 +1,26 @@
+.antigap
+.speakers.wow.fadeIn
+  .mask
+    .first_line.wow.fadeInDown
+    .first_title.wow.fadeInDown
+      p Почетные гости
+    .first_description.wow.fadeInDown
+      p Удостоили нас своим присутствием:
+    .mini_gap
+
+    .photo_carousel
+      - if @guests.size > 0
+        - @guests.each_slice(2) do |slice|
+          .photo_carousel_container
+          - for guest in slice
+            figure.eventime_img
+              img alt="img09" src="#{guest.avatar.url}"
+              figcaption
+                h2
+                  | #{translate_field(guest, :first_name)}
+                  span<
+                    | #{translate_field(guest, :last_name)}
+                p = translate_field(guest, :about)
+
+          .mini_gap
+    .mini_gap

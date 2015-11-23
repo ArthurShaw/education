@@ -467,3 +467,7 @@ input.error {
     border: 3px solid black;
     border-radius: 0;
 }
+
+.mask p a {
+    color: white;
+}
