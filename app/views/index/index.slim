@@ -104,8 +104,7 @@ header#home_slider.carousel.slide
                           | #{translate_field(guest, :last_name)}
                       p
                         | #{translate_field(guest, :about)}
-                      a data-toggle="modal" href="#myModal"
-                        | View more
+                      = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle=>"modal"}, :remote => true
             - if @key_speakers.size > 2
               - @key_speakers.last(@key_speakers.size - 2).each_slice(2) do |slice|
                 .item
@@ -120,8 +119,7 @@ header#home_slider.carousel.slide
                               | #{translate_field(guest, :last_name)}
                           p
                             | #{translate_field(guest, :about)}
-                          a data-toggle="modal" href="#myModal"
-                            | View more
+                          = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle=>"modal"}, :remote => true
 
 
           a.left_arrow data-slide="prev" href="#key_speakers"
@@ -175,8 +173,7 @@ header#home_slider.carousel.slide
                           | #{translate_field(guest, :last_name)}
                       p
                         | #{translate_field(guest, :about)}
-                      a data-toggle="modal" href="#myModal"
-                        | View more
+                      = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle=>"modal"}, :remote => true
             - if @special_quests.size > 2
               - @special_quests.last(@special_quests.size - 2).each_slice(2) do |slice|
                 .item
@@ -191,8 +188,7 @@ header#home_slider.carousel.slide
                               | #{translate_field(guest, :last_name)}
                           p
                             | #{translate_field(guest, :about)}
-                          a data-toggle="modal" href="#myModal"
-                            | View more
+                          = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle=>"modal"}, :remote => true
 
 
           a.left_arrow data-slide="prev" href="#special_guests"
@@ -212,7 +208,7 @@ footer
     p Спонсоры
   - for sponsor_category in @sponsor_categories
     .first_description
-      p = sponsor_category.name
+      p = translate_field(sponsor_category, :name)
     .sponsor_box
       - for sponsor in sponsor_category.sponsors
         .sponsor_basic.wow.fadeIn
@@ -223,3 +219,5 @@ footer
   .gap
   .sponsor_box
 
+
+#js-modal-place

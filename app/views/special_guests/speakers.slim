@@ -13,14 +13,17 @@
         - @speakers.each_slice(2) do |slice|
           .photo_carousel_container
           - for guest in slice
-              figure.eventime_img
-                img alt="img09" src="#{guest.avatar.url}"
-                figcaption
-                  h2
-                    | #{translate_field(guest, :first_name)}
-                    span<
-                      | #{translate_field(guest, :last_name)}
-                  p = translate_field(guest, :about)
-
+            figure.eventime_img
+              img src="#{guest.avatar.url}"
+              figcaption
+                h2
+                  | #{translate_field(guest, :first_name)}
+                  span<
+                    | #{translate_field(guest, :last_name)}
+                p = translate_field(guest, :about)
+                = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle=>"modal"}, :remote => true
           .mini_gap
     .mini_gap
+
+#js-modal-place
+

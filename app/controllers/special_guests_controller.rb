@@ -9,7 +9,9 @@ class SpecialGuestsController < ApplicationController
   end
 
   def show
-
+    @person = SpecialGuest.find(params[:id])
+    render_404 unless @person
+    render :partial => 'special_guests/show'
   end
 
 end

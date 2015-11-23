@@ -21,6 +21,8 @@
                   span<
                     | #{translate_field(guest, :last_name)}
                 p = translate_field(guest, :about)
-
+                = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
           .mini_gap
     .mini_gap
+
+#js-modal-place
