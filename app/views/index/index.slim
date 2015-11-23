@@ -106,21 +106,22 @@ header#home_slider.carousel.slide
                       | #{translate_field(guest, :about)}
                     a data-toggle="modal" href="#myModal"
                       | View more
-          - @special_quests.last(@special_quests.size - 2).each_slice(2) do |slice|
-            .item
-              - for guest in slice
-                .photo_carousel_container
-                  figure.eventime_img
-                    img alt="img09" src="#{guest.avatar.url}"
-                    figcaption
-                      h2
-                        | #{translate_field(guest, :first_name)}
-                        span<
-                          | #{translate_field(guest, :last_name)}
-                      p
-                        | #{translate_field(guest, :about)}
-                      a data-toggle="modal" href="#myModal"
-                        | View more
+          - if @special_quests.size > 2
+            - @special_quests.last(@special_quests.size - 2).each_slice(2) do |slice|
+              .item
+                - for guest in slice
+                  .photo_carousel_container
+                    figure.eventime_img
+                      img alt="img09" src="#{guest.avatar.url}"
+                      figcaption
+                        h2
+                          | #{translate_field(guest, :first_name)}
+                          span<
+                            | #{translate_field(guest, :last_name)}
+                        p
+                          | #{translate_field(guest, :about)}
+                        a data-toggle="modal" href="#myModal"
+                          | View more
 
 
         a.left_arrow data-slide="prev" href="#special_guests"

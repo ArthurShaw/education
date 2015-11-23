@@ -6,10 +6,6 @@ class Admin::ListenerRequestsController < ApplicationController
     @requests = ListenerRequest.all
   end
 
-  def show
-
-  end
-
   def excel
     spreadsheet_name = 'Заявки слушателей'
 
