@@ -74,7 +74,62 @@ header#home_slider.carousel.slide
 /      .first_description.wow.fadeInDown
 /        p = raw(@why_kfu_content.content)
 /    .clear
+- if @key_speakers.size > 0
+  #key_speakers_menu
+    .speakers.wow.fadeIn
+      .mask
+        .first_line
+        .first_title Ключевые спикеры
+        .first_description
+          p Описание ключевых спикеров. Они крутые и всё такое
+        .gap
+        #key_speakers.photo_carousel.carousel.slide.wow.fadeInUp
+          /! Indicators
+          .carousel-indicators
+            .photo_carousel_ind.active data-slide-to="1" data-target="#key_speakers"
+            - for i in (2..(@key_speakers.size / 2 + @key_speakers.size % 2))
+              .photo_carousel_ind data-slide-to="#{i}" data-target="#key_speakers"
+          /! Wrapper for Slides
+          .carousel-inner
+            .item.active
+              - for guest in @key_speakers[0, 2]
+                .photo_carousel_container
+                  figure.eventime_img
+                    img alt="img09" src="#{guest.avatar.url}"
+                    figcaption
+                      h2
+                        | #{translate_field(guest, :first_name)}
+                        span<
+                          | #{translate_field(guest, :last_name)}
+                      p
+                        | #{translate_field(guest, :about)}
+                      a data-toggle="modal" href="#myModal"
+                        | View more
+            - if @key_speakers.size > 2
+              - @key_speakers.last(@key_speakers.size - 2).each_slice(2) do |slice|
+                .item
+                  - for guest in slice
+                    .photo_carousel_container
+                      figure.eventime_img
+                        img alt="img09" src="#{guest.avatar.url}"
+                        figcaption
+                          h2
+                            | #{translate_field(guest, :first_name)}
+                            span<
+                              | #{translate_field(guest, :last_name)}
+                          p
+                            | #{translate_field(guest, :about)}
+                          a data-toggle="modal" href="#myModal"
+                            | View more
 
+
+          a.left_arrow data-slide="prev" href="#key_speakers"
+            svg height="48" width="26px"
+              polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7"
+          a.right_arrow data-slide="next" href="#key_speakers"
+            svg height="48" width="26px"
+              polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
+        .gap
 
 - if @special_quests.size > 0
   #special_guests_menu

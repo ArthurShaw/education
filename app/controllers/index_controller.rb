@@ -5,7 +5,8 @@ class IndexController < ApplicationController
     @why_kfu_content = PageContent.find(2)
     @org_comitee_content = PageContent.find(3)
     @sponsor_categories = SponsorCategory.all
-    @special_quests = SpecialGuest.all
+    @special_quests = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:guest])
+    @key_speakers = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:speaker])
   end
 
   def contacts

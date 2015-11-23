@@ -1,11 +1,11 @@
 = render :partial => 'users/admin_menu'
 .col-lg-9
-  h2 Почетные гости
-  = link_to 'Добавить нового почетного гостя', new_admin_special_guest_path, class: 'btn btn-default'
+  h2 Почетные гости и ключевые спикеры
+  = link_to 'Добавить', new_admin_special_guest_path, class: 'btn btn-default'
   hr
   - for special_guest in @special_guests
 
-    h4 = "#{special_guest.first_name} #{special_guest.last_name} #{special_guest.middle_name}"
+    h4 = "#{special_guest.first_name} #{special_guest.last_name} #{special_guest.middle_name} (#{special_guest.guest_type})"
     h5 = "#{special_guest.first_name_en} #{special_guest.last_name_en} #{special_guest.middle_name_en}"
     p #{image_tag special_guest.avatar.url(:medium)}
     p = special_guest.about
