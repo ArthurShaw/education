@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   scope '(:locale)', :locale => /en|ru/ do
 
     devise_for :users, :controllers => {:registrations => 'registrations'}
-    resources :workshops
+    resources :workshops do
+      resources :comments
+    end
     resources :users, only: [:show]
 
     root 'index#index'
@@ -17,7 +19,6 @@ Rails.application.routes.draw do
     end
 
     resources :articles
-
     namespace :admin do
       resources :users, only: [:new, :index, :create, :destroy]
       resources :sponsor_categories
@@ -25,7 +26,11 @@ Rails.application.routes.draw do
       resources :page_contents
       resources :special_guests
       resources :sections
-      resources :workshops
+      resources :workshops do
+        put 'approve' => 'workshops#approve', on: :member
+        put 'deny' => 'workshops#deny', on: :member
+        resources :comments
+      end
       resources :listener_requests, only: [:index] do
         get 'excel' => 'listener_requests#excel', on: :collection
       end

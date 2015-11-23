@@ -13,6 +13,7 @@ ru:
   remember: 'Запомнить меня'
   forgot_password: 'Забыли пароль?'
   delete: 'Удалить'
+  comments: 'Комментарии'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'

@@ -1,12 +1,14 @@
 class Admin::WorkshopsController < ApplicationController
   before_action :check_permission
-  before_action :find_workshop, only: [:show, :edit, :update]
+  before_action :find_workshop, only: [:show, :edit, :update, :approve, :deny]
 
   def index
     @workshops = Workshop.all
   end
 
   def show
+    @comment = Comment.new
+    @comments = Comment.where(:workshop => @workshop)
   end
 
   def edit
@@ -20,10 +22,21 @@ class Admin::WorkshopsController < ApplicationController
     end
   end
 
+  def approve
+    @workshop.update(:status => Workshop.statuses[:confirmed])
+    redirect_to admin_workshop_path
+  end
+
+  def deny
+    @workshop.update(:status => Workshop.statuses[:denied])
+    redirect_to admin_workshop_path
+  end
+
+
   private
 
   def workshop_params
-    params.require(:workshop_params).permit(:title, :description, :status, :section_id)
+    params.require(:workshop).permit(:title, :description, :status, :section_id)
   end
 
   def find_workshop

@@ -1,12 +1,14 @@
 class WorkshopsController < ApplicationController
   before_action :check_permission
+  before_action :find_workshop, only: [:show, :edit, :update, :destroy]
 
   def index
     @workshops = Workshop.all
   end
 
   def show
-    @workshop = Workshop.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.where(:workshop => @workshop)
   end
 
   def new
@@ -14,7 +16,6 @@ class WorkshopsController < ApplicationController
   end
 
   def edit
-    @workshop = Workshop.find(params[:id])
   end
 
   def create
@@ -28,13 +29,11 @@ class WorkshopsController < ApplicationController
   end
 
   def update
-    @workshop = Workshop.find(params[:id])
     @workshop.update(workshop_params)
     redirect_to profile_path
   end
 
   def destroy
-    @workshop = Workshop.find(params[:id])
     @workshop.destroy
     redirect_to profile_path
   end
@@ -46,9 +45,13 @@ class WorkshopsController < ApplicationController
     params.require(:workshop).permit(:title, :description, :section_id)
   end
 
-  def check_permission
-    unless current_user.has_role? :speaker
-      render 'errors/403', :status => 403
-    end
+  def find_workshop
+    @workshop = Workshop.find(params[:id])
+    render_404 unless @workshop
   end
+
+  def check_permission
+    render_403 unless current_user.has_role? :speaker
+  end
+
 end

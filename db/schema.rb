@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123080203) do
+ActiveRecord::Schema.define(version: 20151123130159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20151123080203) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "text"
+    t.integer  "user_id"
+    t.integer  "workshop_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "title",       null: false
@@ -157,13 +165,15 @@ ActiveRecord::Schema.define(version: 20151123080203) do
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "status"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "section_id"
+    t.integer  "status",      default: 0, null: false
   end
 
   add_foreign_key "articles", "users", on_delete: :cascade
+  add_foreign_key "comments", "users"
+  add_foreign_key "comments", "workshops"
   add_foreign_key "sponsors", "sponsor_categories"
   add_foreign_key "workshops", "sections"
   add_foreign_key "workshops", "users"

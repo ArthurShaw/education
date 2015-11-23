@@ -1,12 +1,15 @@
 = render :partial => 'users/admin_menu'
 
 .col-lg-9
-  h2 Редактировать спонсора
-  = form_for @workshop, url: admin_workshop__path, method: :put do |f|
+  h2 Редактировать статус доклада
+  = form_for @workshop, url: admin_workshop_path, method: :put do |f|
     = f.label t('workshops.title')
+    br
+    =@workshop.section.title
     br
     = f.label t('workshops.status')
     br
-    = f.select_tag (:status, ['На рассмотрении', 1], ['Принято' 1], ['Отклонено', 1])
+    = f.select(:status, [['На рассмотрении', :waiting_confirmation], ['Одобрено', :confirmed], ['Отклонено', :denied]])
+    br
     br
     = f.submit

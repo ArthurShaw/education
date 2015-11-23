@@ -34,6 +34,7 @@ en:
   remember: 'Remember me'
   forgot_password: 'Forgot password?'
   delete: 'Delete'
+  comments: 'Comments'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'
