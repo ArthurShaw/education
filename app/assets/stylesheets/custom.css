@@ -2212,7 +2212,7 @@ figure.eventime_img:hover img {
 
 .reservation form {
 
-    margin-left: 35%;
+    margin-left: 9%;
 
     padding-bottom: 50px;
 
@@ -2413,11 +2413,11 @@ figure.eventime_img:hover img {
 }
 input.reservation_button {
 
-    width: 38%;
+    width: 30%;
 
     margin-top: 30px;
 
-    margin-left: 2.5%;
+    margin-left: 31.4%;
 
     background: transparent;
 
@@ -3310,7 +3310,10 @@ a.contact_icon {
 
     }
 
-    .reservation input[type="text"] {
+    .reservation input[type="text"],
+    .reservation input[type="email"],
+    .reservation input[type="password"],
+    .reservation input[type="file"] {
 
         width: 90%;
 

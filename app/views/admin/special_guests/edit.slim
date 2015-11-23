@@ -1,7 +1,11 @@
 = render :partial => 'users/admin_menu'
 .col-lg-9
-  h2 Редактирование почетного гостя
+  h2 Редактирование ключевой личности
   = form_for @special_guest, url: admin_special_guest_path, method: :put do |f|
+    = f.label 'Тип'
+    br
+    = f.select(:guest_type, [['Гость', :guest], ['Спикер', :speaker]])
+    br
     = f.label t('user_params.first_name')
     br
     = f.text_field :first_name, autofocus: true

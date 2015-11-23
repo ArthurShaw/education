@@ -11,7 +11,7 @@ ru:
   update: 'Обновить'
   confirm: 'Подтвердить'
   remember: 'Запомнить меня'
-  forgot_password: 'Забыли пароль'
+  forgot_password: 'Забыли пароль?'
   delete: 'Удалить'
   user_params:
       first_name: 'Имя'

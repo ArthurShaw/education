@@ -15,26 +15,33 @@ nav.navbar.navbar-fixed-top.nav_mask
         | CONFERENCE
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
-        li
-          a href="#about_menu"
-            | About
-        li
-          a href="#schedule_menu"
-            | Schedule
-        li
-          a href="#speakers_menu"
-            | Speakers
-        li
-          a href="#contact_menu"
-            | Contact
+        /li
+        /  a href="#about_menu"
+        /    | About
+        /li
+        /  a href="#schedule_menu"
+        /    | Schedule
+        /li
+        /  a href="#speakers_menu"
+        /    | Speakers
+        /li
+        /  a href="#contact_menu"
+        /    | Contact
         - if user_signed_in?
           li
-            == link_to current_user.email, profile_path
+            == link_to 'Профиль', profile_path
           li
             == link_to 'Выйти', destroy_user_session_path, method: :delete
         - else
-          li
-            == link_to 'Зарегистрироваться', new_listener_request_path
+          li.dropdown
+            a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button"
+              | Регистрация
+              span.caret
+            ul.dropdown-menu role="menu"
+              li
+                == link_to 'Как слушатель', new_listener_request_path
+              li
+                == link_to 'Как докладчик', new_user_registration_path
           li
             == link_to 'Войти', new_user_session_path
 /! /.nav-collapse

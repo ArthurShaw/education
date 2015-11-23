@@ -458,3 +458,12 @@ footer .first_line,
         padding-top: 20px;
     }
 }
+
+input.error {
+    background-color: #DD6666 !important;
+}
+
+.registration-switch {
+    border: 3px solid black;
+    border-radius: 0;
+}

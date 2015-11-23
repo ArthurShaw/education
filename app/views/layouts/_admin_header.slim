@@ -16,17 +16,10 @@ nav.navbar.navbar-fixed-top.nav_mask
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
         li
-          =link_to 'Articles', articles_path
-        li
-          a href="#schedule_menu"
-            | Schedule
-        li
-          =link_to 'Users', admin_users_path
-        li
-          =link_to 'Listeners', listener_requests_path
+          =link_to '< Назад к сайту', root_path
         - if user_signed_in?
           li
-            == link_to 'admin', profile_path
+            == link_to 'Профиль', profile_path
           li
             == link_to 'Выйти', destroy_user_session_path, method: :delete
         - else
