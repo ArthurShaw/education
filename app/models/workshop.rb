@@ -1,5 +1,6 @@
 class Workshop < ActiveRecord::Base
   belongs_to :user
+  belongs_to :special_guest
   belongs_to :section
   validates :title, :description, presence: true
 

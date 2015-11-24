@@ -23,15 +23,15 @@
     = f.label :password_confirmation
     br
     = f.password_field :password_confirmation, autocomplete: 'off'
-    p Разрешения
-    = check_box_tag 'roles[publisher]', true, false
-    | Возможность публиковать новости
-    br
-    = check_box_tag 'roles[speakers_reviewer]', true, false
-    | Возможность просматривать доклады
-    br
-    = check_box_tag 'roles[listeners_reviewer]', true, false
-    | Возможность просматривать заявки слушателей
+    /p Разрешения
+    /= check_box_tag 'roles[publisher]', true, false
+    /| Возможность публиковать новости
+    /br
+    /= check_box_tag 'roles[speakers_reviewer]', true, false
+    /| Возможность просматривать доклады
+    /br
+    /= check_box_tag 'roles[listeners_reviewer]', true, false
+    /| Возможность просматривать заявки слушателей
 
     br
     = f.submit

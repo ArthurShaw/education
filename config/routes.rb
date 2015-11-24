@@ -23,7 +23,8 @@ Rails.application.routes.draw do
       get 'guests' => 'special_guests#guests', :on => :collection
     end
 
-    resources :articles
+    # resources :articles
+
     namespace :admin do
       resources :users, only: [:new, :index, :create, :destroy]
       resources :sponsor_categories
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
       resources :page_contents
       resources :special_guests
       resources :sections
+      resources :events
       resources :workshops do
         put 'approve' => 'workshops#approve', on: :member
         put 'deny' => 'workshops#deny', on: :member
