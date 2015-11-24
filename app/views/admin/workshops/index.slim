@@ -18,12 +18,20 @@
           td = link_to 'Посмотреть', admin_workshop_path(workshop), class: 'btn btn-default'
 
   h2 Доклады участников
-
+  /h4 Секции:
+  /=< link_to 'Все', admin_workshops_path, class: 'btn btn-default'
+  /- for section in @sections
+  /  =< link_to section.title, section_admin_workshops_path(section), class: 'btn btn-default'
+  /hr
+  /h4 Статус:
+  /=< link_to 'Все', admin_workshops_path, class: 'btn btn-default'
+  / link_to 'Одобренные', status_admin_workshops_path()
   table.table.table-striped.table-hover
     thead
       tr
         th = t('workshops.title')
         th = t('workshops.section')
+        th = t('workshops.status')
         th = t('roles.speaker')
         th = t('user_params.country')
         th = t('user_params.city')
@@ -33,6 +41,7 @@
         tr
           td = workshop.title
           td = workshop.section.title
+          td = workshop.status
           td = "#{workshop.user.first_name} #{workshop.user.last_name}"
           td = workshop.user.country
           td = workshop.user.city
