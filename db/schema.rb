@@ -57,6 +57,10 @@ ActiveRecord::Schema.define(version: 20151124102034) do
     t.string  "title_en",       default: "", null: false
     t.string  "description_en", default: "", null: false
     t.integer "workshop_id"
+  end
+
+  create_table "events_sections", id: false, force: :cascade do |t|
+    t.integer "event_id"
     t.integer "section_id"
   end
 
@@ -180,7 +184,6 @@ ActiveRecord::Schema.define(version: 20151124102034) do
   add_foreign_key "articles", "users", on_delete: :cascade
   add_foreign_key "comments", "users"
   add_foreign_key "comments", "workshops"
-  add_foreign_key "events", "sections"
   add_foreign_key "events", "workshops"
   add_foreign_key "sponsors", "sponsor_categories"
   add_foreign_key "workshops", "sections"

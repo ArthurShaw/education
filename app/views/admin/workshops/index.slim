@@ -1,7 +1,7 @@
 = render :partial => 'users/admin_menu'
 .col-lg-9
   h2 Доклады ключевых спикеров
-
+  = link_to 'Добавить', new_admin_workshop_path, class: 'btn btn-default'
   table.table.table-striped.table-hover
     thead
       tr
