@@ -34,6 +34,9 @@ Rails.application.routes.draw do
       resources :workshops do
         put 'approve' => 'workshops#approve', on: :member
         put 'deny' => 'workshops#deny', on: :member
+        collection do
+          get 'section=:section_id' => 'workshops#index', as: 'section'
+        end
         resources :comments
       end
       resources :listener_requests, only: [:index] do

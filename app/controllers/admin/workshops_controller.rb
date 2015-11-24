@@ -3,7 +3,13 @@ class Admin::WorkshopsController < ApplicationController
   before_action :find_workshop, only: [:show, :edit, :update, :approve, :deny]
 
   def index
-    @workshops = Workshop.all
+    @sections = Section.all
+    section_params = params[:section_id]
+    unless section_params.nil?
+      @workshops = Workshop.where(section_id: section_params)
+    else
+      @workshops = Workshop.all
+    end
   end
 
   def show
@@ -23,7 +29,8 @@ class Admin::WorkshopsController < ApplicationController
   end
 
   def approve
-    @workshop.update(:status => Workshop.statuses[:confirmed])
+    @status = Workshop.statuses[:confirmed]
+    @workshop.update(@status)
     redirect_to admin_workshop_path
   end
 
