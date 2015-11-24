@@ -5,11 +5,25 @@ class Admin::WorkshopsController < ApplicationController
   def index
     @sections = Section.all
     section_params = params[:section_id]
-    unless section_params.nil?
-      @workshops = Workshop.where(section_id: section_params)
+    @workshops_special =  Workshop.where.not('workshops.special_guest_id' => nil)
+    @workshops_usual = Workshop.where.not('workshops.user_id' => nil)
+  end
+
+  def new
+    @workshop = Workshop.new
+  end
+
+  def create
+    @workshop = Workshop.create(workshop_params)
+    if @workshop
+      redirect_to admin_workshops_path
     else
-      @workshops = Workshop.all
+      render 'new'
     end
+  end
+
+  def destroy
+
   end
 
   def show
@@ -29,8 +43,7 @@ class Admin::WorkshopsController < ApplicationController
   end
 
   def approve
-    @status = Workshop.statuses[:confirmed]
-    @workshop.update(@status)
+    @workshop.update(:status => Workshop.statuses[:confirmed])
     redirect_to admin_workshop_path
   end
 
@@ -39,11 +52,10 @@ class Admin::WorkshopsController < ApplicationController
     redirect_to admin_workshop_path
   end
 
-
   private
 
   def workshop_params
-    params.require(:workshop).permit(:title, :description, :status, :section_id)
+    params.require(:workshop).permit(:title, :title_en, :description, :description_en, :special_guest_id, :section_id)
   end
 
   def find_workshop

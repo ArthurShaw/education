@@ -7,7 +7,7 @@
 
     h4 = "#{admin.first_name} #{admin.last_name}"
     p = admin.email
-    - for role in admin.roles
-      p = t("roles.#{role.name}")
+    /- for role in admin.roles
+      /p = t("roles.#{role.name}")
     = link_to 'Удалить', admin_user_path(admin), method: :delete, class: 'btn btn-default'
     hr

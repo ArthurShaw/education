@@ -1,5 +1,22 @@
 = render :partial => 'users/admin_menu'
 .col-lg-9
+  h2 Доклады ключевых спикеров
+
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th = t('workshops.title')
+        th = t('workshops.section')
+        th = t('roles.speaker')
+        th
+    tbody
+      - for workshop in @workshops_special
+        tr
+          td = workshop.title
+          td = workshop.section.title
+          td = "#{workshop.special_guest.first_name} #{workshop.special_guest.last_name}"
+          td = link_to 'Посмотреть', admin_workshop_path(workshop), class: 'btn btn-default'
+
   h2 Доклады участников
   h4 Секции:
   =< link_to 'Все', admin_workshops_path, class: 'btn btn-default'
@@ -18,9 +35,9 @@
         th = t('roles.speaker')
         th = t('user_params.country')
         th = t('user_params.city')
-
+        th
     tbody
-      - for workshop in @workshops
+      - for workshop in @workshops_usual
         tr
           td = workshop.title
           td = workshop.section.title

@@ -1,0 +1,30 @@
+= render :partial => 'users/admin_menu'
+
+.col-lg-9
+  h2 Добавить доклад
+  = form_for @workshop, url: admin_workshops_path, method: :create do |f|
+    = f.label :'Докладчик'
+    br
+    = f.collection_select :special_guest_id, SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:speaker]), :id, :readable_name, {include_blank: true}
+    br
+    = f.label :'Название (рус)'
+    br
+    = f.text_field :title
+    br
+    = f.label :'Описание (рус)'
+    br
+    = f.text_area :description
+    br
+    = f.label :'Название (eng)'
+    br
+    = f.text_field :title_en
+    br
+    = f.label :'Описание (eng)'
+    br
+    = f.text_area :description_en
+    br
+    = f.label :'Секция'
+    br
+    = f.collection_select :section_id, Section.order(:title), :id, :title, {include_blank: true}
+    br
+    = f.submit t('confirm')

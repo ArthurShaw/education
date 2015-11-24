@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123130159) do
+ActiveRecord::Schema.define(version: 20151124102034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,12 +49,15 @@ ActiveRecord::Schema.define(version: 20151123130159) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "title",       null: false
-    t.string "description"
-    t.string "type"
-    t.date   "date"
-    t.time   "from"
-    t.time   "to"
+    t.string  "title",                       null: false
+    t.string  "description"
+    t.date    "date"
+    t.time    "from"
+    t.time    "to"
+    t.string  "title_en",       default: "", null: false
+    t.string  "description_en", default: "", null: false
+    t.integer "workshop_id"
+    t.integer "section_id"
   end
 
   create_table "listener_requests", force: :cascade do |t|
@@ -165,16 +168,22 @@ ActiveRecord::Schema.define(version: 20151123130159) do
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "section_id"
-    t.integer  "status",      default: 0, null: false
+    t.integer  "status",           default: 0,  null: false
+    t.integer  "special_guest_id"
+    t.string   "title_en",         default: "", null: false
+    t.text     "description_en",   default: "", null: false
   end
 
   add_foreign_key "articles", "users", on_delete: :cascade
   add_foreign_key "comments", "users"
   add_foreign_key "comments", "workshops"
+  add_foreign_key "events", "sections"
+  add_foreign_key "events", "workshops"
   add_foreign_key "sponsors", "sponsor_categories"
   add_foreign_key "workshops", "sections"
+  add_foreign_key "workshops", "special_guests"
   add_foreign_key "workshops", "users"
 end
