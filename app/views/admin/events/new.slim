@@ -1,0 +1,38 @@
+= render :partial => 'users/admin_menu'
+
+.col-lg-9
+  h2 Добавить событие
+  = form_for @event, url: admin_events_path, method: :create do |f|
+    = f.label :'Секция'
+    br
+    = f.collection_select :section_ids, Section.order(:is_main => :desc), :id, :title,{}, {:multiple => true}
+    br
+    = f.label :'Дата'
+    br
+    = f.date_select :date, {:use_month_names => %w(Январь Февраль Март Апрель Май Июнь Июль Август Сентябрь Октябрь Ноябрь Декабрь)}
+    br
+    = f.label :'Начало'
+    br
+    = f.time_select :from
+    br
+    = f.label :'Окончание'
+    br
+    = f.time_select :to
+    br
+    = f.label :'Название (рус)'
+    br
+    = f.text_field :title
+    br
+    = f.label :'Описание (рус)'
+    br
+    = f.text_area :description
+    br
+    = f.label :'Название (eng)'
+    br
+    = f.text_field :title_en
+    br
+    = f.label :'Описание (eng)'
+    br
+    = f.text_area :description_en
+    br
+    = f.submit

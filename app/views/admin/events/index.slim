@@ -3,3 +3,10 @@
 .col-lg-9
   h2 События
   = link_to 'Добавить', new_admin_event_path, class: 'btn btn-default'
+  - for event in @events
+    h3 = "#{event.title} / #{event.title_en}"
+    - for s in event.sections
+      = s.title
+    p = event.date
+    p = event.from
+    p = event.to

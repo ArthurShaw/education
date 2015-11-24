@@ -93,3 +93,9 @@ ru:
     city: 'Город'
     phone: 'Номер телефона'
     excel_download: 'Скачать Excel'
+
+  date:
+      order:
+        - "year"
+        - "month"
+        - "day"
