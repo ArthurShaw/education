@@ -3,7 +3,7 @@
   h4 Секции:
   =< link_to 'Все', admin_workshops_path, class: 'btn btn-default'
   - for section in @sections
-    =< link_to section.title, section_admin_workshops_path(section), class: 'btn btn-default'
+    =< link_to section.title, "?section_id=#{section.id}", class: 'btn btn-default'
   hr
 
   h2 Доклады ключевых спикеров
