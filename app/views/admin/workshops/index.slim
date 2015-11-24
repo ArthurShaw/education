@@ -1,5 +1,11 @@
 = render :partial => 'users/admin_menu'
 .col-lg-9
+  h4 Секции:
+  =< link_to 'Все', admin_workshops_path, class: 'btn btn-default'
+  - for section in @sections
+    =< link_to section.title, section_admin_workshops_path(section), class: 'btn btn-default'
+  hr
+
   h2 Доклады ключевых спикеров
   = link_to 'Добавить', new_admin_workshop_path, class: 'btn btn-default'
   table.table.table-striped.table-hover
@@ -18,14 +24,7 @@
           td = link_to 'Посмотреть', admin_workshop_path(workshop), class: 'btn btn-default'
 
   h2 Доклады участников
-  /h4 Секции:
-  /=< link_to 'Все', admin_workshops_path, class: 'btn btn-default'
-  /- for section in @sections
-  /  =< link_to section.title, section_admin_workshops_path(section), class: 'btn btn-default'
-  /hr
-  /h4 Статус:
-  /=< link_to 'Все', admin_workshops_path, class: 'btn btn-default'
-  / link_to 'Одобренные', status_admin_workshops_path()
+
   table.table.table-striped.table-hover
     thead
       tr
