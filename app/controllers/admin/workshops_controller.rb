@@ -3,8 +3,15 @@ class Admin::WorkshopsController < ApplicationController
   before_action :find_workshop, only: [:show, :edit, :update, :approve, :deny]
 
   def index
-    @workshops_special =  Workshop.where.not('workshops.special_guest_id' => nil)
-    @workshops_usual = Workshop.where.not('workshops.user_id' => nil)
+    @sections = Section.all
+    section_params = params[:section_id]
+    unless section_params.nil?
+      @workshops_special =  Workshop.where.not('workshops.special_guest_id' => nil) & Workshop.where(section: section_params)
+      @workshops_usual = Workshop.where.not('workshops.user_id' => nil) & Workshop.where(section: section_params)
+    else
+      @workshops_special =  Workshop.where.not('workshops.special_guest_id' => nil)
+      @workshops_usual = Workshop.where.not('workshops.user_id' => nil)
+    end
   end
 
   def new
