@@ -1,7 +1,7 @@
 class Workshop < ActiveRecord::Base
   belongs_to :user
   belongs_to :special_guest
-  has_many :sections
+  belongs_to :section
   validates :title, :description, presence: true
 
   enum status: [:waiting_confirmation, :confirmed, :denied]
