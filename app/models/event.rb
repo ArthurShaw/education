@@ -3,5 +3,5 @@ class Event < ActiveRecord::Base
   enum type: [:workshop, :other]
 
   belongs_to :workshop
-  belongs_to :section
+  has_and_belongs_to_many :sections
 end
