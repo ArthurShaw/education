@@ -161,14 +161,14 @@ header#home_slider.carousel.slide
       .wow.fadeInLeft.btn.eventime_button.graybtn.graytxt data-slide-to="#{i}" data-target="#sh_carousel" = translate_field(@sections[i], :title)
 
   .carousel-inner
-    - section_to_days(@sections[0]).each do |day, events|
-      .active.item
+    .active.item
+      - section_to_days(@sections[0]).each do |day, events|
         .schedule_date.wow.fadeInLeft = day.day
         .schedule_month.wow.fadeInRight = day.strftime("%B")
         .mini_gap
         - for event in events
           .panel.wow.fadeInDown
-            a data-parent="#accordion1" data-toggle="collapse" href="#one_one"
+            a data-toggle="collapse" href="#0_slide"
             .accordion_left
               .accordions_titles_small
                 p.accordion_date = "#{event.from.strftime('%H:%M')} - #{event.to.strftime('%H:%M')}"
@@ -192,24 +192,24 @@ header#home_slider.carousel.slide
           .schedule_date = day.day
           .schedule_month = day.strftime("%B")
           .mini_gap
-            - for event in events
-              .panel
-                a data-parent="#accordion1" data-toggle="collapse" href="#one_one"
-                .accordion_left
-                  .accordions_titles_small
-                    p.accordion_date = "#{event.from.strftime('%H:%M')} - #{event.to.strftime('%H:%M')}"
-                .accordion_right
-                  .accordions_titles_small
-                    .accordion_description
-                      p = translate_field(event, :title)
-                      - if event.workshop
-                        - if event.workshop.user
-                          p.name = event.workshop.user.readable_name
-                        - if event.workshop.special_guest
-                          p.name = event.workshop.special_guest.readable_name
-                .panel-collapse.collapse.accordion_full.in
-                  p = translate_field(event, :description)
-                .mini_gap
+          - for event in events
+            .panel
+              a data-parent="#accordion1" data-toggle="collapse" href="#one_one"
+              .accordion_left
+                .accordions_titles_small
+                  p.accordion_date = "#{event.from.strftime('%H:%M')} - #{event.to.strftime('%H:%M')}"
+              .accordion_right
+                .accordions_titles_small
+                  .accordion_description
+                    p = translate_field(event, :title)
+                    - if event.workshop
+                      - if event.workshop.user
+                        p.name = event.workshop.user.readable_name
+                      - if event.workshop.special_guest
+                        p.name = event.workshop.special_guest.readable_name
+              .panel-collapse.collapse.accordion_full.in
+                p = translate_field(event, :description)
+              .mini_gap
           .gap
     /! Carousel nav
     a.left_arrow.wow.fadeInLeft data-slide="prev" href="#sh_carousel"

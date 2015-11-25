@@ -22,6 +22,10 @@ module ApplicationHelper
       result[event.date] ||= []
       result[event.date] << event
     end
+    result = result.sort_by {|day, events| day}
+    result.each do |day, events|
+      events.sort! {|l, r| l.from <=> r.from}
+    end
     result
   end
 

@@ -27,7 +27,8 @@ class Admin::EventsController < ApplicationController
   end
 
   def destroy
-
+    @event.destroy
+    redirect_to admin_events_path
   end
 
   def edit
