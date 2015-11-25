@@ -7,6 +7,10 @@
     br
     = f.collection_select :section_ids, Section.order(:is_main => :desc), :id, :title,{}, {:multiple => true}
     br
+    = f.label :'Доклад'
+    br
+    = f.collection_select :workshop_id, Workshop.all, :id, :title,{include_blank: true}
+    br
     = f.label :'Дата'
     br
     = f.date_select :date, {:use_month_names => %w(Январь Февраль Март Апрель Май Июнь Июль Август Сентябрь Октябрь Ноябрь Декабрь)}

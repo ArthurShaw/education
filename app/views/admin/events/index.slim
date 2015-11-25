@@ -7,6 +7,8 @@
     h3 = "#{event.title} / #{event.title_en}"
     - for s in event.sections
       = s.title
+    - if event.workshop
+      p = event.workshop.title
     p = event.date
     p = event.from
     p = event.to

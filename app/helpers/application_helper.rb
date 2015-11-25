@@ -16,4 +16,13 @@ module ApplicationHelper
     end
   end
 
+  def section_to_days(section)
+    result = {}
+    section.events.each do |event|
+      result[event.date] ||= []
+      result[event.date] << event
+    end
+    result
+  end
+
 end
