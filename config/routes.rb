@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     root 'index#index'
     get 'profile' => 'users#profile', as: 'profile'
     get 'contacts' => 'index#contacts'
+    get 'org_committee' => 'index#org_committee'
+    get 'why_kfu' => 'index#why_kfu'
 
     resources :listener_requests, only: [:new, :create] do
       get 'success' => 'listener_requests#success'
@@ -33,6 +35,8 @@ Rails.application.routes.draw do
       resources :special_guests
       resources :sections
       resources :events
+      get 'placement' => 'placement#index'
+      post 'placement' => 'placement#update'
       resources :workshops do
         put 'approve' => 'workshops#approve', on: :member
         put 'deny' => 'workshops#deny', on: :member

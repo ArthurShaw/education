@@ -1,0 +1,14 @@
+#location.hidden = @placement_json
+
+= render :partial => 'users/admin_menu'
+
+.col-lg-9
+  h2 Местоположение
+  = form_tag admin_placement_path
+    => text_field_tag 'address'
+    = submit_tag
+  br
+
+
+  .div style='width: auto;'
+    #location-place style='width: auto; height: 400px;'

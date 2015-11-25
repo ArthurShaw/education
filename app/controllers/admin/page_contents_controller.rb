@@ -3,16 +3,16 @@ class Admin::PageContentsController < ApplicationController
   before_action :find_page_content, only: [:edit, :update]
 
   def index
-    @contents = PageContent.all
+    @contents = PageContent.where(:content_type => PageContent.content_types[:text])
   end
 
   def edit
-
   end
 
   def update
 
     @content.update(page_contents_params)
+
     redirect_to admin_page_contents_path
   end
 

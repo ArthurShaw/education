@@ -69,3 +69,7 @@ gem 'js-routes'
 gem 'ckeditor'
 
 gem 'spreadsheet'
+
+gem 'gmaps4rails'
+
+gem 'geokit-rails'

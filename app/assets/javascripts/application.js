@@ -16,3 +16,6 @@
 //= require ckeditor/init
 //= require bootstrap
 //= require_tree .
+//= require underscore
+//= require gmaps/google
+//= require index
