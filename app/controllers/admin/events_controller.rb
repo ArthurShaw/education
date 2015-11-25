@@ -4,7 +4,13 @@ class Admin::EventsController < ApplicationController
   before_action :find_event, only: [:update, :destroy, :edit]
 
   def index
-    @events = Event.all
+    @sections = Section.all
+    section_params = params[:section_id]
+    if section_params
+      @events = Event.order(:date, :from).joins(:events_sections).where('events_sections.section_id' => [section_params])
+    else
+      @events = Event.order(:date, :from)
+    end
   end
 
   def new
@@ -12,10 +18,10 @@ class Admin::EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(event_params)
+    @event = Event.new(event_params)
     sections = Section.where(:id => params[:event][:section_ids])
     @event.sections << sections
-    if @event
+    if @event.save
       redirect_to admin_events_path
     else
       render 'new'
@@ -23,7 +29,11 @@ class Admin::EventsController < ApplicationController
   end
 
   def update
-
+    if @event.update(event_params)
+      redirect_to admin_events_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -32,7 +42,6 @@ class Admin::EventsController < ApplicationController
   end
 
   def edit
-
   end
 
   private

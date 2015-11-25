@@ -19,7 +19,7 @@
       .form-group
         = f.label t('workshops.section'), class: 'col-lg-3 control-label'
         .col-lg-9
-          = f.collection_select :section_id, Section.order(:title), :id, :title, {include_blank: true}, {class: 'form-control'}
+          = f.collection_select :section_id, Section.where.not(:is_main => true).order(:title), :id, :title, {include_blank: true}, {class: 'form-control'}
 
       .form-group
         .col-lg-9.col-lg-offset-3
