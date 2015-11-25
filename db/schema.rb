@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124114257) do
+ActiveRecord::Schema.define(version: 20151125132349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,13 +112,15 @@ ActiveRecord::Schema.define(version: 20151124114257) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "first_name_en"
     t.string   "last_name_en"
     t.string   "middle_name_en"
     t.text     "about_en"
-    t.integer  "guest_type",          default: 0, null: false
+    t.integer  "guest_type",          default: 0,  null: false
+    t.text     "about_long",          default: "", null: false
+    t.text     "about_long_en",       default: "", null: false
   end
 
   create_table "sponsor_categories", force: :cascade do |t|

@@ -1,0 +1,23 @@
+#modal_quest.modal.fade.eventime_modal.in
+  /.modal-backdrop.fade.in
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button#js-close-modal.close aria-hidden="true" data-dismiss="modal" type="button"
+          | x
+        h4.modal-title = translate_field(@workshop, :title)
+        /small = @person.about
+      .modal-body
+        p = translate_field(@workshop, :description)
+      .modal-footer
+        h3 Об авторе
+        - if @workshop.special_guest
+          img.guest_avatar src="#{@workshop.special_guest.avatar.url}"
+            p
+              b = translate_field(@workshop.special_guest, :readable_name)
+            p = translate_field(@workshop.special_guest, :about_long)
+        - elsif @workshop.user
+          img.guest_avatar src="#{@workshop.user.avatar.url}"
+            p
+              b = translate_field(@workshop.user, :readable_name)
+            p = translate_field(@workshop.user, :biography)

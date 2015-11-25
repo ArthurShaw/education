@@ -9,7 +9,7 @@
     br
     = f.label :'Доклад'
     br
-    = f.collection_select :workshop_id, Workshop.all, :id, :title,{include_blank: true}
+    = f.collection_select :workshop_id, Workshop.where(:status => Workshop.statuses[:confirmed]), :id, :title,{include_blank: true}
     br
     = f.label :'Дата'
     br

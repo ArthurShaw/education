@@ -164,7 +164,7 @@ header#home_slider.carousel.slide
     .active.item
       - section_to_days(@sections[0]).each do |day, events|
         .schedule_date.wow.fadeInLeft = day.day
-        .schedule_month.wow.fadeInRight = day.strftime("%B")
+        .schedule_month.wow.fadeInRight = l(day, :format => :month)
         .mini_gap
         - for event in events
           .panel.wow.fadeInDown
@@ -178,9 +178,11 @@ header#home_slider.carousel.slide
                   p = translate_field(event, :title)
                   - if event.workshop
                     - if event.workshop.user
-                      p.name = event.workshop.user.readable_name
+                      p.name
+                        = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
                     - if event.workshop.special_guest
-                      p.name = event.workshop.special_guest.readable_name
+                      p.name
+                        = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
             .panel-collapse.collapse.accordion_full.in
               p = translate_field(event, :description)
             /! Accordion item
@@ -190,7 +192,7 @@ header#home_slider.carousel.slide
       .item
         - section_to_days(@sections[i]).each do |day, events|
           .schedule_date = day.day
-          .schedule_month = day.strftime("%B")
+          .schedule_month = l(day, :format => :month)
           .mini_gap
           - for event in events
             .panel
@@ -204,9 +206,11 @@ header#home_slider.carousel.slide
                     p = translate_field(event, :title)
                     - if event.workshop
                       - if event.workshop.user
-                        p.name = event.workshop.user.readable_name
-                      - if event.workshop.special_guest
-                        p.name = event.workshop.special_guest.readable_name
+                        p.name
+                          = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                        - if event.workshop.special_guest
+                          p.name
+                            = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
               .panel-collapse.collapse.accordion_full.in
                 p = translate_field(event, :description)
               .mini_gap
@@ -277,7 +281,16 @@ header#home_slider.carousel.slide
               polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
         .gap
 
-
+#contacts
+  .black
+    .mini_gap
+    .first_line.wow.fadeInDown
+    .first_title.wow.fadeInDown
+      p = raw(translate_field(@contacts_content, :name))
+    .first_description.wow.fadeInDown
+      p = raw(translate_field(@contacts_content, :content))
+    .mini_gap
+    .clear
 
 footer
   .mini_gap

@@ -1,6 +1,6 @@
 class WorkshopsController < ApplicationController
   before_action :check_permission
-  before_action :find_workshop, only: [:show, :edit, :update, :destroy]
+  before_action :find_workshop, only: [:show, :edit, :update, :destroy, :info]
 
   def index
     @workshops = Workshop.all
@@ -9,6 +9,10 @@ class WorkshopsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = Comment.where(:workshop => @workshop)
+  end
+
+  def info
+    render :partial => 'workshops/info'
   end
 
   def new

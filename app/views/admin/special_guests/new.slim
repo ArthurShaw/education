@@ -18,9 +18,13 @@
     br
     = f.text_field :middle_name
     br
+    = f.label :'Информация о госте (коротко)'
+    br
+    = f.text_field :about
+    br
     = f.label :'Информация о госте'
     br
-    = f.text_area :about
+    = f.text_area :about_long
     br
     = f.label :'Имя(eng)'
     br
@@ -34,9 +38,13 @@
     br
     = f.text_field :middle_name_en
     br
-    = f.label :'Информация о госте(eng)'
+    = f.label :'Информация о госте(коротко, eng)'
     br
     = f.text_area :about_en
+    br
+    = f.label :'Информация о госте(eng)'
+    br
+    = f.text_area :about_long_en
     br
     = f.label :'Фотография'
     br

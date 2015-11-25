@@ -19,8 +19,9 @@ class Admin::WorkshopsController < ApplicationController
   end
 
   def create
-    @workshop = Workshop.create(workshop_params)
-    if @workshop
+    @workshop = Workshop.new(workshop_params)
+    @workshop.status= Workshop.statuses[:confirmed]
+    if @workshop.save
       redirect_to admin_workshops_path
     else
       render 'new'
