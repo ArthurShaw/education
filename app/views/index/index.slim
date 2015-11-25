@@ -133,17 +133,99 @@ header#home_slider.carousel.slide
         .gap
 
 
-- unless @org_committee_content.hidden
-  #org
-    .firstrow
-      .centred
-        .first_line.wow.fadeInDown
-        .first_title.wow.fadeInDown
-          p = raw(translate_field(@org_committee_content, :name))
-        .first_description.wow.fadeInDown
-          p = raw(translate_field(@org_committee_content, :content))
-      .second_image
-      .clear
+/- unless @org_comitee_content.hidden
+/  #org
+/    .firstrow
+/      .centred
+/        .first_line.wow.fadeInDown
+/        .first_title.wow.fadeInDown
+/          p = raw(translate_field(@org_comitee_content, :name))
+/        .first_description.wow.fadeInDown
+/          p = raw(translate_field(@org_comitee_content, :content))
+/      .second_image
+/      .clear
+
+.gap
+.first_line.wow.fadeInDown
+.first_title
+  p.wow.fadeInDown Расписание
+.first_description
+  p.wow.fadeInDown
+    b 21th–24th of August 2015 | Main Conference Hall, New York, 180/2
+    br
+    | As always, the Design Days Conference supports social networking to maintain the constant high quality level in serving the conference participants and the Design Society community.
+.mini_gap
+
+#sh_carousel.carousel.slide
+  .carousel-indicators
+    .wow.fadeInLeft.active.btn.eventime_button.graybtn.graytxt data-slide-to="0" data-target="#sh_carousel" = translate_field(@sections[0], :title)
+    - for i in (1..(@sections.size - 1))
+      .wow.fadeInLeft.btn.eventime_button.graybtn.graytxt data-slide-to="#{i}" data-target="#sh_carousel" = translate_field(@sections[i], :title)
+
+  .carousel-inner
+    .active.item
+      - section_to_days(@sections[0]).each do |day, events|
+        .schedule_date.wow.fadeInLeft = day.day
+        .schedule_month.wow.fadeInRight = l(day, :format => :month)
+        .mini_gap
+        - for event in events
+          .panel.wow.fadeInDown
+            a data-toggle="collapse" href="#0_slide"
+            .accordion_left
+              .accordions_titles_small
+                p.accordion_date = "#{event.from.strftime('%H:%M')} - #{event.to.strftime('%H:%M')}"
+            .accordion_right
+              .accordions_titles_small
+                .accordion_description
+                  p = translate_field(event, :title)
+                  - if event.workshop
+                    - if event.workshop.user
+                      p.name
+                        = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                    - if event.workshop.special_guest
+                      p.name
+                        = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+            .panel-collapse.collapse.accordion_full.in
+              p = translate_field(event, :description)
+            /! Accordion item
+            .mini_gap
+
+    - for i in (1..(@sections.size-1))
+      .item
+        - section_to_days(@sections[i]).each do |day, events|
+          .schedule_date = day.day
+          .schedule_month = l(day, :format => :month)
+          .mini_gap
+          - for event in events
+            .panel
+              a data-parent="#accordion1" data-toggle="collapse" href="#one_one"
+              .accordion_left
+                .accordions_titles_small
+                  p.accordion_date = "#{event.from.strftime('%H:%M')} - #{event.to.strftime('%H:%M')}"
+              .accordion_right
+                .accordions_titles_small
+                  .accordion_description
+                    p = translate_field(event, :title)
+                    - if event.workshop
+                      - if event.workshop.user
+                        p.name
+                          = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                        - if event.workshop.special_guest
+                          p.name
+                            = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+              .panel-collapse.collapse.accordion_full.in
+                p = translate_field(event, :description)
+              .mini_gap
+          .gap
+    /! Carousel nav
+    a.left_arrow.wow.fadeInLeft data-slide="prev" href="#sh_carousel"
+      svg height="48" width="26px"
+        polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7"
+    a.right_arrow.wow.fadeInRight data-slide="next" href="#sh_carousel"
+      svg height="48" width="26px"
+        polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
+  == link_to 'Зарегистрироваться', new_listener_request_path, class: 'schedule_reservation wow btn eventime_button fadeInRight'
+  .gap
 
 - if @special_quests.size > 0
   #special_guests_menu
@@ -203,6 +285,17 @@ header#home_slider.carousel.slide
 
 .div style='width: auto;'
   #location-place style='width: auto; height: 400px;'
+  
+#contacts
+  .black
+    .mini_gap
+    .first_line.wow.fadeInDown
+    .first_title.wow.fadeInDown
+      p = raw(translate_field(@contacts_content, :name))
+    .first_description.wow.fadeInDown
+      p = raw(translate_field(@contacts_content, :content))
+    .mini_gap
+    .clear
 
 footer
   .mini_gap

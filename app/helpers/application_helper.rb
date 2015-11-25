@@ -16,4 +16,17 @@ module ApplicationHelper
     end
   end
 
+  def section_to_days(section)
+    result = {}
+    section.events.each do |event|
+      result[event.date] ||= []
+      result[event.date] << event
+    end
+    result = result.sort_by {|day, events| day}
+    result.each do |day, events|
+      events.sort! {|l, r| l.from <=> r.from}
+    end
+    result
+  end
+
 end

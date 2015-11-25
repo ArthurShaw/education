@@ -2,14 +2,14 @@
 
 .col-lg-9
   h2 Добавить событие
-  = form_for @event, url: admin_events_path, method: :create do |f|
+  = form_for @event, url: admin_event_path, method: :put do |f|
     = f.label :'Секция'
     br
     = f.collection_select :section_ids, Section.order(:is_main => :desc), :id, :title,{}, {:multiple => true}
     br
     = f.label :'Доклад'
     br
-    = f.collection_select :workshop_id, Workshop.where(:status => Workshop.statuses[:confirmed]), :id, :title,{include_blank: true}
+    = f.collection_select :workshop_id, Workshop.all, :id, :title,{include_blank: true}
     br
     = f.label :'Дата'
     br

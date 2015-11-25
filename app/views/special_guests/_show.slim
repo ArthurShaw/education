@@ -8,6 +8,14 @@
         h4.modal-title = "#{@person.first_name} #{@person.last_name}"
         small = @person.about
       .modal-body
-        img src="#{@person.avatar.url}" /
-        p описание
+        img.guest_avatar src="#{@person.avatar.url}" /
+        p = translate_field(@person, :about_long)
+        br clear="left"
       .modal-footer
+        - if @workshops && @workshops.size > 0
+          h3 Доклады
+          - for workshop in @workshops
+            p
+              b = translate_field(workshop, :title)
+            p = translate_field(workshop, :description)
+            hr

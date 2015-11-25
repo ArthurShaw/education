@@ -25,6 +25,6 @@
     br
     = f.label :'Секция'
     br
-    = f.collection_select :section_id, Section.order(:title), :id, :title, {include_blank: true}
+    = f.collection_select :section_id, Section.where.not(:is_main => true).order(:title), :id, :title, {include_blank: true}
     br
     = f.submit t('confirm')

@@ -361,3 +361,17 @@ input.error {
 .third_slide {
     background-image: url('slider_3.jpg')
 }
+
+.guest_avatar {
+    width: 150px !important;
+    float: left;
+    margin-right: 10px;
+}
+
+.modal-footer {
+    text-align: left;
+}
+
+.black table td {
+    padding-right: 30px;
+}

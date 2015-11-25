@@ -107,3 +107,12 @@ en:
     city: 'City'
     phone: 'Phone Number'
     excel_download: 'Download Excel'
+
+
+  date:
+        order:
+          - "year"
+          - "month"
+          - "day"
+        formats:
+          month: "%B"

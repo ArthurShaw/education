@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     devise_for :users, :controllers => {:registrations => 'registrations'}
     resources :workshops do
       resources :comments
+      get 'info' => 'workshops#info', :on => :member
     end
     resources :users, only: [:show]
 

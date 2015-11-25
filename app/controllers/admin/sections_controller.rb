@@ -3,7 +3,7 @@ class Admin::SectionsController < ApplicationController
   before_action :find_section, only: :destroy
 
   def index
-    @sections = Section.all
+    @sections = Section.where.not(:is_main => true)
   end
 
   def new
