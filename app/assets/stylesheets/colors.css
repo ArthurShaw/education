@@ -397,3 +397,7 @@ input.error {
 .section_place_title {
     padding-left: 9%;
 }
+
+.event_line {
+    margin-bottom: 0;
+}

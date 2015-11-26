@@ -182,7 +182,7 @@ header#home_slider.carousel.slide
         .schedule_month.wow.fadeInRight = l(day, :format => :month)
         .mini_gap
         - for event in events
-          .panel.wow.fadeInDown
+          .panel.wow.fadeInDown.event_line
             a data-toggle="collapse" href="#0_slide"
             .accordion_left
               .accordions_titles_small
@@ -193,7 +193,7 @@ header#home_slider.carousel.slide
                   - if event.workshop
                     p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
                   - else
-                  p = translate_field(event, :title)
+                    p = translate_field(event, :title)
                   - if event.workshop
                     - if event.workshop.user
                       p.name
@@ -213,7 +213,7 @@ header#home_slider.carousel.slide
           .schedule_month = l(day, :format => :month)
           .mini_gap
           - for event in events
-            .panel
+            .panel.event_line
               a data-parent="#accordion1" data-toggle="collapse" href="#one_one"
               .accordion_left
                 .accordions_titles_small
@@ -224,7 +224,7 @@ header#home_slider.carousel.slide
                     - if event.workshop
                       p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
                     - else
-                    p = translate_field(event, :title)
+                      p = translate_field(event, :title)
                     - if event.workshop
                       - if event.workshop.user
                         p.name
