@@ -1,5 +1,5 @@
 class WorkshopsController < ApplicationController
-  before_action :check_permission
+  before_action :check_permission, except: [:info]
   before_action :find_workshop, only: [:show, :edit, :update, :destroy, :info]
 
   def index

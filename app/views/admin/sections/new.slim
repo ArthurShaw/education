@@ -11,5 +11,13 @@
     br
     = f.text_field :title_en
     br
+    = f.label :'Описание (рус)'
+    br
+    = f.cktext_area :description
+    br
+    = f.label :'Описание (eng)'
+    br
+    = f.cktext_area :description_en
+    br
     br
     = f.submit t('confirm')

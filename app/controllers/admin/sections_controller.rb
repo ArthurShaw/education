@@ -28,7 +28,7 @@ class Admin::SectionsController < ApplicationController
   private
 
   def sections_params
-    params.require(:section).permit(:title, :title_en)
+    params.require(:section).permit(:title, :title_en, :description, :description_en)
   end
 
   def find_section

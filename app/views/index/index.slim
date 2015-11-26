@@ -63,7 +63,20 @@ header#home_slider.carousel.slide
           p = raw(translate_field(@about_conference_content, :name))
         .first_description.wow.fadeInDown
           p = raw(translate_field(@about_conference_content, :content))
+        .mini_gap
       .first_image
+        .mini_gap
+        .first_title.wow.fadeInDown.section_place_title
+          p Информация
+        .sections_place
+          p = link_to 'Информационное письмо', information_letter_path
+        .first_title.wow.fadeInDown.section_place_title
+          p Темы конференции
+        .sections_place
+          - for section in @sections
+            - unless section.is_main
+              p = link_to translate_field(section, :title), section_path(section)
+        .gap
     .clear
 
 
@@ -106,7 +119,7 @@ header#home_slider.carousel.slide
                           | #{translate_field(guest, :last_name)}
                       p
                         | #{translate_field(guest, :about)}
-                      = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle=>"modal"}, :remote => true
+                      = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
             - if @key_speakers.size > 2
               - @key_speakers.last(@key_speakers.size - 2).each_slice(2) do |slice|
                 .item
@@ -121,7 +134,7 @@ header#home_slider.carousel.slide
                               | #{translate_field(guest, :last_name)}
                           p
                             | #{translate_field(guest, :about)}
-                          = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle=>"modal"}, :remote => true
+                          = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
 
 
           a.left_arrow data-slide="prev" href="#key_speakers"
@@ -169,7 +182,7 @@ header#home_slider.carousel.slide
         .schedule_month.wow.fadeInRight = l(day, :format => :month)
         .mini_gap
         - for event in events
-          .panel.wow.fadeInDown
+          .panel.wow.fadeInDown.event_line
             a data-toggle="collapse" href="#0_slide"
             .accordion_left
               .accordions_titles_small
@@ -177,7 +190,10 @@ header#home_slider.carousel.slide
             .accordion_right
               .accordions_titles_small
                 .accordion_description
-                  p = translate_field(event, :title)
+                  - if event.workshop
+                    p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                  - else
+                    p = translate_field(event, :title)
                   - if event.workshop
                     - if event.workshop.user
                       p.name
@@ -197,7 +213,7 @@ header#home_slider.carousel.slide
           .schedule_month = l(day, :format => :month)
           .mini_gap
           - for event in events
-            .panel
+            .panel.event_line
               a data-parent="#accordion1" data-toggle="collapse" href="#one_one"
               .accordion_left
                 .accordions_titles_small
@@ -205,7 +221,10 @@ header#home_slider.carousel.slide
               .accordion_right
                 .accordions_titles_small
                   .accordion_description
-                    p = translate_field(event, :title)
+                    - if event.workshop
+                      p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                    - else
+                      p = translate_field(event, :title)
                     - if event.workshop
                       - if event.workshop.user
                         p.name
@@ -233,7 +252,7 @@ header#home_slider.carousel.slide
       .mask
         .first_line
         .first_title
-          p = link_to 'Почетные гости',  guests_special_guests_path
+          p = link_to 'Почетные гости', guests_special_guests_path
         .first_description
           p Описание почетных гостей. Они крутые и всё такое
         .gap
@@ -257,7 +276,7 @@ header#home_slider.carousel.slide
                           | #{translate_field(guest, :last_name)}
                       p
                         | #{translate_field(guest, :about)}
-                      = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle=>"modal"}, :remote => true
+                      = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
             - if @special_quests.size > 2
               - @special_quests.last(@special_quests.size - 2).each_slice(2) do |slice|
                 .item
@@ -272,7 +291,7 @@ header#home_slider.carousel.slide
                               | #{translate_field(guest, :last_name)}
                           p
                             | #{translate_field(guest, :about)}
-                          = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle=>"modal"}, :remote => true
+                          = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
 
 
           a.left_arrow data-slide="prev" href="#special_guests"
@@ -283,19 +302,21 @@ header#home_slider.carousel.slide
               polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
         .gap
 
-.div style='width: auto;'
-  #location-place style='width: auto; height: 400px;'
-  
 #contacts
-  .black
-    .mini_gap
-    .first_line.wow.fadeInDown
-    .first_title.wow.fadeInDown
-      p = raw(translate_field(@contacts_content, :name))
-    .first_description.wow.fadeInDown
-      p = raw(translate_field(@contacts_content, :content))
-    .mini_gap
+  .firstrow.black
+    .centred
+      .first_line.wow.fadeInDown
+      .first_title.wow.fadeInDown
+        p = raw(translate_field(@contacts_content, :name))
+      .first_description.wow.fadeInDown
+        p = raw(translate_field(@contacts_content, :content))
+      .mini_gap
+    .first_image
+      - unless @location_json.empty?
+        .div style='width: auto; height: 100%;'
+          #location-place style='width: auto; height: 100%;'
     .clear
+
 
 footer
   .mini_gap

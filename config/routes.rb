@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get 'contacts' => 'index#contacts'
     get 'org_committee' => 'index#org_committee'
     get 'why_kfu' => 'index#why_kfu'
+    get 'information_letter' => 'index#information_letter'
 
     resources :listener_requests, only: [:new, :create] do
       get 'success' => 'listener_requests#success'
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
       get 'speakers' => 'special_guests#speakers', :on => :collection
       get 'guests' => 'special_guests#guests', :on => :collection
     end
+
+    resources :sections, only: [:show]
 
     # resources :articles
 

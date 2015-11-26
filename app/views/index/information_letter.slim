@@ -1,0 +1,10 @@
+#org
+  .firstrow
+    .centred
+      .first_line.wow.fadeInDown
+      .first_title.wow.fadeInDown
+        p = raw(translate_field(@information_letter, :name))
+      .first_description.wow.fadeInDown
+        p = raw(translate_field(@information_letter, :content))
+    .second_image
+    .clear
