@@ -375,3 +375,25 @@ input.error {
 .black table td {
     padding-right: 30px;
 }
+
+.sections_place {
+
+    padding-left: 10%;
+
+    font-size: 18px;
+
+    height: 80px;
+
+
+    display: inline-block;
+
+    width: 75%;
+
+    float: left;
+
+    line-height: 30px;
+}
+
+.section_place_title {
+    padding-left: 9%;
+}

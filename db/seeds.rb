@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+PageContent.create(name: 'Информационное письмо', content: '<h1>ABOUT CONFERENCE</h1>', id: 6)
 PageContent.create(id: 4, name:'Address', content: '', content_type: 1)
 Section.create(:title => 'Общая программа', :title_en => 'Main program', :is_main => true)
 

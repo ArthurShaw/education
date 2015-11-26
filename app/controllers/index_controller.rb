@@ -25,4 +25,8 @@ class IndexController < ApplicationController
   def why_kfu
     @why_kfu_content = PageContent.find(2)
   end
+
+  def information_letter
+    @information_letter = PageContent.find(6)
+  end
 end
