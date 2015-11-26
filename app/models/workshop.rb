@@ -6,4 +6,9 @@ class Workshop < ActiveRecord::Base
 
   enum status: [:waiting_confirmation, :confirmed, :denied]
 
+
+  def has_author?
+    user || special_guest
+  end
+
 end

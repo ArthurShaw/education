@@ -177,7 +177,10 @@ header#home_slider.carousel.slide
             .accordion_right
               .accordions_titles_small
                 .accordion_description
-                  p = translate_field(event, :title)
+                  - if event.workshop
+                    p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                  - else
+                    p = translate_field(event, :title)
                   - if event.workshop
                     - if event.workshop.user
                       p.name
@@ -205,7 +208,10 @@ header#home_slider.carousel.slide
               .accordion_right
                 .accordions_titles_small
                   .accordion_description
-                    p = translate_field(event, :title)
+                    - if event.workshop
+                      p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                    - else
+                      p = translate_field(event, :title)
                     - if event.workshop
                       - if event.workshop.user
                         p.name
@@ -283,8 +289,9 @@ header#home_slider.carousel.slide
               polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
         .gap
 
-.div style='width: auto;'
-  #location-place style='width: auto; height: 400px;'
+- unless @location_json.empty?
+  .div style='width: auto;'
+    #location-place style='width: auto; height: 400px;'
   
 #contacts
   .black
@@ -294,7 +301,7 @@ header#home_slider.carousel.slide
       p = raw(translate_field(@contacts_content, :name))
     .first_description.wow.fadeInDown
       p = raw(translate_field(@contacts_content, :content))
-    .mini_gap
+    .gap
     .clear
 
 footer

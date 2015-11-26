@@ -10,6 +10,8 @@ $(document).on("page:change", ->
 
     handler = Gmaps.build('Google')
     handler.buildMap {
+        provider:
+          scrollwheel: false
         internal:
             id: 'location-place'
     }, ->
