@@ -292,6 +292,7 @@ footer .first_line,
 .speakers {
 
     background-image: url('bg_speakers.jpg');
+    overflow-x: hidden;
 
 }
 
@@ -328,6 +329,9 @@ footer .first_line,
     .black .first_title {
         color: white;
         padding-top: 20px;
+    }
+    .black a {
+        color: white;
     }
 }
 
@@ -368,6 +372,10 @@ input.error {
     margin-right: 10px;
 }
 
+.user-avatar {
+    text-align: center;
+}
+
 .modal-footer {
     text-align: left;
 }
@@ -400,4 +408,18 @@ input.error {
 
 .event_line {
     margin-bottom: 0;
+}
+.workshop-area {
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.workshop-block {
+    /*text-align: center;*/
+    display: inline-block;
+    position: relative;
+    margin: 1%;
+    float: left;
+    /*background-color: lightgrey;*/
+    padding: 10px;
 }

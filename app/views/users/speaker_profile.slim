@@ -1,11 +1,73 @@
-br
-div.text-center.col-lg-12.well.well-lg
-  .avatar
-    p #{image_tag @user.avatar.url(:medium)}
-  h3 #{@user.first_name} #{@user.last_name}
-  p #{@user.email}
-  - if @user == current_user
-    = link_to t('edit_profile'), edit_user_registration_path
-    br
-    = link_to t('workshops.create'), new_workshop_path
-= render 'workshops/index'
+.speakers.wow.fadeIn
+  .mask
+    .first_line.wow.fadeInDown
+    .first_title.wow.fadeInDown
+      p = t('profile')
+    .first_description.wow.fadeInDown
+      p Здесь Вы можете просмотреть и отредактировать ваш профиль
+      - if @user == current_user
+        = link_to t('edit_profile'), edit_user_registration_path, class: 'btn btn-default'
+    .mini_gap
+    .speakers_row
+      .user-avatar
+        = image_tag @user.avatar.url(:medium)
+      .centred
+        .speakers_description.wow.fadeInRight
+          h3 = translate_field(current_user, :readable_name)
+          small = current_user.degree
+          hr
+          - unless current_user.biography.empty?
+            = current_user.biography
+          -else
+            = link_to 'Добавить биографию', edit_user_registration_path, class: 'btn btn-default'
+  .clear
+.speakers.wow.fadeUp
+  .mask
+    .first_line.wow.fadeInDown
+    .first_title.wow.fadeInDown
+      p = t('workshops.workshops')
+    .first_description.wow.fadeInDown
+      p Тут вы можете управлять своими докладами
+      -if @user == current_user
+        = link_to t('add'), new_workshop_path, class: 'btn btn-default'
+    .mini_gap
+    .speakers_row.black
+      .workshop-area
+        - for workshop in current_user.workshops.sort {|l, r| l <=> r}
+          .workshop-block
+            h3 = link_to workshop.title, workshop_path(workshop)
+            br
+            p = workshop.description
+            -unless workshop.section.nil?
+              p = "#{t('workshops.section')} #{workshop.section.title}"
+            p = "#{t('workshops.status')} #{t("workshop_status.#{workshop.status}")}"
+            p = "#{t('workshops.datetime')} #{l(workshop.created_at, :format => :full_date)}"
+            br
+            =< link_to t('workshops.edit'), edit_workshop_path(workshop), class: 'btn btn-primary'
+            =< link_to t('delete'), workshop_path(workshop), method: :delete, data:{confirm: t('areyousure')}, class: 'btn btn-danger'
+          .mini_gap
+
+    /.speakers_row
+    /  table.table.table-striped.table-hover
+    /    thead
+    /      tr
+    /        th = t('workshops.title')
+    /        th = t('workshops.description')
+    /        th = t('workshops.section')
+    /        th = t('workshops.status')
+    /        th = t('workshops.datetime')
+    /        th
+    /        th
+    /    tbody
+    /      - for workshop in @current_user.workshops
+    /        tr
+    /          td = link_to workshop.title, workshop_path(workshop)
+    /          td = workshop.description
+    /          td = workshop.section.title
+    /          td = workshop.status
+    /          td = workshop.created_at
+    /          td = link_to 'Редактировать', edit_workshop_path(workshop), class: 'btn btn-default'
+    /
+    /  - if user_signed_in? and current_user.has_role? :speaker
+    /    = link_to t('add'), new_workshop_path, class: 'btn btn-default'
+    /    br

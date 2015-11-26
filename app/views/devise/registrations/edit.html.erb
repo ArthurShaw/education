@@ -1,89 +1,141 @@
-<h2><%= t('edit_profile')%></h2>
+<div class="mini_gap">
+</div>
+<div class="first_line wow fadeInDown">
+</div>
+<div class="first_title wow fadeInDown">
+  <p>
+    <%= t('edit_profile')%>
+  </p>
+</div>
+<div class="first_description wow fadeInDown">
+  <p>
+    Здесь вы можете отредактировать все параметры вашего профиля
+  </p>
+</div>
+<div class="col-lg-6 col-lg-offset-3">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "form-horizontal center"}) do |f| %>
+      <%= devise_error_messages! %>
+      <fieldset>
+        <hr />
+        <div class="form-group">
+          <%= f.label t('user_params.first_name'), class: 'col-lg-2 control-label' %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-
-    <div class="field">
-      <%= f.label t('user_params.first_name') %><br />
-      <%= f.text_field :first_name, autofocus: true %>
-    </div>
-    <div class="field">
-      <%= f.label t('user_params.last_name') %><br />
-      <%= f.text_field :last_name, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label t('user_params.middle_name') %><br />
-      <%= f.text_field :middle_name, autofocus: true %>
-    </div>
-
-
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label t('user_params.phone') %><br />
-      <%= f.phone_field :phone, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label t('user_params.country') %><br />
-      <%= f.text_field :country, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label t('user_params.city') %><br />
-      <%= f.text_field :city, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label t('user_params.degree') %><br />
-      <%= f.text_field :degree, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label t('user_params.biography') %><br />
-      <%= f.text_area :biography, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label t('user_params.speech_experience') %><br />
-      <%= f.text_area :speech_experience, autofocus: true  %>
-    </div>
-    
-    <div class="field">
-      <%= f.label t('user_params.avatar') %><br />
-      <%= f.file_field :avatar, autofocus: true %>
-    </div>
-
-
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :current_password %><br />
-      <i>(we need your current password to confirm your changes)</i>
-      <br />
-
-        <%= f.password_field :current_password, autocomplete: "off"%>
-
+          <div class="col-lg-10">
+            <%= f.text_field :first_name, class: 'form-control' %>
           </div>
+        </div>
 
-    <div class="actions">
-      <%= f.submit t('update') %>
-    </div>
-<% end %>
+        <div class="form-group">
+          <%= f.label t('user_params.last_name'), class: 'col-lg-2 control-label' %>
 
-<%= link_to "Back", :back %>
+          <div class="col-lg-10">
+            <%= f.text_field :last_name, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.middle_name'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.text_field :middle_name, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email, class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.phone'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.text_field :phone, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.country'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.text_field :country, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.city'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.text_field :city, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.degree'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.text_field :degree, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.biography'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <i> Максимум 600 символов</i>
+            <%= f.text_area :biography, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :avatar, class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.file_field :avatar, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.password'), class: 'col-lg-2 control-label' %>
+
+
+          <div class="col-lg-10">
+            <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
+            <% if @minimum_password_length %>
+                <em>(Как минимум <%= @minimum_password_length %> символов)</em>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.password_confirmation'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.current_password'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <i>Введите свой пароль для подтверждения</i>
+            <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <%= f.submit 'Редактировать', class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </fieldset>
+  <% end %>
+</div>
+
+<div class="col-lg-6 col-lg-offset-3">
+  <%= link_to "Назад", :back, class: 'btn btn-link' %>
+</div>

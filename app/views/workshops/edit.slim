@@ -3,7 +3,6 @@
   = form_for @workshop, :html => {:class => "form-horizontal center"} do |f|
     legend
       = t('workshops.edit')
-    hr
     fieldset
       .form-group
         = f.label t('workshops.title'), class: 'col-lg-3 control-label'
@@ -24,3 +23,9 @@
       .form-group
         .col-lg-9.col-lg-offset-3
           = f.submit t('confirm'), class: 'btn btn-primary'
+          br
+          br
+          hr
+        .col-lg-9.col-lg-offset-3
+          = link_to t('delete'), workshop_path(@workshop), method: :delete, class: 'btn btn-danger', data:{confirm: t('areyousure')}
+

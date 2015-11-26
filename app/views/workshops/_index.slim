@@ -1,23 +1,23 @@
-h2
-  = t('workshops.workshops')
+table.table.table-striped.table-hover
+  thead
+    tr
+      th = t('workshops.title')
+      th = t('workshops.description')
+      th = t('workshops.section')
+      th = t('workshops.status')
+      th = t('workshops.datetime')
+      th
+      th
+  tbody
+    - for workshop in @current_user.workshops
+      tr
+        td = link_to workshop.title, workshop_path(workshop)
+        td = workshop.description
+        td = workshop.section.title
+        td = workshop.status
+        td = workshop.created_at
+        td = link_to 'Редактировать', edit_workshop_path(workshop), class: 'btn btn-default'
 
 - if user_signed_in? and current_user.has_role? :speaker
-  = link_to t('add'), new_workshop_path
+  = link_to t('add'), new_workshop_path, class: 'btn btn-default'
   br
-
-
-- for workshop in @current_user.workshops
-  .panel.panel-default
-    .panel-heading
-      h3.panel-title = link_to workshop.title, workshop_path(workshop)
-    .panel-body
-      = raw(workshop.description)
-      br
-      - unless workshop.section.nil?
-        p = "Секция: #{workshop.section.title}"
-      p = workshop.created_at
-      p = "#{t('workshops.status')}: #{workshop.status}"
-      - if current_user.has_role? :speaker
-        = link_to t('workshops.edit'), edit_workshop_path(workshop)
-        | /
-        = link_to t('delete'), workshop_path(workshop), method: :delete

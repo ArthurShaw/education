@@ -39,8 +39,11 @@
       - for workshop in @workshops_usual
         tr
           td = workshop.title
-          td = workshop.section.title
-          td = workshop.status
+          -unless workshop.section.nil?
+            td = workshop.section.title
+          -else
+            td Нет секции
+          td = t("workshop_status.#{workshop.status}")
           td = "#{workshop.user.first_name} #{workshop.user.last_name}"
           td = workshop.user.country
           td = workshop.user.city

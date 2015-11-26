@@ -959,7 +959,7 @@ nav {
 
 .mask {
 
-    min-height: 650px;
+    min-height: 600px;
 
     width: 100%;
 
@@ -1702,7 +1702,7 @@ ul.tags a {
 
     -o-background-size: cover;
 
-    min-height: 650px;
+    min-height: 600px;
 
 }
 
@@ -1721,6 +1721,7 @@ ul.tags a {
 }
 
 .speakers_row {
+    min-width: 100%;
 
     height: 400px;
 
