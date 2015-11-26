@@ -35,6 +35,8 @@ en:
   forgot_password: 'Forgot password?'
   delete: 'Delete'
   comments: 'Comments'
+  profile: 'Profile'
+  areyousure: 'Are you sure?'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'
@@ -58,6 +60,7 @@ en:
     add: 'New workshop'
     edit: 'Edit workshop'
     status: 'Status'
+    datetime: 'Created at'
   speaker_request: 'Send request'
   request_statuses:
       waiting: 'Waiting for confirmation'

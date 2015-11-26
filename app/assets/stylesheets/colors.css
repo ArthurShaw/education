@@ -292,6 +292,7 @@ footer .first_line,
 .speakers {
 
     background-image: url('bg_speakers.jpg');
+    overflow-x: hidden;
 
 }
 
@@ -366,6 +367,10 @@ input.error {
     width: 150px !important;
     float: left;
     margin-right: 10px;
+}
+
+.user-avatar {
+    text-align: center;
 }
 
 .modal-footer {

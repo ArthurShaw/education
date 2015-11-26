@@ -14,6 +14,8 @@ ru:
   forgot_password: 'Забыли пароль?'
   delete: 'Удалить'
   comments: 'Комментарии'
+  profile: 'Профиль'
+  areyousure: 'Вы уверены?'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'
@@ -37,6 +39,7 @@ ru:
     add: 'Новый доклад'
     edit: 'Редактировать доклад'
     status: 'Статус'
+    datetime: 'Время создания'
   speaker_request: 'Отправить заявку'
   request_statuses:
     waiting: 'Ожидание подтверждения'

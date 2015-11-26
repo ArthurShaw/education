@@ -1,11 +1,33 @@
-br
-div.text-center.col-lg-12.well.well-lg
-  .avatar
-    p #{image_tag @user.avatar.url(:medium)}
-  h3 #{@user.first_name} #{@user.last_name}
-  p #{@user.email}
-  - if @user == current_user
-    = link_to t('edit_profile'), edit_user_registration_path
-    br
-    = link_to t('workshops.create'), new_workshop_path
+.speakers.wow.fadeIn
+  .mask
+    .first_line.wow.fadeInDown
+    .first_title.wow.fadeInDown
+      p = t('profile')
+    .first_description.wow.fadeInDown
+      p
+        | Every year, we try our best to find the most inspirational speakers from all over the world. We are thrilled to show you people, who are the driving forces behind the most successful design projects and remarkable business stories.
+      - if @user == current_user
+        = link_to t('edit_profile'), edit_user_registration_path, class: 'btn btn-default'
+    .mini_gap
+    .speakers_row
+      .user-avatar
+        = image_tag @user.avatar.url(:medium)
+      .centred
+        .speakers_description.wow.fadeInRight
+          h3 = translate_field(current_user, :readable_name)
+          small = current_user.degree
+          hr
+          - unless current_user.biography.empty?
+            = current_user.biography
+          -else
+            = link_to 'Добавить биографию', edit_user_registration_path, class: 'btn btn-default'
+    mini-gap
+
+  .black
+    .first_line.wow.fadeInDown
+    .first_title.wow.fadeInDown
+      p = t('workshops.workshops')
+    .first_description.wow.fadeInDown
+      p Тут вы можете управлять своими аккаунтами
+
 = render 'workshops/index'

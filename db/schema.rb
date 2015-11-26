@@ -77,13 +77,14 @@ ActiveRecord::Schema.define(version: 20151125132349) do
   end
 
   create_table "page_contents", force: :cascade do |t|
-    t.string   "name",       default: "",    null: false
-    t.text     "content",    default: "",    null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.text     "content_en", default: "",    null: false
-    t.string   "name_en",    default: "",    null: false
-    t.boolean  "hidden",     default: false, null: false
+    t.string   "name",         default: "",    null: false
+    t.text     "content",      default: "",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.text     "content_en",   default: "",    null: false
+    t.string   "name_en",      default: "",    null: false
+    t.boolean  "hidden",       default: false, null: false
+    t.integer  "content_type", default: 0,     null: false
   end
 
   create_table "roles", force: :cascade do |t|
