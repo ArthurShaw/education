@@ -301,21 +301,21 @@ header#home_slider.carousel.slide
               polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
         .gap
 
-  -
-  unless @location_json.empty?
-    .div style='width: auto;'
-      #location-place style='width: auto; height: 400px;'
-
 #contacts
-  .black
-    .mini_gap
-    .first_line.wow.fadeInDown
-    .first_title.wow.fadeInDown
-      p = raw(translate_field(@contacts_content, :name))
-    .first_description.wow.fadeInDown
-      p = raw(translate_field(@contacts_content, :content))
-    .gap
+  .firstrow.black
+    .centred
+      .first_line.wow.fadeInDown
+      .first_title.wow.fadeInDown
+        p = raw(translate_field(@contacts_content, :name))
+      .first_description.wow.fadeInDown
+        p = raw(translate_field(@contacts_content, :content))
+      .mini_gap
+    .first_image
+      - unless @location_json.empty?
+        .div style='width: auto; height: 100%;'
+          #location-place style='width: auto; height: 100%;'
     .clear
+
 
 footer
   .mini_gap
