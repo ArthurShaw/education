@@ -76,6 +76,7 @@ header#home_slider.carousel.slide
           - for section in @sections
             - unless section.is_main
               p = link_to translate_field(section, :title), section_path(section)
+        .gap
     .clear
 
 
