@@ -330,6 +330,9 @@ footer .first_line,
         color: white;
         padding-top: 20px;
     }
+    .black a {
+        color: white;
+    }
 }
 
 input.error {
@@ -379,4 +382,18 @@ input.error {
 
 .black table td {
     padding-right: 30px;
+}
+.workshop-area {
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.workshop-block {
+    /*text-align: center;*/
+    display: inline-block;
+    position: relative;
+    margin: 1%;
+    float: left;
+    /*background-color: lightgrey;*/
+    padding: 10px;
 }

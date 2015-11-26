@@ -38,8 +38,8 @@ ru:
     section: 'Секция'
     add: 'Новый доклад'
     edit: 'Редактировать доклад'
-    status: 'Статус'
-    datetime: 'Время создания'
+    status: 'Статус:'
+    datetime: 'Время создания:'
   speaker_request: 'Отправить заявку'
   request_statuses:
     waiting: 'Ожидание подтверждения'
@@ -104,4 +104,12 @@ ru:
         - "day"
       formats:
         month: "%B"
+        full_date: '%d %B %Y %H:%M'
       month_names: [~, Января, Февраля, Марта, Апреля, Мая, Июня, Июля, Августа, Сентября, Октября, Ноября, Декабря]
+  time:
+    formats:
+      full_date: '%d %B %Y %H:%M'
+  workshop_status:
+    waiting_confirmation: 'Ожидает подтверждение'
+    confirmed: 'Подтвержден'
+    denied: 'Отклонен'

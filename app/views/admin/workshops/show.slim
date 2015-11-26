@@ -1,7 +1,10 @@
 h3 = "#{t('workshops.title')}: "
 = @workshop.title
 h3 = "#{t('workshops.section')}: "
-=@workshop.section.title
+-unless @workshop.section.nil?
+   = @workshop.section.title
+-else
+   = 'Нет секции'
 h3 = "#{t('roles.speaker')}: "
 - unless @workshop.user_id.nil?
   = "#{@workshop.user.first_name} #{@workshop.user.last_name}"
@@ -11,7 +14,7 @@ h3 = "#{t('workshops.description')}: "
 = @workshop.description
 - unless @workshop.user_id.nil?
   h3 = "#{t('workshops.status')}: "
-  = @workshop.status
+  = t("workshop_status.#{@workshop.status}")
   br
   = link_to 'одобрить', approve_admin_workshop_path(@workshop), method: :put, class: 'btn btn-success'
   =< link_to 'отклонить', deny_admin_workshop_path(@workshop), method: :put, class: 'btn btn-danger'
