@@ -9,7 +9,7 @@
     br
     = f.label :'Доклад'
     br
-    = f.collection_select :workshop_id, Workshop.where(:status => Workshop.statuses[:confirmed]), :id, :title,{include_blank: true}
+    = f.collection_select :workshop_id, @workshops, :id, :readable_name ,{include_blank: true}, id: 'js_section_select'
     br
     = f.label :'Дата'
     br
@@ -25,7 +25,7 @@
     br
     = f.label :'Название (рус)'
     br
-    = f.text_field :title
+    = f.text_field :title, id: 'js_workshop_title'
     br
     = f.label :'Описание (рус)'
     br
@@ -33,7 +33,7 @@
     br
     = f.label :'Название (eng)'
     br
-    = f.text_field :title_en
+    = f.text_field :title_en, id: 'js_workshop_title_en'
     br
     = f.label :'Описание (eng)'
     br

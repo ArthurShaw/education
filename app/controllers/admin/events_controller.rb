@@ -15,6 +15,7 @@ class Admin::EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @workshops = Workshop.where(:status => Workshop.statuses[:confirmed])
   end
 
   def create

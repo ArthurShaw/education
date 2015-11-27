@@ -8,9 +8,7 @@ $(document).on("page:change", ->
   location_json = JSON.parse(location_json)
 
   place_markers = [];
-  console.log(location_json)
   $.each location_json, (location) ->
-    console.log(location)
     place_markers.push(
       {
         lat: location_json[location]['latitude'],
