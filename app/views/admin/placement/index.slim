@@ -5,8 +5,14 @@
 .col-lg-9
   h2 Местоположение
   = form_tag admin_placement_path
-    => text_field_tag 'address'
-    = submit_tag
+    p Пожалуйста, введите полный адрес и нажмите "Сохранить"
+    p Для удаления адреса, просто оставьте поле пустым
+    #js_address_inputs
+      - for place in JSON.parse(@placement_json)
+        = text_field_tag 'address[]', place['address_string'], :class => 'form-control'
+        br
+    a#js_add_address.btn.btn-default Добавить еще адрес
+    =< submit_tag :'Сохранить', :class => 'btn btn-default'
   br
 
 
