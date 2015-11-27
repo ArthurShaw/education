@@ -16,10 +16,10 @@
           h3 = translate_field(current_user, :readable_name)
           small = current_user.degree
           hr
-          - unless current_user.biography.empty?
+          - if current_user.biography
             = current_user.biography
           -else
-            = link_to 'Добавить биографию', edit_user_registration_path, class: 'btn btn-default'
+            = link_to 'Заполнить информацию о себе', edit_user_registration_path, class: 'btn btn-default'
   .clear
 .speakers.wow.fadeUp
   .mask

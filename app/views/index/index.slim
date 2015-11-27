@@ -68,11 +68,11 @@ header#home_slider.carousel.slide
         .mini_gap
         .first_title.wow.fadeInDown.section_place_title
           p Информация
-        .sections_place
+        .sections_place.wow.fadeInDown
           p = link_to 'Информационное письмо', information_letter_path
         .first_title.wow.fadeInDown.section_place_title
           p Темы конференции
-        .sections_place
+        .sections_place.wow.fadeInDown
           - for section in @sections
             - unless section.is_main
               p = link_to translate_field(section, :title), section_path(section)

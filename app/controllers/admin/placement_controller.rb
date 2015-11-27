@@ -5,18 +5,23 @@ class Admin::PlacementController < ApplicationController
     @placement_json = placement.content
   end
 
-  def edit
-  end
-
   def update
     @address = PageContent.find(4)
 
-    address = params[:address]
+    address_array = []
 
-    location = Geokit::Geocoders::MultiGeocoder.do_geocode(address)
-    lat_lng_hash = {latitude: location.lat, longitude: location.lng}
+    for address in params[:address]
+      next if address.empty?
+      location = Geokit::Geocoders::MultiGeocoder.do_geocode(address)
+      lat_lng_hash = {
+          latitude: location.lat,
+          longitude: location.lng,
+          address_string: address
+      }
+      address_array << lat_lng_hash
+    end
 
-    address_json =lat_lng_hash.to_json
+    address_json = address_array.to_json
 
     @address.update(:content => address_json)
     redirect_to admin_placement_path

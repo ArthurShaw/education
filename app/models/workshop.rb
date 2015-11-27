@@ -12,4 +12,8 @@ class Workshop < ActiveRecord::Base
     user || special_guest
   end
 
+  def readable_name
+    "#{title} | #{title_en}"
+  end
+
 end

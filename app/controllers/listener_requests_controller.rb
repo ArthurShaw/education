@@ -5,7 +5,8 @@ class ListenerRequestsController < ApplicationController
   end
 
   def success
-
+    @listener_request = ListenerRequest.find(params[:id])
+    render_404 unless @listener_request
   end
 
   def create
