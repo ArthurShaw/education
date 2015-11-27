@@ -16,6 +16,7 @@ ru:
   comments: 'Комментарии'
   profile: 'Профиль'
   areyousure: 'Вы уверены?'
+  send_comment: 'Оставить комментарий'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'

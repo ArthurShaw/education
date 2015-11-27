@@ -37,6 +37,7 @@ en:
   comments: 'Comments'
   profile: 'Profile'
   areyousure: 'Are you sure?'
+  send_comment: 'Send comment'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'
