@@ -34,5 +34,7 @@ $(document).on("page:change", ->
   }, ->
     markers = handler.addMarkers(place_markers)
     handler.map.centerOn markers[0]
-    handler.getMap().setZoom(11);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
 )
+
