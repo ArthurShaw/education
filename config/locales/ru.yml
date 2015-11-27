@@ -110,6 +110,6 @@ ru:
     formats:
       full_date: '%d %B %Y %H:%M'
   workshop_status:
-    waiting_confirmation: 'Ожидает подтверждение'
+    waiting_confirmation: 'Ожидает подтверждения'
     confirmed: 'Подтвержден'
     denied: 'Отклонен'

@@ -60,7 +60,7 @@ en:
     add: 'New workshop'
     edit: 'Edit workshop'
     status: 'Status'
-    datetime: 'Created at'
+    datetime: 'Created at:'
   speaker_request: 'Send request'
   request_statuses:
       waiting: 'Waiting for confirmation'
@@ -119,3 +119,11 @@ en:
           - "day"
         formats:
           month: "%B"
+
+  time:
+    formats:
+      full_date: '%B %d %Y %H:%M'
+  workshop_status:
+    waiting_confirmation: 'Waiting confirmation'
+    confirmed: 'Confirmed'
+    denied: 'Denied'
