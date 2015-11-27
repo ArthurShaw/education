@@ -1,8 +1,13 @@
-.col-lg-6.col-lg-offset-3
+.mini_gap
+.first_line.wow.fadeInLeft
+.first_title.wow.fadeInLeft
+  p = t('workshops.edit')
+.first_description.wow.fadeInLeft
+  p = 'Здесь Вы можете редактировать свой доклад'
+.col-lg-6.col-lg-offset-3.wow.fadeInLeft
   br
   = form_for @workshop, :html => {:class => "form-horizontal center"} do |f|
-    legend
-      = t('workshops.edit')
+
     fieldset
       .form-group
         = f.label t('workshops.title'), class: 'col-lg-3 control-label'

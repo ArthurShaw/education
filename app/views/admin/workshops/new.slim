@@ -28,3 +28,43 @@
     = f.collection_select :section_id, Section.where.not(:is_main => true).order(:title), :id, :title, {include_blank: true}
     br
     = f.submit t('confirm')
+
+/.col-lg-6.col-lg-offset-3
+/  br
+/  = form_for @workshop, url: admin_workshops_path, method: :create, :html => {:class => "form-horizontal center"} do |f|
+/
+/    fieldset
+/      .form-group
+/        = f.label :'Докладчик', class: 'col-lg-3 control-label'
+/        .col-lg-9
+/          = f.collection_select :special_guest_id, SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:speaker]), :id, :readable_name, {include_blank: true}, class: 'form-control'
+/      .form-group
+/        = f.label :'Название(рус)', class: 'col-lg-3 control-label'
+/
+/        .col-lg-9
+/          = f.text_field :title, class: 'form-control'
+/
+/      .form-group
+/        = f.label :'Название(eng)', class: 'col-lg-3 control-label'
+/
+/        .col-lg-9
+/          = f.text_field :title_en, class: 'form-control'
+/
+/      .form-group
+/        = f.label :'Описание(рус)', class: 'col-lg-3 control-label'
+/        .col-lg-9
+/          = f.text_area :description, class: 'form-control'
+/
+/      .form-group
+/        = f.label :'Описание(eng)', class: 'col-lg-3 control-label'
+/        .col-lg-9
+/          = f.text_area :description_en, class: 'form-control'
+/
+/      .form-group
+/        = f.label t('workshops.section'), class: 'col-lg-3 control-label'
+/        .col-lg-9
+/          = f.collection_select :section_id, Section.all, :id, :title, {}, {class: 'form-control'}
+/
+/      .form-group
+/        .col-lg-9.col-lg-offset-3
+/          = f.submit t('confirm'), class: 'btn btn-primary'

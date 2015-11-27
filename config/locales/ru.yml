@@ -39,7 +39,7 @@ ru:
     section: 'Секция'
     add: 'Новый доклад'
     edit: 'Редактировать доклад'
-    status: 'Статус:'
+    status: 'Статус'
     datetime: 'Время создания:'
   speaker_request: 'Отправить заявку'
   request_statuses:
@@ -112,5 +112,5 @@ ru:
       full_date: '%d %B %Y %H:%M'
   workshop_status:
     waiting_confirmation: 'Ожидает подтверждения'
-    confirmed: 'Подтвержден'
+    confirmed: 'Одобрен'
     denied: 'Отклонен'
