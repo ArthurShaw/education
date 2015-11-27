@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'information_letter' => 'index#information_letter'
 
     resources :listener_requests, only: [:new, :create] do
-      get 'success' => 'listener_requests#success'
+      get 'success' => 'listener_requests#success', :on => :member
     end
 
     resources :special_guests, only: [:show] do
