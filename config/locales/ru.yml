@@ -22,6 +22,10 @@ ru:
   org_committee: 'Орг.Коммитет'
   as_listener: 'Как слушатель'
   as_speaker: 'Как докладчик'
+  information: 'Информация'
+  information_letter: 'Информационное письмо'
+  conference_themes: 'Темы конференции'
+  special_speakers: 'Ключевые докладчики'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'
