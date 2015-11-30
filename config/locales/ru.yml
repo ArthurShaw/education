@@ -36,6 +36,7 @@ ru:
   curr_pass_inf: 'Введите свой пароль для подтверждения'
   speaker_registration: 'Регистрация докладчика'
   listener_registration: 'Регистрация слушателя'
+  success_registration: 'Успешная регистрация'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'

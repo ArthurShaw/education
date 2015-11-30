@@ -2,8 +2,11 @@
   .gap
   .first_line.wow.fadeInDown
   .first_title.wow.fadeInDown
-    p Успешная регистрация
+    p = t('success_registration')
   .first_description
-    p = "Спасибо, #{@listener_request.first_name}! Наш оператор скоро свяжется с вами."
+    - if I18n.locale == :ru
+      p = "Спасибо, #{@listener_request.first_name}! Наш оператор скоро свяжется с вами."
+    - else
+      p = "Thanks, #{@listener_request.first_name}! Our operator contact with you soon."
 
 
