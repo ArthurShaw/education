@@ -16,7 +16,7 @@
           h3 = translate_field(current_user, :readable_name)
           small = current_user.degree
           hr
-          - if current_user.biography
+          - unless current_user.biography.empty? or current_user.biography.nil?
             = current_user.biography
           -else
             = link_to 'Заполнить информацию о себе', edit_user_registration_path, class: 'btn btn-default'

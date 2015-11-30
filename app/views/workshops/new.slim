@@ -1,9 +1,11 @@
+.gap
+.first_line.wow.fadeInDown
+.first_title.wow.fadeInDown
+  p =t('workshops.add')
+.first_description.wow.fadeInDown
 .col-lg-6.col-lg-offset-3
   br
-  = form_for @workshop, :html => {:class => "form-horizontal center"} do |f|
-    legend
-      = t('workshops.add')
-    hr
+  = form_for @workshop, :html => {:class => "form-horizontal center wow fadeInLeft"} do |f|
     fieldset
       .form-group
         = f.label t('workshops.title'), class: 'col-lg-3 control-label'

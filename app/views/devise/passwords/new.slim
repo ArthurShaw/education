@@ -1,0 +1,11 @@
+.reservation
+  .gap
+  .first_line.wow.fadeInDown
+  .first_title.wow.fadeInDown
+    p  Forgot your password?
+  .first_description.wow.fadeInDown
+  = form_for(resource, as: resource_name, url: password_path(resource_name), method: :post, hmtl: {class: "form-horizontal center"}) do |f|
+    .col-lg-12.col-lg-offset-3
+      = f.email_field :email, placeholder: 'Введите Email', class: 'wow fadeInLeft'
+
+    = f.submit t('reset_password'), class: 'button reservation_button wow fadeInUp'

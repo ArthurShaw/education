@@ -17,6 +17,11 @@ ru:
   profile: 'Профиль'
   areyousure: 'Вы уверены?'
   send_comment: 'Оставить комментарий'
+  reset_password: 'Отправить инструкции'
+  why_kfu: 'Почему КФУ?'
+  org_committee: 'Орг.Коммитет'
+  as_listener: 'Как слушатель'
+  as_speaker: 'Как докладчик'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'

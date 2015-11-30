@@ -38,6 +38,11 @@ en:
   profile: 'Profile'
   areyousure: 'Are you sure?'
   send_comment: 'Send comment'
+  reset_password: 'Send instructions'
+  why_kfu: 'Why KFU?'
+  org_committee: 'Org.Committee'
+  as_listener: 'As listener'
+  as_speaker: 'As speaker'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'
