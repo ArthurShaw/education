@@ -161,7 +161,7 @@ header#home_slider.carousel.slide
 .gap
 .first_line.wow.fadeInDown
 .first_title
-  p.wow.fadeInDown Расписание
+  p.wow.fadeInDown = t('schedule')
 .first_description
   p.wow.fadeInDown
     b 21th–24th of August 2015 | Main Conference Hall, New York, 180/2
@@ -252,7 +252,7 @@ header#home_slider.carousel.slide
       .mask
         .first_line
         .first_title
-          p = link_to 'Почетные гости', guests_special_guests_path
+          p = link_to t('special_guests'), guests_special_guests_path
         .first_description
           p Описание почетных гостей. Они крутые и всё такое
         .gap
@@ -322,7 +322,7 @@ footer
   .mini_gap
   .first_line
   .first_title
-    p Спонсоры
+    p = t('sponsors')
   - for sponsor_category in @sponsor_categories
     .first_description
       p = translate_field(sponsor_category, :name)

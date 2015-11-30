@@ -3,7 +3,7 @@
 .first_title.wow.fadeInLeft
   p = t('workshops.edit')
 .first_description.wow.fadeInLeft
-  p = 'Здесь Вы можете редактировать свой доклад'
+  p = t('here_you_can.edit_workshop')
 .col-lg-6.col-lg-offset-3.wow.fadeInLeft
   br
   = form_for @workshop, :html => {:class => "form-horizontal center"} do |f|
@@ -23,8 +23,10 @@
       .form-group
         = f.label t('workshops.section'), class: 'col-lg-3 control-label'
         .col-lg-9
-          = f.collection_select :section_id, Section.all, :id, :title, {}, {class: 'form-control'}
-
+          - if I18n.locale == :ru
+            = f.collection_select :section_id, Section.where.not(:is_main => true).order(:title), :id, :title, {include_blank: true}, {class: 'form-control'}
+          - else
+            = f.collection_select :section_id, Section.where.not(:is_main => true).order(:title_en), :id, :title_en, {include_blank: true}, {class: 'form-control'}
       .form-group
         .col-lg-9.col-lg-offset-3
           = f.submit t('confirm'), class: 'btn btn-primary'

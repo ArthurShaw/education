@@ -5,7 +5,7 @@
 .first_description.wow.fadeInDown
 .col-lg-6.col-lg-offset-3
   br
-  = form_for @workshop, :html => {:class => "form-horizontal center wow fadeInLeft"} do |f|
+  = form_for @workshop, :html => {:class => "form-horizontal center"} do |f|
     fieldset
       .form-group
         = f.label t('workshops.title'), class: 'col-lg-3 control-label'
@@ -21,7 +21,10 @@
       .form-group
         = f.label t('workshops.section'), class: 'col-lg-3 control-label'
         .col-lg-9
-          = f.collection_select :section_id, Section.where.not(:is_main => true).order(:title), :id, :title, {include_blank: true}, {class: 'form-control'}
+          - if I18n.locale == :ru
+            = f.collection_select :section_id, Section.where.not(:is_main => true).order(:title), :id, :title, {include_blank: true}, {class: 'form-control'}
+          - else
+            = f.collection_select :section_id, Section.where.not(:is_main => true).order(:title_en), :id, :title_en, {include_blank: true}, {class: 'form-control'}
 
       .form-group
         .col-lg-9.col-lg-offset-3

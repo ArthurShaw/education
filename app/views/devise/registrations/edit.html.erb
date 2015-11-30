@@ -9,12 +9,12 @@
 </div>
 <div class="first_description wow fadeInDown">
   <p>
-    Здесь вы можете отредактировать все параметры вашего профиля
+    <%= t('here_you_can.edit_profile') %>
   </p>
 </div>
 <div class="col-lg-6 col-lg-offset-3">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "form-horizontal center"}) do |f| %>
-      <%= devise_error_messages! %>
+
       <fieldset>
         <hr />
         <div class="form-group">
@@ -85,13 +85,13 @@
           <%= f.label t('user_params.biography'), class: 'col-lg-2 control-label' %>
 
           <div class="col-lg-10">
-            <i> Максимум 600 символов</i>
             <%= f.text_area :biography, class: 'form-control' %>
+            <i> <%= t('max_symbols') %></i>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :avatar, class: 'col-lg-2 control-label' %>
+          <%= f.label t('user_params.avatar'), class: 'col-lg-2 control-label' %>
 
           <div class="col-lg-10">
             <%= f.file_field :avatar, class: 'form-control' %>
@@ -103,10 +103,9 @@
 
 
           <div class="col-lg-10">
+
             <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
-            <% if @minimum_password_length %>
-                <em>(Как минимум <%= @minimum_password_length %> символов)</em>
-            <% end %>
+            <i> <%= t('min_sym_to_password')%> </i>
           </div>
         </div>
 
@@ -122,14 +121,14 @@
           <%= f.label t('user_params.current_password'), class: 'col-lg-2 control-label' %>
 
           <div class="col-lg-10">
-            <i>Введите свой пароль для подтверждения</i>
             <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+            <i><%= t('curr_pass_inf')%></i>
           </div>
         </div>
 
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-2">
-            <%= f.submit 'Редактировать',  class: 'btn btn-primary' %>
+            <%= f.submit t('update'),  class: 'btn btn-primary' %>
           </div>
         </div>
       </fieldset>
@@ -137,5 +136,5 @@
 </div>
 
 <div class="col-lg-6 col-lg-offset-3">
-  <%= link_to "Назад", :back, class: 'btn btn-link' %>
+  <%= link_to t('back'), :back, class: 'btn btn-link' %>
 </div>

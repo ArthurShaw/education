@@ -2,7 +2,7 @@
   .gap
   .first_line.wow.fadeInDown
   .first_title.wow.fadeInDown
-    p Регистрация слушателя
+    p = t('listener_registration')
 
   = form_for @listener_request do |f|
     = f.text_field :first_name, placeholder: t('user_params.first_name'), class: 'wow fadeInLeft'
