@@ -13,6 +13,10 @@ nav.navbar.navbar-fixed-top.nav_mask
         span.icon-bar
       a.navbar-brand href=root_path
         | CONFERENCE
+      - if I18n.locale == I18n.default_locale
+        = link_to image_tag('en.png'), {locale: 'en'}, {class: 'navbar-brand lng-switcher'}
+      - else
+        = link_to image_tag('ru.png'), {locale: 'ru'}, {class: 'navbar-brand lng-switcher'}
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
         li

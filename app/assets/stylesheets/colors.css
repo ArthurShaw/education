@@ -425,3 +425,7 @@ input.error {
     /*background-color: lightgrey;*/
     padding: 10px;
 }
+
+.lng-switcher {
+    display: inline-block;
+}
