@@ -32,5 +32,8 @@ module FossConf
         html_tag
       end
     }
+
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   end
 end
+

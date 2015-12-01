@@ -1,6 +1,49 @@
 /*
  *= require admin_profile
  */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: font-url('RalewayThin.eot');
+  src: font-url('RalewayThin.eot?#iefix') format('embedded-opentype'),
+       font-url('RalewayThin.ttf') format('truetype'),
+       font-url('RalewayThin.woff') format('woff');
+}
+
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: font-url('RalewayLight.eot');
+  src: font-url('RalewayLight.eot?#iefix') format('embedded-opentype'),
+       font-url('RalewayLight.ttf') format('truetype'),
+       font-url('RalewayLight.woff') format('woff');
+}
+
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: font-url('RalewayRegular.eot');
+  src: font-url('RalewayRegular.eot?#iefix') format('embedded-opentype'),
+       font-url('RalewayRegular.ttf') format('truetype'),
+       font-url('RalewayRegular.woff') format('woff');
+}
+
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: font-url('RalewayBold.eot');
+  src: font-url('RalewayBold.eot?#iefix') format('embedded-opentype'),
+       font-url('RalewayBold.ttf') format('truetype'),
+       font-url('RalewayBold.woff') format('woff');
+}
