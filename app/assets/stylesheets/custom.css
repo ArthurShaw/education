@@ -768,7 +768,7 @@ nav {
 
 .firstrow {
 
-    height: 400px;
+    min-height: 400px;
 
     display: table;
 
