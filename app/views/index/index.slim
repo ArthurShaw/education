@@ -309,10 +309,9 @@
       .first_description.wow.fadeInDown
         p = raw(translate_field(@contacts_content, :content))
       .mini_gap
-    .first_image
-      - unless @location_json.empty?
-        .div style='width: auto; height: 100%;'
-          #location-place style='width: auto; height: 100%;'
+    - unless @location_json.empty?
+      div style="width: auto; height: 100%;"
+        #location-place style="width: auto; height: 100%;"
     .clear
 
 
@@ -336,3 +335,40 @@ footer
 
 
 #js-modal-place
+
+coffee:
+  location_json = $("#location").text();
+  unless location_json
+    return
+  location_json = JSON.parse(location_json)
+
+  place_markers = [];
+  $.each location_json, (location) ->
+    place_markers.push(
+            {
+              lat: location_json[location]['latitude'],
+              lng: location_json[location]['longitude'],
+              'picture': {
+                'url': 'http://maps.google.com/mapfiles/ms/micons/pink-dot.png'
+                'width': 32
+                'height': 32
+              },
+              'infowindow': 'hello!'
+            }
+    )
+
+
+  handler = Gmaps.build('Google')
+  handler.buildMap {
+    provider:
+      scrollwheel: false
+    internal:
+      id: 'location-place'
+      autoZoom: true
+  }, ->
+    markers = handler.addMarkers(place_markers)
+    handler.map.centerOn markers[0]
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+
+  $("#location-place").height($("#contacts").height())
