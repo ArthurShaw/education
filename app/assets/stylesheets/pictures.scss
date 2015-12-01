@@ -1,0 +1,32 @@
+.first_image:empty,
+.first_image {
+
+  background-image: image_url('first.jpg');
+
+}
+
+.tabs_about {
+
+  background-image: image_url('bg_about.jpg');
+
+}
+
+.speakers {
+
+  background-image: image_url('bg_speakers.jpg');
+  overflow-x: hidden;
+
+}
+
+.contact {
+
+  background-image: image_url('bg_contact.jpg');
+
+}
+
+.second_image:empty,
+.second_image {
+
+  background-image: image_url('featured_speaker.jpg');
+
+}

@@ -269,38 +269,6 @@ footer .first_line,
 
 /*Images*/
 
-.second_image:empty,
-.second_image {
-
-    background-image: url('featured_speaker.jpg');
-
-}
-
-.first_image:empty,
-.first_image {
-
-    background-image: url('assets/first.jpg');
-
-}
-
-.tabs_about {
-
-    background-image: url('bg_about.jpg');
-
-}
-
-.speakers {
-
-    background-image: url('bg_speakers.jpg');
-    overflow-x: hidden;
-
-}
-
-.contact {
-
-    background-image: url('bg_contact.jpg');
-
-}
 
 /*---------------------- Additional Styles ---------------------*/
 
