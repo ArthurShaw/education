@@ -1,5 +1,5 @@
 class Admin::PageContentsController < ApplicationController
-  before_action :check_permission
+  before_action { check_permission(:admin) }
   before_action :find_page_content, only: [:edit, :update]
 
   def index
@@ -27,8 +27,5 @@ class Admin::PageContentsController < ApplicationController
     render_404 unless @content
   end
 
-  def check_permission
-    render_403 unless current_user.has_role? :admin
-  end
 end
 

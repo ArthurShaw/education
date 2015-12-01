@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
     {:locale => I18n.locale}
   end
 
+  def check_permission(role)
+    render_403 unless current_user and current_user.has_role? role
+  end
+
   def render_404
     render 'errors/404', :status => :not_found
   end

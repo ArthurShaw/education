@@ -1,5 +1,5 @@
 class Admin::PlacementController < ApplicationController
-  before_action :check_permission
+  before_action { check_permission(:admin) }
   def index
     placement = PageContent.find(4)
     @placement_json = placement.content
@@ -27,9 +27,4 @@ class Admin::PlacementController < ApplicationController
     redirect_to admin_placement_path
   end
 
-  private
-
-  def check_permission
-    render_403 unless current_user.has_role? :admin
-  end
 end

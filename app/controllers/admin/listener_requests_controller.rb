@@ -1,6 +1,6 @@
 class Admin::ListenerRequestsController < ApplicationController
 
-  before_action :check_permission
+  before_action { check_permission(:admin) }
 
   def index
     @requests = ListenerRequest.all
@@ -28,10 +28,5 @@ class Admin::ListenerRequestsController < ApplicationController
     send_file export_file_path, :content_type => "application/vnd.ms-excel", :disposition => 'inline'
   end
 
-  private
-
-  def check_permission
-    render_403 unless current_user.has_role? :admin
-  end
 
 end

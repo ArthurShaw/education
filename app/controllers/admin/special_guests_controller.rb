@@ -1,6 +1,6 @@
 class Admin::SpecialGuestsController < ApplicationController
 
-  before_action :check_permission
+  before_action { check_permission(:admin) }
   before_action :find_special_guest, only: [:update, :destroy, :edit]
 
   def new
@@ -38,10 +38,6 @@ class Admin::SpecialGuestsController < ApplicationController
   def find_special_guest
     @special_guest = SpecialGuest.find(params[:id])
     render_404 unless @special_guest
-  end
-
-  def check_permission
-    render_403 unless current_user.has_role? :admin
   end
 
   def special_guests_params

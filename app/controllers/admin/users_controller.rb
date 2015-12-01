@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
 
-  before_action :check_permission
+  before_action { check_permission(:admin) }
 
   def new
     @admin = User.new
@@ -34,12 +34,6 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-
-  def check_permission
-    unless user_signed_in? and current_user.has_role? :admin
-      render 'errors/403', :status => 403
-    end
-  end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)

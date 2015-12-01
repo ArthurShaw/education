@@ -1,7 +1,7 @@
 class Admin::SponsorsController < ApplicationController
 
   before_action :find_sponsor, only: [:update, :destroy, :edit]
-  before_action :check_permission
+  before_action { check_permission(:admin) }
 
   def index
     @sponsor_categories = SponsorCategory.all
@@ -47,9 +47,6 @@ class Admin::SponsorsController < ApplicationController
     render_404 unless @sponsor
   end
 
-  def check_permission
-    render_403 unless current_user.has_role? :admin
-  end
 
 
 end

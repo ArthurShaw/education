@@ -1,5 +1,5 @@
 class WorkshopsController < ApplicationController
-  before_action :check_permission, except: [:info]
+  before_action except: [:info] {check_permission(:speaker)}
   before_action :find_workshop, only: [:show, :edit, :update, :destroy, :info]
 
   def index
@@ -54,8 +54,6 @@ class WorkshopsController < ApplicationController
     render_404 unless @workshop
   end
 
-  def check_permission
-    render_403 unless current_user.has_role? :speaker
-  end
+
 
 end

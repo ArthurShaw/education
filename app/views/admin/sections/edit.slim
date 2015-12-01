@@ -1,0 +1,23 @@
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Редактировать секцию
+  = form_for @section, url: admin_section_path, method: :put do |f|
+
+    = f.label :'Название'
+    br
+    = f.text_field :title, autofocus: true
+    br
+    = f.label :title
+    br
+    = f.text_field :title_en
+    br
+    = f.label :'Описание (рус)'
+    br
+    = f.cktext_area :description
+    br
+    = f.label :'Описание (eng)'
+    br
+    = f.cktext_area :description_en
+    br
+    br
+    = f.submit t('confirm')
