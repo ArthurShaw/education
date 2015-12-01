@@ -355,15 +355,15 @@ input.error {
 }
 
 .first_slide {
-    background-image: url('slider_1.jpg')
+    background-image: url('slider.jpg')
 }
 
 .second_slide {
-    background-image: url('slider_2.jpg')
+    background-image: url('slider.jpg')
 }
 
 .third_slide {
-    background-image: url('slider_3.jpg')
+    background-image: url('slider.jpg')
 }
 
 .guest_avatar {
@@ -428,4 +428,8 @@ input.error {
 
 .lng-switcher {
     display: inline-block;
+}
+
+.main-image {
+    width: 100%;
 }
