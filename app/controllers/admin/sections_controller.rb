@@ -1,6 +1,6 @@
 class Admin::SectionsController < ApplicationController
   before_action :check_permission
-  before_action :find_section, only: :destroy
+  before_action :find_section, only: [:edit, :update, :destroy]
 
   def index
     @sections = Section.where.not(:is_main => true)
@@ -8,6 +8,9 @@ class Admin::SectionsController < ApplicationController
 
   def new
     @section = Section.new
+  end
+
+  def edit
   end
 
   def create
@@ -18,6 +21,14 @@ class Admin::SectionsController < ApplicationController
       render 'new', :status => :bad_request
     end
 
+  end
+
+  def update
+    if @section.update(sections_params)
+      redirect_to admin_sections_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
