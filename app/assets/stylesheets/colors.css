@@ -8,7 +8,7 @@ Assigned to:    http://themeforest.net/user/chaykovskiy
 Primary use:    Eventime HTML Template 
 -------------------------------------------------------------------*/
 
-/*!------------------------------ Main color of template #1ffcff ------------------------------*/
+/*!------------------------------ Main color of template #029EE0 ------------------------------*/
 
 .navbar-nav > .active > a,
 .navbar ul li a.active,
@@ -30,7 +30,7 @@ a.navbar-brand:hover,
 .contact a, .entry-meta span a:hover,
 .copyright span {
 
-    color: #1ffcff;
+    color: #55a9ea;
 
 }
 
@@ -38,7 +38,7 @@ a.navbar-brand:hover,
 .eventime_button:hover::before,
 .contact_icon:hover {
 
-    background: #1ffcff;
+    background: #55a9ea;
 
 }
 
@@ -58,7 +58,7 @@ figure.eventime_img figcaption::before,
 .eventime_modal .contact_icon:hover,
 .center_line {
 
-    border-color: #1ffcff;
+    border-color: #55a9ea;
 
 }
 
@@ -68,21 +68,21 @@ figure.eventime_img figcaption::before,
 footer,
 .navbar-toggle {
 
-    background: #1ffcff;
+    background: #55a9ea;
 
-    background: -moz-linear-gradient(-45deg, #1ffcff 0%, #55f0b7 100%);
+    background: -moz-linear-gradient(-45deg, #55a9ea 0%, #8ee8ff 100%);
 
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #1ffcff), color-stop(100%, #55f0b7));
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #55a9ea), color-stop(100%, #8ee8ff));
 
-    background: -webkit-linear-gradient(-45deg, #1ffcff 0%, #55f0b7 100%);
+    background: -webkit-linear-gradient(-45deg, #55a9ea 0%, #8ee8ff 100%);
 
-    background: -o-linear-gradient(-45deg, #1ffcff 0%, #55f0b7 100%);
+    background: -o-linear-gradient(-45deg, #55a9ea 0%, #8ee8ff 100%);
 
-    background: -ms-linear-gradient(-45deg, #1ffcff 0%, #55f0b7 100%);
+    background: -ms-linear-gradient(-45deg, #55a9ea 0%, #8ee8ff 100%);
 
-    background: linear-gradient(135deg, #1ffcff 0%, #55f0b7 100%);
+    background: linear-gradient(135deg, #55a9ea 0%, #8ee8ff 100%);
 
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1ffcff', endColorstr='#55f0b7', GradientType=1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#55a9ea', endColorstr='#8ee8ff', GradientType=1);
 
 }
 
@@ -97,7 +97,7 @@ footer,
 #home_slider .left_arrow,
 #home_slider .right_arrow {
 
-    fill: #1ffcff;
+    fill: #55a9ea;
 
 }
 
@@ -243,7 +243,7 @@ footer .first_line,
 .nav_mask,
 .footer {
 
-    background: rgba(0, 0, 0, 0.98);
+    background: #1a3446;
 
 }
 
@@ -263,44 +263,12 @@ footer .first_line,
 
 .mask {
 
-    background-color: rgba(0, 0, 0, 0.77);
+    background-color: #1a3446;
 
 }
 
 /*Images*/
 
-.second_image:empty,
-.second_image {
-
-    background-image: url('featured_speaker.jpg');
-
-}
-
-.first_image:empty,
-.first_image {
-
-    background-image: url('first.jpg');
-
-}
-
-.tabs_about {
-
-    background-image: url('bg_about.jpg');
-
-}
-
-.speakers {
-
-    background-image: url('bg_speakers.jpg');
-    overflow-x: hidden;
-
-}
-
-.contact {
-
-    background-image: url('bg_contact.jpg');
-
-}
 
 /*---------------------- Additional Styles ---------------------*/
 
@@ -355,15 +323,15 @@ input.error {
 }
 
 .first_slide {
-    background-image: url('slider_1.jpg')
+    background-image: url('slider.jpg')
 }
 
 .second_slide {
-    background-image: url('slider_2.jpg')
+    background-image: url('slider.jpg')
 }
 
 .third_slide {
-    background-image: url('slider_3.jpg')
+    background-image: url('slider.jpg')
 }
 
 .guest_avatar {
@@ -391,9 +359,6 @@ input.error {
     padding-left: 10%;
 
     font-size: 18px;
-
-    height: 80px;
-
 
     display: inline-block;
 
@@ -428,4 +393,13 @@ input.error {
 
 .lng-switcher {
     display: inline-block;
+}
+
+.main-image {
+    width: 100%;
+}
+
+.first_title a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid;
 }

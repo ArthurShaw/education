@@ -34,7 +34,7 @@ nav.navbar.navbar-fixed-top.nav_mask
         /    | Speakers
         /li
         /  a href="#contact_menu"
-        /    | Contact
+        /    | Conslitact
         - if user_signed_in?
           li
             == link_to t('profile'), profile_path
@@ -52,10 +52,5 @@ nav.navbar.navbar-fixed-top.nav_mask
                 == link_to t('as_speaker'), new_user_registration_path
           li
             == link_to t('login'), new_user_session_path
-        li
-          - if I18n.locale == I18n.default_locale
-            = link_to image_tag('en.png'), locale: 'en'
-          -else
-            = link_to image_tag('ru.jpg'), locale: 'ru'
 /! /.nav-collapse
 /! /.nav-collapse

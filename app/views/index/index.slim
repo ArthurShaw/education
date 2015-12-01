@@ -1,58 +1,60 @@
 #location.hidden = @location_json
 
-header#home_slider.carousel.slide
-  /! Wrapper for Slides
-  .carousel-inner
-    .item.active
-      /! Set the first background image using inline CSS below.
-      .fill.first_slide
-      .fill_mask
-        .description
-          h2.details.wow.fadeInDown
-            | Design Days Conference
-          .details.wow.fadeInUp
-            .fa.fa-map-marker.fa-2x
-            p
-              | Main Conference Hall, New York, 180/2
-          .details.wow.fadeInUp
-            .fa.fa-clock-o.fa-2x
-            p
-              | 20-24 AUG 2015
-          .buttons
-            a.wow.fadeInLeft.btn.eventime_button href="#about_menu" role="button"
-              | Know more
-            a.wow.fadeInRight.btn.eventime_button href= new_user_registration_path role="button"
-              = t('registration')
-    .item
-      /! Set the first background image using inline CSS below.
-      .fill.second_slide
-      .fill_mask
-        .description
-          h2.wow.fadeInUp
-            | The world's most successful designers
-          .buttons
-            a.wow.fadeInUp.btn.eventime_button href="#special_guests_menu" role="button"
-              | Speakers
-    .item
-      /! Set the first background image using inline CSS below.
-      .fill.third_slide
-      .fill_mask
-        .description
-          h2.wow.fadeInUp
-            | Unique Design Days
-          .details.wow.fadeInDown
-            .fa.fa-clock-o.fa-2x
-            p
-              | 20-24 AUG 2015
-          .buttons
-            a.wow.fadeInUp.btn.eventime_button href="#schedule_menu" role="button"
-              | schedule
-  a.wow.fadeInLeft.left_arrow data-slide="prev" href="#home_slider"
-    svg height="48" width="26px"
-      polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7" /
-  a.wow.fadeInRight.right_arrow data-slide="next" href="#home_slider"
-    svg height="48" width="26px"
-      polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7" /
+/header#home_slider.carousel.slide
+/  /! Wrapper for Slides
+/  .carousel-inner
+/    .item.active
+/      /! Set the first background image using inline CSS below.
+/      .fill.first_slide
+/      .fill_mask
+/        .description
+/          h2.details.wow.fadeInDown
+/            | Design Days Conference
+/          .details.wow.fadeInUp
+/            .fa.fa-map-marker.fa-2x
+/            p
+/              | Main Conference Hall, New York, 180/2
+/          .details.wow.fadeInUp
+/            .fa.fa-clock-o.fa-2x
+/            p
+/              | 20-24 AUG 2015
+/          .buttons
+/            a.wow.fadeInLeft.btn.eventime_button href="#about_menu" role="button"
+/              | Know more
+/            a.wow.fadeInRight.btn.eventime_button href= new_user_registration_path role="button"
+/              = t('registration')
+/    .item
+/      /! Set the first background image using inline CSS below.
+/      .fill.second_slide
+/      .fill_mask
+/        .description
+/          h2.wow.fadeInUp
+/            | The world's most successful designers
+/          .buttons
+/            a.wow.fadeInUp.btn.eventime_button href="#special_guests_menu" role="button"
+/              | Speakers
+/    .item
+/      /! Set the first background image using inline CSS below.
+/      .fill.third_slide
+/      .fill_mask
+/        .description
+/          h2.wow.fadeInUp
+/            | Unique Design Days
+/          .details.wow.fadeInDown
+/            .fa.fa-clock-o.fa-2x
+/            p
+/              | 20-24 AUG 2015
+/          .buttons
+/            a.wow.fadeInUp.btn.eventime_button href="#schedule_menu" role="button"
+/              | schedule
+/  a.wow.fadeInLeft.left_arrow data-slide="prev" href="#home_slider"
+/    svg height="48" width="26px"
+/      polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7" /
+/  a.wow.fadeInRight.right_arrow data-slide="next" href="#home_slider"
+/    svg height="48" width="26px"
+/      polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7" /
+
+= image_tag('slider.jpg', class: 'main-image')
 
 - unless @about_conference_content.hidden
   #about
@@ -64,7 +66,7 @@ header#home_slider.carousel.slide
         .first_description.wow.fadeInDown
           p = raw(translate_field(@about_conference_content, :content))
         .mini_gap
-      .first_image
+      .centred
         .mini_gap
         .first_title.wow.fadeInDown.section_place_title
           p = t('information')
@@ -299,7 +301,7 @@ header#home_slider.carousel.slide
         .gap
 
 #contacts
-  .firstrow.black
+  .firstrow
     .centred
       .first_line.wow.fadeInDown
       .first_title.wow.fadeInDown

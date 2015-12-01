@@ -236,7 +236,7 @@ header {
 
     z-index: 999;
 
-/ / text-transform: uppercase;
+    text-transform: uppercase;
 
     -webkit-transition: all .2s ease-in-out;
 
@@ -768,7 +768,7 @@ nav {
 
 .firstrow {
 
-    height: 400px;
+    min-height: 400px;
 
     display: table;
 
@@ -1755,30 +1755,23 @@ ul.tags a {
 
 }
 
-{
+/*{*/
 
-    -webkit-background-size: cover
-;
+    /*-webkit-background-size: cover;*/
 
-    -moz-background-size: cover
-;
+    /*-moz-background-size: cover;*/
 
-    -o-background-size: cover
-;
+    /*-o-background-size: cover;*/
 
-    background-size: cover
-;
+    /*background-size: cover;*/
 
-    width: 100%
-;
+    /*width: 100%;*/
 
-    height: 100%
-;
+    /*height: 100%;*/
 
-    float: left
-;
+    /*float: left;*/
 
-}
+/*}*/
 
 .photo_carousel {
 
@@ -2222,7 +2215,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-/ / text-transform: uppercase;
+    text-transform: uppercase;
 
     -webkit-appearance: none;
 
@@ -2262,7 +2255,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-/ / text-transform: uppercase;
+    text-transform: uppercase;
 
     -webkit-appearance: none;
 
@@ -2302,7 +2295,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-/ / text-transform: uppercase;
+    text-transform: uppercase;
 
     -webkit-appearance: none;
 
@@ -2342,7 +2335,7 @@ figure.eventime_img:hover img {
 
     font-weight: 100;
 
-/ / text-transform: uppercase;
+    text-transform: uppercase;
 
     -webkit-appearance: none;
 
