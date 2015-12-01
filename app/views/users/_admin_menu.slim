@@ -11,7 +11,7 @@ hr
   br
   => link_to 'События', admin_events_path, class: "btn btn-default #{'active' if controller.controller_name == 'events'}"
   br
-  => link_to 'Спонсоры', admin_sponsors_path, class: "btn btn-default #{'active' if controller.controller_name == 'sponsors'}"
+  => link_to 'Спонсоры', admin_sponsors_path, class: "btn btn-default #{'active' if controller.controller_name == 'sponsors' or controller.controller_name == 'sponsor_categories'}"
   br
   => link_to 'Наполнение сайта', admin_page_contents_path, class: "btn btn-default #{'active' if controller.controller_name == 'page_contents'}"
   br

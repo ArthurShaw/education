@@ -3,11 +3,9 @@
 .first_title.wow.fadeInLeft
   p = t('workshops.edit')
 .first_description.wow.fadeInLeft
-  p = t('here_you_can.edit_workshop')
-.col-lg-6.col-lg-offset-3.wow.fadeInLeft
+.col-lg-6.col-lg-offset-3
   br
   = form_for @workshop, :html => {:class => "form-horizontal center"} do |f|
-
     fieldset
       .form-group
         = f.label t('workshops.title'), class: 'col-lg-3 control-label'
