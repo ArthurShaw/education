@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :check_permission
+  before_action { check_permission(:speaker) }
   before_action :find_comment, only: :destroy
 
   def new
@@ -39,7 +39,4 @@ class CommentsController < ApplicationController
     render_404 unless @comment
   end
 
-  def check_permission
-    render_403 unless current_user.has_role? :speaker
-  end
 end

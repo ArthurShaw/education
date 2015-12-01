@@ -1,5 +1,5 @@
 class Admin::SectionsController < ApplicationController
-  before_action :check_permission
+  before_action { check_permission(:admin) }
   before_action :find_section, only: [:edit, :update, :destroy]
 
   def index
@@ -45,10 +45,6 @@ class Admin::SectionsController < ApplicationController
   def find_section
     @section = Section.find(params[:id])
     render_404 unless @section
-  end
-
-  def check_permission
-    render_403 unless current_user.has_role? :admin
   end
 
 end

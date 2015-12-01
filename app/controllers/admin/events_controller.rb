@@ -1,6 +1,6 @@
 class Admin::EventsController < ApplicationController
 
-  before_action :check_permission
+  before_action { check_permission(:admin) }
   before_action :find_event, only: [:update, :destroy, :edit]
 
   def index
@@ -52,9 +52,6 @@ class Admin::EventsController < ApplicationController
     render_404 unless @event
   end
 
-  def check_permission
-    render_403 unless current_user.has_role? :admin
-  end
 
   def event_params
     params.require(:event).permit(:title, :title_en, :description, :description_en, :workshop_id, :section_ids, :from, :to, :date)

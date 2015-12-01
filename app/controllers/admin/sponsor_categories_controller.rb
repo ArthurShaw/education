@@ -1,7 +1,7 @@
 class Admin::SponsorCategoriesController < ApplicationController
 
   before_action :find_category, only: [:update, :destroy, :edit]
-  before_action :check_permission
+  before_action { check_permission(:admin) }
 
 
   def new
@@ -44,8 +44,5 @@ class Admin::SponsorCategoriesController < ApplicationController
     render_404 unless @sponsor_category
   end
 
-  def check_permission
-    render_403 unless current_user.has_role? :admin
-  end
 
 end

@@ -1,5 +1,5 @@
 class Admin::WorkshopsController < ApplicationController
-  before_action :check_permission
+  before_action { check_permission(:admin) }
   before_action :find_workshop, only: [:show, :edit, :update, :approve, :deny]
 
   def index
@@ -69,8 +69,5 @@ class Admin::WorkshopsController < ApplicationController
     render_404 unless @workshop
   end
 
-  def check_permission
-    render_403 unless current_user.has_role? :admin
-  end
 
 end
