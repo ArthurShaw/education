@@ -5,7 +5,10 @@
     p =t('login')
   .first_description.wow.fadeInDown
   = form_for(resource, as: resource_name, url: session_path(resource_name), hmtl: {class: "form-horizontal center"}) do |f|
-    .col-lg-8.col-lg-offset-0
+    .col-lg-8.col-lg-offset-0.wow.fadeInLeft
+      - if flash[:alert]
+        #notice style="color: red"
+          = flash[:alert]
     = f.email_field :email, placeholder: 'Email', class: 'wow fadeInLeft'
     = f.password_field :password, placeholder: t('user_params.password'), autocomplete: 'off', class: 'wow fadeInRight'
     /- if devise_mapping.rememberable?

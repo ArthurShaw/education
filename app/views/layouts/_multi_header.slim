@@ -16,9 +16,9 @@ nav.navbar.navbar-fixed-top.nav_mask
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
         li
-          = link_to 'Почему КФУ?', why_kfu_path
+          = link_to t('why_kfu'), why_kfu_path
         li
-          =link_to 'Орг. коммитет', org_committee_path
+          =link_to t('org_committee'), org_committee_path
         /li
         /  a href="#about_menu"
         /    | About
@@ -33,20 +33,25 @@ nav.navbar.navbar-fixed-top.nav_mask
         /    | Contact
         - if user_signed_in?
           li
-            == link_to 'Профиль', profile_path
+            == link_to t('profile'), profile_path
           li
-            == link_to 'Выйти', destroy_user_session_path, method: :delete
+            == link_to t('logout'), destroy_user_session_path, method: :delete
         - else
           li.dropdown
             a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button"
-              | Регистрация
+              = t('registration')
               span.caret
             ul.dropdown-menu role="menu"
               li
-                == link_to 'Как слушатель', new_listener_request_path
+                == link_to t('as_listener'), new_listener_request_path
               li
-                == link_to 'Как докладчик', new_user_registration_path
+                == link_to t('as_speaker'), new_user_registration_path
           li
-            == link_to 'Войти', new_user_session_path
+            == link_to t('login'), new_user_session_path
+        li
+          - if I18n.locale == I18n.default_locale
+            = link_to image_tag('en.png'), locale: 'en'
+          -else
+            = link_to image_tag('ru.jpg'), locale: 'ru'
 /! /.nav-collapse
 /! /.nav-collapse

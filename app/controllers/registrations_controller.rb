@@ -7,4 +7,8 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def after_update_path_for(resource)
+    profile_path
+  end
+
 end

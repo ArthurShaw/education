@@ -1,29 +1,45 @@
-h3 = "#{t('workshops.title')}: "
-= @workshop.title
-h3 = "#{t('workshops.section')}: "
-=@workshop.section.title
-h3 = "#{t('roles.speaker')}: "
-= "#{@workshop.user.first_name} #{@workshop.user.last_name}"
-h3 = "#{t('workshops.description')}: "
-= @workshop.title
-h3 = "#{t('workshops.status')}: "
-= @workshop.status
+.mini_gap
+.first_line.wow.fadeInLeft
+.first_title.wow.fadeInLeft
+  p = @workshop.title
+.first_description.wow.fadeInLeft
+  p = @workshop.description
+.mini_gap
+.speakers_row.black.wow.fadeInLeft
+  .workshop-area
+    .workshop-block
+      -unless @workshop.section.nil?
+        p = "#{t('workshops.section')}: #{@workshop.section.title}"
+      p = "#{t('workshops.status')} #{t("workshop_status.#{@workshop.status}")}"
+      p = "#{t('workshops.datetime')} #{l(@workshop.created_at, :format => :full_date)}"
+      br
+      =< link_to t('workshops.edit'), edit_workshop_path(@workshop), class: 'btn btn-primary'
+      =< link_to t('delete'), workshop_path(@workshop), method: :delete, data:{confirm: t('areyousure')}, class: 'btn btn-danger'
 
-h3 = "#{t('comments')}: "
+.mini_gap
+.first_line.wow.fadeInLeft
+.first_title.wow.fadeInLeft
+  p = t('comments')
+.first_description.wow.fadeInLeft
+  - for comment in @comments
+    .panel.panel-info
+      - if comment.user.has_role? :admin
+        span.label.label-primary = t('roles.admin')
+      -else
+        span.label.label-primary = comment.user.first_name
+      br
+      .panel-body
+        p = comment.text
+        hr
+        p = l(comment.created_at, :format => :full_date)
+      -if comment.user_id == current_user.id
+        = link_to t('delete'), workshop_comment_path(@workshop, comment), method: :delete, class: 'btn btn-link', style: 'color: red'
+      hr
+  = form_for @comment, url: workshop_comments_path(@workshop), method: :post do |f|
 
-- for comment in @comments
-  - if comment.user.has_role? :admin
-    p Админ
-  -else
-    p = comment.user.first_name
-  p = comment.text
-  p = comment.created_at
-  -if comment.user_id == current_user.id
-    = link_to t('delete'), workshop_comment_path(@workshop, comment), method: :delete, class: 'btn btn-default'
-hr
-= form_for @comment, url: workshop_comments_path(@workshop), method: :post do |f|
-  = f.label :'Текст'
-  br
-  = f.text_area :text
-  br
-  = f.submit :'Отправить', class: 'btn btn-default'
+    br
+    .col-lg-5
+      = f.label t('send_comment')
+      = f.text_area :text, class: 'form-control'
+      br
+      = f.submit :'Отправить', class: 'btn btn-default'

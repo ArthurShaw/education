@@ -4,7 +4,7 @@
     .first_title.wow.fadeInDown
       p = t('profile')
     .first_description.wow.fadeInDown
-      p Здесь Вы можете просмотреть и отредактировать ваш профиль
+      p = t('here_you_can.profile')
       - if @user == current_user
         = link_to t('edit_profile'), edit_user_registration_path, class: 'btn btn-default'
     .mini_gap
@@ -16,10 +16,10 @@
           h3 = translate_field(current_user, :readable_name)
           small = current_user.degree
           hr
-          - if current_user.biography
+          - unless current_user.biography.empty? or current_user.biography.nil?
             = current_user.biography
           -else
-            = link_to 'Заполнить информацию о себе', edit_user_registration_path, class: 'btn btn-default'
+            = link_to t('fill_information'), edit_user_registration_path, class: 'btn btn-default'
   .clear
 .speakers.wow.fadeUp
   .mask
@@ -27,7 +27,7 @@
     .first_title.wow.fadeInDown
       p = t('workshops.workshops')
     .first_description.wow.fadeInDown
-      p Тут вы можете управлять своими докладами
+      p = t('here_you_can.workshop')
       -if @user == current_user
         = link_to t('add'), new_workshop_path, class: 'btn btn-default'
     .mini_gap
@@ -39,35 +39,11 @@
             br
             p = workshop.description
             -unless workshop.section.nil?
-              p = "#{t('workshops.section')} #{workshop.section.title}"
-            p = "#{t('workshops.status')} #{t("workshop_status.#{workshop.status}")}"
+              p = "#{t('workshops.section')}: #{translate_field(workshop.section, :title)}"
+            p = "#{t('workshops.status')}: #{t("workshop_status.#{workshop.status}")}"
             p = "#{t('workshops.datetime')} #{l(workshop.created_at, :format => :full_date)}"
             br
             =< link_to t('workshops.edit'), edit_workshop_path(workshop), class: 'btn btn-primary'
             =< link_to t('delete'), workshop_path(workshop), method: :delete, data:{confirm: t('areyousure')}, class: 'btn btn-danger'
           .mini_gap
 
-    /.speakers_row
-    /  table.table.table-striped.table-hover
-    /    thead
-    /      tr
-    /        th = t('workshops.title')
-    /        th = t('workshops.description')
-    /        th = t('workshops.section')
-    /        th = t('workshops.status')
-    /        th = t('workshops.datetime')
-    /        th
-    /        th
-    /    tbody
-    /      - for workshop in @current_user.workshops
-    /        tr
-    /          td = link_to workshop.title, workshop_path(workshop)
-    /          td = workshop.description
-    /          td = workshop.section.title
-    /          td = workshop.status
-    /          td = workshop.created_at
-    /          td = link_to 'Редактировать', edit_workshop_path(workshop), class: 'btn btn-default'
-    /
-    /  - if user_signed_in? and current_user.has_role? :speaker
-    /    = link_to t('add'), new_workshop_path, class: 'btn btn-default'
-    /    br

@@ -5,15 +5,15 @@
       .modal-header
         button#js-close-modal.close aria-hidden="true" data-dismiss="modal" type="button"
           | x
-        h4.modal-title = "#{@person.first_name} #{@person.last_name}"
-        small = @person.about
+        h4.modal-title = "#{translate_field(@person, :first_name)} #{translate_field(@person, :last_name)}"
+        small = translate_field(@person, :about)
       .modal-body
         img.guest_avatar src="#{@person.avatar.url}" /
         p = translate_field(@person, :about_long)
         br clear="left"
       .modal-footer
         - if @workshops && @workshops.size > 0
-          h3 Доклады
+          h3 = t('workshops.workshops')
           - for workshop in @workshops
             p
               b = translate_field(workshop, :title)

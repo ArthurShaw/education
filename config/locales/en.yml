@@ -25,6 +25,7 @@ en:
   to_register: 'Registration'
   login: 'Login'
   logout: 'Logout'
+  back: 'Back'
   contact_us: 'Contact us'
   add: 'Add new'
   registration: 'Registration'
@@ -37,6 +38,26 @@ en:
   comments: 'Comments'
   profile: 'Profile'
   areyousure: 'Are you sure?'
+  send_comment: 'Send comment'
+  reset_password: 'Send instructions'
+  why_kfu: 'Why KFU?'
+  org_committee: 'Org.Committee'
+  as_listener: 'As listener'
+  as_speaker: 'As speaker'
+  information: 'Information'
+  information_letter: 'Information letter'
+  conference_themes: 'Conference themes'
+  special_speakers: 'Special speakers'
+  schedule: 'Schedule'
+  special_guests: 'Special guests'
+  sponsors: 'Sponsors'
+  fill_information: 'Fill information about yourself'
+  max_symbols: 'Maximum 600 symbols'
+  min_sym_to_password: 'Minimum 8 symbols'
+  curr_pass_inf: 'Type your current password for confirmation'
+  speaker_registration: 'Registration as speaker'
+  listener_registration: 'Registration as listener'
+  success_registration: 'Success registration'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'
@@ -60,7 +81,7 @@ en:
     add: 'New workshop'
     edit: 'Edit workshop'
     status: 'Status'
-    datetime: 'Created at'
+    datetime: 'Created at:'
   speaker_request: 'Send request'
   request_statuses:
       waiting: 'Waiting for confirmation'
@@ -119,3 +140,16 @@ en:
           - "day"
         formats:
           month: "%B"
+
+  time:
+    formats:
+      full_date: '%B %d %Y %H:%M'
+  workshop_status:
+    waiting_confirmation: 'Waiting confirmation'
+    confirmed: 'Confirmed'
+    denied: 'Denied'
+  here_you_can:
+    profile: 'Here you can see your profile and edit it'
+    workshop: 'Here you can manage your workshops'
+    edit_profile: 'Here you can edit all parameters of your profile'
+    edit_workshop: 'Here you can edit your workshop'

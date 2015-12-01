@@ -12,7 +12,7 @@ class ListenerRequestsController < ApplicationController
   def create
     @listener_request = ListenerRequest.new(listener_params)
     if @listener_request.save
-      redirect_to listener_request_success_path(@listener_request)
+      redirect_to success_listener_request_path(@listener_request)
     else
       render 'new', :status => :bad_request
     end
