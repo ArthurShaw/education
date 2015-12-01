@@ -30,6 +30,8 @@ class Admin::EventsController < ApplicationController
   end
 
   def update
+    sections = Section.where(:id => params[:event][:section_ids])
+    @event.sections << sections
     if @event.update(event_params)
       redirect_to admin_events_path
     else
