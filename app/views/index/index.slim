@@ -227,9 +227,9 @@
                       - if event.workshop.user
                         p.name
                           = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
-                        - if event.workshop.special_guest
-                          p.name
-                            = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                      - if event.workshop.special_guest
+                        p.name
+                          = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
               .panel-collapse.collapse.accordion_full.in
                 p = translate_field(event, :description)
               .mini_gap
