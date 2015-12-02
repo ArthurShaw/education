@@ -19,7 +19,7 @@
     = f.email_field :email, placeholder: 'Email', class: 'wow fadeInLeft'
     label.upload-file-container.wow.fadeInRight
       = f.file_field :avatar, placeholder: t('user_params.avatar'), class: '', id: 'js_file_input_button', accept: 'image/png, image/jpg, image/jpeg'
-      span#js_file_input_span Выберите файл
+      span#js_file_input_span = t('user_params.avatar')
     = f.password_field :password, placeholder: "#{t('user_params.password')} (#{t('min_sym_to_password')})", autocomplete: 'off', class: 'wow fadeInLeft'
     = f.password_field :password_confirmation, placeholder: t('user_params.password_confirmation'), autocomplete: 'off', class: 'wow fadeInRight'
     = f.submit t('to_register'), class: 'reservation_button wow fadeInUp'

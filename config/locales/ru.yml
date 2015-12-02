@@ -53,7 +53,7 @@ ru:
       new_password: 'Новый пароль'
       password_confirmation: 'Подтвердите пароль'
       current_password: 'Текущий пароль'
-      avatar: 'Ваша фотография'
+      avatar: 'Выберите фотографию'
   workshops:
     workshops: 'Доклады'
     create: 'Добавить доклад'
