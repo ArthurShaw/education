@@ -370,7 +370,7 @@ input.error {
 }
 
 .section_place_title {
-    padding-left: 9%;
+    padding-left: 9% !important;
 }
 
 .event_line {
@@ -402,4 +402,11 @@ input.error {
 .first_title a:hover {
     text-decoration: none;
     border-bottom: 1px solid;
+}
+
+.schedule-section {
+    display: block;
+    margin-bottom: 5px;
+    width: 80% !important;
+    white-space: normal;
 }

@@ -14,19 +14,22 @@ class IndexController < ApplicationController
     @sections = Section.order(:is_main => :desc, :title => :asc)
   end
 
-  def contacts
-    @content = PageContent.second
-  end
+  # def contacts
+  #   @content = PageContent.second
+  # end
 
   def org_committee
-    @org_committee_content = PageContent.find(3)
+    @content = PageContent.find(3)
+    render 'index/usual_content'
   end
 
   def why_kfu
-    @why_kfu_content = PageContent.find(2)
+    @content = PageContent.find(2)
+    render 'index/usual_content'
   end
 
   def information_letter
-    @information_letter = PageContent.find(6)
+    @content = PageContent.find(6)
+    render 'index/usual_content'
   end
 end
