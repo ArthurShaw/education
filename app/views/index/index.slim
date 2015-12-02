@@ -169,11 +169,11 @@
   #sh_carousel.carousel.slide
     .carousel-indicators
       - if has_events(@sections[0])
-        .wow.fadeInLeft.active.btn.graybtn.graytxt.schedule-section data-slide-to="0" data-target="#sh_carousel" = translate_field(@sections[0], :title)
+        .wow.fadeInLeft.active.btn.graybtn.graytxt.schedule-section data-slide-to="#{k = 0}" data-target="#sh_carousel" = translate_field(@sections[0], :title)
 
       - for i in (1..(@sections.size - 1))
         - if has_events(@sections[i])
-          .wow.fadeInLeft.btn.graybtn.graytxt.schedule-section data-slide-to="#{i}" data-target="#sh_carousel" = translate_field(@sections[i], :title)
+          .wow.fadeInLeft.btn.graybtn.graytxt.schedule-section data-slide-to="#{k += 1}" data-target="#sh_carousel" = translate_field(@sections[i], :title)
 
 
     .carousel-inner
