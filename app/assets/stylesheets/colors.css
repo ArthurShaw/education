@@ -277,7 +277,7 @@ footer .first_line,
 
     outline: none !important;
 
-    border: 3px solid #000 !important;
+    /*border: 3px solid #000 !important;*/
 
     background: transparent !important;
 
@@ -409,4 +409,8 @@ input.error {
     margin-bottom: 5px;
     width: 80% !important;
     white-space: normal;
+}
+
+.reservation {
+    overflow-x: hidden;
 }
