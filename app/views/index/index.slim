@@ -332,7 +332,10 @@ footer
       - for sponsor in sponsor_category.sponsors
         .sponsor_basic.wow.fadeIn
           .image_featured
-            a> href="#{sponsor.url}"
+            - if sponsor.url and not sponsor.url.empty?
+              a> href="#{sponsor.url}"
+                img alt="#{sponsor.name}" src="#{sponsor.image.url}"
+            - else
               img alt="#{sponsor.name}" src="#{sponsor.image.url}"
 
   .gap
