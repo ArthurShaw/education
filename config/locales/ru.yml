@@ -77,6 +77,8 @@ ru:
          password_confirmation: ''
          first_name: 'Имя'
          last_name: 'Фамилия'
+         avatar: ''
+         avatar_content_type: ''
        listener_request:
          first_name: ""
          last_name: ""
@@ -98,6 +100,10 @@ ru:
                blank: 'не введено'
              last_name:
                blank: 'не введена'
+             avatar:
+              invalid: ''
+             avatar_content_type:
+              invalid: 'Вставьте корректное изображение'
 
 
   devise:

@@ -98,6 +98,13 @@ en:
         password_confirmation: ''
         first_name: 'First name'
         last_name: 'Last name'
+        avatar: ''
+        avatar_content_type: ''
+      listener_request:
+        first_name: ""
+        last_name: ""
+        email: ""
+        phone: ""
     errors:
       models:
         user:
@@ -113,6 +120,10 @@ en:
               blank: 'is empty'
             last_name:
               blank: 'is empty'
+            avatar:
+              invalid: ''
+            avatar_content_type:
+              invalid: 'Input correct image'
 
 
   devise:
