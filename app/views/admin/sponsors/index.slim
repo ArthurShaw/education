@@ -12,7 +12,10 @@
     br
     br
     - for sponsor in category.sponsors
-      a> href="#{sponsor.url}"
+      - if sponsor.url and not sponsor.url.empty?
+        a> href="#{sponsor.url}" target="_blank"
+          img alt="#{sponsor.name}" src="#{sponsor.image.url}"
+      - else
         img alt="#{sponsor.name}" src="#{sponsor.image.url}"
       p = sponsor.name
       => link_to 'Редактировать', edit_admin_sponsor_path(sponsor), class: 'btn btn-default'

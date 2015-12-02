@@ -19,7 +19,7 @@
           - unless current_user.biography.nil? or current_user.biography.empty?
             = current_user.biography
           -else
-            = link_to t('fill_information'), edit_user_registration_path, class: 'btn btn-default'
+            = t('fill_information')
   .clear
 .speakers.wow.fadeUp
   .mask
