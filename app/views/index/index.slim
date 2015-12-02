@@ -121,7 +121,7 @@
                           | #{translate_field(guest, :last_name)}
                       p
                         | #{translate_field(guest, :about)}
-                      = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                      = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :remote => true
             - if @key_speakers.size > 2
               - @key_speakers.last(@key_speakers.size - 2).each_slice(2) do |slice|
                 .item
@@ -136,7 +136,7 @@
                               | #{translate_field(guest, :last_name)}
                           p
                             | #{translate_field(guest, :about)}
-                          = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                          = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :remote => true
 
 
           a.left_arrow data-slide="prev" href="#key_speakers"
@@ -169,11 +169,11 @@
   #sh_carousel.carousel.slide
     .carousel-indicators
       - if has_events(@sections[0])
-        .wow.fadeInLeft.active.btn.graybtn.graytxt.schedule-section data-slide-to="0" data-target="#sh_carousel" = translate_field(@sections[0], :title)
+        .wow.fadeInLeft.active.btn.graybtn.graytxt.schedule-section data-slide-to="#{k = 0}" data-target="#sh_carousel" = translate_field(@sections[0], :title)
 
       - for i in (1..(@sections.size - 1))
         - if has_events(@sections[i])
-          .wow.fadeInLeft.btn.graybtn.graytxt.schedule-section data-slide-to="#{i}" data-target="#sh_carousel" = translate_field(@sections[i], :title)
+          .wow.fadeInLeft.btn.graybtn.graytxt.schedule-section data-slide-to="#{k += 1}" data-target="#sh_carousel" = translate_field(@sections[i], :title)
 
 
     .carousel-inner
@@ -193,16 +193,16 @@
                   .accordions_titles_small
                     .accordion_description
                       - if event.workshop
-                        p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                        p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
                       - else
                       p = translate_field(event, :title)
                       - if event.workshop
                         - if event.workshop.user
                           p.name
-                            = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                            = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
                         - if event.workshop.special_guest
                           p.name
-                            = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                            = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
                 .panel-collapse.collapse.accordion_full.in
                   p = translate_field(event, :description)
                 /! Accordion item
@@ -225,16 +225,16 @@
                     .accordions_titles_small
                       .accordion_description
                         - if event.workshop
-                          p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                          p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
                         - else
                         p = translate_field(event, :title)
                         - if event.workshop
                           - if event.workshop.user
                             p.name
-                              = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                              = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
                           - if event.workshop.special_guest
                             p.name
-                              = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+                              = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
                   .panel-collapse.collapse.accordion_full.in
                     p = translate_field(event, :description)
                   .mini_gap
@@ -249,61 +249,61 @@
     == link_to t('to_register'), new_listener_request_path, class: 'schedule_reservation wow btn eventime_button fadeInRight'
     .gap
 
-  - if @special_quests.size > 0
-    #special_guests_menu
-      .speakers.wow.fadeIn
-        .mask
-          .first_line
-          .first_title
-            p = link_to t('special_guests'), guests_special_guests_path
-          .first_description
-            p Описание почетных гостей. Они крутые и всё такое
-          .gap
-          #special_guests.photo_carousel.carousel.slide.wow.fadeInUp
-            /! Indicators
-            .carousel-indicators
-              .photo_carousel_ind.active data-slide-to="1" data-target="#special_guests"
-              - for i in (2..(@special_quests.size / 2 + @special_quests.size % 2))
-                .photo_carousel_ind data-slide-to="#{i}" data-target="#special_guests"
-            /! Wrapper for Slides
-            .carousel-inner
-              .item.active
-                - for guest in @special_quests[0, 2]
-                  .photo_carousel_container
-                    figure.eventime_img
-                      img alt="img09" src="#{guest.avatar.url}"
-                      figcaption
-                        h2
-                          | #{translate_field(guest, :first_name)}
-                          span<
-                            | #{translate_field(guest, :last_name)}
-                        p
-                          | #{translate_field(guest, :about)}
-                        = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
-              - if @special_quests.size > 2
-                - @special_quests.last(@special_quests.size - 2).each_slice(2) do |slice|
-                  .item
-                    - for guest in slice
-                      .photo_carousel_container
-                        figure.eventime_img
-                          img alt="img09" src="#{guest.avatar.url}"
-                          figcaption
-                            h2
-                              | #{translate_field(guest, :first_name)}
-                              span<
-                                | #{translate_field(guest, :last_name)}
-                            p
-                              | #{translate_field(guest, :about)}
-                            = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :data => {:toggle => "modal"}, :remote => true
+- if @special_quests.size > 0
+  #special_guests_menu
+    .speakers.wow.fadeIn
+      .mask
+        .first_line
+        .first_title
+          p = link_to t('special_guests'), guests_special_guests_path
+        .first_description
+          p Описание почетных гостей. Они крутые и всё такое
+        .gap
+        #special_guests.photo_carousel.carousel.slide.wow.fadeInUp
+          /! Indicators
+          .carousel-indicators
+            .photo_carousel_ind.active data-slide-to="1" data-target="#special_guests"
+            - for i in (2..(@special_quests.size / 2 + @special_quests.size % 2))
+              .photo_carousel_ind data-slide-to="#{i}" data-target="#special_guests"
+          /! Wrapper for Slides
+          .carousel-inner
+            .item.active
+              - for guest in @special_quests[0, 2]
+                .photo_carousel_container
+                  figure.eventime_img
+                    img alt="img09" src="#{guest.avatar.url}"
+                    figcaption
+                      h2
+                        | #{translate_field(guest, :first_name)}
+                        span<
+                          | #{translate_field(guest, :last_name)}
+                      p
+                        | #{translate_field(guest, :about)}
+                      = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :remote => true
+            - if @special_quests.size > 2
+              - @special_quests.last(@special_quests.size - 2).each_slice(2) do |slice|
+                .item
+                  - for guest in slice
+                    .photo_carousel_container
+                      figure.eventime_img
+                        img alt="img09" src="#{guest.avatar.url}"
+                        figcaption
+                          h2
+                            | #{translate_field(guest, :first_name)}
+                            span<
+                              | #{translate_field(guest, :last_name)}
+                          p
+                            | #{translate_field(guest, :about)}
+                          = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :remote => true
 
 
-            a.left_arrow data-slide="prev" href="#special_guests"
-              svg height="48" width="26px"
-                polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7"
-            a.right_arrow data-slide="next" href="#special_guests"
-              svg height="48" width="26px"
-                polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
-          .gap
+          a.left_arrow data-slide="prev" href="#special_guests"
+            svg height="48" width="26px"
+              polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7"
+          a.right_arrow data-slide="next" href="#special_guests"
+            svg height="48" width="26px"
+              polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
+        .gap
 
 #contacts
   .firstrow
@@ -333,7 +333,7 @@ footer
         .sponsor_basic.wow.fadeIn
           .image_featured
             - if sponsor.url and not sponsor.url.empty?
-              a> href="#{sponsor.url}"
+              a> href="#{sponsor.url}" target="_blank"
                 img alt="#{sponsor.name}" src="#{sponsor.image.url}"
             - else
               img alt="#{sponsor.name}" src="#{sponsor.image.url}"
