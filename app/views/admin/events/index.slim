@@ -2,9 +2,9 @@
 
 .col-lg-9
   h4 Секции:
-  =< link_to 'Все', admin_events_path, class: 'btn btn-default'
+  =< link_to 'Все', admin_events_path, class: "btn btn-default #{'active' unless params[:section_id]}"
   - for section in @sections
-    =< link_to section.title, admin_events_path(:section_id => section.id), class: 'btn btn-default'
+    =< link_to section.title, admin_events_path(:section_id => section.id), class: "btn btn-default #{'active' if params[:section_id] == section.id.to_s}"
   hr
   h2 Программа
   = link_to 'Добавить событие', new_admin_event_path, class: 'btn btn-default'
