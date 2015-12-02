@@ -334,9 +334,9 @@ footer
           .image_featured
             - if sponsor.url and not sponsor.url.empty?
               a> href="#{sponsor.url}" target="_blank"
-                img alt="#{sponsor.name}" src="#{sponsor.image.url}"
+                img alt="#{sponsor.name}" src="#{sponsor.image.url(:large)}"
             - else
-              img alt="#{sponsor.name}" src="#{sponsor.image.url}"
+              img alt="#{sponsor.name}" src="#{sponsor.image.url(:large)}"
 
   .gap
   .sponsor_box
