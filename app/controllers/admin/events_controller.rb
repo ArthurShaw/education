@@ -32,6 +32,7 @@ class Admin::EventsController < ApplicationController
   def update
     sections = Section.where(:id => params[:event][:section_ids])
     @event.sections << sections
+    @event.sections.uniq!
     if @event.update(event_params)
       redirect_to admin_events_path
     else

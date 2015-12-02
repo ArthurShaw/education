@@ -1414,15 +1414,15 @@ nav {
 
     z-index: 16;
 
-    min-height: 850px;
-
 }
 
 #sh_carousel .carousel-indicators .active {
 
     height: auto !important;
 
-    width: 245px !important;
+    width: 80% !important;
+
+    margin-bottom: 5px;
 
     box-shadow: none;
 
