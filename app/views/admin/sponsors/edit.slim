@@ -17,6 +17,6 @@
     br
     = f.label 'Картинка'
     br
-    = f.file_field :image
+    = f.file_field :image, accept: 'image/png, image/jpg, image/jpeg'
     br
     = f.submit 'Подтвердить'

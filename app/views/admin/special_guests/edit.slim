@@ -48,7 +48,7 @@
     br
     = f.label :'Фотография'
     br
-    = f.file_field :avatar
+    = f.file_field :avatar, accept: 'image/png, image/jpg, image/jpeg'
 
     br
     = f.submit

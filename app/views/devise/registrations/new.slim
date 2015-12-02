@@ -17,7 +17,7 @@
     = f.text_field :city, placeholder: t('user_params.city'), class: 'wow fadeInLeft'
     = f.text_field :phone, placeholder: t('user_params.phone'), class: 'wow fadeInRight'
     = f.email_field :email, placeholder: 'Email', class: 'wow fadeInLeft'
-    = f.file_field :avatar, placeholder: t('user_params.avatar'), class: 'wow fadeInRight'
+    = f.file_field :avatar, placeholder: t('user_params.avatar'), class: 'wow fadeInRight', accept: 'image/png, image/jpg, image/jpeg'
     = f.password_field :password, placeholder: "#{t('user_params.password')} (#{t('min_sym_to_password')})", autocomplete: 'off', class: 'wow fadeInRight'
     = f.password_field :password_confirmation, placeholder: t('user_params.password_confirmation'), autocomplete: 'off', class: 'wow fadeInLeft'
     = f.submit t('to_register'), class: 'reservation_button wow fadeInUp'
