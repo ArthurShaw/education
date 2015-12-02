@@ -21,6 +21,6 @@ class ListenerRequestsController < ApplicationController
   private
 
   def listener_params
-    params.require(:listener_request).permit(:first_name, :last_name, :middle_name, :email, :country, :city, :phone)
+    params.require(:listener_request).permit(:first_name, :last_name, :email, :country, :city, :phone)
   end
 end

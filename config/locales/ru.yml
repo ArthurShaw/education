@@ -37,6 +37,7 @@ ru:
   speaker_registration: 'Регистрация докладчика'
   listener_registration: 'Регистрация слушателя'
   success_registration: 'Успешная регистрация'
+  program: 'Программа'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'

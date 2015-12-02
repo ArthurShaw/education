@@ -58,6 +58,7 @@ en:
   speaker_registration: 'Registration as speaker'
   listener_registration: 'Registration as listener'
   success_registration: 'Success registration'
+  program: 'Program'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'
