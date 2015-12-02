@@ -2303,7 +2303,7 @@ figure.eventime_img:hover img {
 
 }
 
-.reservation input[type=file] {
+.reservation .upload-file-container {
 
     width: 43%;
 
@@ -3253,7 +3253,7 @@ a.contact_icon {
     .reservation input[type="text"],
     .reservation input[type="email"],
     .reservation input[type="password"],
-    .reservation input[type="file"] {
+    .reservation .upload-file-container {
 
         width: 90%;
 
