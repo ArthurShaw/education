@@ -178,10 +178,10 @@ $(document).on("page:change", function() {
     wow = new WOW({boxClass: "wow", animateClass: "animated", offset: 0, mobile: !1, live: !0}), wow.init();
 });
 
-$("#home_slider").carousel({interval: 7e3}), $("#testimonials").carousel({interval: 5e4}), $(".photo_carousel").carousel({interval: 9e3}), $("#sh_carousel").carousel({
-    pause: !0,
-    interval: !1
-});
+//$("#home_slider").carousel({interval: 7e3}), $("#testimonials").carousel({interval: 5e4}), $(".photo_carousel").carousel({interval: 9e3}), $("#sh_carousel").carousel({
+//    pause: !0,
+//    interval: !1
+//});
 $("#reservation_form").submit(function (t) {
     t.preventDefault(), dataString = $("#reservation_form").serialize(), $.ajax({
         type: "POST",
@@ -196,22 +196,26 @@ $("#reservation_form").submit(function (t) {
 $(".nav a").on("click", function () {
     "none" != $(".navbar-toggle").css("display") && $(".navbar-toggle").trigger("click")
 });
-$(document).ready(function () {
-    $(".carousel-inner").swipe({
-        swipeLeft: function () {
-            $(this).parent().carousel("next")
-        }, swipeRight: function () {
-            $(this).parent().carousel("prev")
-        }, threshold: 15
-    }), $(".count").counterUp({delay: 10, time: 1e3})
-});
+//$(document).ready(function () {
+//    $carousel = $(".carousel-inner");
+//    if (!$carousel) {
+//        return;
+//    }
+//    $(".carousel-inner").swipe({
+//        swipeLeft: function () {
+//            $(this).parent().carousel("next")
+//        }, swipeRight: function () {
+//            $(this).parent().carousel("prev")
+//        }, threshold: 15
+//    }), $(".count").counterUp({delay: 10, time: 1e3})
+//});
 !function (i) {
     i.fn.visible = function (t) {
         var n = i(this), o = i(window), e = o.scrollTop(), f = e + o.height(), h = n.offset().top, r = h + n.height(), s = t === !0 ? r : h, u = t === !0 ? h : r;
         return f >= u && s >= e
     }
 }(jQuery);
-$("body").scrollspy({target: ".navbar", offset: 59});
+//$("body").scrollspy({target: ".navbar", offset: 59});
 $(".navbar a[href*=#]:not([href=#]), .buttons a[href*=#]:not([href=#]), a.schedule_reservation[href*=#]:not([href=#])").click(function () {
     if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) {
         var t = $(this.hash);
