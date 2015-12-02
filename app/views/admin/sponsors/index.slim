@@ -14,9 +14,9 @@
     - for sponsor in category.sponsors
       - if sponsor.url and not sponsor.url.empty?
         a> href="#{sponsor.url}" target="_blank"
-          img alt="#{sponsor.name}" src="#{sponsor.image.url}"
+          img alt="#{sponsor.name}" src="#{sponsor.image.url(:large)}"
       - else
-        img alt="#{sponsor.name}" src="#{sponsor.image.url}"
+        img alt="#{sponsor.name}" src="#{sponsor.image.url(:large)}"
       p = sponsor.name
       => link_to 'Редактировать', edit_admin_sponsor_path(sponsor), class: 'btn btn-default'
       = link_to 'Удалить', admin_sponsor_path(sponsor), method: :delete, class: 'btn btn-default'
