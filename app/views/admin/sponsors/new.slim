@@ -13,10 +13,10 @@
     br
     = f.label 'Категория'
     br
-    = f.collection_select :sponsor_category_id, SponsorCategory.order(:name), :id, :name, include_blank: true
+    = f.collection_select :sponsor_category_id, SponsorCategory.order(:name), :id, :name
     br
     = f.label 'Картинка'
     br
-    = f.file_field :image
+    = f.file_field :image, accept: 'image/png, image/jpg, image/jpeg'
     br
-    = f.submit
+    = f.submit 'Добавить'

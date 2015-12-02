@@ -37,6 +37,7 @@ ru:
   speaker_registration: 'Регистрация докладчика'
   listener_registration: 'Регистрация слушателя'
   success_registration: 'Успешная регистрация'
+  program: 'Программа'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'
@@ -46,8 +47,10 @@ ru:
       phone: 'Телефон'
       degree: 'Ученая степень'
       biography: 'Ваша биография'
+      about: 'О себе'
       speech_experience: 'Опыт выступлений'
       password: 'Пароль'
+      new_password: 'Новый пароль'
       password_confirmation: 'Подтвердите пароль'
       current_password: 'Текущий пароль'
       avatar: 'Ваша фотография'
@@ -71,7 +74,7 @@ ru:
        user:
          email: 'E-mail'
          password: 'Пароль'
-         password_confirmation: 'Подтверждение пароля'
+         password_confirmation: ''
          first_name: 'Имя'
          last_name: 'Фамилия'
        listener_request:
@@ -88,8 +91,9 @@ ru:
                blank: 'пустой'
              password:
                blank: 'неверный'
+               too_short: 'слишком короткий'
              password_confirmation:
-               confirmation: 'неверно'
+               confirmation: 'Пароли не совпадают'
              first_name:
                blank: 'не введено'
              last_name:

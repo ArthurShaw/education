@@ -6,8 +6,8 @@
   - for section in @sections
     =< link_to section.title, admin_events_path(:section_id => section.id), class: "btn btn-default #{'active' if params[:section_id] == section.id.to_s}"
   hr
-  h2 События
-  = link_to 'Добавить', new_admin_event_path, class: 'btn btn-default'
+  h2 Программа
+  = link_to 'Добавить событие', new_admin_event_path, class: 'btn btn-default'
   - for event in @events
     h3 = "#{event.title} / #{event.title_en}"
     p = event.description
