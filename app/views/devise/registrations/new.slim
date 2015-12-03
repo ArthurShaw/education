@@ -8,7 +8,7 @@
       - if resource.errors.any?
         #error_explanation style ='color: red'
           ul
-            - for msg in resource.errors.full_messages.uniq!
+            - for msg in resource.errors.full_messages.uniq
               li = msg
     = f.text_field :first_name, placeholder: t('user_params.first_name'), class: 'wow fadeInLeft'
     = f.text_field :last_name, placeholder: t('user_params.last_name'), class: 'wow fadeInRight'
