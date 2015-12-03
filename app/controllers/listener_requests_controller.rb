@@ -12,6 +12,7 @@ class ListenerRequestsController < ApplicationController
   def create
     @listener_request = ListenerRequest.new(listener_params)
     if @listener_request.save
+      UserMailer.welcome_listener_email(@listener_request).deliver_now
       redirect_to success_listener_request_path(@listener_request)
     else
       render 'new', :status => :bad_request
