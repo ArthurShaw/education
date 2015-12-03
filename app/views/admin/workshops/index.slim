@@ -15,6 +15,7 @@
         th = t('workshops.section')
         th = t('roles.speaker')
         th
+        th
     tbody
       - for workshop in @workshops_special
         tr
@@ -22,6 +23,7 @@
           td = workshop.section.title
           td = "#{workshop.special_guest.first_name} #{workshop.special_guest.last_name}"
           td = link_to 'Посмотреть', admin_workshop_path(workshop), class: 'btn btn-default'
+          td = link_to 'Редактировать', edit_admin_workshop_path(workshop), class: 'btn btn-default'
 
   h2 Доклады участников
 
@@ -34,6 +36,7 @@
         th = t('roles.speaker')
         th = t('user_params.country')
         th = t('user_params.city')
+        th
         th
     tbody
       - for workshop in @workshops_usual
@@ -48,3 +51,4 @@
           td = workshop.user.country
           td = workshop.user.city
           td = link_to 'Посмотреть', admin_workshop_path(workshop), class: 'btn btn-default'
+          td = link_to 'Редактировать', edit_admin_workshop_path(workshop), class: 'btn btn-default'
