@@ -73,6 +73,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.6.0)
+    figaro (1.1.1)
+      thor (~> 0.14)
     geokit (1.10.0)
     geokit-rails (2.1.0)
       geokit (~> 1.5)
@@ -207,6 +209,7 @@ DEPENDENCIES
   ckeditor
   coffee-rails (~> 4.1.0)
   devise
+  figaro
   geokit-rails
   gmaps4rails
   jbuilder (~> 2.0)
