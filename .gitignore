@@ -23,3 +23,5 @@ public/system/*
 public/assets/*
 
 Gemfile.lock
+
+config/application.yml

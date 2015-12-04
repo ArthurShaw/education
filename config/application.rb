@@ -35,6 +35,10 @@ module FossConf
 
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.precompile += %w( ckeditor/* )
+
+
+    # ACTION MAILER
+    config.action_mailer.default_url_options = { host: 'foss-conf.bitnamiapp.com' }
   end
 end
 
