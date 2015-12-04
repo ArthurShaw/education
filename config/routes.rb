@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       resources :comments
       get 'info' => 'workshops#info', :on => :member
     end
-    resources :users, only: [:show]
+    resources :users, only: [:index, :show]
 
     root 'index#index'
     get 'profile' => 'users#profile', as: 'profile'
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     get 'why_kfu' => 'index#why_kfu'
     get 'information_letter' => 'index#information_letter'
 
-    resources :listener_requests, only: [:new, :create] do
+    resources :listener_requests, only: [:index, :new, :create] do
       get 'success' => 'listener_requests#success', :on => :member
     end
 

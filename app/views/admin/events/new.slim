@@ -1,42 +1,51 @@
 = render :partial => 'users/admin_menu'
 
-.col-lg-9
-  h2 Добавить событие
-  = form_for @event, url: admin_events_path, method: :create do |f|
-    = f.label :'Секция'
-    br
-    = f.collection_select :section_ids, Section.order(:is_main => :desc), :id, :title,{}, {:multiple => true}
-    br
-    = f.label :'Доклад'
-    br
-    = f.collection_select :workshop_id, @workshops, :id, :readable_name ,{include_blank: true}, id: 'js_section_select'
-    br
-    = f.label :'Дата'
-    br
-    = f.date_select :date, {:use_month_names => %w(Январь Февраль Март Апрель Май Июнь Июль Август Сентябрь Октябрь Ноябрь Декабрь)}
-    br
-    = f.label :'Начало'
-    br
-    = f.time_select :from
-    br
-    = f.label :'Окончание'
-    br
-    = f.time_select :to
-    br
-    = f.label :'Название (рус)'
-    br
-    = f.text_field :title, id: 'js_workshop_title'
-    br
-    = f.label :'Описание (рус)'
-    br
-    = f.text_area :description
-    br
-    = f.label :'Название (eng)'
-    br
-    = f.text_field :title_en, id: 'js_workshop_title_en'
-    br
-    = f.label :'Описание (eng)'
-    br
-    = f.text_area :description_en
-    br
-    = f.submit
+.col-lg-6.col-lg-offset-0
+  = form_for @event, url: admin_events_path, method: :create, :html => {:class => "form-horizontal center"} do |f|
+    legend Добавить событие
+    fieldset
+      .form-group
+        = f.label :'Секция', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.collection_select :section_ids, Section.order(:is_main => :desc), :id, :title, {:multiple => true}, class: 'form-control'
+
+      .form-group
+        = f.label :'Доклад', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.collection_select :workshop_id, @workshops, :id, :readable_name ,{include_blank: true}, id: 'js_section_select', class: 'form-control'
+
+      .form-group
+        = f.label :'Дата', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.date_select :date, {:use_month_names => %w(Январь Февраль Март Апрель Май Июнь Июль Август Сентябрь Октябрь Ноябрь Декабрь)}, class: 'form-control'
+      .form-group
+        = f.label :'Начало', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.time_select :from, class: 'form-control'
+      .form-group
+        = f.label :'Окончание', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.time_select :to, class: 'form-control'
+      .form-group
+        = f.label :'Название (рус)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :title, class: 'form-control'
+      .form-group
+        = f.label :'Описание (рус)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_area :description, class: 'form-control'
+      .form-group
+        = f.label :'Название (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :title_en, class: 'form-control'
+      .form-group
+        = f.label :'Описание (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_area :description_en, class: 'form-control'
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = f.submit t('confirm'), class: 'btn btn-primary'
+        br
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = link_to 'Назад', admin_events_path, class: 'btn btn-link'

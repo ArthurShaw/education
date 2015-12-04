@@ -53,3 +53,5 @@
   = link_to 'Редактировать доклад', edit_admin_workshop_path(@workshop), class: 'btn btn-default'
   =< link_to 'Удалить  доклад', admin_workshop_path(@workshop), method: :delete, class: 'btn btn-danger', data:{confirm: t('areyousure')}
   hr
+.col-lg-7.col-lg-offset-4
+  = link_to 'Назад', admin_workshops_path, class: 'btn btn-link'

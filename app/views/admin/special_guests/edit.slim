@@ -1,56 +1,63 @@
 = render :partial => 'users/admin_menu'
-.col-lg-9
-  h2 Редактирование ключевой личности
-  = form_for @special_guest, url: admin_special_guest_path, method: :put do |f|
-    = f.label 'Тип'
-    br
-    = f.select(:guest_type, [['Гость', :guest], ['Спикер', :speaker]])
-    br
-    = f.label t('user_params.first_name')
-    br
-    = f.text_field :first_name, autofocus: true
-    br
-    = f.label t('user_params.last_name')
-    br
-    = f.text_field :last_name
-    br
-    = f.label t('user_params.middle_name')
-    br
-    = f.text_field :middle_name
-    br
-    = f.label :'Информация о госте (коротко)'
-    br
-    = f.text_field :about
-    br
-    = f.label :'Информация о госте'
-    br
-    = f.text_area :about_long
-    br
-    = f.label :'Имя(eng)'
-    br
-    = f.text_field :first_name_en
-    br
-    = f.label :'Фамилия(eng)'
-    br
-    = f.text_field :last_name_en
-    br
-    = f.label :'Отчество(eng)'
-    br
-    = f.text_field :middle_name_en
-    br
-    = f.label :'Информация о госте(коротко, eng)'
-    br
-    = f.text_area :about_en
-    br
-    = f.label :'Информация о госте(eng)'
-    br
-    = f.text_area :about_long_en
-    br
-    = f.label :'Фотография'
-    br
-    i Фотография будет подстроена под соотношение 5:3
-    br
-    = f.file_field :avatar, accept: 'image/png, image/jpg, image/jpeg'
 
-    br
-    = f.submit
+.col-lg-6.col-lg-offset-0
+  = form_for @special_guest, url: admin_special_guest_path, method: :put, :html => {:class => "form-horizontal center"} do |f|
+    legend Редактирование ключевой личности
+    fieldset
+      .form-group
+        = f.label 'Тип',  class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.select :guest_type, [['Гость', :guest], ['Спикер', :speaker]], class: 'form-control'
+      .form-group
+        = f.label t('user_params.first_name'), class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :first_name, autofocus: true, class: 'form-control'
+
+      .form-group
+        = f.label t('user_params.last_name'), class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :last_name, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label t('user_params.middle_name'), class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :middle_name, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Информация о госте (коротко)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_area :about, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Информация о госте', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_area :about_long, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Имя (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :first_name_en, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Фамилия (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :last_name_en, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Отчество (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :middle_name_en, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Информация о госте (коротко, eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_area :about_en, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Информация о госте (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_area :about_long_en, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Фотография', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.file_field :avatar, accept: 'image/png, image/jpg, image/jpeg', class: 'form-control'
+          i Фотография будет подстроена под соотношение 5:3
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = f.submit t('confirm'), class: 'btn btn-primary'
+        br
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = link_to 'Назад', admin_special_guests_path, class: 'btn btn-link'
