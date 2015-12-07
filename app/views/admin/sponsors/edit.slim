@@ -1,22 +1,32 @@
 = render :partial => 'users/admin_menu'
 
-.col-lg-9
-  h2 Редактировать спонсора
-  = form_for @sponsor, url: admin_sponsor_path, method: :put do |f|
-    = f.label 'Название'
-    br
-    = f.text_field :name
-    br
-    = f.label 'URL'
-    br
-    = f.text_field :url
-    br
-    = f.label 'Категория'
-    br
-    = f.collection_select :sponsor_category_id, SponsorCategory.order(:name), :id, :name
-    br
-    = f.label 'Картинка'
-    br
-    = f.file_field :image, accept: 'image/png, image/jpg, image/jpeg'
-    br
-    = f.submit 'Подтвердить'
+.col-lg-6.col-lg-offset-0
+  = form_for @sponsor, url: admin_sponsor_path, method: :put, :html => {:class => "form-horizontal center"} do |f|
+    legend Редактирование спонсора
+    fieldset
+      .form-group
+        = f.label :'Название', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :name, class: 'form-control'
+
+      .form-group
+        = f.label :'URL', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :url, class: 'form-control'
+
+      .form-group
+        = f.label :'Категория', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.collection_select :sponsor_category_id, SponsorCategory.order(:name), :id, :name, {}, {class: 'form-control'}
+
+      .form-group
+        = f.label :'Логотип', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.file_field :image, accept: 'image/png, image/jpg, image/jpeg', class: 'form-control'
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = f.submit t('confirm'), class: 'btn btn-primary'
+        br
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = link_to 'Назад', admin_sponsors_path, class: 'btn btn-link'

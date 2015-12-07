@@ -1,14 +1,22 @@
 = render :partial => 'users/admin_menu'
 
-.col-lg-9
-  h2 Добавить категорию спонсоров
-  = form_for @sponsor_category, url: admin_sponsor_categories_path, method: :create do |f|
-    = f.label 'Название категории (рус)'
-    br
-    = f.text_field :name
-    br
-    = f.label 'Название категории (eng)'
-    br
-    = f.text_field :name_en
-    br
-    = f.submit 'Создать'
+.col-lg-6.col-lg-offset-0
+  = form_for @sponsor_category, url: admin_sponsor_categories_path, method: :create, :html => {:class => "form-horizontal center"} do |f|
+    legend Добавить категорию спонсоров
+    fieldset
+      .form-group
+        = f.label :'Название категории (рус)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :name, class: 'form-control'
+
+      .form-group
+        = f.label :'Название категории (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :name_en, class: 'form-control'
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = f.submit t('confirm'), class: 'btn btn-primary'
+        br
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = link_to 'Назад', admin_sponsor_categories_path, class: 'btn btn-link'

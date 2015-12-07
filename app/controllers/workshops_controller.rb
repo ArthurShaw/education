@@ -46,7 +46,7 @@ class WorkshopsController < ApplicationController
   private
 
   def workshop_params
-    params.require(:workshop).permit(:title, :description, :section_id)
+    params.require(:workshop).permit(:title, :description, :section_id, :title_en, :description_en)
   end
 
   def find_workshop

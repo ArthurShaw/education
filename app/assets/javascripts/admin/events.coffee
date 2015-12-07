@@ -8,5 +8,6 @@ $(document).on("page:change", ->
     $("#js_workshop_title").val(splitted[0])
     $("#js_workshop_title_en").val(splitted[1])
   )
+  $( "#datepicker" ).datepicker();
 )
 

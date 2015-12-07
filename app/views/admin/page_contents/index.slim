@@ -7,5 +7,5 @@
       .page-content
         p = raw(content.content)
         p = raw(content.content_en)
-      = link_to 'Редактировать', edit_admin_page_content_path(content)
+      = link_to 'Редактировать', edit_admin_page_content_path(content), class: 'btn btn-default'
       hr

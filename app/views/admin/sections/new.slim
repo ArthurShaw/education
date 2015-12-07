@@ -1,23 +1,29 @@
 = render :partial => 'users/admin_menu'
-.col-lg-9
-  h2 Добавить новую секцию
-  = form_for @section, url: admin_sections_path, method: :create do |f|
 
-    = f.label :'Название'
-    br
-    = f.text_field :title, autofocus: true
-    br
-    = f.label :title
-    br
-    = f.text_field :title_en
-    br
-    = f.label :'Описание (рус)'
-    br
-    = f.cktext_area :description
-    br
-    = f.label :'Описание (eng)'
-    br
-    = f.cktext_area :description_en
-    br
-    br
-    = f.submit t('confirm')
+.col-lg-8.col-lg-offset-0
+  = form_for @section, url: admin_sections_path, method: :create, :html => {:class => "form-horizontal center"} do |f|
+    legend Добавить новую секцию
+    fieldset
+      .form-group
+        = f.label :'Название', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :title, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Название (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :title_en, class: 'form-control'
+      .form-group
+        = f.label :'Описание', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.cktext_area :description, class: 'form-control'
+      .form-group
+        = f.label :'Описание (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.cktext_area :description_en,  class: 'form-control'
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = f.submit t('confirm'), class: 'btn btn-primary'
+      br
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = link_to 'Назад', admin_sections_path, class: 'btn btn-link'

@@ -2,17 +2,12 @@
 
 .col-lg-7.col-lg-offset-1
   h3 = "#{t('workshops.title')}: "
-  - if @workshop.special_guest
-    = "#{@workshop.title} / #{@workshop.title_en}"
-  -else
-    = @workshop.title
+  = "#{@workshop.title} / #{@workshop.title_en unless @workshop.title_en.nil? or @workshop.title_en.empty?}"
   h3 = "#{t('workshops.description')}: "
-  - if @workshop.special_guest
-    = @workshop.description
+  = @workshop.description
+  - unless @workshop.description_en.nil? or @workshop.description_en.empty?
     hr
     = @workshop.description_en
-  -else
-    = @workshop.description
   h3 = "#{t('workshops.section')}: "
   -unless @workshop.section.nil?
      = @workshop.section.title
@@ -28,8 +23,10 @@
     = t("workshop_status.#{@workshop.status}")
     br
     br
-    = link_to 'одобрить', approve_admin_workshop_path(@workshop), method: :put, class: 'btn btn-success'
-    =< link_to 'отклонить', deny_admin_workshop_path(@workshop), method: :put, class: 'btn btn-danger'
+    - if @workshop.waiting_confirmation? or @workshop.denied?
+      = link_to 'одобрить', approve_admin_workshop_path(@workshop), method: :put, class: 'btn btn-success'
+    - unless @workshop.denied?
+      =< link_to 'отклонить', deny_admin_workshop_path(@workshop), method: :put, class: 'btn btn-danger'
     br
     h3 = "#{t('comments')}: "
     - for comment in @comments
@@ -52,5 +49,9 @@
         = f.submit :'Отправить', class: 'btn btn-default'
 
 .col-lg-7.col-lg-offset-4
-  h3 Удалить доклад?
-  =link_to 'Удалить', workshop_path(@workshop), method: :delete, class: 'btn btn-danger', data:{confirm: t('areyousure')}
+  hr
+  = link_to 'Редактировать доклад', edit_admin_workshop_path(@workshop), class: 'btn btn-default'
+  =< link_to 'Удалить  доклад', admin_workshop_path(@workshop), method: :delete, class: 'btn btn-danger', data:{confirm: t('areyousure')}
+  hr
+.col-lg-7.col-lg-offset-4
+  = link_to 'Назад', admin_workshops_path, class: 'btn btn-link'

@@ -31,7 +31,7 @@
       -if @user == current_user
         = link_to t('add'), new_workshop_path, class: 'btn btn-default'
     .mini_gap
-    .speakers_row.black
+    .speakers_row.black style = 'min-height: 100%'
       .workshop-area
         - for workshop in current_user.workshops.sort {|l, r| l <=> r}
           .workshop-block

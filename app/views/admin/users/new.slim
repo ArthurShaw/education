@@ -20,7 +20,7 @@
     br
     = f.password_field :password, autocomplete: 'off'
     br
-    = f.label :password_confirmation
+    = f.label :'Подтвердите пароль'
     br
     = f.password_field :password_confirmation, autocomplete: 'off'
     /p Разрешения
@@ -34,4 +34,5 @@
     /| Возможность просматривать заявки слушателей
 
     br
-    = f.submit
+    br
+    = f.submit 'Добавить администратора'

@@ -1,6 +1,6 @@
 class Admin::WorkshopsController < ApplicationController
   before_action { check_permission(:admin) }
-  before_action :find_workshop, only: [:show, :edit, :update, :approve, :deny]
+  before_action :find_workshop, only: [:show, :edit, :update, :approve, :deny, :destroy]
 
   def index
     @sections = Section.where.not(:is_main => true)
@@ -29,7 +29,8 @@ class Admin::WorkshopsController < ApplicationController
   end
 
   def destroy
-
+    @workshop.destroy
+    redirect_to admin_workshops_path
   end
 
   def show

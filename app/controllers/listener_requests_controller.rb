@@ -1,5 +1,9 @@
 class ListenerRequestsController < ApplicationController
 
+  def index
+    redirect_to new_listener_request_path
+  end
+
   def new
     @listener_request = ListenerRequest.new
   end
