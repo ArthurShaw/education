@@ -195,7 +195,7 @@
                       - if event.workshop
                         p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
                       - else
-                      p = translate_field(event, :title)
+                        p = translate_field(event, :title)
                       - if event.workshop
                         - if event.workshop.user
                           p.name
@@ -227,7 +227,7 @@
                         - if event.workshop
                           p = link_to translate_field(event, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
                         - else
-                        p = translate_field(event, :title)
+                          p = translate_field(event, :title)
                         - if event.workshop
                           - if event.workshop.user
                             p.name
