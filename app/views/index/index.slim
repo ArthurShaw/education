@@ -1,4 +1,4 @@
-#location.hidden = @location_json
+#location.hidden = @page_contents.fourth.content
 
 /header#home_slider.carousel.slide
 /  /! Wrapper for Slides
@@ -56,15 +56,15 @@
 
 = image_tag('main_pic.jpg', class: 'main-image')
 
-- unless @about_conference_content.hidden
+- unless @page_contents.first.hidden
   #about
     .firstrow
       .centred
         .first_line.wow.fadeInDown
         .first_title.wow.fadeInDown
-          p = raw(translate_field(@about_conference_content, :name))
+          p = raw(translate_field(@page_contents.first, :name))
         .first_description.wow.fadeInDown
-          p = raw(translate_field(@about_conference_content, :content))
+          p = raw(translate_field(@page_contents.first, :content))
         .mini_gap
       .centred
         .mini_gap
@@ -82,14 +82,14 @@
     .clear
 
 
-/- unless @why_kfu_content.hidden
+/- unless @page_contents.second.hidden
 /  #why_kfu
 /    .firstrow.black
 /      .first_line.wow.fadeInDown
 /      .first_title.wow.fadeInDown
-/        p = raw(@why_kfu_content.name)
+/        p = raw(@page_contents.second.name)
 /      .first_description.wow.fadeInDown
-/        p = raw(@why_kfu_content.content)
+/        p = raw(@page_contents.second.content)
 /    .clear
 - if @key_speakers.size > 0
   #key_speakers_menu
@@ -148,15 +148,15 @@
         .gap
 
 
-/- unless @org_comitee_content.hidden
+/- unless @page_contents.third.hidden
 /  #org
 /    .firstrow
 /      .centred
 /        .first_line.wow.fadeInDown
 /        .first_title.wow.fadeInDown
-/          p = raw(translate_field(@org_comitee_content, :name))
+/          p = raw(translate_field(@page_contents.third, :name))
 /        .first_description.wow.fadeInDown
-/          p = raw(translate_field(@org_comitee_content, :content))
+/          p = raw(translate_field(@page_contents.third, :content))
 /      .second_image
 /      .clear
 - if has_events(@sections)
@@ -310,11 +310,11 @@
     .centred
       .first_line.wow.fadeInDown
       .first_title.wow.fadeInDown
-        p = raw(translate_field(@contacts_content, :name))
+        p = raw(translate_field(@page_contents.fifth, :name))
       .first_description.wow.fadeInDown
-        p = raw(translate_field(@contacts_content, :content))
+        p = raw(translate_field(@page_contents.fifth, :content))
       .mini_gap
-    - unless @location_json.empty?
+    - unless @page_contents.fourth.content.empty?
       div style="width: auto; height: 100%;"
         #location-place style="width: auto; height: 100%;"
     .clear
