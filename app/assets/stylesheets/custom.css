@@ -802,7 +802,7 @@ nav {
 
     font-size: 30px;
 
-    /*height: 80px;*/
+    height: 80px;
 
     font-weight: 100;
 
@@ -820,6 +820,10 @@ nav {
 
     line-height: 30px;
 
+}
+
+.first_title.big_title {
+    height: auto !important;
 }
 
 .title_center {
