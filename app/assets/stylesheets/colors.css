@@ -65,14 +65,13 @@ figure.eventime_img figcaption::before,
 /* Gradients */
 
 .reservation,
-footer,
 .navbar-toggle {
 
     background: #55a9ea;
 
     background: -moz-linear-gradient(-45deg, #55a9ea 0%, #8ee8ff 100%);
 
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #55a9ea), color-stop(100%, #8ee8ff));
+    background: -webkit-gradient(liinnear, left top, right bottom, color-stop(0%, #55a9ea), color-stop(100%, #8ee8ff));
 
     background: -webkit-linear-gradient(-45deg, #55a9ea 0%, #8ee8ff 100%);
 
@@ -243,7 +242,7 @@ footer .first_line,
 .nav_mask,
 .footer {
 
-    background: #1a3446;
+    background: #21445d;
 
 }
 
@@ -263,7 +262,7 @@ footer .first_line,
 
 .mask {
 
-    background-color: #1a3446;
+    background-color: #2D5B85;
 
 }
 
@@ -436,4 +435,12 @@ input.error {
     opacity: 0;
     position: fixed;
     top: -1000px;
+}
+
+footer .mask {
+    padding-top: 30px;
+}
+
+footer .mask .first_line {
+    border-color: #57AAEA;
 }
