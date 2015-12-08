@@ -397,6 +397,7 @@ input.error {
 
 .main-image {
     width: 100%;
+    margin-top: 9px;
 }
 
 .first_title a:hover {
