@@ -1,12 +1,16 @@
 class Admin::PageContentsController < ApplicationController
   before_action { check_permission(:admin) }
-  before_action :find_page_content, only: [:edit, :update]
+  before_action :find_page_content, only: [:edit, :update, :show]
 
   def index
     @contents = PageContent.where(:content_type => PageContent.content_types[:text])
   end
 
   def edit
+  end
+
+  def show
+
   end
 
   def update
