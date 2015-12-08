@@ -1,24 +1,28 @@
 = render :partial => 'users/admin_menu'
-.col-lg-9
-  h2 Редактировать содержимое
-  = form_for @content, url: admin_page_content_path, method: :put do |f|
-    = f.label 'Заголовок(рус)'
-    br
-    = f.text_field :name
-    br
-    = f.label 'Заголовок(eng)'
-    br
-    = f.text_field :name_en
-    br
-    => f.check_box :hidden
-    = f.label 'Скрытый'
-    br
-    = f.label 'Содержимое(рус)'
-    br
-    = f.cktext_area :content
-    br
-    = f.label 'Содержимое(eng)'
-    br
-    = f.cktext_area :content_en
-    br
-    = f.submit 'Изменить', class: 'btn btn-default'
+
+.col-lg-8.col-lg-offset-0
+  = form_for @content, url: admin_page_content_path, method: :put, :html => {:class => "form-horizontal center"} do |f|
+    legend = "Редактирование #{@content.name} / #{@content.name_en}"
+    fieldset
+      .form-group
+        = f.label :'Заголовок (рус)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :name, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Заголовок (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :name_en, class: 'form-control'
+      .form-group
+        = f.label 'Скрытый', class: 'col-lg-3 control-label'
+        =< f.check_box :hidden
+      .form-group
+        = f.label :'Содержимое (рус)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.cktext_area :content, class: 'form-control'
+      .form-group
+        = f.label :'Содержимое (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.cktext_area :content_en, class: 'form-control'
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = f.submit 'Изменить', class: 'btn btn-primary'
