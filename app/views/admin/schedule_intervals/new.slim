@@ -1,18 +1,23 @@
 = render :partial => 'users/admin_menu'
 
 .col-lg-6.col-lg-offset-0
-  = form_for @event, url: admin_events_path, method: :create, :html => {:class => "form-horizontal center"} do |f|
+  = form_for @schedule_interval, url: admin_schedule_intervals_path, method: :create, :html => {:class => "form-horizontal center"} do |f|
     legend Добавить событие
     fieldset
       .form-group
-        = f.label :'Секция', class: 'col-lg-3 control-label'
+        = f.label :'Конференция', class: 'col-lg-3 control-label'
         .col-lg-9
-          = f.collection_select :section_ids, Section.order(:is_main => :desc), :id, :title, {:multiple => true}, class: 'form-control'
+          = f.collection_select :section_id, Section.order(:is_main => :desc), :id, :title ,{include_blank: false}, id: '', class: 'form-control'
 
       .form-group
+        .col-lg-9.col-lg-offset-3
+          label
+            input#js_add_workshop_input<> type="checkbox" Привязать доклад к событию?
+
+      .form-group#js_workshop_input style="display:none"
         = f.label :'Доклад', class: 'col-lg-3 control-label'
         .col-lg-9
-          = f.collection_select :workshop_id, @workshops, :id, :readable_name ,{include_blank: true}, class: 'form-control'
+          = f.collection_select :workshop_id, @workshops, :id, :readable_name ,{include_blank: true}, id: 'js_workshop_select', class: 'form-control'
 
       .form-group
         = f.label :'Дата', class: 'col-lg-3 control-label'
@@ -29,7 +34,7 @@
       .form-group
         = f.label :'Название (рус)', class: 'col-lg-3 control-label'
         .col-lg-9
-          = f.text_field :title, class: 'form-control'
+          = f.text_field :title, id: 'js_workshop_title', class: 'form-control'
       .form-group
         = f.label :'Описание (рус)', class: 'col-lg-3 control-label'
         .col-lg-9
@@ -37,7 +42,7 @@
       .form-group
         = f.label :'Название (eng)', class: 'col-lg-3 control-label'
         .col-lg-9
-          = f.text_field :title_en, class: 'form-control'
+          = f.text_field :title_en, id: 'js_workshop_title_en', class: 'form-control'
       .form-group
         = f.label :'Описание (eng)', class: 'col-lg-3 control-label'
         .col-lg-9
