@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  header_title: 'IFTE2016'
+  index: 'Main page'
   news: 'News'
   registration: 'Registration'
   to_register: 'Registration'
@@ -42,12 +44,14 @@ en:
   reset_password: 'Send instructions'
   why_kfu: 'Why KFU?'
   org_committee: 'Org.Committee'
+  accommodation: 'Accommodation'
+  cult_program: 'Cultural program'
   as_listener: 'As listener'
   as_speaker: 'As speaker'
   information: 'Information'
   information_letter: 'Information letter'
   conference_themes: 'Conference themes'
-  special_speakers: 'Special speakers'
+  special_speakers: 'Keynote speakers'
   schedule: 'Schedule'
   special_guests: 'Special guests'
   sponsors: 'Sponsors'
@@ -59,6 +63,7 @@ en:
   listener_registration: 'Registration as listener'
   success_registration: 'Success registration'
   program: 'Program'
+  regulations: 'Regulations'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'

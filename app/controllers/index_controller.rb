@@ -28,4 +28,19 @@ class IndexController < ApplicationController
     @content = PageContent.find(6)
     render 'index/usual_content'
   end
+
+  def cultural_program
+    @content = PageContent.find(7)
+    render 'index/usual_content'
+  end
+
+  def accommodation
+    @content = PageContent.find(8)
+    render 'index/usual_content'
+  end
+
+  def regulations
+    @content = PageContent.find(9)
+    render 'index/usual_content'
+  end
 end
