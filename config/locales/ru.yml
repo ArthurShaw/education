@@ -45,7 +45,7 @@ ru:
   regulations: 'Регламент форума'
   arrival: 'Дата прибытия'
   departure: 'Дата отбытия'
-  hotel: 'Нужно гостинница?'
+  hotel: 'Нужна гостинница?'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'
