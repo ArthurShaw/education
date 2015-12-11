@@ -20,6 +20,11 @@
     label.upload-file-container.wow.fadeInRight
       = f.file_field :avatar, placeholder: t('user_params.avatar'), class: '', id: 'js_file_input_button', accept: 'image/png, image/jpg, image/jpeg'
       span#js_file_input_span = t('user_params.avatar')
+    = f.text_field :arrival, placeholder: t('arrival'), 'data-provide' => 'datepicker', class: 'datepicker wow fadeInLeft', 'data-date-format' => 'yyyy/mm/dd', 'data-date-language' => I18n.locale
+    = f.text_field :departure, placeholder: t('departure'), 'data-provide' => 'datepicker', class: 'datepicker wow fadeInRight', 'data-date-format' => 'yyyy/mm/dd', 'data-date-language' => I18n.locale
     = f.password_field :password, placeholder: "#{t('user_params.password')} (#{t('min_sym_to_password')})", autocomplete: 'off', class: 'wow fadeInLeft'
     = f.password_field :password_confirmation, placeholder: t('user_params.password_confirmation'), autocomplete: 'off', class: 'wow fadeInRight'
+    = f.label t('hotel'), style: 'font-weight: 300; font-size: 24px', class: 'wow fadeInLeft'
+    = f.check_box :hotel, style: 'height: 30px; width: 30px', class: 'wow fadeInLeft'
+    br
     = f.submit t('to_register'), class: 'reservation_button wow fadeInUp'

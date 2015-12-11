@@ -33,7 +33,7 @@
           = f.text_area :description_en, class: 'form-control'
 
       .form-group
-        = f.label t('workshops.section'), class: 'col-lg-3 control-label'
+        = f.label :'Конференция', class: 'col-lg-3 control-label'
         .col-lg-9
           = f.collection_select :section_id, Section.all, :id, :title, {}, {class: 'form-control'}
 

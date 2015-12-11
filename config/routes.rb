@@ -40,6 +40,9 @@ Rails.application.routes.draw do
     get 'org_committee' => 'index#org_committee'
     get 'why_kfu' => 'index#why_kfu'
     get 'information_letter' => 'index#information_letter'
+    get 'cultural_program' => 'index#cultural_program'
+    get 'accommodation' => 'index#accommodation'
+    get 'regulations' => 'index#regulations'
 
     resources :listener_requests, only: [:index, :new, :create] do
       get 'success' => 'listener_requests#success', :on => :member

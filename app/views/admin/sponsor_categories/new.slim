@@ -2,7 +2,7 @@
 
 .col-lg-6.col-lg-offset-0
   = form_for @sponsor_category, url: admin_sponsor_categories_path, method: :create, :html => {:class => "form-horizontal center"} do |f|
-    legend Добавить категорию спонсоров
+    legend Добавить категорию партнеров
     fieldset
       .form-group
         = f.label :'Название категории (рус)', class: 'col-lg-3 control-label'

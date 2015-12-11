@@ -8,11 +8,11 @@
   - unless @workshop.description_en.nil? or @workshop.description_en.empty?
     hr
     = @workshop.description_en
-  h3 = "#{t('workshops.section')}: "
+  h3 = 'Конференция: '
   -unless @workshop.section.nil?
      = @workshop.section.title
   -else
-     = 'Нет секции'
+     = 'Конференция не указана'
   h3 = "#{t('roles.speaker')}: "
   - unless @workshop.user_id.nil?
     = @workshop.user.readable_name

@@ -11,8 +11,23 @@ nav.navbar.navbar-fixed-top.nav_mask
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href=root_path
-        | CONFERENCE
+      .navbar-brand.dropdown
+        a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button"
+          = t('header_title')
+          span.caret
+        ul.dropdown-menu role="menu"
+          li
+            = link_to t('index'), root_path
+          li
+            = link_to t('org_committee'), org_committee_path
+          li
+            = link_to t('information_letter'), information_letter_path
+          li
+            = link_to t('special_speakers'), speakers_special_guests_path
+          li
+            = link_to t('regulations'), regulations_path
+          li
+            = link_to t('why_kfu'), why_kfu_path
       - if I18n.locale == I18n.default_locale
         = link_to image_tag('en.png'), {locale: 'en'}, {class: 'navbar-brand lng-switcher'}
       - else
@@ -20,9 +35,10 @@ nav.navbar.navbar-fixed-top.nav_mask
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
         li
-          = link_to t('why_kfu'), why_kfu_path
+          = link_to t('accommodation'), accommodation_path
         li
-          =link_to t('org_committee'), org_committee_path
+          = link_to t('cult_program'), cultural_program_path
+
         /li
         /  a href="#about_menu"
         /    | About
