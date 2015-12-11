@@ -13,8 +13,8 @@
     = f.email_field :email, placeholder: 'Email', class: 'wow fadeInRight'
     = f.text_field :arrival, placeholder: t('arrival'), 'data-provide' => 'datepicker', class: 'datepicker wow fadeInLeft', 'data-date-format' => 'yyyy/mm/dd', 'data-date-language' => I18n.locale
     = f.text_field :departure, placeholder: t('departure'), 'data-provide' => 'datepicker', class: 'datepicker wow fadeInRight', 'data-date-format' => 'yyyy/mm/dd', 'data-date-language' => I18n.locale
-    = f.label t('hotel')
-    = f.check_box :hotel, style: "width: 50px; height: 50px"
+    = f.label t('hotel'), style: 'font-weight: 300; font-size: 24px', class: 'wow fadeInLeft'
+    = f.check_box :hotel, style: 'height: 30px; width: 30px', class: 'wow fadeInLeft'
     br
     = f.submit t('to_register'), class: 'reservation_button wow fadeInUp'
   .clear

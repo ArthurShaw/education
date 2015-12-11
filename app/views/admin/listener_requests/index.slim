@@ -13,6 +13,9 @@
         th = t('listener_requests.country')
         th = t('listener_requests.city')
         th = t('listener_requests.phone')
+        th = t('arrival')
+        th = t('departure')
+        th = t('hotel')
     tbody
       - for request in @requests
         tr
@@ -22,3 +25,9 @@
           td = request.country
           td = request.city
           td = request.phone
+          td = request.arrival
+          td = request.departure
+          - if request.hotel
+            td Да
+          - else
+            td Нет
