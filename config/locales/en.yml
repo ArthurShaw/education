@@ -64,6 +64,9 @@ en:
   success_registration: 'Success registration'
   program: 'Program'
   regulations: 'Regulations'
+  arrival: 'Arrival date'
+  departure: 'Departure date'
+  hotel: 'Need hotel?'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'

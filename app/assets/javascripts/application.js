@@ -17,5 +17,6 @@
 //= require ckeditor/init
 //= require bootstrap
 //= require underscore
+//= require bootstrap-datepicker
 //= require index
 //= require_tree .

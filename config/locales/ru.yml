@@ -43,6 +43,9 @@ ru:
   success_registration: 'Успешная регистрация'
   program: 'Программа'
   regulations: 'Регламент форума'
+  arrival: 'Дата прибытия'
+  departure: 'Дата отбытия'
+  hotel: 'Нужно гостинница?'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'

@@ -75,3 +75,5 @@ gem 'gmaps4rails'
 gem 'geokit-rails'
 
 gem 'figaro'
+
+gem 'bootstrap-datepicker-rails'
