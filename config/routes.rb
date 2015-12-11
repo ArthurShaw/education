@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :special_guests
     resources :sections
     resources :events
-    resources :schedule_intervals
+    resources :schedule_intervals do
+      resources :schedule_sub_intervals
+    end
     get 'placement' => 'placement#index'
     post 'placement' => 'placement#update'
     resources :workshops do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210114210) do
+ActiveRecord::Schema.define(version: 20151210141617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,12 @@ ActiveRecord::Schema.define(version: 20151210114210) do
     t.time    "to"
     t.integer "workshop_id"
     t.integer "section_id"
+  end
+
+  create_table "schedule_sub_intervals", force: :cascade do |t|
+    t.time    "from"
+    t.time    "to"
+    t.integer "schedule_interval_id"
   end
 
   create_table "sections", force: :cascade do |t|
