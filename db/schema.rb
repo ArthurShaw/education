@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210124251) do
+ActiveRecord::Schema.define(version: 20151210141617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,15 +67,13 @@ ActiveRecord::Schema.define(version: 20151210124251) do
   create_table "listener_requests", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "middle_name"
     t.string   "email"
     t.string   "country"
     t.string   "city"
     t.string   "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.date     "arrival"
-    t.date     "departure"
-    t.boolean  "hotel"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "page_contents", force: :cascade do |t|
@@ -110,6 +108,12 @@ ActiveRecord::Schema.define(version: 20151210124251) do
     t.time    "to"
     t.integer "workshop_id"
     t.integer "section_id"
+  end
+
+  create_table "schedule_sub_intervals", force: :cascade do |t|
+    t.time    "from"
+    t.time    "to"
+    t.integer "schedule_interval_id"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -171,13 +175,11 @@ ActiveRecord::Schema.define(version: 20151210124251) do
     t.string   "degree"
     t.string   "phone"
     t.text     "biography"
+    t.text     "speech_experience"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.date     "arrival"
-    t.date     "departure"
-    t.boolean  "hotel"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

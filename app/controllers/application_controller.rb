@@ -38,4 +38,8 @@ class ApplicationController < ActionController::Base
   def render_403
     render 'errors/403', :status => :forbidden
   end
+
+  def check_ajax_only
+    render('errors/404', :status => :not_found) unless request.xhr?
+  end
 end

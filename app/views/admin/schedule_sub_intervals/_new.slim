@@ -1,0 +1,7 @@
+= form_for @schedule_sub_interval, url: admin_schedule_interval_schedule_sub_intervals_path(params[:schedule_interval_id]), method: :create, html: {class: 'new_schedule_sub_interval_form'} do |f|
+  = f.label :'Начало'
+  = f.time_select :from
+  = f.label :'Окончание'
+  = f.time_select :to
+  = f.submit t('confirm'), class: 'btn btn-primary'
+  .mini_gap
