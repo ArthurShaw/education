@@ -51,11 +51,13 @@ class Admin::WorkshopsController < ApplicationController
 
   def approve
     @workshop.update(:status => Workshop.statuses[:confirmed])
+    UserMailer.workshop_confirmed_email(@workshop).deliver_now
     redirect_to admin_workshop_path
   end
 
   def deny
     @workshop.update(:status => Workshop.statuses[:denied])
+    UserMailer.workshop_denied_email(@workshop).deliver_now
     redirect_to admin_workshop_path
   end
 
