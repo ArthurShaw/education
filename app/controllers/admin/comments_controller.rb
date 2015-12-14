@@ -14,8 +14,10 @@ class Admin::CommentsController < ApplicationController
     @comment = Comment.new(comments_params)
     @comment.user_id = current_user.id
     workshop_id = params[:workshop_id]
+    @workshop = Workshop.find(params[:id])
     @comment.workshop_id = workshop_id
     if @comment.save
+      UserMailer.new_comment_email(@workshop).delivaer_now
       redirect_to admin_workshop_path(workshop_id)
     else
       redirect_to admin_workshop_path(workshop_id)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210141617) do
+ActiveRecord::Schema.define(version: 20151214083021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,13 +67,23 @@ ActiveRecord::Schema.define(version: 20151210141617) do
   create_table "listener_requests", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "middle_name"
     t.string   "email"
     t.string   "country"
     t.string   "city"
     t.string   "phone"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date     "arrival"
+    t.date     "departure"
+    t.boolean  "hotel"
+  end
+
+  create_table "mail_contents", force: :cascade do |t|
+    t.string   "name",       default: "", null: false
+    t.text     "content",    default: "", null: false
+    t.text     "content_en", default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "page_contents", force: :cascade do |t|
@@ -175,11 +185,13 @@ ActiveRecord::Schema.define(version: 20151210141617) do
     t.string   "degree"
     t.string   "phone"
     t.text     "biography"
-    t.text     "speech_experience"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.date     "arrival"
+    t.date     "departure"
+    t.boolean  "hotel"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

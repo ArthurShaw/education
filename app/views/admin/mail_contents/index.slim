@@ -1,0 +1,8 @@
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Управление содержанием писем
+  hr
+  - for content in @contents
+    h2 = "#{content.name}"
+    = link_to 'Просмотр', admin_mail_content_path(content), class: 'btn btn-default'
+    hr

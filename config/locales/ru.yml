@@ -46,6 +46,9 @@ ru:
   arrival: 'Дата прибытия'
   departure: 'Дата отбытия'
   hotel: 'Нужна гостинница?'
+  workshop_confirm_email: 'Ваш доклад подтвержден'
+  workshop_deny_email: 'Ваш доклад отклонен'
+  new_comment_email: 'Новый комментарый к вашему докладу'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'

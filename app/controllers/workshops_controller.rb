@@ -26,6 +26,7 @@ class WorkshopsController < ApplicationController
     @workshop = Workshop.new(workshop_params)
     @workshop.user_id = current_user.id
     if @workshop.save
+      UserMailer.new_workshop_email(@workshop).deliver_now
       redirect_to profile_path
     else
       render 'new', :status => :bad_request
