@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :sponsor_categories
     resources :sponsors
     resources :page_contents
+    resources :mail_contents
     resources :special_guests
     resources :sections
     resources :events
