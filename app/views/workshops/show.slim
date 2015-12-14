@@ -36,10 +36,9 @@
         = link_to t('delete'), workshop_comment_path(@workshop, comment), method: :delete, class: 'btn btn-link', style: 'color: red'
       hr
   = form_for @comment, url: workshop_comments_path(@workshop), method: :post do |f|
-
     br
     .col-lg-5
       = f.label t('send_comment')
       = f.text_area :text, class: 'form-control'
       br
-      = f.submit :'Отправить', class: 'btn btn-default'
+      = f.submit t('send_comment'), class: 'btn btn-default'
