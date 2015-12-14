@@ -4,7 +4,12 @@ class Admin::ScheduleIntervalsController < ApplicationController
   before_action :find_schedule_interval, only: [:edit, :update, :destroy]
 
   def index
-    @schedule_intervals = ScheduleInterval.all
+    section_params = params[:section_id]
+    if section_params
+      @schedule_intervals = ScheduleInterval.where(section_id: section_params).order(:date, :from)
+    else
+      @schedule_intervals = ScheduleInterval.order(:date, :from)
+    end
   end
 
   def new

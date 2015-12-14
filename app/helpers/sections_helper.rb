@@ -5,10 +5,10 @@ module SectionsHelper
       return false
     end
     if sections.is_a? Section
-      return sections.events && sections.events.size > 0
+      return sections.schedule_intervals && sections.schedule_intervals.size > 0
     end
     sections.each do |section|
-      if section.events && section.events.size > 0
+      if section.schedule_intervals && section.schedule_intervals.size > 0
         return true
       end
     end

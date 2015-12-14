@@ -1,5 +1,6 @@
 h3 = "#{schedule_interval.title} | #{schedule_interval.title_en}"
 p = "#{schedule_interval.date} c #{schedule_interval.from.strftime('%H:%M')} по #{schedule_interval.to.strftime('%H:%M')}"
+p = schedule_interval.section.title
 p = schedule_interval.description
 p = schedule_interval.description_en
 - if schedule_interval.workshop
