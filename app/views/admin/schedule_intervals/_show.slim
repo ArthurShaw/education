@@ -6,11 +6,33 @@ p = schedule_interval.description_en
   p
     = 'Прикрепленный доклад: '
     = link_to schedule_interval.workshop.title, admin_workshop_path(schedule_interval.workshop_id)
-.sub-interval-place
+.sub-intervals-place
   - for sub_interval in schedule_interval.schedule_sub_intervals
-    p = "c #{sub_interval.from.strftime('%H:%M')} по #{sub_interval.to.strftime('%H:%M')}"
-.new-sub-interval-place
+    .sub-interval-place
+      p
+        strong> = "c #{sub_interval.from.strftime('%H:%M')} по #{sub_interval.to.strftime('%H:%M')}"
+        =< link_to 'Добавить доклад', new_admin_schedule_interval_schedule_sub_interval_schedule_event_path(schedule_interval.id, sub_interval.id), class: 'btn btn-default btn-sm js-create-schedule-event'
+        =< link_to 'Удалить промежуток', admin_schedule_interval_schedule_sub_interval_path(schedule_interval.id, sub_interval.id), method: :delete, :remote => true, class: 'btn btn-default btn-sm js-delete-sub-interval'
+      .new-schedule-event-place
+      - if sub_interval.schedule_events.size > 0
+        .col-lg-12
+          table.table.table-striped.table-hover
+            thead
+              tr
+                - for event in sub_interval.schedule_events
+                  th = "#{event.title}"
+            tbody
+              tr
+              - for event in sub_interval.schedule_events
+                td = link_to event.workshop.title, admin_workshop_path(event.workshop_id)
+              tr
+                - for event in sub_interval.schedule_events
+                  td = link_to 'Удалить', admin_schedule_interval_schedule_sub_interval_schedule_event_path(schedule_interval.id, sub_interval.id, event.id), method: :delete, class: 'btn btn-default btn-sm js-delete-schedule-event'
+      - else
+        p Нет докладов в этом промежутке.
+.new-sub-interval-place.col-lg-12
 => link_to 'Изменить', edit_admin_schedule_interval_path(schedule_interval.id), class: 'btn btn-default'
 => link_to 'Удалить', admin_schedule_interval_path(schedule_interval.id), method: :delete, class: 'btn btn-default'
-=> link_to "#{schedule_interval.schedule_sub_intervals.size == 0 ? 'Разделить на подсобытия' : 'Добавить ещё подсобытие'}", new_admin_schedule_interval_schedule_sub_interval_path(schedule_interval.id), class: 'btn btn-default js-create-sub-interval'
+- unless schedule_interval.workshop
+  => link_to "#{schedule_interval.schedule_sub_intervals.size == 0 ? 'Разделить на подсобытия' : 'Добавить ещё подсобытие'}", new_admin_schedule_interval_schedule_sub_interval_path(schedule_interval.id), class: 'btn btn-default js-create-sub-interval'
 hr

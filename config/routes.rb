@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :sections
     resources :events
     resources :schedule_intervals do
-      resources :schedule_sub_intervals
+      resources :schedule_sub_intervals do
+        resources :schedule_events
+      end
     end
     get 'placement' => 'placement#index'
     post 'placement' => 'placement#update'

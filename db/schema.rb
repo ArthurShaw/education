@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210141617) do
+ActiveRecord::Schema.define(version: 20151214083342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,9 @@ ActiveRecord::Schema.define(version: 20151210141617) do
     t.string   "phone"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.date     "arrival"
+    t.date     "departure"
+    t.boolean  "hotel"
   end
 
   create_table "page_contents", force: :cascade do |t|
@@ -97,6 +100,13 @@ ActiveRecord::Schema.define(version: 20151210141617) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "schedule_events", force: :cascade do |t|
+    t.integer "schedule_sub_interval_id"
+    t.integer "workshop_id"
+    t.string  "title",                    null: false
+    t.string  "title_en",                 null: false
+  end
 
   create_table "schedule_intervals", force: :cascade do |t|
     t.string  "title",          null: false
@@ -180,6 +190,9 @@ ActiveRecord::Schema.define(version: 20151210141617) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.date     "arrival"
+    t.date     "departure"
+    t.boolean  "hotel"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

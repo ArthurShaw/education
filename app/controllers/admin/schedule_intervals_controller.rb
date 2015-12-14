@@ -21,6 +21,18 @@ class Admin::ScheduleIntervalsController < ApplicationController
     end
   end
 
+  def edit
+    @workshops = Workshop.where(:status => Workshop.statuses[:confirmed])
+  end
+
+  def update
+    if @schedule_interval.update(schedule_interval_params)
+      redirect_to admin_schedule_intervals_path
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @schedule_interval.destroy
     redirect_to admin_schedule_intervals_path

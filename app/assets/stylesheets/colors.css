@@ -444,3 +444,7 @@ footer .mask {
 footer .mask .first_line {
     border-color: #57AAEA;
 }
+
+.sub-interval-place table {
+    width: auto;
+}

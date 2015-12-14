@@ -3,6 +3,7 @@ class Admin::ScheduleSubIntervalsController < ApplicationController
   before_action { check_permission(:admin) }
   before_action :find_schedule_sub_interval, only: [:edit, :update, :destroy]
   before_action :check_ajax_only, only: [:new, :create]
+  skip_filter :verify_authenticity_token, :destroy
 
 
   def index
@@ -34,7 +35,9 @@ class Admin::ScheduleSubIntervalsController < ApplicationController
   end
 
   def destroy
-
+    @schedule_sub_interval.destroy
+    schedule_interval = ScheduleInterval.find(params['schedule_interval_id'])
+    render :partial => 'admin/schedule_intervals/show', locals: {schedule_interval: schedule_interval}
   end
 
 
