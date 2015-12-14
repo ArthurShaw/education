@@ -1,7 +1,14 @@
-= form_for @schedule_sub_interval, url: admin_schedule_interval_schedule_sub_intervals_path(params[:schedule_interval_id]), method: :create, html: {class: 'new_schedule_sub_interval_form'} do |f|
-  = f.label :'Начало'
-  = f.time_select :from
-  = f.label :'Окончание'
-  = f.time_select :to
-  = f.submit t('confirm'), class: 'btn btn-primary'
-  .mini_gap
+= form_for @schedule_sub_interval, url: admin_schedule_interval_schedule_sub_intervals_path(params[:schedule_interval_id]), method: :create, html: {class: 'form-horizontal center new_schedule_sub_interval_form'} do |f|
+  fieldset
+    .form-group
+      = f.label :'Начало', class: 'col-lg-2 control-label'
+      .col-lg-5
+        = f.time_field :from, class: 'form-control'
+    .form-group
+      = f.label :'Окончание', class: 'col-lg-2 control-label'
+      .col-lg-5
+        = f.time_field :to, class: 'form-control'
+    .form-group
+      .col-lg-5.col-lg-offset-2
+        button.btn.btn-default.js-clear-forms type="reset" Отменить
+        =< f.submit 'Сохранить', class: 'btn btn-primary'
