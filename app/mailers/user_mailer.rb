@@ -63,7 +63,7 @@ class UserMailer < ApplicationMailer
   def send_schedule_program(users, listener_requests)
     attachments.inline['forum_logo.png'] = File.read("#{Rails.root}/app/assets/images/forum_logo.png")
     @schedule_email_content = MailContent.find(8)
-    @users = users.pluck(:email)
+    @users = users.joins(:roles).where.not(roles: {name: Role::ADMIN_ROLES}).distinct.pluck(:email)
     @listener_requests = listener_requests.pluck(:email)
     @url = send_schedule_admin_mail_content_url(@schedule_email_content)
     mail(to: [@users, @listener_requests], subject: t('schedule_program'))
