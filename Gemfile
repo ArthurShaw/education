@@ -78,4 +78,4 @@ gem 'figaro'
 
 gem 'bootstrap-datepicker-rails'
 
-gem 'rails-settings-cached', "~> 0.4.0"
+# gem 'rails-settings-cached', "~> 0.4.0"
