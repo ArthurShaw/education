@@ -1,3 +1,3 @@
-# RailsSettings Model
-class MailerSettings < RailsSettings::CachedSettings
-end
+# # RailsSettings Model
+# class MailerSettings < RailsSettings::CachedSettings
+# end
