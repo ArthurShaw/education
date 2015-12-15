@@ -66,7 +66,7 @@ class UserMailer < ApplicationMailer
     @users = users.joins(:roles).where.not(roles: {name: Role::ADMIN_ROLES}).distinct.pluck(:email)
     @listener_requests = listener_requests.pluck(:email)
     @url = send_schedule_admin_mail_content_url(@schedule_email_content)
-    mail(to: [@users, @listener_requests], subject: t('schedule_program'))
+    mail(bcc: [@users, @listener_requests], subject: t('schedule_program'))
 
   end
 end
