@@ -10,7 +10,7 @@
     .workshop-block
       -unless @workshop.section.nil?
         p = "#{t('workshops.section')}: #{@workshop.section.title}"
-      p = "#{t('workshops.status')} #{t("workshop_status.#{@workshop.status}")}"
+      p = "#{t('workshops.status')} #{t("workshop_status.#{@workshop.stat  us}")}"
       p = "#{t('workshops.datetime')} #{l(@workshop.created_at, :format => :full_date)}"
       br
       =< link_to t('workshops.edit'), edit_workshop_path(@workshop), class: 'btn btn-primary'

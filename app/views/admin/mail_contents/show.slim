@@ -1,6 +1,9 @@
 = render 'users/admin_menu'
 
 .col-lg-7.col-lg-offset-1
+  - if flash[:notice]
+    .notice.alert-success
+      = flash[:notice]
   h2 = "#{@content.name}"
   = link_to 'Редактировать', edit_admin_mail_content_path(@content), class: 'btn btn-default'
   h3 Содержимое письма на русском
@@ -9,3 +12,5 @@
   h3 Содержимое письма на английском
   .page-content
     p = raw(@content.content_en)
+  hr
+  = link_to 'Выслать всем письмо с расписанием', send_schedule_admin_mail_content_path, class: 'btn btn-primary'

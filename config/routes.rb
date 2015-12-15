@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :sponsor_categories
     resources :sponsors
     resources :page_contents
-    resources :mail_contents
+    resources :mail_contents do
+      get 'send_schedule' => 'mail_contents#send_schedule', on: :member
+    end
     resources :special_guests
     resources :sections
     resources :events

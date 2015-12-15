@@ -77,3 +77,5 @@ gem 'geokit-rails'
 gem 'figaro'
 
 gem 'bootstrap-datepicker-rails'
+
+gem 'mailcatcher'
