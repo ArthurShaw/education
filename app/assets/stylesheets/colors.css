@@ -449,20 +449,26 @@ footer .mask .first_line {
     width: auto;
 }
 
-.schedule_sub_row_left, .schedule_sub_row_right {
-    display: inline-block;
+.schedule_table {
+    width: 100%;
+    display: table;
+    border-collapse:separate;
+    border-spacing:5px;
+}
+.schedule_sub_row {
+    display: table-row;
 }
 
-.schedule_sub_row {
-    display: inline-block;
+.schedule_sub_row_right {
+    display: table-cell;
     border-left: 2px solid grey;
-    margin-bottom: 10px;
     padding-left: 10px;
-    margin-right: 10px;
+    padding-right: 10px;
 }
 
 .accordion_description .accordion_date {
     margin-bottom: 20px;
+    margin-top: 30px;
     display: block;
 }
 
@@ -476,5 +482,5 @@ footer .mask .first_line {
 
 .accordion_left {
     vertical-align: top;
-    margin-top: 15px;
+    margin-top: 5px;
 }
