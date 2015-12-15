@@ -448,3 +448,33 @@ footer .mask .first_line {
 .sub-interval-place table {
     width: auto;
 }
+
+.schedule_sub_row_left, .schedule_sub_row_right {
+    display: inline-block;
+}
+
+.schedule_sub_row {
+    display: inline-block;
+    border-left: 2px solid grey;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
+}
+
+.accordion_description .accordion_date {
+    margin-bottom: 20px;
+    display: block;
+}
+
+.accordion_description p.event_title {
+    font-size: 15px;
+}
+
+.carousel-indicators .btn {
+    border-radius: 0;
+}
+
+.accordion_left {
+    vertical-align: top;
+    margin-top: 15px;
+}
