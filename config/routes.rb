@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :workshops do
       put 'approve' => 'workshops#approve', on: :member
       put 'deny' => 'workshops#deny', on: :member
+      get 'excel' => 'workshops#excel', on: :collection
       resources :comments
     end
     resources :listener_requests, only: [:index] do

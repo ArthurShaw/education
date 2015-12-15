@@ -61,6 +61,36 @@ class Admin::WorkshopsController < ApplicationController
     redirect_to admin_workshop_path
   end
 
+  def excel
+    section_params = params[:section_id]
+    if section_params
+      workshops = Workshop.where.not('workshops.user_id' => nil).where(section: section_params)
+    else
+      workshops = Workshop.where.not('workshops.user_id' => nil)
+    end
+
+    spreadsheet_name = 'Доклады'
+
+    book = Spreadsheet::Workbook.new
+    sheet1 = book.create_worksheet :name => spreadsheet_name
+    sheet1.row(0).replace ['Название доклада',
+                           'Описание',
+                           'Конференция',
+                           'Докладчик',
+                           'Страна',
+                           'Город',
+                           'Статус']
+
+    workshops.each_with_index { |ws, i|
+      sheet1.row(i+1).replace [ws.title, ws.description, ws.section.title, ws.user.readable_name, ws.user.country, ws.user.city, t("workshop_status.#{ws.status}")]
+    }
+
+    export_file_path = [Rails.root, 'public', 'uploads', 'exports', "#{ spreadsheet_name }_#{ DateTime.now.to_s }.xls"].join("/")
+    book.write export_file_path
+    send_file export_file_path, :content_type => 'application/vnd.ms-excel', :disposition => 'inline'
+
+  end
+
   private
 
   def workshop_params
