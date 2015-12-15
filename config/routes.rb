@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :sponsors
     resources :page_contents
     resources :mail_contents do
+      get 'send_schedule' => 'mail_contents#send_schedule', on: :member
       get 'configure' => 'mail_contents#configure', on: :collection
       post 'save_settings' => 'mail_contents#save_settings', on: :collection
     end

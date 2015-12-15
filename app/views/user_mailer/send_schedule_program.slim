@@ -7,5 +7,9 @@ body style=("margin: 0; padding: 0;")
         hr
     tr
       td
-        = raw(@new_workshop_email_content)
-        h4 = "Название доклада: #{@workshop.title}"
+        = raw(@schedule_email_content.content)
+        hr
+    tr
+      td
+        = raw(@schedule_email_content.content_en)
+
