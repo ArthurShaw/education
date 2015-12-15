@@ -83,8 +83,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {:host => 'foss-conf.bitnamiapp.com'}
   Rails.application.routes.default_url_options[:host] = 'foss-conf.bitnamiapp.com'
 
-  mailer_settings = MailerSettings.smtp_settings
-
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       :authentication => 'login',
