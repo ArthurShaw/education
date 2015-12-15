@@ -34,7 +34,11 @@ class Admin::MailContentsController < ApplicationController
           user_name: settings[:user_name],
           password: settings[:password]
       }
+
       ActionMailer::Base.smtp_settings.merge!(params)
+
+      MailerSettings.smtp_settings = params
+
     end
     redirect_to admin_mail_contents_path
   end
