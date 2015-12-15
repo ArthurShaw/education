@@ -448,3 +448,44 @@ footer .mask .first_line {
 .sub-interval-place table {
     width: auto;
 }
+
+.schedule_table {
+    width: 100%;
+    display: table;
+    border-collapse:separate;
+    border-spacing:5px;
+}
+.schedule_sub_row {
+    display: table-row;
+}
+
+.schedule_sub_row_right {
+    display: table-cell;
+    border-left: 2px solid grey;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.accordion_description .accordion_date {
+    margin-bottom: 20px;
+    margin-top: 30px;
+    display: block;
+}
+
+.accordion_description p.event_title {
+    font-size: 15px;
+}
+
+.carousel-indicators .btn {
+    border-radius: 0;
+}
+
+.carousel-indicators .btn.active {
+    color: white;
+    background-color: #317298 !important;
+}
+
+.accordion_left {
+    vertical-align: top;
+    margin-top: 5px;
+}

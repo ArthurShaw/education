@@ -1,17 +1,42 @@
 = form_for @schedule_event, url: admin_schedule_interval_schedule_sub_interval_schedule_events_path(params[:schedule_interval_id],params[:schedule_sub_interval_id]), method: :create, html: {class: 'form-horizontal center new_schedule_sub_interval_form'} do |f|
   fieldset
     .form-group
-      = f.label :'Название (рус)', class: 'col-lg-2 control-label'
+      = f.label :'Название группы (рус)', class: 'col-lg-2 control-label'
       .col-lg-5
         = f.text_field :title, class: 'form-control'
     .form-group
-      = f.label :'Название (eng)', class: 'col-lg-2 control-label'
+      = f.label :'Название группы (eng)', class: 'col-lg-2 control-label'
       .col-lg-5
         = f.text_field :title_en, class: 'form-control'
+
     .form-group
+      .col-lg-5.col-lg-offset-2
+        label
+          input#js_add_workshop_input<> type="checkbox" Привязать доклад к событию?
+
+    .form-group#js_workshop_input style="display:none"
       = f.label :'Доклад', class: 'col-lg-2 control-label'
       .col-lg-5
-        = f.collection_select :workshop_id, @workshops, :id, :readable_name, {include_blank: false}, class: 'form-control'
+        = f.collection_select :workshop_id, @workshops, :id, :readable_name, {include_blank: true}, id: 'js_workshop_select', class: 'form-control'
+
+    #js_custom_event_input
+      .form-group
+        = f.label :'Название (рус)', class: 'col-lg-2 control-label'
+        .col-lg-5
+          = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label :'Название(eng)', class: 'col-lg-2 control-label'
+        .col-lg-5
+          = f.text_field :name_en, class: 'form-control'
+      .form-group
+        = f.label :'Спикер (рус)', class: 'col-lg-2 control-label'
+        .col-lg-5
+          = f.text_field :speaker, class: 'form-control'
+      .form-group
+        = f.label :'Спикер (eng)', class: 'col-lg-2 control-label'
+        .col-lg-5
+          = f.text_field :speaker_en, class: 'form-control'
+
     .form-group
       .col-lg-5.col-lg-offset-2
         button.btn.btn-default.js-clear-forms type="reset" Отменить

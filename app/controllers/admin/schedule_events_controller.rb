@@ -40,7 +40,7 @@ class Admin::ScheduleEventsController < ApplicationController
   private
 
   def schedule_events_params
-    params.require(:schedule_event).permit(:title, :title_en, :workshop_id)
+    params.require(:schedule_event).permit(:title, :title_en, :workshop_id, :name, :name_en, :speaker, :speaker_en)
   end
 
   def find_schedule_event

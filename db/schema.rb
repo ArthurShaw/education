@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214083342) do
+ActiveRecord::Schema.define(version: 20151215141458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,14 @@ ActiveRecord::Schema.define(version: 20151214083342) do
     t.boolean  "hotel"
   end
 
+  create_table "mail_contents", force: :cascade do |t|
+    t.string   "name",       default: "", null: false
+    t.text     "content",    default: "", null: false
+    t.text     "content_en", default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "page_contents", force: :cascade do |t|
     t.string   "name",         default: "",    null: false
     t.text     "content",      default: "",    null: false
@@ -106,6 +114,10 @@ ActiveRecord::Schema.define(version: 20151214083342) do
     t.integer "workshop_id"
     t.string  "title",                    null: false
     t.string  "title_en",                 null: false
+    t.string  "name"
+    t.string  "name_en"
+    t.string  "speaker"
+    t.string  "speaker_en"
   end
 
   create_table "schedule_intervals", force: :cascade do |t|
@@ -134,6 +146,17 @@ ActiveRecord::Schema.define(version: 20151214083342) do
     t.text    "description_en", default: "",    null: false
   end
 
+  create_table "settings", force: :cascade do |t|
+    t.string   "var",                   null: false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", limit: 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
+
   create_table "special_guests", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -143,15 +166,16 @@ ActiveRecord::Schema.define(version: 20151214083342) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "first_name_en"
     t.string   "last_name_en"
     t.string   "middle_name_en"
     t.text     "about_en"
-    t.integer  "guest_type",          default: 0,  null: false
-    t.text     "about_long",          default: "", null: false
-    t.text     "about_long_en",       default: "", null: false
+    t.integer  "guest_type",          default: 0,     null: false
+    t.text     "about_long",          default: "",    null: false
+    t.text     "about_long_en",       default: "",    null: false
+    t.boolean  "visible",             default: false, null: false
   end
 
   create_table "sponsor_categories", force: :cascade do |t|

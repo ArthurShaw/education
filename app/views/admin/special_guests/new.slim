@@ -56,6 +56,11 @@
           i Фотография будет подстроена под соотношение 5:3
       .form-group
         .col-lg-9.col-lg-offset-3
+          label
+            => f.check_box :visible
+            | Отображать на главной странице?
+      .form-group
+        .col-lg-9.col-lg-offset-3
           = f.submit t('confirm'), class: 'btn btn-primary'
         br
       .form-group

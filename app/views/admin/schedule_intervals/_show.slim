@@ -25,7 +25,18 @@ p = schedule_interval.description_en
             tbody
               tr
               - for event in sub_interval.schedule_events
-                td = link_to event.workshop.title, admin_workshop_path(event.workshop_id)
+                td
+                  - if event.workshop
+                    = link_to event.workshop.title, admin_workshop_path(event.workshop_id)
+                    br
+                    - if event.workshop.user
+                      strong = event.workshop.user.readable_name
+                    - else
+                      strong = event.workshop.special_guest.readable_name
+                  - else
+                    = event.name
+                    br
+                    strong = event.speaker
               tr
                 - for event in sub_interval.schedule_events
                   td = link_to 'Удалить', admin_schedule_interval_schedule_sub_interval_schedule_event_path(schedule_interval.id, sub_interval.id, event.id), method: :delete, class: 'btn btn-default btn-sm js-delete-schedule-event'

@@ -29,6 +29,29 @@ class Admin::MailContentsController < ApplicationController
     redirect_to admin_mail_content_path(@content)
   end
 
+  def configure
+    @settings = ActionMailer::Base.smtp_settings
+  end
+
+  def save_settings
+    settings = params[:config]
+    if settings
+      params = {
+          address: settings[:address],
+          port: settings[:port],
+          domain: settings[:domain],
+          user_name: settings[:user_name],
+          password: settings[:password]
+      }
+
+      ActionMailer::Base.smtp_settings.merge!(params)
+
+      # MailerSettings.smtp_settings = params
+
+    end
+    redirect_to admin_mail_contents_path
+  end
+
   private
 
   def mail_contents_params

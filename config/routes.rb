@@ -9,10 +9,11 @@ Rails.application.routes.draw do
     resources :page_contents
     resources :mail_contents do
       get 'send_schedule' => 'mail_contents#send_schedule', on: :member
+      get 'configure' => 'mail_contents#configure', on: :collection
+      post 'save_settings' => 'mail_contents#save_settings', on: :collection
     end
     resources :special_guests
     resources :sections
-    resources :events
     resources :schedule_intervals do
       resources :schedule_sub_intervals do
         resources :schedule_events
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
     resources :workshops do
       put 'approve' => 'workshops#approve', on: :member
       put 'deny' => 'workshops#deny', on: :member
+      get 'excel' => 'workshops#excel', on: :collection
       resources :comments
     end
     resources :listener_requests, only: [:index] do

@@ -41,6 +41,8 @@ class Admin::SpecialGuestsController < ApplicationController
   end
 
   def special_guests_params
-    params.require(:special_guest).permit(:first_name, :last_name, :middle_name, :about, :avatar, :first_name_en, :last_name_en, :middle_name_en, :about_en, :guest_type, :about_long, :about_long_en)
+    params.require(:special_guest).permit(:first_name, :last_name, :middle_name, :about, :avatar, :first_name_en,
+                                          :last_name_en, :middle_name_en, :about_en, :guest_type, :about_long,
+                                          :about_long_en, :visible)
   end
 end
