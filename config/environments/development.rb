@@ -46,7 +46,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       :authentication => 'login',
-      :enable_starttls_auto => true
+      :enable_starttls_auto => true,
       :address => 'localhost',
       :port => 1025
   }
