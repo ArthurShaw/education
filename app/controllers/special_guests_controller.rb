@@ -1,11 +1,11 @@
 class SpecialGuestsController < ApplicationController
 
   def guests
-    @guests = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:guest])
+    @guests = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:guest], :visible => true)
   end
 
   def speakers
-    @speakers = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:speaker])
+    @speakers = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:speaker], :visible => true)
   end
 
   def show

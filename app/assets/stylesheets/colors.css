@@ -480,6 +480,11 @@ footer .mask .first_line {
     border-radius: 0;
 }
 
+.carousel-indicators .btn.active {
+    color: white;
+    background-color: #317298 !important;
+}
+
 .accordion_left {
     vertical-align: top;
     margin-top: 5px;

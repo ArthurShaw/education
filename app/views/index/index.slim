@@ -212,13 +212,17 @@
                                   - for event in slice
                                     .schedule_sub_row_right
                                       p.event_title = "#{event.title}:"
-                                      p = link_to event.workshop.title, info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
-                                      - if event.workshop.user
-                                        p.name
-                                          = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
-                                      - if event.workshop.special_guest
-                                        p.name
-                                          = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
+                                      - if event.workshop
+                                        p = link_to translate_field(event.workshop, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
+                                        - if event.workshop.user
+                                          p.name
+                                            = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
+                                        - if event.workshop.special_guest
+                                          p.name
+                                            = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
+                                      - else
+                                        p = translate_field(event, :name)
+                                        p.name = translate_field(event, :speaker)
                   .panel-collapse.collapse.accordion_full.in
                     p = translate_field(interval, :description)
                   .mini_gap

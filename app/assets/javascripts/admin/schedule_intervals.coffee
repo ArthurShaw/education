@@ -99,6 +99,16 @@ $(document).on("page:change", ->
     hideForms()
     return false
   )
+
+  $("#js-schedules").on('change', "#js_add_workshop_input", (event)->
+    if $(this).prop("checked")
+      $("#js_workshop_input").show()
+      $("#js_custom_event_input").hide()
+    else
+      $("#js_workshop_input").hide()
+      $("#js_custom_event_input").show()
+  )
+
 )
 
 hideForms = () ->

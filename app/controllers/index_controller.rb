@@ -5,8 +5,8 @@ class IndexController < ApplicationController
     @page_contents = PageContent.all
 
     @sponsor_categories = SponsorCategory.all
-    @special_quests = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:guest])
-    @key_speakers = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:speaker])
+    @special_quests = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:guest], :visible => true)
+    @key_speakers = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:speaker], :visible => true)
     @sections = Section.order(:is_main => :desc, :title => :asc)
   end
 

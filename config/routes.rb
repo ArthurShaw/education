@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     resources :mail_contents
     resources :special_guests
     resources :sections
-    resources :events
     resources :schedule_intervals do
       resources :schedule_sub_intervals do
         resources :schedule_events

@@ -1,6 +1,18 @@
 = render :partial => 'users/admin_menu'
 
 .col-lg-9
+
+  .panel.panel-default
+    .panel-body
+      => image_tag('help_icon.png')
+      | В данном разделе Вы можете заполнить расписание форума.
+
+  h4 Секции:
+  =< link_to 'Все', admin_schedule_intervals_path, class: "btn btn-default #{'active' unless params[:section_id]}"
+  - for section in Section.all
+    =< link_to section.title, admin_schedule_intervals_path(:section_id => section.id), class: "btn btn-default #{'active' if params[:section_id] == section.id.to_s}"
+  hr
+
   h2 События
   = link_to 'Добавить новое событие', new_admin_schedule_interval_path, class: 'btn btn-default'
   hr
