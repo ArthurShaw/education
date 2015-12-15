@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     resources :sponsor_categories
     resources :sponsors
     resources :page_contents
-    resources :mail_contents
+    resources :mail_contents do
+      get 'configure' => 'mail_contents#configure', on: :collection
+      post 'save_settings' => 'mail_contents#save_settings', on: :collection
+    end
     resources :special_guests
     resources :sections
     resources :schedule_intervals do
