@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  layout '_user_mailer'
+  layout 'user_mailer'
   before_action :find_contact_page
 
   def welcome_listener_email(listener_request)
