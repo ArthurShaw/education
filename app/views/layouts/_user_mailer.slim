@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title = t('header_title')
+    meta name="keywords" content="template language"
+    == stylesheet_link_tag 'emails'
+  body
+    = render partial: 'email_header'
+    = yield
+    = render partial: 'email_footer'

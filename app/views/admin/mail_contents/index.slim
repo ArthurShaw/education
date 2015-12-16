@@ -1,7 +1,11 @@
 = render :partial => 'users/admin_menu'
 .col-lg-9
+  - if flash[:notice]
+    .notice.alert-success
+      = flash[:notice]
   h2 Управление содержанием писем
   = link_to 'Настройка почтового клиента', configure_admin_mail_contents_path, class: 'btn btn-default'
+  =< link_to 'Выслать всем письмо с расписанием', send_schedule_admin_mail_contents_path, class: 'btn btn-primary'
   hr
   - for content in @contents
     h2 = "#{content.name}"
