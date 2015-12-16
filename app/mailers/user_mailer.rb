@@ -1,5 +1,6 @@
 class UserMailer < ApplicationMailer
   layout '_user_mailer'
+  before_action :find_contact_page
 
   def welcome_listener_email(listener_request)
     @listener_request_email_content = MailContent.find(1)
@@ -59,5 +60,9 @@ class UserMailer < ApplicationMailer
     @url = send_schedule_admin_mail_contents_url
     mail(bcc: [@users, @listener_requests], subject: t('schedule_program'))
 
+  end
+
+  def find_contact_page
+    @contact_page = PageContent.fifth
   end
 end
