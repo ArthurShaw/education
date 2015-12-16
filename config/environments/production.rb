@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_controller.asset_host = 'http://foss-conf.bitnamiapp.com:80'
+  config.action_controller.asset_host = 'http://localhost:3000'
   # ACTION MAILER
 
   config.action_mailer.default_url_options = {:host => 'foss-conf.bitnamiapp.com'}
