@@ -1,17 +1,7 @@
-body style=("margin: 0; padding: 0;")
-  table align="center" border="0" cellpadding="0" cellspacing="0" width="600"
-    tr
-      td height= '60px' vertical-align= 'middle' style='font-size: 24; border-radius: 5%'
-        = image_tag attachments['forum_logo.png'].url, style: 'height: 60px; vertical-align: middle'
-        = t('header_title')
-        hr
-    tr
-      td
-        h4 = "Уважаемый #{@workshop.user.readable_name},"
-        = raw(@new_comment_email_content.content)
-        h4 = "Название доклада: #{@workshop.title}"
-    tr
-      td
-        h4 = "Respected #{@workshop.user.readable_name},"
-        = raw(@new_comment_email_content.content_en)
-        h4 = "Workshop title: #{@workshop.title}"
+h4 = "Уважаемый #{@workshop.user.readable_name},"
+= raw(@new_comment_email_content.content)
+h4 = "Название доклада: #{@workshop.title}
+hr
+h4 = "Respected #{@workshop.user.readable_name},"
+= raw(@new_comment_email_content.content_en)
+h4 = "Workshop title: #{@workshop.title}"

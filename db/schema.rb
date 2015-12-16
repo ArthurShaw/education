@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215141458) do
+ActiveRecord::Schema.define(version: 20151215114952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,13 +67,12 @@ ActiveRecord::Schema.define(version: 20151215141458) do
   create_table "listener_requests", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "middle_name"
     t.string   "email"
     t.string   "country"
     t.string   "city"
     t.string   "phone"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.date     "arrival"
     t.date     "departure"
     t.boolean  "hotel"
@@ -146,17 +145,6 @@ ActiveRecord::Schema.define(version: 20151215141458) do
     t.text    "description_en", default: "",    null: false
   end
 
-  create_table "settings", force: :cascade do |t|
-    t.string   "var",                   null: false
-    t.text     "value"
-    t.integer  "thing_id"
-    t.string   "thing_type", limit: 30
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
-
   create_table "special_guests", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -209,7 +197,6 @@ ActiveRecord::Schema.define(version: 20151215141458) do
     t.string   "degree"
     t.string   "phone"
     t.text     "biography"
-    t.text     "speech_experience"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"

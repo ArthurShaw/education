@@ -1,6 +1,6 @@
 class Admin::MailContentsController < ApplicationController
   before_action { check_permission(:admin) }
-  before_action :find_mail_content, only: [:edit, :update, :show, :send_schedule]
+  before_action :find_mail_content, only: [:edit, :update, :show]
 
   def index
     @contents = MailContent.all
@@ -26,7 +26,7 @@ class Admin::MailContentsController < ApplicationController
     @listeners = ListenerRequest.all
     UserMailer.send_schedule_program(@users, @listeners).deliver_now
     flash[:notice] = 'Всем высланы письма с расписанием'
-    redirect_to admin_mail_content_path(@content)
+    redirect_to admin_mail_contents_path
   end
 
   def configure
