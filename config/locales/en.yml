@@ -20,7 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  header_title: 'IFTE2016'
+  header_title: 'ABOUT'
+  main_title: 'IFTE2016'
   index: 'Main page'
   news: 'News'
   registration: 'Registration'

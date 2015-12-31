@@ -34,34 +34,9 @@ nav.navbar.navbar-fixed-top.nav_mask
         = link_to image_tag('ru.png'), {locale: 'ru'}, {class: 'navbar-brand lng-switcher'}
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
-        li
-          = link_to t('accommodation'), accommodation_path
-        li
-          = link_to t('cult_program'), cultural_program_path
-
-        /li
-        /  a href="#about_menu"
-        /    | About
-        /li
-        /  a href="#schedule_menu"
-        /    | Schedule
-        /li
-        /  a href="#speakers_menu"
-        /    | Speakers
-        //li
-        //  a href="#reservation_menu"
-        //    | Reservation
-        /li
-        /  a href="#past_menu"
-        /    | Past
-        /li
-        /  a href="#contact_menu"
-        /    | Contact
         - if user_signed_in?
           li
             == link_to t('profile'), profile_path
-          li
-            == link_to t('logout'), destroy_user_session_path, method: :delete
         - else
           li.dropdown
             a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button"
@@ -72,5 +47,14 @@ nav.navbar.navbar-fixed-top.nav_mask
                 == link_to t('as_listener'), new_listener_request_path
               li
                 == link_to t('as_speaker'), new_user_registration_path
+        li
+          = link_to t('accommodation'), accommodation_path
+        li
+          = link_to t('cult_program'), cultural_program_path
+        - if user_signed_in?
+          li
+            == link_to t('logout'), destroy_user_session_path, method: :delete
+        - else
           li
             == link_to t('login'), new_user_session_path
+
