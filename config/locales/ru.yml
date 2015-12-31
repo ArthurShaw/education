@@ -30,7 +30,7 @@ ru:
   as_speaker: 'Как докладчик'
   information: 'Информация'
   information_letter: 'Информационное письмо'
-  conference_themes: 'Темы конференции'
+  conference_themes: 'Темы форума'
   special_speakers: 'Ключевые докладчики'
   schedule: 'Расписание'
   special_guests: 'Почетные гости'
@@ -51,6 +51,7 @@ ru:
   workshop_deny_email: 'Ваш доклад отклонен'
   new_comment_email: 'Новый комментарый к вашему докладу'
   schedule_program: 'Программа форума'
+  scientific_committee: 'Научный комитет'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'
@@ -67,6 +68,8 @@ ru:
       password_confirmation: 'Подтвердите пароль'
       current_password: 'Текущий пароль'
       avatar: 'Выберите фотографию'
+      work_place: 'Место работы'
+      occupation: 'Должность'
   workshops:
     workshops: 'Доклады'
     create: 'Добавить доклад'

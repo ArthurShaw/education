@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+PageContent.create(name: 'Научный комитет', content: '<h1>Описание научного коммитета</h1>', id: 10)
 MailContent.create(name: 'Рассылка расписания (Всем)', id: 8)
 MailContent.create(name: 'Новый комментарий к докладу (Докладчику)', id: 7)
 MailContent.create(name: 'Доклад отклонен (Докладчику)', id: 6)

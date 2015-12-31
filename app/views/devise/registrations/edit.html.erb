@@ -79,6 +79,22 @@
         </div>
 
         <div class="form-group">
+          <%= f.label t('user_params.work_place'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.text_field :work_place, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.occupation'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.text_field :occupation, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
           <%= f.label t('user_params.about'), class: 'col-lg-2 control-label' %>
 
           <div class="col-lg-10">

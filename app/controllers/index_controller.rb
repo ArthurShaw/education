@@ -43,4 +43,9 @@ class IndexController < ApplicationController
     @content = PageContent.find(9)
     render 'index/usual_content'
   end
+
+  def scientific_committee
+    @content = PageContent.find(10)
+    render 'index/usual_content'
+  end
 end
