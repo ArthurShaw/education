@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151231104726) do
+ActiveRecord::Schema.define(version: 20160106110427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,11 @@ ActiveRecord::Schema.define(version: 20151231104726) do
   create_table "events_sections", id: false, force: :cascade do |t|
     t.integer "event_id"
     t.integer "section_id"
+  end
+
+  create_table "hotels", force: :cascade do |t|
+    t.string "title"
+    t.string "title_en"
   end
 
   create_table "listener_requests", force: :cascade do |t|
@@ -206,6 +211,7 @@ ActiveRecord::Schema.define(version: 20151231104726) do
     t.boolean  "hotel"
     t.string   "work_place"
     t.string   "occupation"
+    t.integer  "hotel_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -236,6 +242,7 @@ ActiveRecord::Schema.define(version: 20151231104726) do
   add_foreign_key "comments", "workshops"
   add_foreign_key "events", "workshops"
   add_foreign_key "sponsors", "sponsor_categories"
+  add_foreign_key "users", "hotels"
   add_foreign_key "workshops", "sections"
   add_foreign_key "workshops", "special_guests"
   add_foreign_key "workshops", "users"

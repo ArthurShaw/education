@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
     resources :special_guests
     resources :sections
+    resources :hotels
     resources :schedule_intervals do
       resources :schedule_sub_intervals do
         resources :schedule_events

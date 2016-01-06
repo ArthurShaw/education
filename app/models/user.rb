@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   has_many :workshops
+  belongs_to :hotel
   validates :first_name, :last_name, presence: true
   validates_length_of :biography, :maximum => 600, too_long: 'Слишком много символов'
 

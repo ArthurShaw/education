@@ -104,6 +104,15 @@
         </div>
 
         <div class="form-group">
+          <%= f.label t('user_params.choose_hotel'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.collection_select :hotel_id, Hotel.all.order(:title), :id, :title_localized, {include_blank: true}, {class: 'form-control'} %>
+            <i><%= t('if_you_need')%></i>
+          </div>
+        </div>
+
+        <div class="form-group">
           <%= f.label t('user_params.avatar'), class: 'col-lg-2 control-label' %>
 
           <div class="col-lg-10">

@@ -1,0 +1,10 @@
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Отели
+  = link_to 'Добавить новый отель', new_admin_hotel_path, class: 'btn btn-default'
+  hr
+  - for hotel in @hotels
+
+    h4 = "#{hotel.title} / #{hotel.title_en}"
+    =< link_to 'Удалить', admin_hotel_path(hotel), method: :delete, class: 'btn btn-default'
+    hr

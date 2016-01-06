@@ -73,6 +73,7 @@ en:
   new_comment_email: 'New comment to your workshop'
   schedule_program: 'Forum program'
   scientific_committee: 'Scientific committee'
+  if_you_need: 'If you need'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'
@@ -91,6 +92,7 @@ en:
     avatar: 'Your photo'
     work_place: 'Work place'
     occupation: 'Occupation'
+    choose_hotel: 'Choose hotel'
   workshops:
     workshops: 'Workshops'
     create: 'Add new workshop'
