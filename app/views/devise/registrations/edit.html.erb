@@ -79,11 +79,36 @@
         </div>
 
         <div class="form-group">
+          <%= f.label t('user_params.work_place'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.text_field :work_place, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.occupation'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.text_field :occupation, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
           <%= f.label t('user_params.about'), class: 'col-lg-2 control-label' %>
 
           <div class="col-lg-10">
             <%= f.text_area :biography, class: 'form-control' %>
             <i> <%= t('max_symbols') %></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('user_params.choose_hotel'), class: 'col-lg-2 control-label' %>
+
+          <div class="col-lg-10">
+            <%= f.collection_select :hotel_id, Hotel.all.order(:title), :id, :title_localized, {include_blank: true}, {class: 'form-control'} %>
+            <i><%= t('if_you_need')%></i>
           </div>
         </div>
 

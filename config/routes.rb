@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
     resources :special_guests
     resources :sections
+    resources :hotels
     resources :schedule_intervals do
       resources :schedule_sub_intervals do
         resources :schedule_events
@@ -50,6 +51,7 @@ Rails.application.routes.draw do
     get 'cultural_program' => 'index#cultural_program'
     get 'accommodation' => 'index#accommodation'
     get 'regulations' => 'index#regulations'
+    get 'scientific_committee' => 'index#scientific_committee'
 
     resources :listener_requests, only: [:index, :new, :create] do
       get 'success' => 'listener_requests#success', :on => :member

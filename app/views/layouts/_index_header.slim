@@ -21,9 +21,17 @@ nav.navbar.navbar-fixed-top.nav_mask
           li
             = link_to t('org_committee'), org_committee_path
           li
+            =link_to t('scientific_committee'), scientific_committee_path
+          li
             = link_to t('information_letter'), information_letter_path
           li
+            a href="#program_schedule" = t('program')
+          li
             a href="#key_speakers_menu" = t('special_speakers')
+          li
+            a href="#special_guests_menu" = t('special_guests')
+          li
+            a href="#sponsors" = t('sponsors')
           li
             = link_to t('regulations'), regulations_path
           li

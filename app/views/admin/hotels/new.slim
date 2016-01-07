@@ -1,0 +1,21 @@
+= render :partial => 'users/admin_menu'
+
+.col-lg-8.col-lg-offset-0
+  = form_for @hotel, url: admin_hotels_path, method: :create, :html => {:class => "form-horizontal center"} do |f|
+    legend Добавить новый отель
+    fieldset
+      .form-group
+        = f.label :'Название', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :title, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Название (eng)', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :title_en, class: 'form-control'
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = f.submit t('confirm'), class: 'btn btn-primary'
+      br
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = link_to 'Назад', admin_hotels_path, class: 'btn btn-link'
