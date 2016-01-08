@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, presence: true
   validates_length_of :biography, :maximum => 600, too_long: 'Слишком много символов'
 
-  has_attached_file :avatar, styles: { medium: "400x400>", thumb: "100x100>" }, default_url: 'noavatar.png'
+  has_attached_file :avatar, styles: {medium: "400x400>", thumb: "100x100>"}, default_url: 'noavatar.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   after_commit :send_welcome_email, on: :create
@@ -22,9 +22,13 @@ class User < ActiveRecord::Base
 
   def send_welcome_email
     UserMailer.welcome_user_email(self).deliver_now
+  rescue Exception
+    return
   end
 
   def send_new_user_email
     UserMailer.new_speaker_email(self).deliver_now
+  rescue Exception
+    return
   end
 end
