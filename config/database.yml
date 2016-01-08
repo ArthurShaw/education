@@ -28,4 +28,4 @@ production:
   <<: *default
   database: conference
   username: postgres
-  password: fossfoss12
+  password: F0rumIP0
