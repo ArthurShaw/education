@@ -22,13 +22,9 @@ class User < ActiveRecord::Base
 
   def send_welcome_email
     UserMailer.welcome_user_email(self).deliver_now
-  rescue Exception
-    return
   end
 
   def send_new_user_email
     UserMailer.new_speaker_email(self).deliver_now
-  rescue Exception
-    return
   end
 end
