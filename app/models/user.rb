@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "400x400>", thumb: "100x100>" }, default_url: 'noavatar.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-  after_create :send_welcome_email, :send_new_user_email
+  after_commit :send_welcome_email, on: :create
+  after_commit :send_new_user_email, on: :create
 
   def readable_name
     "#{first_name} #{last_name}"
