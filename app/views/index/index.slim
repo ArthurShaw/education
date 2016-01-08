@@ -336,41 +336,42 @@
 #js-modal-place
 
 coffee:
-  location_json = $("#location").text();
-  unless location_json
-    return
-  location_json = JSON.parse(location_json)
+  $(document).on 'ready page:load', ->
+    location_json = $("#location").text();
+    unless location_json
+      return
+    location_json = JSON.parse(location_json)
 
-  place_markers = [];
-  $.each location_json, (location) ->
-    place_markers.push(
-            {
-              lat: location_json[location]['latitude'],
-              lng: location_json[location]['longitude'],
-              'picture': {
-                'url': 'http://maps.google.com/mapfiles/ms/micons/pink-dot.png'
-                'width': 32
-                'height': 32
-              },
-              'infowindow': 'hello!'
-            }
-    )
+    place_markers = [];
+    $.each location_json, (location) ->
+      place_markers.push(
+              {
+                lat: location_json[location]['latitude'],
+                lng: location_json[location]['longitude'],
+                'picture': {
+                  'url': 'http://maps.google.com/mapfiles/ms/micons/pink-dot.png'
+                  'width': 32
+                  'height': 32
+                },
+                'infowindow': 'hello!'
+              }
+      )
 
 
-  handler = Gmaps.build('Google')
-  handler.buildMap {
-    provider:
-      scrollwheel: false
-    internal:
-      id: 'location-place'
-      autoZoom: true
-  }, ->
-    markers = handler.addMarkers(place_markers)
-    handler.map.centerOn markers[0]
-    if place_markers.length > 1
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-    else
-      handler.getMap().setZoom(14);
+    handler = Gmaps.build('Google')
+    handler.buildMap {
+      provider:
+        scrollwheel: false
+      internal:
+        id: 'location-place'
+        autoZoom: true
+    }, ->
+      markers = handler.addMarkers(place_markers)
+      handler.map.centerOn markers[0]
+      if place_markers.length > 1
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      else
+        handler.getMap().setZoom(14);
 
-  $("#location-place").height($("#contacts").height())
+    $("#location-place").height($("#contacts").height())
