@@ -367,7 +367,10 @@ coffee:
   }, ->
     markers = handler.addMarkers(place_markers)
     handler.map.centerOn markers[0]
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
+    if place_markers.length > 1
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    else
+      handler.getMap().setZoom(14);
 
   $("#location-place").height($("#contacts").height())
