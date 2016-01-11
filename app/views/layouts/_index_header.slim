@@ -24,8 +24,9 @@ nav.navbar.navbar-fixed-top.nav_mask
             =link_to t('scientific_committee'), scientific_committee_path
           li
             = link_to t('information_letter'), information_letter_path
-          li
-            a href="#program_schedule" = t('program')
+          - if has_events(@sections)
+            li
+              a href="#program_schedule" = t('program')
           li
             a href="#key_speakers_menu" = t('special_speakers')
           li

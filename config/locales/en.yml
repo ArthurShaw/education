@@ -64,6 +64,7 @@ en:
   listener_registration: 'Registration as listener'
   success_registration: 'Success registration'
   program: 'Program'
+  program_not_found: 'The schedule is not present yet. Please, come back later!'
   regulations: 'Draft Program'
   arrival: 'Arrival date'
   departure: 'Departure date'
