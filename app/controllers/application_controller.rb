@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :middle_name, :email, :country, :city, :phone, :degree, :biography, :speech_experience, :password, :password_confirmation, :avatar, :arrival, :departure, :need_hotel) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :middle_name, :email, :country, :city, :phone, :degree, :biography, :speech_experience, :password, :password_confirmation, :avatar, :arrival, :departure, :work_place, :occupation, :hotel_id) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :middle_name, :email, :country, :city, :phone, :degree, :biography, :speech_experience, :password, :password_confirmation, :current_password, :avatar, :work_place, :occupation, :hotel_id) }
   end

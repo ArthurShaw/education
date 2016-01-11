@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   namespace :admin do
-    resources :users, only: [:new, :index, :create, :destroy]
+    resources :users, only: [:new, :index, :create, :destroy] do
+      get 'excel' => 'users#excel', on: :collection
+    end
+    get 'speakers' => 'users#speakers'
     resources :sponsor_categories
     resources :sponsors
     resources :page_contents

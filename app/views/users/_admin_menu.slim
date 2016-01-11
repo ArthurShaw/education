@@ -3,6 +3,8 @@ hr
 .col-lg-2.col-lg-offset-1.admin-menu
   =>link_to 'Заявки слушателей', admin_listener_requests_path, class: "btn btn-default #{'active' if controller.controller_name == 'listener_requests'}"
   br
+  =>link_to 'Докладчики', admin_speakers_path, class: "btn btn-default #{'active' if controller.controller_name == 'users'}"
+  br
   => link_to 'Управление докладами', admin_workshops_path, class: "btn btn-default #{'active' if controller.controller_name == 'workshops'}"
   br
   => link_to 'Ключевые личности', admin_special_guests_path, class: "btn btn-default #{'active' if controller.controller_name == 'special_guests'}"

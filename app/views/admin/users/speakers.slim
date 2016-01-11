@@ -1,0 +1,41 @@
+= render :partial => 'users/admin_menu'
+
+.col-lg-9
+  h2 Докладчики
+  = link_to t('listener_requests.excel_download'), excel_admin_users_path, class: 'btn btn-default'
+  hr
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th = t('user_params.first_name')
+        th = t('user_params.last_name')
+        th = t('user_params.middle_name')
+        th = 'Email'
+        th = t('user_params.country')
+        th = t('user_params.city')
+        th = t('user_params.phone')
+        th = t('user_params.degree')
+        th = t('user_params.work_place')
+        th = t('user_params.occupation')
+        th = t('arrival')
+        th = t('departure')
+        th = t('hotel')
+    tbody
+      - for speaker in @speakers
+        tr
+          td = speaker.first_name
+          td = speaker.last_name
+          td = speaker.middle_name
+          td = speaker.email
+          td = speaker.country
+          td = speaker.city
+          td = speaker.phone
+          td = speaker.degree
+          td = speaker.work_place
+          td = speaker.occupation
+          td = speaker.arrival
+          td = speaker.departure
+          - if speaker.hotel
+            td = speaker.hotel.title
+          - else
+            td Не требуется
