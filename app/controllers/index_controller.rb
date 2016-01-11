@@ -48,4 +48,12 @@ class IndexController < ApplicationController
     @content = PageContent.find(10)
     render 'index/usual_content'
   end
+
+  def program
+    @sections = Section.order(:is_main => :desc, :title => :asc)
+  end
+
+  def sponsors
+    @sponsor_categories = SponsorCategory.all
+  end
 end

@@ -1,0 +1,20 @@
+#sponsors
+  footer
+    .gap
+    .first_line
+    .first_title
+      p = t('sponsors')
+    - for sponsor_category in @sponsor_categories
+      .first_description
+        p = translate_field(sponsor_category, :name)
+      .sponsor_box
+        - for sponsor in sponsor_category.sponsors
+          .sponsor_basic.wow.fadeIn
+            .image_featured
+              - if sponsor.url and not sponsor.url.empty?
+                a> href="#{sponsor.url}" target="_blank"
+                  img alt="#{sponsor.name}" src="#{sponsor.image.url(:large)}"
+              - else
+                img alt="#{sponsor.name}" src="#{sponsor.image.url(:large)}"
+    .gap
+    .sponsor_box

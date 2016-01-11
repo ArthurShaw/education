@@ -1,0 +1,87 @@
+#program_schedule
+  - if has_events(@sections)
+    .gap
+    .first_line.wow.fadeInDown
+    .first_title
+      p.wow.fadeInDown = t('program')
+    .first_description
+    .mini_gap
+    #sh_carousel.carousel.slide
+      .carousel-indicators
+        - if has_events(@sections[0])
+          .wow.fadeInLeft.active.btn.graybtn.graytxt.schedule-section data-slide-to="#{k = 0}" data-target="#sh_carousel" = translate_field(@sections[0], :title)
+
+          - for i in (1..(@sections.size - 1))
+            - if has_events(@sections[i])
+              .wow.fadeInLeft.btn.graybtn.graytxt.schedule-section data-slide-to="#{k += 1}" data-target="#sh_carousel" = translate_field(@sections[i], :title)
+
+
+      .carousel-inner
+        - for i in (0..(@sections.size-1))
+          - if has_events(@sections[i])
+            .item class="#{'active' if i == 0}"
+              - section_to_days(@sections[i]).each do |day, intervals|
+                .schedule_date = day.day
+                .schedule_month = l(day, :format => :month)
+                .mini_gap
+                - for interval in intervals
+                  .panel.event_line
+                    a data-parent="#accordion1" data-toggle="collapse" href="#one_one"
+                    .accordion_left
+                      .accordions_titles_small
+                        p.accordion_date = "#{interval.from.strftime('%H:%M')} - #{interval.to.strftime('%H:%M')}"
+                    .accordion_right
+                      .accordions_titles_small
+                        .accordion_description
+                          - if interval.workshop
+                            p = link_to translate_field(interval, :title), info_workshop_path(interval.workshop), class: 'js-modal-toggle', :remote => true
+                          - else
+                            p = translate_field(interval, :title)
+                            - if interval.workshop
+                              - if interval.workshop.user
+                                p.name
+                                  = link_to translate_field(interval.workshop.user, :readable_name), info_workshop_path(interval.workshop), class: 'js-modal-toggle', :remote => true
+                                - if interval.workshop.special_guest
+                                  p.name
+                                    = link_to translate_field(interval.workshop.special_guest, :readable_name), info_workshop_path(interval.workshop), class: 'js-modal-toggle', :remote => true
+                              - for sub_interval in interval.schedule_sub_intervals
+                                - unless sub_interval.schedule_events.size == 0
+                                  p.accordion_date = "#{sub_interval.from.strftime('%H:%M')} - #{sub_interval.to.strftime('%H:%M')}"
+                                  .schedule_table
+                                    - sub_interval.schedule_events.each_slice(2) do |slice|
+                                      .schedule_sub_row
+                                        - for event in slice
+                                          .schedule_sub_row_right
+                                            p.event_title = "#{event.title}:"
+                                            - if event.workshop
+                                              p = link_to translate_field(event.workshop, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
+                                              - if event.workshop.user
+                                                p.name
+                                                  = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
+                                                - if event.workshop.special_guest
+                                                  p.name
+                                                    = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
+                                            - else
+                                              p = translate_field(event, :name)
+                                              p.name = translate_field(event, :speaker)
+                    .panel-collapse.collapse.accordion_full.in
+                      p = translate_field(interval, :description)
+                    .mini_gap
+                .gap
+        /! Carousel nav
+        a.left_arrow.wow.fadeInLeft data-slide="prev" href="#sh_carousel"
+          svg height="48" width="26px"
+            polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7"
+        a.right_arrow.wow.fadeInRight data-slide="next" href="#sh_carousel"
+          svg height="48" width="26px"
+            polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
+      == link_to t('to_register'), new_listener_request_path, class: 'schedule_reservation wow btn eventime_button fadeInRight'
+      .gap
+  - else
+    .gap
+    .first_line.wow.fadeInDown
+    .first_title
+      p.wow.fadeInDown = t('program')
+    .first_description
+      p.wow.fadeInDown = t('program_not_found')
+    .mini_gap

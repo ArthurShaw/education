@@ -43,6 +43,7 @@ ru:
   listener_registration: 'Регистрация слушателя'
   success_registration: 'Успешная регистрация'
   program: 'Программа'
+  program_not_found: 'Программа мероприятия ещё не заполнена. Заходите позже!'
   regulations: 'Регламент форума'
   arrival: 'Дата прибытия'
   departure: 'Дата отбытия'
