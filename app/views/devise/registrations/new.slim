@@ -25,6 +25,6 @@
     = f.password_field :password, placeholder: "#{t('user_params.password')} (#{t('min_sym_to_password')})", autocomplete: 'off', class: 'wow fadeInLeft'
     = f.password_field :password_confirmation, placeholder: t('user_params.password_confirmation'), autocomplete: 'off', class: 'wow fadeInRight'
     = f.label t('hotel'), style: 'font-weight: 300; font-size: 24px', class: 'wow fadeInLeft'
-    = f.check_box :hotel, style: 'height: 30px; width: 30px', class: 'wow fadeInLeft'
+    = f.check_box :need_hotel, style: 'height: 30px; width: 30px', class: 'wow fadeInLeft'
     br
     = f.submit t('to_register'), class: 'reservation_button wow fadeInUp'
