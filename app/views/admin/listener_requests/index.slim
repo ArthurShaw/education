@@ -13,6 +13,8 @@
         th = t('listener_requests.country')
         th = t('listener_requests.city')
         th = t('listener_requests.phone')
+        th = t('user_params.work_place')
+        th = t('user_params.occupation')
         th = t('arrival')
         th = t('departure')
         th = t('hotel')
@@ -25,9 +27,11 @@
           td = request.country
           td = request.city
           td = request.phone
+          td = request.work_place
+          td = request.occupation
           td = request.arrival
           td = request.departure
-          - if request.need_hotel
-            td Да
+          - if request.hotel
+            td = request.hotel.title
           - else
-            td Нет
+            td Не требуется

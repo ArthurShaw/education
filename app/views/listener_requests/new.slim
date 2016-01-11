@@ -11,10 +11,11 @@
     = f.text_field :city, placeholder: t('user_params.city'), class: 'wow fadeInRight'
     = f.text_field :phone, placeholder: t('user_params.phone'), class: 'wow fadeInLeft'
     = f.email_field :email, placeholder: 'Email', class: 'wow fadeInRight'
+    = f.text_field :work_place, placeholder: t('user_params.work_place'), class: 'wow fadeInLeft'
+    = f.text_field :occupation, placeholder: t('user_params.occupation'), class: 'wow fadeInRight'
     = f.text_field :arrival, placeholder: t('arrival'), 'data-provide' => 'datepicker', class: 'datepicker wow fadeInLeft', 'data-date-format' => 'yyyy/mm/dd', 'data-date-language' => I18n.locale
     = f.text_field :departure, placeholder: t('departure'), 'data-provide' => 'datepicker', class: 'datepicker wow fadeInRight', 'data-date-format' => 'yyyy/mm/dd', 'data-date-language' => I18n.locale
-    = f.label t('hotel'), style: 'font-weight: 300; font-size: 24px', class: 'wow fadeInLeft'
-    = f.check_box :need_hotel, style: 'height: 30px; width: 30px', class: 'wow fadeInLeft'
+    = f.collection_select :hotel_id, Hotel.all.order(:title), :id, :title_localized, {include_blank: t('not_required')}, class: 'wow fadeInLeft'
     br
     = f.submit t('to_register'), class: 'reservation_button wow fadeInUp'
   .clear

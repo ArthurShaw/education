@@ -17,11 +17,15 @@ class Admin::ListenerRequestsController < ApplicationController
                            t('listener_requests.country'),
                            t('listener_requests.city'),
                            t('listener_requests.phone'),
+                           t('user_params.work_place'),
+                           t('user_params.occupation'),
                            t('arrival'),
-                           t('departure')]
+                           t('departure'),
+                           t('hotel')]
     @requests = ListenerRequest.all
     @requests.each_with_index { |req, i|
-      sheet1.row(i+1).replace [req.first_name, req.last_name, req.email, req.country, req.city, req.phone, req.arrival, req.departure]
+      hotel = req.hotel ? req.hotel.title : 'Не требуется'
+      sheet1.row(i+1).replace [req.first_name, req.last_name, req.email, req.country, req.city, req.phone, req.work_place, req.occupation, req.arrival, req.departure, hotel]
     }
 
     export_file_path = [Rails.root, "public", "uploads", "exports", "#{ spreadsheet_name }_#{ DateTime.now.to_s }.xls"].join("/")
