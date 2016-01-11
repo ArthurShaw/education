@@ -26,6 +26,6 @@
     = f.text_field :departure, placeholder: t('departure'), 'data-provide' => 'datepicker', class: 'datepicker wow fadeInRight', 'data-date-format' => 'yyyy/mm/dd', 'data-date-language' => I18n.locale
     = f.password_field :password, placeholder: "#{t('user_params.password')} (#{t('min_sym_to_password')})", autocomplete: 'off', class: 'wow fadeInLeft'
     = f.password_field :password_confirmation, placeholder: t('user_params.password_confirmation'), autocomplete: 'off', class: 'wow fadeInRight'
-    = f.collection_select :hotel_id, Hotel.all.order(:title), :id, :title_localized, {include_blank: true}, class: 'wow fadeInLeft'
+    = f.collection_select :hotel_id, Hotel.all.order(:title), :id, :title_localized, {include_blank: t('not_required')}, class: 'wow fadeInLeft'
     br
     = f.submit t('to_register'), class: 'reservation_button wow fadeInUp'

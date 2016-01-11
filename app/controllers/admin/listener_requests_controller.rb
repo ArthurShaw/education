@@ -24,11 +24,7 @@ class Admin::ListenerRequestsController < ApplicationController
                            t('hotel')]
     @requests = ListenerRequest.all
     @requests.each_with_index { |req, i|
-      if req.hotel
-        hotel = req.hotel.title
-      else
-        hotel = 'Не требуется'
-      end
+      hotel = req.hotel ? req.hotel.title : 'Не требуется'
       sheet1.row(i+1).replace [req.first_name, req.last_name, req.email, req.country, req.city, req.phone, req.work_place, req.occupation, req.arrival, req.departure, hotel]
     }
 
