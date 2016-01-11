@@ -1874,17 +1874,17 @@ ul.tags a {
 
     margin: 10px 1%;
 
-    /*height: 290px;*/
+    height: 290px;
 
-    width: 42%;
+    width: 44%;
 
     text-align: center;
 
     cursor: pointer;
 
-    margin-left: 4%;
+    margin-left: 3%;
 
-    margin-right: 4%;
+    margin-right: 3%;
 
     overflow: hidden;
 
