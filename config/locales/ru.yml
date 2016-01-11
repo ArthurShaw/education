@@ -46,7 +46,7 @@ ru:
   regulations: 'Регламент форума'
   arrival: 'Дата прибытия'
   departure: 'Дата отбытия'
-  hotel: 'Нужна гостинница?'
+  hotel: 'Отель'
   workshop_confirm_email: 'Ваш доклад подтвержден'
   workshop_deny_email: 'Ваш доклад отклонен'
   new_comment_email: 'Новый комментарый к вашему докладу'

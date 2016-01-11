@@ -67,7 +67,7 @@ en:
   regulations: 'Draft Program'
   arrival: 'Arrival date'
   departure: 'Departure date'
-  hotel: 'Need hotel?'
+  hotel: 'Hotel'
   workshop_confirm_email: 'Your workshop is confirmed'
   workshop_deny_email: 'Your workshop if denied'
   new_comment_email: 'New comment to your workshop'

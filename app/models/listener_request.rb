@@ -1,4 +1,5 @@
 class ListenerRequest < ActiveRecord::Base
+  belongs_to :hotel
   validates :first_name, presence: {message: 'Введите имя'}
   validates :last_name, presence: {message: 'Введите фамилию'}
   validates_uniqueness_of :email
