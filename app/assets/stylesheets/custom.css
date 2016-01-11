@@ -1888,6 +1888,8 @@ ul.tags a {
 
     overflow: hidden;
 
+    text-align: -webkit-center;
+
 }
 
 .photo_carousel figure img {
@@ -1896,9 +1898,11 @@ ul.tags a {
 
     display: block;
 
-    width: 100%;
-
     opacity: 0.8;
+
+    max-height: 290px;
+
+    width: auto;
 
 }
 
