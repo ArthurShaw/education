@@ -55,8 +55,8 @@ class Admin::UsersController < ApplicationController
                            t('arrival'),
                            t('departure'),
                            t('hotel')]
-    @speakers = User.joins(:roles).where.not(roles: {name: Role::ADMIN_ROLES}).distinct
-    @speakers.each_with_index { |speaker, i|
+    speakers = User.joins(:roles).where.not(roles: {name: Role::ADMIN_ROLES}).distinct
+    speakers.each_with_index { |speaker, i|
       hotel = speaker.hotel ? speaker.hotel.title : 'Не требуется'
       sheet1.row(i+1).replace [speaker.first_name, speaker.last_name, speaker.middle_name, speaker.email, speaker.country, speaker.city, speaker.phone, speaker.degree, speaker.work_place, speaker.occupation, speaker.arrival, speaker.departure, hotel]
     }
