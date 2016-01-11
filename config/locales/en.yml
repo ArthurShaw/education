@@ -95,6 +95,7 @@ en:
     occupation: 'Occupation'
     choose_hotel: 'Choose hotel'
     not_required: 'Not required'
+    select_hotel: 'Select hotel'
   workshops:
     workshops: 'Workshops'
     create: 'Add new workshop'

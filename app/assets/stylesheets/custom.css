@@ -2307,6 +2307,46 @@ figure.eventime_img:hover img {
 
 }
 
+.reservation select {
+
+    width: 43%;
+
+    padding-left: 2%;
+
+    margin-right: 4%;
+
+    display: inline-block;
+
+    border-style: solid;
+
+    border-width: 3px;
+
+    background: none;
+
+    margin-top: 30px;
+
+    height: 55px;
+
+    border-radius: 0;
+
+    font-size: 24px;
+
+    font-weight: 100;
+
+    -webkit-appearance: none;
+
+    -webkit-transition: all .5s ease-in-out;
+
+    -moz-transition: all .5s ease-in-out;
+
+    -o-transition: all .5s ease-in-out;
+
+    transition: all .5s ease-in-out;
+
+    border-color: black;
+
+}
+
 .reservation .upload-file-container {
 
     width: 43%;
@@ -3257,6 +3297,7 @@ a.contact_icon {
     .reservation input[type="text"],
     .reservation input[type="email"],
     .reservation input[type="password"],
+    .reservation select,
     .reservation .upload-file-container {
 
         width: 90%;

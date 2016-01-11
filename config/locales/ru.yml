@@ -55,6 +55,7 @@ ru:
   scientific_committee: 'Научный комитет'
   if_you_need: 'Если нуждаетесь'
   not_required: 'Не требуется'
+  select_hotel: 'Выберите гостиницу'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'
