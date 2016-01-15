@@ -27,6 +27,9 @@ nav.navbar.navbar-fixed-top.nav_mask
           - if has_events(@sections)
             li
               a href="#program_schedule" = t('program')
+          - else
+            li
+              = link_to t('program'), program_path
           li
             a href="#key_speakers_menu" = t('special_speakers')
           li
