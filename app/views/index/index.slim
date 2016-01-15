@@ -124,7 +124,7 @@
                         | #{translate_field(guest, :about)}
                       = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :remote => true
             - if @key_speakers.size > 2
-              - @key_speakers.last(@key_speakers.size - 2).each_slice(2) do |slice|
+              - @key_speakers[-@key_speakers.size + 2, @key_speakers.size].each_slice(2) do |slice|
                 .item
                   - for guest in slice
                     .photo_carousel_container
