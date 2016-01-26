@@ -51,7 +51,7 @@ Rails.application.routes.draw do
     get 'program' => 'index#program'
     get 'sponsors' => 'index#sponsors'
     get 'org_committee' => 'index#org_committee'
-    get 'why_kfu' => 'index#why_kfu'
+    get 'forum_venue' => 'index#why_kfu'
     get 'information_letter' => 'index#information_letter'
     get 'cultural_program' => 'index#cultural_program'
     get 'accommodation' => 'index#accommodation'

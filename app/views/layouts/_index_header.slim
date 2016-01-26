@@ -39,7 +39,7 @@ nav.navbar.navbar-fixed-top.nav_mask
           li
             = link_to t('regulations'), regulations_path
           li
-            = link_to t('why_kfu'), why_kfu_path
+            = link_to t('why_kfu'), forum_venue_path
       - if I18n.locale == I18n.default_locale
         = link_to image_tag('en.png'), {locale: 'en'}, {class: 'navbar-brand lng-switcher'}
       - else
