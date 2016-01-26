@@ -96,7 +96,7 @@ en:
     choose_hotel: 'Choose a hotel'
     not_required: 'Not required'
   workshops:
-    workshops: 'Workshops'
+    workshops: 'Keynote Lecture'
     create: 'Add new workshop'
     title: 'Topic of the Paper'
     description: 'Paper Abstract'

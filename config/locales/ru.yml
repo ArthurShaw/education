@@ -76,7 +76,7 @@ ru:
       occupation: 'Должность'
       choose_hotel: 'Выберите гостиницу'
   workshops:
-    workshops: 'Доклады'
+    workshops: 'Доклад'
     create: 'Добавить доклад'
     title: 'Тема доклада'
     description: 'Аннотация доклада'
