@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     root 'index#index'
     get 'profile' => 'users#profile', as: 'profile'
     get 'contacts' => 'index#contacts'
+    get 'message_of_the_president' => 'index#message_of_the_president'
     get 'program' => 'index#program'
     get 'sponsors' => 'index#sponsors'
     get 'org_committee' => 'index#org_committee'

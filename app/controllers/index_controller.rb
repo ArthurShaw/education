@@ -49,6 +49,11 @@ class IndexController < ApplicationController
     render 'index/usual_content'
   end
 
+  def message_of_the_president
+    @content = PageContent.find(11)
+    render 'index/usual_content'
+  end
+
   def program
     @sections = Section.order(:is_main => :desc, :title => :asc)
   end
