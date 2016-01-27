@@ -47,6 +47,7 @@ Rails.application.routes.draw do
 
     root 'index#index'
     get 'profile' => 'users#profile', as: 'profile'
+    get 'archive' => 'index#archive'
     get 'contacts' => 'index#contacts'
     get 'message_of_the_president' => 'index#message_of_the_president'
     get 'program' => 'index#program'
