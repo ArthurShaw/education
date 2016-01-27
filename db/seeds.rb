@@ -20,20 +20,26 @@ mail_content = [
     [4, 'Новый доклад (Администратору)'],
     [3, 'Докладчик зарегистрировался (Администратору)'],
     [2, 'Докладчик зарегистрировался (Докладчику)'],
-    [1, 'Слушатель зарегистрировался (Слушателю)'],
+    [1, 'Слушатель зарегистрировался (Слушателю)']
 ]
 
 page_content.each do |id, name, content|
-  PageContent.create(name: name, content: content, id: id) unless PageContent.find(id)
+  unless PageContent.exists?(id)
+    PageContent.create(name: name, content: content, id: id)
+  end
 end
 
-PageContent.create(id: 4, name: 'Address', content: '', content_type: 1) unless PageContent.find(4)
+unless PageContent.exists?(4)
+  PageContent.create(id: 4, name: 'Address', content: '', content_type: 1)
+end
 
 mail_content.each do |id, name|
-  MailContent.create(name: name, id: id) unless MailContent.find(id)
+  unless MailContent.exists?(id)
+    MailContent.create(name: name, id: id)
+  end
 end
 
-unless Section.where(:is_main => true)
+unless Section.exists?(:is_main => true)
   Section.create(:title => 'Общая программа', :title_en => 'Main program', :is_main => true)
 end
 
