@@ -1,0 +1,12 @@
+.reservation
+  .gap
+  .first_line.wow.fadeInDown
+  .first_title.wow.fadeInDown
+    p = t('change_pass')
+  = form_for(resource, as: resource_name, url: password_path(resource_name), method: :put, html: { class: "form-horizontal center" }) do |f|
+    .col-lg-8.col-lg-offset-0.wow.fadeInLeft
+      = devise_error_messages!
+      = f.hidden_field :reset_password_token
+    = f.password_field :password, placeholder: "#{t('user_params.new_password')} (#{t('min_sym_to_password')})", autocomplete: 'off', class: 'wow fadeInLeft'
+    = f.password_field :password_confirmation, placeholder: t('user_params.password_confirmation'), autocomplete: 'off', class: 'wow fadeInRight'
+    = f.submit t('to_register'), class: 'reservation_button wow fadeInUp'

@@ -73,16 +73,15 @@ class Admin::WorkshopsController < ApplicationController
 
     book = Spreadsheet::Workbook.new
     sheet1 = book.create_worksheet :name => spreadsheet_name
-    sheet1.row(0).replace ['Название доклада',
-                           'Описание',
+    sheet1.row(0).replace ['Тема доклада',
                            'Конференция',
+                           'Статус',
                            'Докладчик',
                            'Страна',
-                           'Город',
-                           'Статус']
+                           'Город']
 
     workshops.each_with_index { |ws, i|
-      sheet1.row(i+1).replace [ws.title, ws.description, ws.section.title, ws.user.readable_name, ws.user.country, ws.user.city, t("workshop_status.#{ws.status}")]
+      sheet1.row(i+1).replace [ws.title, ws.try(:section).try(:title), t("workshop_status.#{ws.status}"), ws.user.readable_name, ws.user.country, ws.user.city]
     }
 
     export_file_path = [Rails.root, 'public', 'uploads', 'exports', "#{ spreadsheet_name }_#{ DateTime.now.to_s }.xls"].join("/")
