@@ -58,6 +58,7 @@ ru:
   if_you_need: 'Если нуждаетесь'
   not_required: 'Не требуется'
   select_hotel: 'Выберите гостиницу'
+  change_pass: 'Измените Ваш пароль'
   user_params:
       first_name: 'Имя'
       last_name: 'Фамилия'

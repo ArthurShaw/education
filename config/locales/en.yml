@@ -77,6 +77,9 @@ en:
   schedule_program: 'Forum program'
   scientific_committee: 'Scientific committee'
   if_you_need: 'If you need'
+  not_required: 'Not required'
+  select_hotel: 'Select hotel'
+  change_pass: 'Change your password'
   user_params:
     first_name: 'First name'
     last_name: 'Last name'
