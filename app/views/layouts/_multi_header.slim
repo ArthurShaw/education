@@ -19,6 +19,8 @@ nav.navbar.navbar-fixed-top.nav_mask
           li
             = link_to t('index'), root_path
           li
+            = link_to t('message_of_the_president'), message_of_the_president_path
+          li
             = link_to t('org_committee'), org_committee_path
           li
             =link_to t('scientific_committee'), scientific_committee_path
@@ -35,7 +37,9 @@ nav.navbar.navbar-fixed-top.nav_mask
           li
             = link_to t('regulations'), regulations_path
           li
-            = link_to t('why_kfu'), why_kfu_path
+            = link_to t('why_kfu'), forum_venue_path
+          li
+            = link_to t('archive'), archive_path
       - if I18n.locale == I18n.default_locale
         = link_to image_tag('en.png'), {locale: 'en'}, {class: 'navbar-brand lng-switcher'}
       - else

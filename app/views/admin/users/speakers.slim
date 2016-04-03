@@ -1,41 +1,40 @@
 = render :partial => 'users/admin_menu'
+coffee:
+  $(document).on("page:change", ->
+    $(".spoiler-btn").on("click", ->
+      $spoilerBody = $($(this).parent().children('.spoiler-body'));
+      if ($spoilerBody.css('display') != 'none';)
+        $spoilerBody.slideUp()
+      else
+        $spoilerBody.slideDown()
+    )
+  )
 
 .col-lg-9
   h2 Докладчики
   = link_to t('listener_requests.excel_download'), excel_admin_users_path, class: 'btn btn-default'
   hr
-  table.table.table-striped.table-hover
-    thead
-      tr
-        th = t('user_params.first_name')
-        th = t('user_params.last_name')
-        th = t('user_params.middle_name')
-        th = 'Email'
-        th = t('user_params.country')
-        th = t('user_params.city')
-        th = t('user_params.phone')
-        th = t('user_params.degree')
-        th = t('user_params.work_place')
-        th = t('user_params.occupation')
-        th = t('arrival')
-        th = t('departure')
-        th = t('hotel')
-    tbody
-      - for speaker in @speakers
-        tr
-          td = speaker.first_name
-          td = speaker.last_name
-          td = speaker.middle_name
-          td = speaker.email
-          td = speaker.country
-          td = speaker.city
-          td = speaker.phone
-          td = speaker.degree
-          td = speaker.work_place
-          td = speaker.occupation
-          td = speaker.arrival
-          td = speaker.departure
-          - if speaker.hotel
-            td = speaker.hotel.title
-          - else
-            td Не требуется
+
+  - for speaker in @speakers
+    div style="width: 20%; display: inline-block; vertical-align: top;"
+      - if speaker.avatar_file_name
+        = link_to image_tag(speaker.avatar.url(:medium), width: '90%'), speaker.avatar.url
+      - else
+        = image_tag(speaker.avatar.url(:medium), width: '90%')
+    div style="display: inline-block;"
+      p
+        strong> = "#{speaker.first_name} #{speaker.last_name} #{speaker.middle_name}"
+        | (#{speaker.city}, #{speaker.country})
+      p = speaker.email
+      p = speaker.phone
+      .spoiler
+        .spoiler-btn.btn.btn-default Подробнее
+        .spoiler-body style="display:none"
+          br
+          p = "#{t('user_params.degree')}: #{speaker.degree}"
+          p = "#{t('user_params.work_place')}: #{speaker.work_place}"
+          p = "#{t('user_params.occupation')}: #{speaker.occupation}"
+          p = "#{t('arrival')}: #{speaker.arrival}"
+          p = "#{t('departure')}: #{speaker.departure}"
+          p = "#{t('hotel')}: #{speaker.hotel ? speaker.hotel.title : 'Не требуется'}"
+    hr

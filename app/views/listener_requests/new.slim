@@ -15,7 +15,7 @@
     = f.text_field :occupation, placeholder: t('user_params.occupation'), class: 'wow fadeInRight'
     = f.text_field :arrival, placeholder: t('arrival'), 'data-provide' => 'datepicker', class: 'datepicker wow fadeInLeft', 'data-date-format' => 'yyyy/mm/dd', 'data-date-language' => I18n.locale
     = f.text_field :departure, placeholder: t('departure'), 'data-provide' => 'datepicker', class: 'datepicker wow fadeInRight', 'data-date-format' => 'yyyy/mm/dd', 'data-date-language' => I18n.locale
-    = f.collection_select :hotel_id, Hotel.all.order(:title), :id, :title_localized, {include_blank: t('not_required'), prompt: t('select_hotel')}, class: 'wow fadeInLeft'
+    = f.collection_select :hotel_id, Hotel.all.order(:title), :id, :title_localized, {include_blank: t('not_required'), prompt: t('user_params.choose_hotel')}, class: 'wow fadeInLeft'
     br
     = f.submit t('to_register'), class: 'reservation_button wow fadeInUp'
   .clear

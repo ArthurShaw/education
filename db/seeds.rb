@@ -1,32 +1,53 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-PageContent.create(name: 'Научный комитет', content: '<h1>Описание научного коммитета</h1>', id: 10)
-MailContent.create(name: 'Рассылка расписания (Всем)', id: 8)
-MailContent.create(name: 'Новый комментарий к докладу (Докладчику)', id: 7)
-MailContent.create(name: 'Доклад отклонен (Докладчику)', id: 6)
-MailContent.create(name: 'Доклад одобрен (Докладчику)', id: 5)
-MailContent.create(name: 'Новый доклад (Администратору)', id: 4)
-MailContent.create(name: 'Докладчик зарегистрировался (Администратору)', id: 3)
-MailContent.create(name: 'Докладчик зарегистрировался (Докладчику)', id: 2)
-MailContent.create(name: 'Слушатель зарегистрировался (Слушателю)', id: 1)
-PageContent.create(name: 'Регламент', content: '<h1> Регламент конференции</h1>', id: 9)
-PageContent.create(name: 'Культурная программа', content: '<h1> Cultural Program</h1>', id: 7)
-PageContent.create(name: 'Варианты размещения', content: '<h1> Accommodation </h1>', id: 8)
-PageContent.create(name: 'Информационное письмо', content: '<h1>ABOUT CONFERENCE</h1>', id: 6)
-PageContent.create(id: 4, name:'Address', content: '', content_type: 1)
-Section.create(:title => 'Общая программа', :title_en => 'Main program', :is_main => true)
+page_content = [
+    [12, 'Архив', ''],
+    [11, 'Послание Президента', ''],
+    [10, 'Научный комитет', ''],
+    [9, 'Регламент', ''],
+    [8, 'Варианты размещения', ''],
+    [7, 'Культурная программа', ''],
+    [6, 'Информационное письмо', ''],
+    [5, 'Контакты', ''],
+    [3, 'Орг. комитет', ''],
+    [2, 'Контакты', ''],
+    [1, 'О форуме', '']
+]
 
-u = User.create(email: 'admin@admin.ru', password: 'password', first_name: 'Admin', last_name: 'Admin')
-u.add_role("admin")
-u.add_role("publisher")
+mail_content = [
+    [8, 'Рассылка расписания (Всем)'],
+    [7, 'Новый комментарий к докладу (Докладчику)'],
+    [6, 'Доклад отклонен (Докладчику)'],
+    [5, 'Доклад одобрен (Докладчику)'],
+    [4, 'Новый доклад (Администратору)'],
+    [3, 'Докладчик зарегистрировался (Администратору)'],
+    [2, 'Докладчик зарегистрировался (Докладчику)'],
+    [1, 'Слушатель зарегистрировался (Слушателю)']
+]
 
-PageContent.create(name: 'Контакты', content: '<h1>Contacts page</h1>', id: 5)
-PageContent.create(name: 'Орг. комитет', content: '<h1>Contacts page</h1>', id: 3)
-PageContent.create(name: 'Main page', content: '<h1>Main page</h1>', id: 1)
-PageContent.create(name: 'Contacts', content: '<h1>Contacts page</h1>', id: 2)
+page_content.each do |id, name, content|
+  unless PageContent.exists?(id)
+    PageContent.create(name: name, content: content, id: id)
+  end
+end
+
+unless PageContent.exists?(4)
+  PageContent.create(id: 4, name: 'Address', content: '', content_type: 1)
+end
+
+mail_content.each do |id, name|
+  unless MailContent.exists?(id)
+    MailContent.create(name: name, id: id)
+  end
+end
+
+unless Section.exists?(:is_main => true)
+  Section.create(:title => 'Общая программа', :title_en => 'Main program', :is_main => true)
+end
+
+if User.joins(:roles).where(roles: {name: Role::ADMIN_ROLES}).empty?
+  u = User.create(email: 'admin@admin.ru', password: 'password', first_name: 'Admin', last_name: 'Admin')
+  u.add_role('admin')
+  u.add_role('publisher')
+end
+
+
 

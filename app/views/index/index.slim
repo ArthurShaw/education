@@ -111,7 +111,7 @@
           /! Wrapper for Slides
           .carousel-inner
             .item.active
-              - for guest in @key_speakers[0, 2]
+              - for guest in @key_speakers.first(2)
                 .photo_carousel_container
                   figure.eventime_img
                     img alt="img09" src="#{guest.avatar.url}"
@@ -259,7 +259,7 @@
           /! Wrapper for Slides
           .carousel-inner
             .item.active
-              - for guest in @special_quests[0, 2]
+              - for guest in @special_quests.first(2)
                 .photo_carousel_container
                   figure.eventime_img
                     img alt="img09" src="#{guest.avatar.url}"
