@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.asset_host = 'ifte.kpfu.ru'
+  config.action_mailer.asset_host = 'http://ifte.kpfu.ru'
   # ACTION MAILER
 
   config.action_mailer.default_url_options = {:host => 'ifte.kpfu.ru'}
@@ -85,8 +85,14 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :authentication => 'login',
-      :enable_starttls_auto => true
+      :address => 'smtp.yandex.ru',
+      :port => 465,
+      :ssl => true,
+      :authentication => 'plain',
+      :domain => 'yandex.ru',
+      :user_name => 'forumpedagogics@yandex.ru',
+      :password => 'bestforumever',
+      :enable_starttls_auto => true,
   }
 
 end

@@ -38,7 +38,7 @@ module FossConf
 
 
     # ACTION MAILER
-    config.action_mailer.default_url_options = { host: 'foss-conf.bitnamiapp.com' }
+    config.action_mailer.default_url_options = { host: 'itis.kpfu.ru' }
   end
 end
 
