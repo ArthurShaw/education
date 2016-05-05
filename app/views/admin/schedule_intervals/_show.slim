@@ -1,5 +1,5 @@
 h3 = "#{schedule_interval.title} | #{schedule_interval.title_en}"
-p = "#{schedule_interval.date} c #{schedule_interval.from.strftime('%H:%M')} по #{schedule_interval.to.strftime('%H:%M')}"
+p = "#{schedule_interval.date} c #{schedule_interval.try(:from).try(:strftime, '%H:%M')} по #{schedule_interval.try(:to).try(:strftime, '%H:%M')}"
 p = schedule_interval.section.title
 p = schedule_interval.description
 p = schedule_interval.description_en
@@ -11,7 +11,7 @@ p = schedule_interval.description_en
   - for sub_interval in schedule_interval.schedule_sub_intervals
     .sub-interval-place
       p
-        strong> = "c #{sub_interval.from.strftime('%H:%M')} по #{sub_interval.to.strftime('%H:%M')}"
+        strong> = "c #{sub_interval.try(:from).try(:strftime, '%H:%M')} по #{sub_interval.try(:to).try(:strftime, '%H:%M')}"
         =< link_to 'Добавить доклад', new_admin_schedule_interval_schedule_sub_interval_schedule_event_path(schedule_interval.id, sub_interval.id), class: 'btn btn-default btn-sm js-create-schedule-event'
         =< link_to 'Удалить промежуток', admin_schedule_interval_schedule_sub_interval_path(schedule_interval.id, sub_interval.id), method: :delete, :remote => true, class: 'btn btn-default btn-sm js-delete-sub-interval'
       .new-schedule-event-place
