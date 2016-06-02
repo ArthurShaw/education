@@ -1,0 +1,17 @@
+= render :partial => 'users/admin_menu'
+
+.col-lg-8.col-lg-offset-0
+  = form_for @slide, url: admin_sliders_path, method: :create, :html => {:class => "form-horizontal center"} do |f|
+    legend Добавить новый слайд
+    fieldset
+      .form-group
+        = f.label :'Экспонат', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.collection_select :item_id, Item.order(:title), :id, :title, {}, {class: 'form-control'}
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = f.submit t('confirm'), class: 'btn btn-primary'
+      br
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = link_to 'Назад', admin_sliders_path, class: 'btn btn-link'

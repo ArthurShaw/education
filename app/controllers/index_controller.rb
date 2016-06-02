@@ -6,8 +6,11 @@ class IndexController < ApplicationController
 
     @sponsor_categories = SponsorCategory.all
     @special_quests = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:guest], :visible => true)
-    @key_speakers = SpecialGuest.where(:guest_type => SpecialGuest.guest_types[:speaker], :visible => true)
+    @key_speakers = SpecialGuest.where(:visible => true)
     @sections = Section.order(:is_main => :desc, :title => :asc)
+    @items = Item.all
+    @slides = Slider.all
+    @next_slides = Slider.all[1..-1]
   end
 
   # def contacts

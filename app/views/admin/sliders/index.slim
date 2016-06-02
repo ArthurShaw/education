@@ -1,0 +1,11 @@
+= render :partial => 'users/admin_menu'
+.col-lg-9
+  h2 Слайдер
+  = link_to 'Добавить слайд', new_admin_slider_path, class: 'btn btn-default'
+  hr
+  - for slide in @slides
+
+    h4 = slide.item.title
+    p #{image_tag slide.item.picture.url(:medium)}
+    =< link_to 'Удалить', admin_slider_path(slide), method: :delete, data: {confirm: 'Вы уверены?'}, class: 'btn btn-default'
+    hr

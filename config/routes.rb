@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   namespace :admin do
+    resources :items
+    resources :sliders
     resources :users, only: [:new, :index, :create, :destroy] do
       get 'excel' => 'users#excel', on: :collection
     end
@@ -44,6 +46,7 @@ Rails.application.routes.draw do
       get 'info' => 'workshops#info', :on => :member
     end
     resources :users, only: [:index, :show]
+    resources :items, only: [:index, :show]
 
     root 'index#index'
     get 'profile' => 'users#profile', as: 'profile'

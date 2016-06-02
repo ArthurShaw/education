@@ -1,0 +1,25 @@
+= render :partial => 'users/admin_menu'
+
+.col-lg-8.col-lg-offset-0
+  = form_for @item, url: admin_items_path, method: :create, :html => {:class => "form-horizontal center"} do |f|
+    legend Добавить новый экспонат
+    fieldset
+      .form-group
+        = f.label :'Название', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :title, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :'Описание', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.cktext_area :description, class: 'form-control'
+      .form-group
+        = f.label :'Изображение', class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.file_field :picture, class: 'form-control'
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = f.submit t('confirm'), class: 'btn btn-primary'
+      br
+      .form-group
+        .col-lg-9.col-lg-offset-3
+          = link_to 'Назад', admin_items_path, class: 'btn btn-link'

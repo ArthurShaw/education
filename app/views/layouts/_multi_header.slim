@@ -12,47 +12,18 @@ nav.navbar.navbar-fixed-top.nav_mask
         span.icon-bar
         span.icon-bar
       .navbar-brand.dropdown
-        a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button"
-          = t('header_title')
-          span.caret
-        ul.dropdown-menu role="menu"
-          li
-            = link_to t('index'), root_path
-          li
-            = link_to t('message_of_the_president'), message_of_the_president_path
-          li
-            = link_to t('org_committee'), org_committee_path
-          li
-            =link_to t('scientific_committee'), scientific_committee_path
-          li
-            = link_to t('information_letter'), information_letter_path
-          li
-            = link_to t('program'), program_path
-          li
-            = link_to t('special_speakers'), speakers_special_guests_path
-          li
-            = link_to t('special_guests'), guests_special_guests_path
-          li
-            = link_to t('sponsors'), sponsors_path
-          li
-            = link_to t('regulations'), regulations_path
-          li
-            = link_to t('why_kfu'), forum_venue_path
-          li
-            = link_to t('archive'), archive_path
-      - if I18n.locale == I18n.default_locale
-        = link_to image_tag('en.png'), {locale: 'en'}, {class: 'navbar-brand lng-switcher'}
-      - else
-        = link_to image_tag('ru.png'), {locale: 'ru'}, {class: 'navbar-brand lng-switcher'}
+        = 'ITIS MUSEUM'
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
+        li
+          = link_to 'История музея', '/#history'
+        li
+          = link_to 'Экспонаты', items_path
+        li
+          = link_to 'Спонсоры', '/#sponsors'
         - if user_signed_in?
           li
             == link_to t('profile'), profile_path
-        li
-          = link_to t('accommodation'), accommodation_path
-        li
-          = link_to t('cult_program'), cultural_program_path
         - if user_signed_in?
           li
             == link_to t('logout'), destroy_user_session_path, method: :delete

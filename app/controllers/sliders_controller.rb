@@ -1,0 +1,2 @@
+class SlidersController < ApplicationController
+end

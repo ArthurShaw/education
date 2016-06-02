@@ -1,0 +1,13 @@
+.antigap
+.mask
+  .first_line.wow.fadeInDown
+  .first_title.wow.fadeInDown
+    p = @item.title
+  .first_description.wow.fadeInDown
+  /p Описание спикеров
+  .mini_gap
+  .col-lg-8.col-lg-offset-4.wow.fadeInDown
+    = image_tag @item.picture.url(:medium)
+    .mini_gap
+  .col-lg-6.col-lg-offset-3.wow.fadeInDown style='color: #fff'
+    = raw(@item.description)

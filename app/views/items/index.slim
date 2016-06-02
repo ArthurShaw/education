@@ -1,0 +1,25 @@
+.antigap
+.speakers.wow.fadeIn
+  .mask
+    .first_line.wow.fadeInDown
+    .first_title.wow.fadeInDown
+      p = 'Экспонаты'
+    .first_description.wow.fadeInDown
+    /p Описание спикеров
+    .mini_gap
+
+    .photo_carousel
+      - if @items.size > 0
+        - @items.each_slice(2) do |slice|
+          .photo_carousel_container
+          - for item in slice
+            figure.eventime_img
+              img src="#{item.picture.url}"
+              figcaption
+                h2 = item.title
+                = link_to 'view more', item_path(item)
+          .mini_gap
+    .mini_gap
+
+#js-modal-place
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111095650) do
+ActiveRecord::Schema.define(version: 20160602083927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,17 +48,6 @@ ActiveRecord::Schema.define(version: 20160111095650) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string  "title",                       null: false
-    t.string  "description"
-    t.date    "date"
-    t.time    "from"
-    t.time    "to"
-    t.string  "title_en",       default: "", null: false
-    t.string  "description_en", default: "", null: false
-    t.integer "workshop_id"
-  end
-
   create_table "events_sections", id: false, force: :cascade do |t|
     t.integer "event_id"
     t.integer "section_id"
@@ -69,16 +58,27 @@ ActiveRecord::Schema.define(version: 20160111095650) do
     t.string "title_en"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.integer  "slider_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "listener_requests", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "middle_name"
     t.string   "email"
     t.string   "country"
     t.string   "city"
     t.string   "phone"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.date     "arrival"
     t.date     "departure"
     t.boolean  "need_hotel"
@@ -154,16 +154,11 @@ ActiveRecord::Schema.define(version: 20160111095650) do
     t.text    "description_en", default: "",    null: false
   end
 
-  create_table "settings", force: :cascade do |t|
-    t.string   "var",                   null: false
-    t.text     "value"
-    t.integer  "thing_id"
-    t.string   "thing_type", limit: 30
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "sliders", force: :cascade do |t|
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
   create_table "special_guests", force: :cascade do |t|
     t.string   "first_name"
@@ -217,7 +212,6 @@ ActiveRecord::Schema.define(version: 20160111095650) do
     t.string   "degree"
     t.string   "phone"
     t.text     "biography"
-    t.text     "speech_experience"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -256,7 +250,6 @@ ActiveRecord::Schema.define(version: 20160111095650) do
   add_foreign_key "articles", "users", on_delete: :cascade
   add_foreign_key "comments", "users"
   add_foreign_key "comments", "workshops"
-  add_foreign_key "events", "workshops"
   add_foreign_key "listener_requests", "hotels"
   add_foreign_key "sponsors", "sponsor_categories"
   add_foreign_key "users", "hotels"

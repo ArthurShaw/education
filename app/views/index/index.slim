@@ -1,86 +1,51 @@
 #location.hidden = @page_contents.fourth.content
 
-/header#home_slider.carousel.slide
-/  /! Wrapper for Slides
-/  .carousel-inner
-/    .item.active
-/      /! Set the first background image using inline CSS below.
-/      .fill.first_slide
-/      .fill_mask
-/        .description
-/          h2.details.wow.fadeInDown
-/            | Design Days Conference
-/          .details.wow.fadeInUp
-/            .fa.fa-map-marker.fa-2x
-/            p
-/              | Main Conference Hall, New York, 180/2
-/          .details.wow.fadeInUp
-/            .fa.fa-clock-o.fa-2x
-/            p
-/              | 20-24 AUG 2015
-/          .buttons
-/            a.wow.fadeInLeft.btn.eventime_button href="#about_menu" role="button"
-/              | Know more
-/            a.wow.fadeInRight.btn.eventime_button href= new_user_registration_path role="button"
-/              = t('registration')
-/    .item
-/      /! Set the first background image using inline CSS below.
-/      .fill.second_slide
-/      .fill_mask
-/        .description
-/          h2.wow.fadeInUp
-/            | The world's most successful designers
-/          .buttons
-/            a.wow.fadeInUp.btn.eventime_button href="#special_guests_menu" role="button"
-/              | Speakers
-/    .item
-/      /! Set the first background image using inline CSS below.
-/      .fill.third_slide
-/      .fill_mask
-/        .description
-/          h2.wow.fadeInUp
-/            | Unique Design Days
-/          .details.wow.fadeInDown
-/            .fa.fa-clock-o.fa-2x
-/            p
-/              | 20-24 AUG 2015
-/          .buttons
-/            a.wow.fadeInUp.btn.eventime_button href="#schedule_menu" role="button"
-/              | schedule
-/  a.wow.fadeInLeft.left_arrow data-slide="prev" href="#home_slider"
-/    svg height="48" width="26px"
-/      polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7" /
-/  a.wow.fadeInRight.right_arrow data-slide="next" href="#home_slider"
-/    svg height="48" width="26px"
-/      polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7" /
+- if @slides.size > 0
+  header#home_slider.carousel.slide
+    /! Wrapper for Slides
+    .carousel-inner
+      .item.active
+        /! Set the first background image using inline CSS below.
+        .fill style="background-image:url('#{image_url @slides.first.item.picture}');"
+        .fill_mask
+          .description
+            h2.details.wow.fadeInDown = @slides.first.item.title
+            .buttons
+              a.wow.fadeInUp.btn.eventime_button href="#{item_path(@slides.first.item)}" role="button"
+                | Подробнее
+      - @next_slides.each do |slide|
+        .item
+          /! Set the first background image using inline CSS below.
+          .fill style="background-image:url('#{image_url slide.item.picture}');"
+          .fill_mask
+            .description
+              h2.details.wow.fadeInDown = slide.item.title
+              .buttons
+                a.wow.fadeInUp.btn.eventime_button href="#{item_path(slide.item)}" role="button"
+                  | Подробнее
+    a.wow.fadeInLeft.left_arrow data-slide="prev" href="#home_slider"
+      svg height="48" width="26px"
+        polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7" /
+    a.wow.fadeInRight.right_arrow data-slide="next" href="#home_slider"
+      svg height="48" width="26px"
+        polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7" /
+.clear
+.clear
+#history
+  /! Page Content
+  .firstrow
+    .centred
+      .first_line.wow.fadeInDown
+      .first_title.wow.fadeInDown
+        p
+          | Design Days Conference
+      .first_description.wow.fadeInDown
+        p
+          | Organization of a Design Days Conference series is a result of the continued policy and continuous learning process, connecting researchers and practitioners attempting to understand better the problems they are trying to address. The objectives of the Design Days Conferences tend to be integrative across the various disciplines, to reach the current state-of-the-art, to cover the multidisciplinary aspects of design and to assure high level review policy.
+    .wow.fadeIn.first_image
+  .clear
 
-- if I18n.locale == :ru
-  = image_tag('main_pic.jpg', class: 'main-image')
-- else
-  = image_tag('main_pic_en.jpg', class: 'main-image')
-- unless @page_contents.first.hidden
-  #about
-    .firstrow
-      .centred
-        .first_line.wow.fadeInDown
-        .first_title.wow.fadeInDown
-          p = raw(translate_field(@page_contents.first, :name))
-        .first_description.wow.fadeInDown
-          p = raw(translate_field(@page_contents.first, :content))
-        .mini_gap
-      .centred
-        .first_title.wow.fadeInDown.section_place_title
-          p = t('information')
-        .sections_place.wow.fadeInDown
-          p = link_to t('information_letter'), information_letter_path
-        .first_title.wow.fadeInDown.section_place_title
-          p = t('conference_themes')
-        .sections_place.wow.fadeInDown
-          - for section in @sections
-            - unless section.is_main
-              p = link_to translate_field(section, :title), section_path(section)
-        .gap
-    .clear
+
 
 
 /- unless @page_contents.second.hidden
@@ -92,13 +57,14 @@
 /      .first_description.wow.fadeInDown
 /        p = raw(@page_contents.second.content)
 /    .clear
-- if @key_speakers.size > 0
+
+- if @items.size > 0
   #key_speakers_menu
     .speakers.wow.fadeIn
       .mask
         .first_line
         .first_title
-          p = link_to t('special_speakers'), speakers_special_guests_path
+          p Экспонаты
         .first_description
           /p Описание ключевых спикеров. Они крутые и всё такое
         .gap
@@ -106,38 +72,31 @@
           /! Indicators
           .carousel-indicators
             .photo_carousel_ind.active data-slide-to="1" data-target="#key_speakers"
-            - for i in (2..(@key_speakers.size / 2 + @key_speakers.size % 2))
+            - for i in (2..(@items.size / 2 + @items.size % 2))
               .photo_carousel_ind data-slide-to="#{i}" data-target="#key_speakers"
           /! Wrapper for Slides
           .carousel-inner
             .item.active
-              - for guest in @key_speakers.first(2)
+              - for item in @items.first(2)
                 .photo_carousel_container
                   figure.eventime_img
-                    img alt="img09" src="#{guest.avatar.url}"
+                    img alt="img09" src="#{item.picture.url}"
                     figcaption
                       h2
-                        | #{translate_field(guest, :first_name)}
-                        span<
-                          | #{translate_field(guest, :last_name)}
-                      p
-                        | #{translate_field(guest, :about)}
-                      = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :remote => true
-            - if @key_speakers.size > 2
-              - @key_speakers.last(@key_speakers.size - 2).each_slice(2) do |slice|
+                        | #{item.title}
+
+                      = link_to 'view more', item_path(item), class: 'js-modal-toggle', :remote => true
+            - if @items.size > 2
+              - @items.last(@items.size - 2).each_slice(2) do |slice|
                 .item
-                  - for guest in slice
+                  - for item in slice
                     .photo_carousel_container
                       figure.eventime_img
-                        img alt="img09" src="#{guest.avatar.url}"
+                        img alt="img09" src="#{item.picture.url}"
                         figcaption
                           h2
-                            | #{translate_field(guest, :first_name)}
-                            span<
-                              | #{translate_field(guest, :last_name)}
-                          p
-                            | #{translate_field(guest, :about)}
-                          = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :remote => true
+                            | #{item.title}
+                          = link_to 'view more', item_path(item), class: 'js-modal-toggle', :remote => true
 
 
           a.left_arrow data-slide="prev" href="#key_speakers"
@@ -147,7 +106,6 @@
             svg height="48" width="26px"
               polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
         .gap
-
 
 /- unless @page_contents.third.hidden
 /  #org
@@ -160,154 +118,6 @@
 /          p = raw(translate_field(@page_contents.third, :content))
 /      .second_image
 /      .clear
-#program_schedule
-  - if has_events(@sections)
-    .gap
-    .first_line.wow.fadeInDown
-    .first_title
-      p.wow.fadeInDown = t('program')
-    .first_description
-    .mini_gap
-    #sh_carousel.carousel.slide
-      .carousel-indicators
-        - if has_events(@sections[0])
-          .wow.fadeInLeft.active.btn.graybtn.graytxt.schedule-section data-slide-to="#{k = 0}" data-target="#sh_carousel" = translate_field(@sections[0], :title)
-
-        - for i in (1..(@sections.size - 1))
-          - if has_events(@sections[i])
-            .wow.fadeInLeft.btn.graybtn.graytxt.schedule-section data-slide-to="#{k += 1}" data-target="#sh_carousel" = translate_field(@sections[i], :title)
-
-
-      .carousel-inner
-        - for i in (0..(@sections.size-1))
-          - if has_events(@sections[i])
-            .item class="#{'active' if i == 0}"
-              - section_to_days(@sections[i]).each do |day, intervals|
-                .schedule_date = day.day
-                .schedule_month = l(day, :format => :month)
-                .mini_gap
-                - for interval in intervals
-                  .panel.event_line
-                    a data-parent="#accordion1" data-toggle="collapse" href="#one_one"
-                    .accordion_left
-                      .accordions_titles_small
-                        p.accordion_date = "#{interval.from.strftime('%H:%M')} - #{interval.to.strftime('%H:%M')}"
-                    .accordion_right
-                      .accordions_titles_small
-                        .accordion_description
-                          - if interval.workshop
-                            p = link_to translate_field(interval, :title), info_workshop_path(interval.workshop), class: 'js-modal-toggle', :remote => true
-                          - else
-                            p = translate_field(interval, :title)
-                          - if interval.workshop
-                            - if interval.workshop.user
-                              p.name
-                                = link_to translate_field(interval.workshop.user, :readable_name), info_workshop_path(interval.workshop), class: 'js-modal-toggle', :remote => true
-                            - if interval.workshop.special_guest
-                              p.name
-                                = link_to translate_field(interval.workshop.special_guest, :readable_name), info_workshop_path(interval.workshop), class: 'js-modal-toggle', :remote => true
-                          - for sub_interval in interval.schedule_sub_intervals
-                            - unless sub_interval.schedule_events.size == 0
-                              p.accordion_date = "#{sub_interval.from.strftime('%H:%M')} - #{sub_interval.to.strftime('%H:%M')}"
-                              .schedule_table
-                                - sub_interval.schedule_events.each_slice(2) do |slice|
-                                  .schedule_sub_row
-                                    - for event in slice
-                                      .schedule_sub_row_right
-                                        p.event_title = "#{event.title}:"
-                                        - if event.workshop
-                                          p = link_to translate_field(event.workshop, :title), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
-                                          - if event.workshop.user
-                                            p.name
-                                              = link_to translate_field(event.workshop.user, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
-                                          - if event.workshop.special_guest
-                                            p.name
-                                              = link_to translate_field(event.workshop.special_guest, :readable_name), info_workshop_path(event.workshop), class: 'js-modal-toggle', :remote => true
-                                        - else
-                                          p = translate_field(event, :name)
-                                          p.name = translate_field(event, :speaker)
-                    .panel-collapse.collapse.accordion_full.in
-                      p = translate_field(interval, :description)
-                    .mini_gap
-                .gap
-        /! Carousel nav
-        a.left_arrow.wow.fadeInLeft data-slide="prev" href="#sh_carousel"
-          svg height="48" width="26px"
-            polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7"
-        a.right_arrow.wow.fadeInRight data-slide="next" href="#sh_carousel"
-          svg height="48" width="26px"
-            polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
-      .gap
-
-- if @special_quests.size > 0
-  #special_guests_menu
-    .speakers.wow.fadeIn
-      .mask
-        .first_line
-        .first_title
-          p = link_to t('special_guests'), guests_special_guests_path
-        .first_description
-          /p Описание почетных гостей. Они крутые и всё такое
-        .gap
-        #special_guests.photo_carousel.carousel.slide.wow.fadeInUp
-          /! Indicators
-          .carousel-indicators
-            .photo_carousel_ind.active data-slide-to="1" data-target="#special_guests"
-            - for i in (2..(@special_quests.size / 2 + @special_quests.size % 2))
-              .photo_carousel_ind data-slide-to="#{i}" data-target="#special_guests"
-          /! Wrapper for Slides
-          .carousel-inner
-            .item.active
-              - for guest in @special_quests.first(2)
-                .photo_carousel_container
-                  figure.eventime_img
-                    img alt="img09" src="#{guest.avatar.url}"
-                    figcaption
-                      h2
-                        | #{translate_field(guest, :first_name)}
-                        span<
-                          | #{translate_field(guest, :last_name)}
-                      p
-                        | #{translate_field(guest, :about)}
-                      = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :remote => true
-            - if @special_quests.size > 2
-              - @special_quests.last(@special_quests.size - 2).each_slice(2) do |slice|
-                .item
-                  - for guest in slice
-                    .photo_carousel_container
-                      figure.eventime_img
-                        img alt="img09" src="#{guest.avatar.url}"
-                        figcaption
-                          h2
-                            | #{translate_field(guest, :first_name)}
-                            span<
-                              | #{translate_field(guest, :last_name)}
-                          p
-                            | #{translate_field(guest, :about)}
-                          = link_to 'view more', special_guest_path(guest), class: 'js-modal-toggle', :remote => true
-
-
-          a.left_arrow data-slide="prev" href="#special_guests"
-            svg height="48" width="26px"
-              polygon points="3.3,24.5 25.5,2.3 24,0.8 0.3,24.5 24,48.2 25.5,46.7"
-          a.right_arrow data-slide="next" href="#special_guests"
-            svg height="48" width="26px"
-              polygon points="22.5,24.5 0.3,2.3 1.8,0.8 25.5,24.5 1.8,48.2 0.3,46.7"
-        .gap
-
-#contacts
-  .firstrow
-    .centred
-      .first_line.wow.fadeInDown
-      .first_title.wow.fadeInDown
-        p = raw(translate_field(@page_contents.fifth, :name))
-      .first_description.wow.fadeInDown
-        p = raw(translate_field(@page_contents.fifth, :content))
-      .mini_gap
-    - unless @page_contents.fourth.content.empty?
-      div style="width: auto; height: 100%;"
-        #location-place style="width: auto"
-    .clear
 
 #sponsors
   footer

@@ -1,10 +1,10 @@
 = render :partial => 'users/admin_menu'
 
 .col-lg-9
-  h2 Партнеры
-  => link_to 'Добавить новую категорию партнеров', new_admin_sponsor_category_path, class: 'btn btn-default'
+  h2 Спонсоры
+  => link_to 'Добавить новую категорию спонсоров', new_admin_sponsor_category_path, class: 'btn btn-default'
   - if @sponsor_categories.size > 0
-    => link_to 'Добавить партнера', new_admin_sponsor_path, class: 'btn btn-default'
+    => link_to 'Добавить спонсора', new_admin_sponsor_path, class: 'btn btn-default'
   - for category in @sponsor_categories
     h3 = "#{category.name} / #{category.name_en}"
     => link_to 'Редактировать категорию', edit_admin_sponsor_category_path(category), class: 'btn btn-default'

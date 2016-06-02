@@ -1,27 +1,18 @@
 h1 Панель администратора
 hr
 .col-lg-2.col-lg-offset-1.admin-menu
-  =>link_to 'Заявки слушателей', admin_listener_requests_path, class: "btn btn-default #{'active' if controller.controller_name == 'listener_requests'}"
-  br
-  =>link_to 'Докладчики', admin_speakers_path, class: "btn btn-default #{'active' if controller.controller_name == 'users' && controller.action_name == 'speakers'}"
-  br
-  => link_to 'Управление докладами', admin_workshops_path, class: "btn btn-default #{'active' if controller.controller_name == 'workshops'}"
-  br
+
   => link_to 'Ключевые личности', admin_special_guests_path, class: "btn btn-default #{'active' if controller.controller_name == 'special_guests'}"
   br
-  => link_to 'Конференции', admin_sections_path, class: "btn btn-default #{'active' if controller.controller_name == 'sections'}"
+  => link_to 'Спонсоры', admin_sponsors_path, class: "btn btn-default #{'active' if controller.controller_name == 'sponsors' or controller.controller_name == 'sponsor_categories'}"
   br
-  => link_to 'Программа', admin_schedule_intervals_path, class: "btn btn-default #{'active' if controller.controller_name == 'schedule_intervals'}"
+  => link_to 'Экспонаты', admin_items_path, class: "btn btn-default #{'active' if controller.controller_name == 'items'}"
   br
-  => link_to 'Партнеры', admin_sponsors_path, class: "btn btn-default #{'active' if controller.controller_name == 'sponsors' or controller.controller_name == 'sponsor_categories'}"
+  => link_to 'Cлайдер', admin_sliders_path, class: "btn btn-default #{'active' if controller.controller_name == 'sliders'}"
   br
   => link_to 'Наполнение сайта', admin_page_contents_path, class: "btn btn-default #{'active' if controller.controller_name == 'page_contents'}"
   br
   => link_to 'Управление аккаунтами', admin_users_path, class: "btn btn-default #{'active' if controller.controller_name == 'users' && controller.action_name != 'speakers'}"
-  br
-  => link_to 'Управление отелями', admin_hotels_path, class: "btn btn-default #{'active' if controller.controller_name == 'hotels'}"
-  br
-  => link_to 'Управление рассылкой', admin_mail_contents_path, class: "btn btn-default #{'active' if controller.controller_name == 'mail_contents'}"
   br
   => link_to 'Меcтоположение', admin_placement_path, class: "btn btn-default #{'active' if controller.controller_name == 'placement'}"
   br
