@@ -22,7 +22,7 @@ class Admin::SlidersController < ApplicationController
   end
 
   def destroy
-    @item.destroy
+    @slide.destroy
     redirect_to admin_sliders_path
   end
 
