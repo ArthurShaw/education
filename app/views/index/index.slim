@@ -6,14 +6,11 @@
     .carousel-inner
       .item.active
         /! Set the first background image using inline CSS below.
-        .fill style="background-image:url('#{image_url @slides.first.item.picture}');"
+        .fill style="background-image:url('#{image_url 'y_8efba939.jpg'}');"
         .fill_mask
           .description
-            h2.details.wow.fadeInDown = @slides.first.item.title
-            .buttons
-              a.wow.fadeInUp.btn.eventime_button href="#{item_path(@slides.first.item)}" role="button"
-                | Подробнее
-      - @next_slides.each do |slide|
+            h2.details.wow.fadeInDown = 'Ренат Касимович Самитов'
+      - @slides.each do |slide|
         .item
           /! Set the first background image using inline CSS below.
           .fill style="background-image:url('#{image_url slide.item.picture}');"
@@ -44,8 +41,6 @@
           | «Ренат Касимович Самитов подготовил целую плеяду специалистов. Работал всю жизнь в нашем университете, положив здоровье и карьеру на благо своих студентов. Его знают все выпускники ВМК. Он держал марку, не щадил студентов, но мог их научить предмету, который великолепно понимал сам. И замену ему мы даже сегодня найти не можем!»
         p style='font-weight: bold;'
           | Айрат Фаридович Хасьянов (директор Высшей школы ИТИС КФУ)
-    .wow.fadeIn
-      = image_tag 'samitov-1.jpg'
   .clear
 
 
